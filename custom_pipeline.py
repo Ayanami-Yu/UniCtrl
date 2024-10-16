@@ -1,13 +1,14 @@
 import torch
 import numpy as np
 
+from typing import Optional
 from tqdm import tqdm
 from diffusers.schedulers import PNDMScheduler
 from base_pipeline import BasePipeline
 
 
 def cfg_aggregator(noise_pred_con, noise_pred_uncon):
-    return noise_pred_con - noise_pred_uncon
+    return noise_pred_con - noise_pred_uncon  # (B, 4, 64, 64)
 
 
 def get_perpendicular_component(x, y):
@@ -62,6 +63,7 @@ class CustomPipeline(BasePipeline):
         w_tgt=1.0,
         use_plain_cfg=False,
         guidance_type: str = "static",
+        t_ctrl_start: Optional[int] = None,
         **kwds,
     ):
         DEVICE = (
@@ -72,6 +74,9 @@ class CustomPipeline(BasePipeline):
         elif isinstance(prompt, str):
             if batch_size > 1:
                 prompt = [prompt] * batch_size
+        
+        if not use_plain_cfg:
+            assert batch_size == 2, "Two prompts only, one as source and one as target"
 
         # text embeddings
         text_input = self.tokenizer(
@@ -151,9 +156,10 @@ class CustomPipeline(BasePipeline):
                 if use_plain_cfg:
                     noise_pred = noise_pred_uncon + guidance_scale * cfg_aggregator(
                         noise_pred_con, noise_pred_uncon
-                    )  # (B, 4, 64, 64)
+                    )
+                elif t_ctrl_start is not None and t > t_ctrl_start:
+                    noise_pred = noise_pred_uncon + guidance_weight(t, guidance_scale, guidance_type) * cfg_aggregator(noise_pred_con[0], noise_pred_uncon[0])
                 else:
-                    assert noise_pred_con.shape[0] == noise_pred_uncon.shape[0] == 2
                     delta_noise_pred_src = noise_pred_con[0] - noise_pred_uncon[0]
                     delta_noise_pred_tgt = noise_pred_con[1] - noise_pred_uncon[1]
 
