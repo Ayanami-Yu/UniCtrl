@@ -4,11 +4,11 @@ from torchvision.utils import save_image
 from pytorch_lightning import seed_everything
 
 
-from custom_pipeline import CustomPipeline
-from attention_utils import register_attention_editor_diffusers, AttentionBase
+from ctrl_image.custom_pipeline import CustomPipeline
+from ctrl_image.attention_utils import register_attention_editor_diffusers, AttentionBase
 
 src_start, src_inc, src_n = 0.9, 0.1, 1
-tgt_start, tgt_inc, tgt_n = 0.5, 0.1, 11
+tgt_start, tgt_inc, tgt_n = 0.0, 0.1, 10
 prompts = [
     "an astronaut riding a horse",
     "an astronaut riding a horse and holding a Gatling gun",
@@ -54,7 +54,8 @@ for w_src in src_weights:
             w_src=w_src,
             w_tgt=w_tgt,
             guidance_type="static",
-            t_ctrl_start=630,
+            w_tgt_ctrl_type="static",
+            t_ctrl_start=None,
         )
 
         # save the synthesized image

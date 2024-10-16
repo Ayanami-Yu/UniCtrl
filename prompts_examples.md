@@ -1,3 +1,7 @@
+# Prompts Examples
+
+## Image
+
 [
     "Catwoman holding a sniper rifle",
     "Catwoman holding a sniper rifle and wearing a hat",

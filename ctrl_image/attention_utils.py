@@ -45,7 +45,7 @@ class AttentionStore(AttentionBase):
         self.max_step = max_step
         self.valid_steps = 0
 
-        self.self_attns = []  # store the all attns
+        self.self_attns = []  # store all the attns
         self.cross_attns = []
 
         self.self_attns_step = []  # store the attns in each step

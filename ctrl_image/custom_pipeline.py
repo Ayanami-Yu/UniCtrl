@@ -4,7 +4,7 @@ import numpy as np
 from typing import Optional
 from tqdm import tqdm
 from diffusers.schedulers import PNDMScheduler
-from base_pipeline import BasePipeline
+from ctrl_image.base_pipeline import BasePipeline
 
 
 def cfg_aggregator(noise_pred_con, noise_pred_uncon):
@@ -42,6 +42,16 @@ def guidance_weight(t, w0, guidance_type: str, t_total=1000, clamp=4):
     return max(clamp, w) if clamp else w
 
 
+def ctrl_weight(t, w0, ctrl_type: str, t_total=1000, clamp=None):
+    if ctrl_type == "static":
+        w = w0
+    elif ctrl_type == "linear":
+        w = w0 * 2 * (1 - t / t_total)
+    else:
+        raise ValueError("Unrecognized guidance type")
+    return max(clamp, w) if clamp else w
+
+
 class CustomPipeline(BasePipeline):
 
     @torch.no_grad()
@@ -59,10 +69,12 @@ class CustomPipeline(BasePipeline):
         neg_prompt=None,
         ref_intermediate_latents=None,
         return_intermediates=False,
-        w_src=1.0,
-        w_tgt=1.0,
         use_plain_cfg=False,
         guidance_type: str = "static",
+        w_src=1.0,
+        w_tgt=1.0,
+        w_src_ctrl_type: str = "static",
+        w_tgt_ctrl_type: str = "static",
         t_ctrl_start: Optional[int] = None,
         **kwds,
     ):
@@ -163,10 +175,13 @@ class CustomPipeline(BasePipeline):
                     delta_noise_pred_src = noise_pred_con[0] - noise_pred_uncon[0]
                     delta_noise_pred_tgt = noise_pred_con[1] - noise_pred_uncon[1]
 
+                    w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
+                    w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
+
                     noise_pred = noise_pred_uncon + guidance_weight(
                         t, guidance_scale, guidance_type
-                    ) * add_aggregator_v1(
-                        delta_noise_pred_src, w_src, delta_noise_pred_tgt, w_tgt
+                    ) * add_aggregator_v2(
+                        delta_noise_pred_src, w_src_cur, delta_noise_pred_tgt, w_tgt_cur
                     )
 
             # compute the previous noise sample x_t -> x_t-1
@@ -176,12 +191,13 @@ class CustomPipeline(BasePipeline):
                 latents, _ = self.step(noise_pred, t, latents)
             latents_list.append(latents)
 
+        # if noises have been aggregated then they are the same
         image = self.latent2image(latents, return_type="pt")
+        image = image[0] if torch.all(image[0] == image[1]) else image
         if return_intermediates:
             latents_list = [
                 self.latent2image(img, return_type="pt") for img in latents_list
             ]
             return image, latents_list
 
-        # if noises have been aggregated then they are the same
-        return image[0] if torch.all(image[0] == image[1]) else image
+        return image
