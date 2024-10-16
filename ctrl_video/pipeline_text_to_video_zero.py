@@ -923,6 +923,12 @@ class TextToVideoZeroPipeline(
             clip_skip (`int`, *optional*):
                 Number of layers to be skipped from CLIP while computing the prompt embeddings. A value of 1 means that
                 the output of the pre-final layer will be used for computing the prompt embeddings.
+
+        Returns:
+            prompt_embeds:
+                Text embeddings for each prompt of shape (B, 77, 1024).
+            negative_prompt_embeds:
+                Embeddings for negative prompts (if provided) or uncond text (empty string), the number of which should match that of text embeddings.
         """
         # set lora scale so that monkey patched LoRA
         # function of text encoder can correctly access it
@@ -954,7 +960,7 @@ class TextToVideoZeroPipeline(
                 truncation=True,
                 return_tensors="pt",
             )
-            text_input_ids = text_inputs.input_ids
+            text_input_ids = text_inputs.input_ids  # (B, 77)
             untruncated_ids = self.tokenizer(
                 prompt, padding="longest", return_tensors="pt"
             ).input_ids
@@ -982,7 +988,7 @@ class TextToVideoZeroPipeline(
                 prompt_embeds = self.text_encoder(
                     text_input_ids.to(device), attention_mask=attention_mask
                 )
-                prompt_embeds = prompt_embeds[0]
+                prompt_embeds = prompt_embeds[0]  # (B, 77, 1024)
             else:
                 prompt_embeds = self.text_encoder(
                     text_input_ids.to(device),
@@ -1063,7 +1069,7 @@ class TextToVideoZeroPipeline(
                 uncond_input.input_ids.to(device),
                 attention_mask=attention_mask,
             )
-            negative_prompt_embeds = negative_prompt_embeds[0]
+            negative_prompt_embeds = negative_prompt_embeds[0]  # (B, 77, 1024)
 
         if do_classifier_free_guidance:
             # duplicate unconditional embeddings for each generation per prompt, using mps friendly method

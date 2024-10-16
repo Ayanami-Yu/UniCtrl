@@ -3,7 +3,7 @@ import torch
 import torch.nn.functional as F
 
 from typing import Callable, List, Optional, Union
-from pipeline_text_to_video_zero import (
+from .pipeline_text_to_video_zero import (
     TextToVideoZeroPipeline,
     CrossFrameAttnProcessor2_0,
     CrossFrameAttnProcessor,
@@ -147,7 +147,9 @@ class VideoPipeline(TextToVideoZeroPipeline):
         self.check_inputs(prompt, height, width, callback_steps)
 
         # Define call parameters
-        batch_size = 1 if isinstance(prompt, str) else len(prompt)
+        # NOTE when using prompt ctrl, although there are two prompts,
+        # only one latent is needed
+        batch_size = 1 if isinstance(prompt, str) or not use_plain_cfg else len(prompt)
         device = self._execution_device
         # here `guidance_scale` is defined analog to the guidance weight `w` of equation (2)
         # of the Imagen paper: https://arxiv.org/pdf/2205.11487.pdf . `guidance_scale = 1`
@@ -162,6 +164,8 @@ class VideoPipeline(TextToVideoZeroPipeline):
             do_classifier_free_guidance,
             negative_prompt,
         )
+        # NOTE the first half of prompt_embeds corresponds to negative (or uncond) prompts,
+        # and the second half to (positive) text prompts
         prompt_embeds = torch.cat(
             [prompt_embeds_tuple[1], prompt_embeds_tuple[0]]
         )  # (2B, 77, 1024)
@@ -350,6 +354,9 @@ class VideoPipeline(TextToVideoZeroPipeline):
             latents:
                 Latents of backward process output at time timesteps[-1].
         """
+        # expand the latents as there are two prompts for prompt ctrl
+        if not use_plain_cfg:
+            latents = latents.repeat(2, 1, 1, 1)
         do_classifier_free_guidance = guidance_scale > 1.0
         num_steps = (len(timesteps) - num_warmup_steps) // self.scheduler.order
         with self.progress_bar(total=num_steps) as progress_bar:
@@ -358,9 +365,10 @@ class VideoPipeline(TextToVideoZeroPipeline):
                 latent_model_input = (
                     torch.cat([latents] * 2) if do_classifier_free_guidance else latents
                 )
+                # (2B, 4, 64, 64) with B = 2 in prompt ctrl
                 latent_model_input = self.scheduler.scale_model_input(
                     latent_model_input, t
-                )  # (2B, 4, 64, 64)
+                )
 
                 # predict the noise residual
                 noise_pred = self.unet(
@@ -379,9 +387,28 @@ class VideoPipeline(TextToVideoZeroPipeline):
                         noise_pred_text - noise_pred_uncond
                     )
                     elif t_ctrl_start is not None and t > t_ctrl_start:
-                        
+                        noise_pred = noise_pred_uncond + guidance_weight(
+                            t, guidance_scale, guidance_type
+                        ) * (noise_pred_text[0] - noise_pred_uncond[0])
+                    else:  # aggregate noise
+                        delta_noise_pred_src = noise_pred_text[0] - noise_pred_uncond[0]
+                        delta_noise_pred_tgt = noise_pred_text[1] - noise_pred_uncond[1]
+
+                        w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
+                        w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
+
+                        # FIXME torch.equal(noise_pred_uncond[0], noise_pred_uncond[1]) is False
+                        noise_pred = noise_pred_uncond[0:1] + guidance_weight(
+                            t, guidance_scale, guidance_type
+                        ) * add_aggregator_v1(
+                            delta_noise_pred_src,
+                            w_src_cur,
+                            delta_noise_pred_tgt,
+                            w_tgt_cur,
+                        )
 
                 # compute the previous noisy sample x_t -> x_t-1
+                latents = latents[0:1] if not use_plain_cfg else latents
                 latents = self.scheduler.step(
                     noise_pred, t, latents, **extra_step_kwargs
                 ).prev_sample  # (B, 4, 64, 64)

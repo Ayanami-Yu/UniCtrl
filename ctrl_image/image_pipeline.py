@@ -8,7 +8,7 @@ from diffusers.utils import (
     deprecate,
     replace_example_docstring,
 )
-from pipeline_stable_diffusion import (
+from .pipeline_stable_diffusion import (
     StableDiffusionPipeline,
     EXAMPLE_DOC_STRING,
     retrieve_timesteps,
