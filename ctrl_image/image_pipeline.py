@@ -8,54 +8,14 @@ from diffusers.utils import (
     deprecate,
     replace_example_docstring,
 )
-from .pipeline_stable_diffusion import (
+from pipeline_stable_diffusion import (
     StableDiffusionPipeline,
     EXAMPLE_DOC_STRING,
     retrieve_timesteps,
     rescale_noise_cfg,
     StableDiffusionPipelineOutput,
 )
-
-
-def get_perpendicular_component(x, y):
-    """Get the component of x that is perpendicular to y"""
-    assert x.shape == y.shape
-    return x - ((torch.mul(x, y).sum()) / (torch.norm(y) ** 2)) * y
-
-
-def add_aggregator_v1(delta_noise_pred_src, w_src, delta_noise_pred_tgt, w_tgt):
-    return w_src * delta_noise_pred_src + w_tgt * get_perpendicular_component(
-        delta_noise_pred_tgt, delta_noise_pred_src
-    )
-
-
-def add_aggregator_v2(delta_noise_pred_src, w_src, delta_noise_pred_tgt, w_tgt):
-    return w_src * delta_noise_pred_src + w_tgt * (
-        get_perpendicular_component(delta_noise_pred_tgt, delta_noise_pred_src)
-        - delta_noise_pred_src
-    )
-
-
-def guidance_weight(t, w0, guidance_type: str, t_total=1000, clamp=4):
-    if guidance_type == "static":
-        w = w0
-    elif guidance_type == "linear":
-        w = w0 * 2 * (1 - t / t_total)
-    elif guidance_type == "cosine":
-        w = w0 * (np.cos(np.pi * t / t_total) + 1)
-    else:
-        raise ValueError("Unrecognized guidance type")
-    return max(clamp, w) if clamp else w
-
-
-def ctrl_weight(t, w0, ctrl_type: str, t_total=1000, clamp=None):
-    if ctrl_type == "static":
-        w = w0
-    elif ctrl_type == "linear":
-        w = w0 * 2 * (1 - t / t_total)
-    else:
-        raise ValueError("Unrecognized guidance type")
-    return max(clamp, w) if clamp else w
+from utils.ctrl_utils import *
 
 
 class ImagePipeline(StableDiffusionPipeline):
@@ -189,7 +149,9 @@ class ImagePipeline(StableDiffusionPipeline):
         """
 
         if not use_plain_cfg:
-            assert isinstance(prompt, list) and len(prompt) == 2, "Two prompts only, one as source and one as target"
+            assert (
+                isinstance(prompt, list) and len(prompt) == 2
+            ), "Two prompts only, one as source and one as target"
 
         callback = kwargs.pop("callback", None)
         callback_steps = kwargs.pop("callback_steps", None)
@@ -355,7 +317,9 @@ class ImagePipeline(StableDiffusionPipeline):
                             noise_pred_text - noise_pred_uncond
                         )
                     elif t_ctrl_start is not None and t > t_ctrl_start:
-                        noise_pred = noise_pred_uncond + guidance_weight(t, self.guidance_scale, guidance_type) * (noise_pred_text[0] - noise_pred_uncond[0])
+                        noise_pred = noise_pred_uncond + guidance_weight(
+                            t, self.guidance_scale, guidance_type
+                        ) * (noise_pred_text[0] - noise_pred_uncond[0])
                     else:  # aggregate noise
                         delta_noise_pred_src = noise_pred_text[0] - noise_pred_uncond[0]
                         delta_noise_pred_tgt = noise_pred_text[1] - noise_pred_uncond[1]
@@ -363,12 +327,13 @@ class ImagePipeline(StableDiffusionPipeline):
                         w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
                         w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
 
-                        noise_pred = (
-                            noise_pred_uncond
-                            + guidance_weight(t, self.guidance_scale, guidance_type)
-                            * add_aggregator_v2(
-                                delta_noise_pred_src, w_src_cur, delta_noise_pred_tgt, w_tgt_cur
-                            )
+                        noise_pred = noise_pred_uncond + guidance_weight(
+                            t, self.guidance_scale, guidance_type
+                        ) * add_aggregator_v1(
+                            delta_noise_pred_src,
+                            w_src_cur,
+                            delta_noise_pred_tgt,
+                            w_tgt_cur,
                         )
 
                 if self.do_classifier_free_guidance and self.guidance_rescale > 0.0:
@@ -429,7 +394,7 @@ class ImagePipeline(StableDiffusionPipeline):
 
         # Offload all models
         self.maybe_free_model_hooks()
-                
+
         # If noises have been aggregated then they are the same
         image = [image[0]] if not use_plain_cfg else image
 

@@ -724,7 +724,9 @@ class TextToVideoZeroPipeline(
             do_classifier_free_guidance,
             negative_prompt,
         )
-        prompt_embeds = torch.cat([prompt_embeds_tuple[1], prompt_embeds_tuple[0]])
+        prompt_embeds = torch.cat(
+            [prompt_embeds_tuple[1], prompt_embeds_tuple[0]]
+        )  # (2B, 77, 1024)
 
         # Prepare timesteps
         self.scheduler.set_timesteps(num_inference_steps, device=device)
@@ -741,7 +743,7 @@ class TextToVideoZeroPipeline(
             device,
             generator,
             latents,
-        )
+        )  # (B, 4, 64, 64)
         # Prepare extra step kwargs.
         extra_step_kwargs = self.prepare_extra_step_kwargs(generator, eta)
         num_warmup_steps = len(timesteps) - num_inference_steps * self.scheduler.order

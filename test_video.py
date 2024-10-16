@@ -1,47 +1,47 @@
 import os
 import torch
+
+from imageio import mimsave
 from torchvision.utils import save_image
 from torchvision import transforms
 from pytorch_lightning import seed_everything
+from diffusers.utils import export_to_video
+from ctrl_video.video_pipeline import VideoPipeline
 
-from ctrl_image.image_pipeline import ImagePipeline
+
+def dummy(images, **kwargs):
+    return images, False
 
 
 src_start, src_inc, src_n = 0.9, 0.1, 1
-tgt_start, tgt_inc, tgt_n = 0.0, 0.1, 10
-prompts = [
-    "an astronaut riding a horse",
-    "an astronaut riding a horse and holding a Gatling gun",
-]
+tgt_start, tgt_inc, tgt_n = 0.0, 0.1, 1
+prompts = ["a cat is running on a road"]  # TODO error when two prompts
 
 # set seed
 seed = 0
 seed_everything(seed)
 
 # set device
-torch.cuda.set_device(1)
+torch.cuda.set_device(2)
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 # set output path
-out_dir = "./exp/sd/"
+out_dir = "./exp/video/"
 os.makedirs(out_dir, exist_ok=True)
 sample_count = len(os.listdir(out_dir))
 out_dir = os.path.join(out_dir, f"sample_{sample_count}")
-os.makedirs(out_dir, exist_ok=True)
 
 # initialize model
 model_path = "/mnt/hdd1/hongyu/models/stable-diffusion-2-1-base"
-model = ImagePipeline.from_pretrained(model_path).to(device)
+model = VideoPipeline.from_pretrained(model_path, safety_checker=dummy).to(device)
 
 # initialize the noise map
 start_code = torch.randn([1, 4, 64, 64], device=device)
 start_code = start_code.expand(len(prompts), -1, -1, -1)
 
-# inference the synthesized image
+# inference the synthesized video
 src_weights = [round(src_start + src_inc * i, 2) for i in range(src_n)]
 tgt_weights = [round(tgt_start + tgt_inc * i, 2) for i in range(tgt_n)]
-
-transform = transforms.ToTensor()
 
 for w_src in src_weights:
     for w_tgt in tgt_weights:
@@ -49,17 +49,10 @@ for w_src in src_weights:
             prompts,
             latents=start_code,
             guidance_scale=7.5,
-            w_src=w_src,
-            w_tgt=w_tgt,
-            guidance_type="static",
-            w_tgt_ctrl_type="static",
-            t_ctrl_start=None,
         ).images
-        images = [transform(img) for img in images]
+    video = [(img * 255).astype("uint8") for img in images]
 
-        # save the synthesized image
-        save_image(
-            images,
-            os.path.join(out_dir, f"{w_src}_{w_tgt}.png"),
-        )
-        print("Syntheiszed images are saved in", out_dir)
+    # no need to makedirs when no result has been generated
+    os.makedirs(out_dir, exist_ok=True)
+    mimsave(os.path.join(out_dir, f"{w_src}_{w_tgt}.mp4"), video, fps=4)
+    print("Syntheiszed video is saved in", out_dir)
