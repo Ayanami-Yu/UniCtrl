@@ -14,7 +14,7 @@ def dummy(images, **kwargs):
 
 
 src_start, src_inc, src_n = 0.9, 0.1, 1
-tgt_start, tgt_inc, tgt_n = 0.0, 0.1, 1
+tgt_start, tgt_inc, tgt_n = 0.1, 0.1, 1
 prompts = ["a cat is running on a road", "a cat with a pair of wings is running on a road"]  # TODO error when two prompts
 
 # set device
@@ -53,6 +53,7 @@ for w_src in src_weights:
             # latents=start_code,
             # generator=generator,
             guidance_scale=7.5,
+            use_plain_cfg=False,
             w_src=w_src,
             w_tgt=w_tgt,
             guidance_type="static",

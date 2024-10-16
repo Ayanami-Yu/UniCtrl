@@ -408,7 +408,6 @@ class VideoPipeline(TextToVideoZeroPipeline):
                         )
 
                 # compute the previous noisy sample x_t -> x_t-1
-                latents = latents[0:1] if not use_plain_cfg else latents
                 latents = self.scheduler.step(
                     noise_pred, t, latents, **extra_step_kwargs
                 ).prev_sample  # (B, 4, 64, 64)
@@ -421,4 +420,7 @@ class VideoPipeline(TextToVideoZeroPipeline):
                     if callback is not None and i % callback_steps == 0:
                         step_idx = i // getattr(self.scheduler, "order", 1)
                         callback(step_idx, t, latents)
+        
+        if not use_plain_cfg:
+            latents, _ = latents.chunk(2)
         return latents.clone().detach()
