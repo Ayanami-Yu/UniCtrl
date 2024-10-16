@@ -86,7 +86,7 @@ class CustomPipeline(BasePipeline):
         elif isinstance(prompt, str):
             if batch_size > 1:
                 prompt = [prompt] * batch_size
-        
+
         if not use_plain_cfg:
             assert batch_size == 2, "Two prompts only, one as source and one as target"
 
@@ -170,7 +170,9 @@ class CustomPipeline(BasePipeline):
                         noise_pred_con, noise_pred_uncon
                     )
                 elif t_ctrl_start is not None and t > t_ctrl_start:
-                    noise_pred = noise_pred_uncon + guidance_weight(t, guidance_scale, guidance_type) * cfg_aggregator(noise_pred_con[0], noise_pred_uncon[0])
+                    noise_pred = noise_pred_uncon + guidance_weight(
+                        t, guidance_scale, guidance_type
+                    ) * cfg_aggregator(noise_pred_con[0], noise_pred_uncon[0])
                 else:
                     delta_noise_pred_src = noise_pred_con[0] - noise_pred_uncon[0]
                     delta_noise_pred_tgt = noise_pred_con[1] - noise_pred_uncon[1]

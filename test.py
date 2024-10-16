@@ -1,14 +1,11 @@
 import os
 import torch
 from torchvision.utils import save_image
+from torchvision import transforms
 from pytorch_lightning import seed_everything
 
+from ctrl_image.image_pipeline import ImagePipeline
 
-from ctrl_image.custom_pipeline import CustomPipeline
-from ctrl_image.attention_utils import (
-    register_attention_editor_diffusers,
-    AttentionBase,
-)
 
 src_start, src_inc, src_n = 0.9, 0.1, 1
 tgt_start, tgt_inc, tgt_n = 0.0, 0.1, 10
@@ -34,23 +31,21 @@ os.makedirs(out_dir, exist_ok=True)
 
 # initialize model
 model_path = "/mnt/hdd1/hongyu/models/stable-diffusion-2-1-base"
-model = CustomPipeline.from_pretrained(model_path).to(device)
+model = ImagePipeline.from_pretrained(model_path).to(device)
 
 # initialize the noise map
 start_code = torch.randn([1, 4, 64, 64], device=device)
 start_code = start_code.expand(len(prompts), -1, -1, -1)
 
-# use original attention
-editor = AttentionBase()
-register_attention_editor_diffusers(model, editor)
-
 # inference the synthesized image
 src_weights = [round(src_start + src_inc * i, 2) for i in range(src_n)]
 tgt_weights = [round(tgt_start + tgt_inc * i, 2) for i in range(tgt_n)]
 
+transform = transforms.ToTensor()
+
 for w_src in src_weights:
     for w_tgt in tgt_weights:
-        image = model(
+        images = model(
             prompts,
             latents=start_code,
             guidance_scale=7.5,
@@ -59,11 +54,12 @@ for w_src in src_weights:
             guidance_type="static",
             w_tgt_ctrl_type="static",
             t_ctrl_start=None,
-        )
+        ).images
+        images = [transform(img) for img in images]
 
         # save the synthesized image
         save_image(
-            image,
+            images,
             os.path.join(out_dir, f"{w_src}_{w_tgt}.png"),
         )
         print("Syntheiszed images are saved in", out_dir)
