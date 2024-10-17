@@ -420,7 +420,7 @@ class VideoPipeline(TextToVideoZeroPipeline):
                         w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
                         w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
 
-                        # TODO check torch.equal(noise_pred_uncond_src, noise_pred_uncond_tgt) is True
+                        # FIXME torch.equal(noise_pred_uncond_src, noise_pred_uncond_tgt) is False
                         noise_pred = noise_pred_uncond_src + guidance_weight(
                             t, guidance_scale, guidance_type
                         ) * add_aggregator_v1(
