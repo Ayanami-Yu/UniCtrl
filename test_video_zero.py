@@ -4,7 +4,7 @@ import argparse
 
 from imageio import mimsave
 from pytorch_lightning import seed_everything
-from ctrl_video.video_pipeline import VideoPipeline
+from ctrl_video.video_zero_pipeline import VideoZeroPipeline
 
 
 def dummy(images, **kwargs):
@@ -49,7 +49,7 @@ out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 # initialize model
 # NOTE setting torch_dtype=torch.float16 in from_pretrained will cause error in unet
 model_path = "/mnt/hdd1/hongyu/models/stable-diffusion-2-1-base"
-model = VideoPipeline.from_pretrained(model_path, safety_checker=dummy).to(device)
+model = VideoZeroPipeline.from_pretrained(model_path, safety_checker=dummy).to(device)
 
 # inference the synthesized video
 src_weights = [round(src_start + src_inc * i, 2) for i in range(int(src_n))]

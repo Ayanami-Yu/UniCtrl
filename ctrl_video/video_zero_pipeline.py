@@ -13,7 +13,7 @@ from .pipeline_text_to_video_zero import (
 from utils.ctrl_utils import *
 
 
-class VideoPipeline(TextToVideoZeroPipeline):
+class VideoZeroPipeline(TextToVideoZeroPipeline):
 
     @torch.no_grad()
     def __call__(
