@@ -14,8 +14,11 @@ def dummy(images, **kwargs):
 
 
 src_start, src_inc, src_n = 0.9, 0.1, 1
-tgt_start, tgt_inc, tgt_n = 0.1, 0.1, 1
-prompts = ["a cat is running on a road", "a cat with a pair of wings is running on a road"]  # TODO error when two prompts
+tgt_start, tgt_inc, tgt_n = 1.9, 0.1, 1
+prompts = [
+    "a cat is running on a road",
+    "a cat with a pair of wings is running on a road",
+]
 
 # set device
 torch.cuda.set_device(2)

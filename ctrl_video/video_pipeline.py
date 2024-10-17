@@ -249,7 +249,13 @@ class VideoPipeline(TextToVideoZeroPipeline):
         )
 
         # Perform backward process from time T_1 to 0
+        # NOTE x_1k_t1.chunk(2B) are the same and all of length video_length,
+        # i.e. x_1k_t1[i::video_length] correspond to the same frames
         x_1k_t1 = torch.cat([x_1_t1, x_2k_t1])
+
+        # NOTE prompt_embeds[0:8B] are the same uncond embeds,
+        # prompt_embeds[8B:12B] are the same source prompt embeds,
+        # and prompt_embeds[12B:16B] are the same target prompt embeds
         b, l, d = prompt_embeds.size()
         prompt_embeds = (
             prompt_embeds[:, None]
@@ -354,18 +360,20 @@ class VideoPipeline(TextToVideoZeroPipeline):
             latents:
                 Latents of backward process output at time timesteps[-1].
         """
-        # expand the latents as there are two prompts for prompt ctrl
-        if not use_plain_cfg:
-            latents = latents.repeat(2, 1, 1, 1)
         do_classifier_free_guidance = guidance_scale > 1.0
         num_steps = (len(timesteps) - num_warmup_steps) // self.scheduler.order
         with self.progress_bar(total=num_steps) as progress_bar:
             for i, t in enumerate(timesteps):
+                # expand the latents as there are two prompts for prompt ctrl
+                # but only one set of latents that is persistent throughout
+                if not use_plain_cfg:
+                    latents = latents.repeat(2, 1, 1, 1)
+
                 # expand the latents if we are doing classifier free guidance
                 latent_model_input = (
                     torch.cat([latents] * 2) if do_classifier_free_guidance else latents
                 )
-                # (2B, 4, 64, 64) with B = 2 in prompt ctrl
+                # (2B, 4, 64, 64) with B equals 2 in prompt ctrl
                 latent_model_input = self.scheduler.scale_model_input(
                     latent_model_input, t
                 )
@@ -384,21 +392,36 @@ class VideoPipeline(TextToVideoZeroPipeline):
 
                     if use_plain_cfg:
                         noise_pred = noise_pred_uncond + guidance_scale * (
-                        noise_pred_text - noise_pred_uncond
-                    )
+                            noise_pred_text - noise_pred_uncond
+                        )
                     elif t_ctrl_start is not None and t > t_ctrl_start:
+                        # use the source prompt only
+                        noise_pred_uncond = torch.chunk(noise_pred_uncond, 2)[0]
+                        noise_pred_text = torch.chunk(noise_pred_text, 2)[0]
+
                         noise_pred = noise_pred_uncond + guidance_weight(
                             t, guidance_scale, guidance_type
-                        ) * (noise_pred_text[0] - noise_pred_uncond[0])
+                        ) * (noise_pred_text - noise_pred_uncond)
                     else:  # aggregate noise
-                        delta_noise_pred_src = noise_pred_text[0] - noise_pred_uncond[0]
-                        delta_noise_pred_tgt = noise_pred_text[1] - noise_pred_uncond[1]
+                        noise_pred_text_src, noise_pred_text_tgt = (
+                            noise_pred_text.chunk(2)
+                        )
+                        noise_pred_uncond_src, noise_pred_uncond_tgt = (
+                            noise_pred_uncond.chunk(2)
+                        )
+
+                        delta_noise_pred_src = (
+                            noise_pred_text_src - noise_pred_uncond_src
+                        )
+                        delta_noise_pred_tgt = (
+                            noise_pred_text_tgt - noise_pred_uncond_tgt
+                        )
 
                         w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
                         w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
 
-                        # FIXME torch.equal(noise_pred_uncond[0], noise_pred_uncond[1]) is False
-                        noise_pred = noise_pred_uncond[0:1] + guidance_weight(
+                        # TODO check torch.equal(noise_pred_uncond_src, noise_pred_uncond_tgt) is True
+                        noise_pred = noise_pred_uncond_src + guidance_weight(
                             t, guidance_scale, guidance_type
                         ) * add_aggregator_v1(
                             delta_noise_pred_src,
@@ -408,6 +431,8 @@ class VideoPipeline(TextToVideoZeroPipeline):
                         )
 
                 # compute the previous noisy sample x_t -> x_t-1
+                if not use_plain_cfg:
+                    latents = latents.chunk(2)[0]
                 latents = self.scheduler.step(
                     noise_pred, t, latents, **extra_step_kwargs
                 ).prev_sample  # (B, 4, 64, 64)
@@ -420,7 +445,5 @@ class VideoPipeline(TextToVideoZeroPipeline):
                     if callback is not None and i % callback_steps == 0:
                         step_idx = i // getattr(self.scheduler, "order", 1)
                         callback(step_idx, t, latents)
-        
-        if not use_plain_cfg:
-            latents, _ = latents.chunk(2)
+
         return latents.clone().detach()
