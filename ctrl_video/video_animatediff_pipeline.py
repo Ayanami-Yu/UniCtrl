@@ -8,6 +8,7 @@ from diffusers.utils import (
 )
 from diffusers.pipelines.animatediff.pipeline_output import AnimateDiffPipelineOutput
 from .pipeline_animatediff import AnimateDiffPipeline, EXAMPLE_DOC_STRING
+from utils.ctrl_utils import *
 
 
 class VideoAnimateDiffPipeline(AnimateDiffPipeline):
@@ -38,6 +39,13 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
         callback_on_step_end: Optional[Callable[[int, int, Dict], None]] = None,
         callback_on_step_end_tensor_inputs: List[str] = ["latents"],
         decode_chunk_size: int = 16,
+        use_plain_cfg=False,
+        guidance_type: str = "static",
+        w_src=1.0,
+        w_tgt=1.0,
+        w_src_ctrl_type: str = "static",
+        w_tgt_ctrl_type: str = "static",
+        t_ctrl_start: Optional[int] = None,
         **kwargs,
     ):
         r"""
@@ -290,11 +298,49 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
                     # perform guidance
                     if self.do_classifier_free_guidance:
                         noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
-                        noise_pred = noise_pred_uncond + guidance_scale * (
-                            noise_pred_text - noise_pred_uncond
-                        )
+
+                        if use_plain_cfg:
+                            noise_pred = noise_pred_uncond + guidance_scale * (
+                                noise_pred_text - noise_pred_uncond
+                            )
+                        elif t_ctrl_start is not None and t > t_ctrl_start:
+                            # use the source prompt only
+                            noise_pred_uncond = torch.chunk(noise_pred_uncond, 2)[0]
+                            noise_pred_text = torch.chunk(noise_pred_text, 2)[0]
+
+                            noise_pred = noise_pred_uncond + guidance_weight(
+                                t, guidance_scale, guidance_type
+                            ) * (noise_pred_text - noise_pred_uncond)
+                        else:  # aggregate noise
+                            noise_pred_text_src, noise_pred_text_tgt = (
+                                noise_pred_text.chunk(2)
+                            )
+                            noise_pred_uncond_src, noise_pred_uncond_tgt = (
+                                noise_pred_uncond.chunk(2)
+                            )
+
+                            delta_noise_pred_src = (
+                                noise_pred_text_src - noise_pred_uncond_src
+                            )
+                            delta_noise_pred_tgt = (
+                                noise_pred_text_tgt - noise_pred_uncond_tgt
+                            )
+
+                            w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
+                            w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
+
+                            noise_pred = noise_pred_uncond_src + guidance_weight(
+                                t, guidance_scale, guidance_type
+                            ) * add_aggregator_v1(
+                                delta_noise_pred_src,
+                                w_src_cur,
+                                delta_noise_pred_tgt,
+                                w_tgt_cur,
+                            )
 
                     # compute the previous noisy sample x_t -> x_t-1
+                    if not use_plain_cfg:
+                        latents = latents.chunk(2)[0]
                     latents = self.scheduler.step(
                         noise_pred, t, latents, **extra_step_kwargs
                     ).prev_sample
