@@ -2,35 +2,40 @@ import os
 import torch
 import argparse
 
-from diffusers import AnimateDiffPipeline, DDIMScheduler, MotionAdapter
+from diffusers import DDIMScheduler, MotionAdapter
 from diffusers.utils import export_to_gif
 from pytorch_lightning import seed_everything
+from ctrl_video.video_animatediff_pipeline import VideoAnimateDiffPipeline
+from ctrl_video.pipeline_animatediff import AnimateDiffPipeline
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
-parser.add_argument("--out_dir", type=str, default="./exp/video/animatediff/")
-parser.add_argument("--gpu", type=int, default=0)
+parser.add_argument("--out_dir", type=str, default="./exp/animatediff/samples/")
+parser.add_argument("--gpu", type=int, default=7)
 
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
 parser.add_argument("--tgt_params", nargs="+", type=float, default=None)
 args = parser.parse_args()
 
-src_start, src_inc, src_n = (0.1, 0.1, 31) if not args.src_params else args.src_params
-tgt_start, tgt_inc, tgt_n = (0.1, 0.1, 41) if not args.tgt_params else args.tgt_params
+src_start, src_inc, src_n = (1.0, 0.1, 1) if not args.src_params else args.src_params
+tgt_start, tgt_inc, tgt_n = (1.0, 0.1, 1) if not args.tgt_params else args.tgt_params
 prompts = (
     [
-        (
-            "masterpiece, bestquality, highlydetailed, ultradetailed, sunset, "
-            "orange sky, warm lighting, fishing boats, ocean waves seagulls, "
-            "rippling water, wharf, silhouette, serene atmosphere, dusk, evening glow, "
-            "golden hour, coastal landscape, seaside scenery"
-        )
+        "a woman is walking in the rain",
+        "a woman is walking in the rain and carrying a red handbag",
     ]
     if not args.prompt
     else args.prompt
 )
+
+# NOTE len(negative_prompts) should match len(prompts),
+# with the former used for the uncond embeddings in CFG
+negative_prompts = [
+    "bad quality, worse quality",
+    "bad quality, worse quality",
+]
 
 # set device
 torch.cuda.set_device(args.gpu)
@@ -53,7 +58,7 @@ adapter = MotionAdapter.from_pretrained(
 
 # load SD 1.5 based finetuned model
 model_id = "SG161222/Realistic_Vision_V5.1_noVAE"
-pipe = AnimateDiffPipeline.from_pretrained(
+pipe = VideoAnimateDiffPipeline.from_pretrained(
     model_id, motion_adapter=adapter, torch_dtype=torch.float16
 )
 
@@ -79,11 +84,15 @@ for w_src in src_weights:
     for w_tgt in tgt_weights:
         output = pipe(
             prompt=prompts,
-            negative_prompt="bad quality, worse quality",
+            negative_prompt=negative_prompts,
             num_frames=16,
             guidance_scale=7.5,
             num_inference_steps=25,
             generator=torch.Generator("cpu").manual_seed(seed),
         )
         frames = output.frames[0]
-        export_to_gif(frames, "animation.gif")
+
+        # no need to makedirs when no result has been generated
+        os.makedirs(out_dir, exist_ok=True)
+        export_to_gif(frames, os.path.join(out_dir, f"{w_src}_{w_tgt}.gif"))
+        print("Syntheiszed video is saved in", out_dir)
