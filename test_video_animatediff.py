@@ -6,25 +6,33 @@ from diffusers import DDIMScheduler, MotionAdapter
 from diffusers.utils import export_to_gif
 from pytorch_lightning import seed_everything
 from ctrl_video.video_animatediff_pipeline import VideoAnimateDiffPipeline
-from ctrl_video.pipeline_animatediff import AnimateDiffPipeline
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
 parser.add_argument("--out_dir", type=str, default="./exp/animatediff/samples/")
-parser.add_argument("--gpu", type=int, default=7)
+parser.add_argument("--gpu", type=int, default=0)
+# parser.add_argument("--gpu", type=str, default="7")
 
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
 parser.add_argument("--tgt_params", nargs="+", type=float, default=None)
 args = parser.parse_args()
 
-src_start, src_inc, src_n = (0.9, 0.1, 1) if not args.src_params else args.src_params
-tgt_start, tgt_inc, tgt_n = (1.1, 0.1, 1) if not args.tgt_params else args.tgt_params
+# set visible GPU
+# os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
+# os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+
+# set device
+torch.cuda.set_device(args.gpu)
+device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
+
+src_start, src_inc, src_n = (0.9, 0.1, 2) if not args.src_params else args.src_params
+tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 16) if not args.tgt_params else args.tgt_params
 prompts = (
     [
-        "a woman is walking in the rain",
-        "a woman is walking in the rain and carrying a red handbag",
+        "a silver wolf is running",
+        "a silver wolf is running after a golden eagle",
     ]
     if not args.prompt
     else args.prompt
@@ -36,10 +44,6 @@ negative_prompts = [
     "bad quality, worse quality",
     "bad quality, worse quality",
 ]
-
-# set device
-torch.cuda.set_device(args.gpu)
-device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 # set seed
 seed = 0

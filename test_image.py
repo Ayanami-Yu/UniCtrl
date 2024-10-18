@@ -7,11 +7,11 @@ from pytorch_lightning import seed_everything
 from ctrl_image.image_pipeline import ImagePipeline
 
 
-src_start, src_inc, src_n = 0.6, 0.1, 11
-tgt_start, tgt_inc, tgt_n = 0.0, 0.1, 25
+src_start, src_inc, src_n = 0.9, 0.1, 1
+tgt_start, tgt_inc, tgt_n = 0.5, 0.1, 11
 prompts = [
-    "an astronaut is riding a horse on a road",
-    "an astronaut is riding a horse and holding a Gatling gun on a road",
+    "an astronaut riding a horse",
+    "an astronaut riding a horse and holding a Gatling gun",
 ]
 
 # set seed

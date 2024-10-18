@@ -13,8 +13,8 @@ def dummy(images, **kwargs):
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
-parser.add_argument("--out_dir", type=str, default="./exp/video/samples/")
-parser.add_argument("--gpu", type=int, default=0)
+parser.add_argument("--out_dir", type=str, default="./exp/video_zero/samples/")
+parser.add_argument("--gpu", type=int, default=1)
 
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
@@ -55,6 +55,7 @@ model = VideoZeroPipeline.from_pretrained(model_path, safety_checker=dummy).to(d
 src_weights = [round(src_start + src_inc * i, 2) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 2) for i in range(int(tgt_n))]
 
+# TODO provide per-generated latents
 for w_src in src_weights:
     for w_tgt in tgt_weights:
         images = model(

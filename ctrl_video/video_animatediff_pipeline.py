@@ -1,6 +1,7 @@
 import torch
 
 from typing import Any, Callable, Dict, List, Optional, Union
+from einops import rearrange
 from diffusers.image_processor import PipelineImageInput
 from diffusers.utils import (
     deprecate,
@@ -307,6 +308,13 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
                                 t, guidance_scale, guidance_type
                             ) * (noise_pred_text - noise_pred_uncond)
                         else:  # aggregate noise
+                            noise_pred_uncond = rearrange(
+                                noise_pred_uncond, "b c l h w -> b l c h w"
+                            )
+                            noise_pred_text = rearrange(
+                                noise_pred_text, "b c l h w -> b l c h w"
+                            )
+
                             noise_pred_text_src, noise_pred_text_tgt = (
                                 noise_pred_text.chunk(2)
                             )
@@ -331,7 +339,9 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
                                 w_src_cur,
                                 delta_noise_pred_tgt,
                                 w_tgt_cur,
+                                mode="latent",
                             )
+                            noise_pred = rearrange(noise_pred, "b l c h w -> b c l h w")
 
                     # compute the previous noisy sample x_t -> x_t-1
                     if not use_plain_cfg:

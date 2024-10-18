@@ -334,6 +334,7 @@ class ImagePipeline(StableDiffusionPipeline):
                             w_src_cur,
                             delta_noise_pred_tgt,
                             w_tgt_cur,
+                            mode="channel",
                         )
 
                 if self.do_classifier_free_guidance and self.guidance_rescale > 0.0:

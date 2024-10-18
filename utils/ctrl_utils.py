@@ -1,23 +1,56 @@
 import torch
 import numpy as np
 
+from typing import Optional
+from einops import rearrange
+
 
 # TODO should it adapt to different tensors of different shapes?
-def get_perpendicular_component(x, y):
+def get_perpendicular_component(x, y, mode: str):
     """Get the component of x that is perpendicular to y"""
     assert x.shape == y.shape
-    return x - ((torch.mul(x, y).sum()) / (torch.norm(y) ** 2)) * y
+    if mode == "all":
+        return x - ((torch.mul(x, y).sum()) / (torch.norm(y) ** 2)) * y
+    elif mode == "channel":
+        return (
+            x
+            - (
+                (torch.mul(x, y).sum(dim=(-2, -1), keepdim=True))
+                / (torch.norm(y, dim=(-2, -1), keepdim=True) ** 2)
+            )
+            * y
+        )
+    elif mode == "latent":
+        prod_xy = torch.einsum("...ijk, ...ijk -> ...", x, y)
+        prod_yy = torch.einsum("...ijk, ...ijk -> ...", y, y)
+        return x - (prod_xy / prod_yy).unsqueeze(-1).unsqueeze(-1).unsqueeze(-1) * y
+    else:
+        raise ValueError("Unrecognized mode for perpendicular component")
 
 
-def add_aggregator_v1(delta_noise_pred_src, w_src, delta_noise_pred_tgt, w_tgt):
+def add_aggregator_v1(
+    delta_noise_pred_src,
+    w_src,
+    delta_noise_pred_tgt,
+    w_tgt,
+    mode: Optional[str] = "latent",
+):
     return w_src * delta_noise_pred_src + w_tgt * get_perpendicular_component(
-        delta_noise_pred_tgt, delta_noise_pred_src
+        delta_noise_pred_tgt, delta_noise_pred_src, mode=mode
     )
 
 
-def add_aggregator_v2(delta_noise_pred_src, w_src, delta_noise_pred_tgt, w_tgt):
+def add_aggregator_v2(
+    delta_noise_pred_src,
+    w_src,
+    delta_noise_pred_tgt,
+    w_tgt,
+    mode: Optional[str] = "latent",
+):
     return w_src * delta_noise_pred_src + w_tgt * (
-        get_perpendicular_component(delta_noise_pred_tgt, delta_noise_pred_src)
+        get_perpendicular_component(
+            delta_noise_pred_tgt, delta_noise_pred_src, mode=mode
+        )
         - delta_noise_pred_src
     )
 

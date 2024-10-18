@@ -428,6 +428,7 @@ class VideoZeroPipeline(TextToVideoZeroPipeline):
                             w_src_cur,
                             delta_noise_pred_tgt,
                             w_tgt_cur,
+                            mode="latent",  # TODO test again
                         )
 
                 # compute the previous noisy sample x_t -> x_t-1
