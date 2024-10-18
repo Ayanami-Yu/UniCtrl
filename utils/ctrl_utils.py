@@ -2,6 +2,7 @@ import torch
 import numpy as np
 
 
+# TODO should it adapt to different tensors of different shapes?
 def get_perpendicular_component(x, y):
     """Get the component of x that is perpendicular to y"""
     assert x.shape == y.shape

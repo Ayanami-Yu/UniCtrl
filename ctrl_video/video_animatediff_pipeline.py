@@ -288,7 +288,7 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
                         encoder_hidden_states=prompt_embeds,
                         cross_attention_kwargs=cross_attention_kwargs,
                         added_cond_kwargs=added_cond_kwargs,
-                    ).sample
+                    ).sample  # (2B, C, frames, H, W)
 
                     # perform guidance
                     if self.do_classifier_free_guidance:

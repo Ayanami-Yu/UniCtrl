@@ -23,7 +23,7 @@ torch.cuda.set_device(1)
 device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
 
 # set output path
-out_dir = "./exp/sd/"
+out_dir = "./exp/image/samples/"
 os.makedirs(out_dir, exist_ok=True)
 sample_count = len(os.listdir(out_dir))
 out_dir = os.path.join(out_dir, f"sample_{sample_count}")

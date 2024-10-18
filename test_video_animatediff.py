@@ -89,6 +89,12 @@ for w_src in src_weights:
             guidance_scale=7.5,
             num_inference_steps=25,
             generator=torch.Generator("cpu").manual_seed(seed),
+            use_plain_cfg=False,
+            w_src=w_src,
+            w_tgt=w_tgt,
+            guidance_type="static",
+            w_tgt_ctrl_type="static",
+            t_ctrl_start=None,
         )
         frames = output.frames[0]
 
