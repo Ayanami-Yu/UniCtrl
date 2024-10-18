@@ -125,6 +125,14 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
                 returned, otherwise a `tuple` is returned where the first element is a list with the generated frames.
         """
 
+        if not use_plain_cfg:
+            assert (
+                isinstance(prompt, list) and len(prompt) == 2
+            ), "Two positive prompts only, one as source and one as target"
+            assert not negative_prompt or (
+                isinstance(negative_prompt, list) and len(negative_prompt) == 2
+            ), "len(negative_prompt) should match len(prompt)"
+
         callback = kwargs.pop("callback", None)
         callback_steps = kwargs.pop("callback_steps", None)
 
@@ -176,8 +184,13 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
         device = self._execution_device
 
         # 3. Encode input prompt
+        # NOTE when using prompt ctrl, although there are two prompts,
+        # only one latent is needed
+        batch_size = 1 if isinstance(prompt, str) or not use_plain_cfg else len(prompt)
         text_encoder_lora_scale = (
-            self.cross_attention_kwargs.get("scale", None) if self.cross_attention_kwargs is not None else None
+            self.cross_attention_kwargs.get("scale", None)
+            if self.cross_attention_kwargs is not None
+            else None
         )
         prompt_embeds, negative_prompt_embeds = self.encode_prompt(
             prompt,
@@ -237,11 +250,18 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
         for free_init_iter in range(num_free_init_iters):
             if self.free_init_enabled:
                 latents, timesteps = self._apply_free_init(
-                    latents, free_init_iter, num_inference_steps, device, latents.dtype, generator
+                    latents,
+                    free_init_iter,
+                    num_inference_steps,
+                    device,
+                    latents.dtype,
+                    generator,
                 )
 
             self._num_timesteps = len(timesteps)
-            num_warmup_steps = len(timesteps) - num_inference_steps * self.scheduler.order
+            num_warmup_steps = (
+                len(timesteps) - num_inference_steps * self.scheduler.order
+            )
 
             # 8. Denoising loop
             with self.progress_bar(total=self._num_timesteps) as progress_bar:
@@ -249,11 +269,17 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
                     # expand the latents as there are two prompts for prompt ctrl
                     # but only one set of latents that is persistent throughout
                     if not use_plain_cfg:
-                        latents = latents.repeat(2, 1, 1, 1)
+                        latents = torch.cat([latents] * 2)
 
                     # expand the latents if we are doing classifier free guidance
-                    latent_model_input = torch.cat([latents] * 2) if self.do_classifier_free_guidance else latents
-                    latent_model_input = self.scheduler.scale_model_input(latent_model_input, t)
+                    latent_model_input = (
+                        torch.cat([latents] * 2)
+                        if self.do_classifier_free_guidance
+                        else latents
+                    )
+                    latent_model_input = self.scheduler.scale_model_input(
+                        latent_model_input, t
+                    )
 
                     # predict the noise residual
                     noise_pred = self.unet(
@@ -269,59 +295,72 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
                         noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
 
                         if use_plain_cfg:
-                            noise_pred = noise_pred_uncond + guidance_scale * (noise_pred_text - noise_pred_uncond)
-                    elif t_ctrl_start is not None and t > t_ctrl_start:
-                        # use the source prompt only
-                        noise_pred_uncond = torch.chunk(noise_pred_uncond, 2)[0]
-                        noise_pred_text = torch.chunk(noise_pred_text, 2)[0]
+                            noise_pred = noise_pred_uncond + guidance_scale * (
+                                noise_pred_text - noise_pred_uncond
+                            )
+                        elif t_ctrl_start is not None and t > t_ctrl_start:
+                            # use the source prompt only
+                            noise_pred_uncond = torch.chunk(noise_pred_uncond, 2)[0]
+                            noise_pred_text = torch.chunk(noise_pred_text, 2)[0]
 
-                        noise_pred = noise_pred_uncond + guidance_weight(
-                            t, guidance_scale, guidance_type
-                        ) * (noise_pred_text - noise_pred_uncond)
-                    else:  # aggregate noise
-                        noise_pred_text_src, noise_pred_text_tgt = (
-                            noise_pred_text.chunk(2)
-                        )
-                        noise_pred_uncond_src, noise_pred_uncond_tgt = (
-                            noise_pred_uncond.chunk(2)
-                        )
+                            noise_pred = noise_pred_uncond + guidance_weight(
+                                t, guidance_scale, guidance_type
+                            ) * (noise_pred_text - noise_pred_uncond)
+                        else:  # aggregate noise
+                            noise_pred_text_src, noise_pred_text_tgt = (
+                                noise_pred_text.chunk(2)
+                            )
+                            noise_pred_uncond_src, noise_pred_uncond_tgt = (
+                                noise_pred_uncond.chunk(2)
+                            )
 
-                        delta_noise_pred_src = (
-                            noise_pred_text_src - noise_pred_uncond_src
-                        )
-                        delta_noise_pred_tgt = (
-                            noise_pred_text_tgt - noise_pred_uncond_tgt
-                        )
+                            delta_noise_pred_src = (
+                                noise_pred_text_src - noise_pred_uncond_src
+                            )
+                            delta_noise_pred_tgt = (
+                                noise_pred_text_tgt - noise_pred_uncond_tgt
+                            )
 
-                        w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
-                        w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
+                            w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
+                            w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
 
-                        noise_pred = noise_pred_uncond_src + guidance_weight(
-                            t, guidance_scale, guidance_type
-                        ) * add_aggregator_v1(
-                            delta_noise_pred_src,
-                            w_src_cur,
-                            delta_noise_pred_tgt,
-                            w_tgt_cur,
-                        )                        
+                            noise_pred = noise_pred_uncond_src + guidance_weight(
+                                t, guidance_scale, guidance_type
+                            ) * add_aggregator_v1(
+                                delta_noise_pred_src,
+                                w_src_cur,
+                                delta_noise_pred_tgt,
+                                w_tgt_cur,
+                            )
 
                     # compute the previous noisy sample x_t -> x_t-1
                     if not use_plain_cfg:
                         latents = latents.chunk(2)[0]
-                    latents = self.scheduler.step(noise_pred, t, latents, **extra_step_kwargs).prev_sample
+                    latents = self.scheduler.step(
+                        noise_pred, t, latents, **extra_step_kwargs
+                    ).prev_sample
 
                     if callback_on_step_end is not None:
                         callback_kwargs = {}
                         for k in callback_on_step_end_tensor_inputs:
                             callback_kwargs[k] = locals()[k]
-                        callback_outputs = callback_on_step_end(self, i, t, callback_kwargs)
+                        callback_outputs = callback_on_step_end(
+                            self, i, t, callback_kwargs
+                        )
 
                         latents = callback_outputs.pop("latents", latents)
-                        prompt_embeds = callback_outputs.pop("prompt_embeds", prompt_embeds)
-                        negative_prompt_embeds = callback_outputs.pop("negative_prompt_embeds", negative_prompt_embeds)
+                        prompt_embeds = callback_outputs.pop(
+                            "prompt_embeds", prompt_embeds
+                        )
+                        negative_prompt_embeds = callback_outputs.pop(
+                            "negative_prompt_embeds", negative_prompt_embeds
+                        )
 
                     # call the callback, if provided
-                    if i == len(timesteps) - 1 or ((i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0):
+                    if i == len(timesteps) - 1 or (
+                        (i + 1) > num_warmup_steps
+                        and (i + 1) % self.scheduler.order == 0
+                    ):
                         progress_bar.update()
                         if callback is not None and i % callback_steps == 0:
                             callback(i, t, latents)
@@ -331,7 +370,9 @@ class VideoAnimateDiffPipeline(AnimateDiffPipeline):
             video = latents
         else:
             video_tensor = self.decode_latents(latents, decode_chunk_size)
-            video = self.video_processor.postprocess_video(video=video_tensor, output_type=output_type)
+            video = self.video_processor.postprocess_video(
+                video=video_tensor, output_type=output_type
+            )
 
         # 10. Offload all models
         self.maybe_free_model_hooks()

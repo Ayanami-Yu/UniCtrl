@@ -19,8 +19,8 @@ parser.add_argument("--src_params", nargs="+", type=float, default=None)
 parser.add_argument("--tgt_params", nargs="+", type=float, default=None)
 args = parser.parse_args()
 
-src_start, src_inc, src_n = (1.0, 0.1, 1) if not args.src_params else args.src_params
-tgt_start, tgt_inc, tgt_n = (1.0, 0.1, 1) if not args.tgt_params else args.tgt_params
+src_start, src_inc, src_n = (0.9, 0.1, 1) if not args.src_params else args.src_params
+tgt_start, tgt_inc, tgt_n = (1.1, 0.1, 1) if not args.tgt_params else args.tgt_params
 prompts = (
     [
         "a woman is walking in the rain",
