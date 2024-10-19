@@ -82,3 +82,9 @@ t = 0.5-1.5
 `CUDA_VISIBLE_DEVICES=6 nohup python test_video_animatediff.py --prompt "a silver wolf is resting on a grassland" "a silver wolf is resting on a grassland, while a golden eagle is flying towards it" --out_dir "./exp/animatediff/wolf_rest_eagle/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/wolf_rest_eagle.txt 2>&1 &`
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_video_animatediff.py --prompt "a high quality realistic photo of a cute cat running in a beautiful meadow" "a high quality realistic photo of a cute cat running in a beautiful meadow, Van Gogh style" --out_dir "./exp/animatediff/cat_meadow_van_gogh/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/cat_meadow_van_gogh.txt 2>&1 &`
+
+## 3D
+
+### CLI
+
+`CUDA_VISIBLE_DEVICES=1 nohup python ctrl_3d/LucidDreamer/train.py --opt /home/hongyu/PromptCtrl/ctrl_3d/LucidDreamer/configs/horse_girl.yaml &`

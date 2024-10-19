@@ -24,7 +24,6 @@ from scene.gaussian_model import GaussianModel
 
 from utils.camera_utils import (
     camera_to_JSON,
-    cameraList_from_camInfos,
     cameraList_from_RcamInfos,
 )
 from utils.system_utils import searchForMaxIteration

@@ -28,8 +28,6 @@ from utils.graphics_utils import BasicPointCloud
 from utils.sh_utils import RGB2SH, SH2RGB
 from utils.system_utils import mkdir_p
 
-# from .resnet import *
-
 
 class GaussianModel:
 

@@ -146,8 +146,9 @@ def render(
         scales = torch.clamp(scales + (torch.randn_like(scales) * variance), 0.0)
 
     # Rasterize visible Gaussians to image, obtain their radii (on screen).
-
-    rendered_image, radii, depth_alpha = rasterizer(
+    # FIXME the diff-gaussian-rasterization used here is different from that of LucidDreamer
+    # rendered_image, radii, depth_alpha = rasterizer(
+    rendered_image, radii, depth, alpha = rasterizer(
         means3D=means3D,
         means2D=means2D,
         shs=shs,
@@ -157,18 +158,7 @@ def render(
         rotations=rotations,
         cov3D_precomp=cov3D_precomp,
     )
-    depth, alpha = torch.chunk(depth_alpha, 2)
-    # bg_train = pc.get_background
-    # rendered_image = bg_train*alpha.repeat(3,1,1) + rendered_image
-    #     focal = 1 / (2 * math.tan(viewpoint_camera.FoVx / 2))  #torch.tan(torch.tensor(viewpoint_camera.FoVx) / 2) * (2. / 2
-    #     disparity = focal / (depth + 1e-9)
-    #     max_disp = torch.max(disparity)
-    #     min_disp = torch.min(disparity[disparity > 0])
-    #     norm_disparity = (disparity - min_disp) / (max_disp - min_disp)
-    #     # Those Gaussians that were frustum culled or had a radius of 0 were not visible.
-    #     # They will be excluded from value updates used in the splitting criteria.
-    #     return {"render": rendered_image,
-    #             "depth": norm_disparity,
+    # depth, alpha = torch.chunk(depth_alpha, 2)
 
     focal = 1 / (2 * math.tan(viewpoint_camera.FoVx / 2))
     disp = focal / (depth + (alpha * 10) + 1e-5)
