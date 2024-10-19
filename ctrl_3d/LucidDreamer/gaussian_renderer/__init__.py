@@ -17,7 +17,10 @@ from diff_gaussian_rasterization import (
     GaussianRasterizationSettings,
     GaussianRasterizer,
 )
-from scene.gaussian_model import GaussianModel
+
+from ctrl_3d.LucidDreamer.scene import GaussianModel
+
+# from scene.gaussian_model import GaussianModel
 
 
 def render(

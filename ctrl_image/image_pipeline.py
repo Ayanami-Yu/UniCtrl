@@ -6,7 +6,7 @@ from diffusers.callbacks import MultiPipelineCallbacks, PipelineCallback
 from diffusers.image_processor import PipelineImageInput
 from diffusers.utils import deprecate, replace_example_docstring
 
-from utils.ctrl_utils import *
+from ctrl_utils.ctrl_utils import *
 
 from .pipeline_stable_diffusion import (
     EXAMPLE_DOC_STRING,

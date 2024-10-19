@@ -1,14 +1,122 @@
 import os
 from pathlib import Path
+from typing import Optional
 
 import numpy as np
 import torch
 import torch.nn.functional as F
-from torchvision.utils import save_image
-from LucidDreamer.guidance.sd_utils import StableDiffusion, rgb2sat, SpecifyGradient
+from diffusers import DDIMScheduler
 from LucidDreamer.guidance.sd_step import pred_original
+from LucidDreamer.guidance.sd_utils import SpecifyGradient, StableDiffusion, rgb2sat
+from torchvision.utils import save_image
+
+from ctrl_utils.ctrl_utils import *
+
 
 class StableDiffusionCtrl(StableDiffusion):
+
+    # TODO try adding prompt ctrl to DDIM inv
+    def add_noise_with_cfg(
+        self,
+        latents,
+        noise,
+        ind_t,
+        ind_prev_t,
+        text_embeddings=None,
+        cfg=1.0,
+        delta_t=1,
+        inv_steps=1,
+        is_noisy_latent=False,
+        eta=0.0,
+        use_plain_cfg=False,
+        guidance_type: str = "static",
+        w_src=1.0,
+        w_tgt=1.0,
+        w_src_ctrl_type: str = "static",
+        w_tgt_ctrl_type: str = "static",
+        t_ctrl_start: Optional[int] = None,
+    ):
+
+        text_embeddings = text_embeddings.to(self.precision_t)
+        if cfg <= 1.0:
+            uncond_text_embedding = text_embeddings.reshape(
+                2, -1, text_embeddings.shape[-2], text_embeddings.shape[-1]
+            )[1]
+
+        unet = self.unet
+
+        if is_noisy_latent:
+            prev_noisy_lat = latents
+        else:
+            prev_noisy_lat = self.scheduler.add_noise(
+                latents, noise, self.timesteps[ind_prev_t]
+            )
+
+        cur_ind_t = ind_prev_t
+        cur_noisy_lat = prev_noisy_lat
+
+        pred_scores = []
+
+        for _ in range(inv_steps):
+            # pred noise
+            cur_noisy_lat_ = self.scheduler.scale_model_input(
+                cur_noisy_lat, self.timesteps[cur_ind_t]
+            ).to(self.precision_t)
+
+            if cfg > 1.0:  # TODO why false
+                latent_model_input = torch.cat([cur_noisy_lat_, cur_noisy_lat_])
+                timestep_model_input = (
+                    self.timesteps[cur_ind_t]
+                    .reshape(1, 1)
+                    .repeat(latent_model_input.shape[0], 1)
+                    .reshape(-1)
+                )
+                unet_output = unet(
+                    latent_model_input,
+                    timestep_model_input,
+                    encoder_hidden_states=text_embeddings,
+                ).sample
+
+                uncond, cond = torch.chunk(unet_output, chunks=2)
+
+                unet_output = cond + cfg * (
+                    uncond - cond
+                )  # reverse cfg to enhance the distillation
+            else:
+                timestep_model_input = (
+                    self.timesteps[cur_ind_t]
+                    .reshape(1, 1)
+                    .repeat(cur_noisy_lat_.shape[0], 1)
+                    .reshape(-1)
+                )
+                unet_output = unet(
+                    cur_noisy_lat_,
+                    timestep_model_input,
+                    encoder_hidden_states=uncond_text_embedding,
+                ).sample
+
+            pred_scores.append((cur_ind_t, unet_output))
+
+            next_ind_t = min(cur_ind_t + delta_t, ind_t)
+            cur_t, next_t = self.timesteps[cur_ind_t], self.timesteps[next_ind_t]
+            delta_t_ = (
+                next_t - cur_t
+                if isinstance(self.scheduler, DDIMScheduler)
+                else next_ind_t - cur_ind_t
+            )
+
+            cur_noisy_lat = self.sche_func(
+                self.scheduler, unet_output, cur_t, cur_noisy_lat, -delta_t_, eta
+            ).prev_sample
+            cur_ind_t = next_ind_t
+
+            del unet_output
+            torch.cuda.empty_cache()
+
+            if cur_ind_t == ind_t:
+                break
+
+        return prev_noisy_lat, cur_noisy_lat, pred_scores[::-1]
 
     def train_step(
         self,
@@ -25,6 +133,13 @@ class StableDiffusionCtrl(StableDiffusion):
         guidance_opt=None,
         as_latent=False,
         embedding_inverse=None,
+        use_plain_cfg=False,
+        guidance_type: str = "static",
+        w_src=1.0,
+        w_tgt=1.0,
+        w_src_ctrl_type: str = "static",
+        w_tgt_ctrl_type: str = "static",
+        t_ctrl_start: Optional[int] = None,
     ):
 
         pred_rgb, pred_depth, pred_alpha = self.augmentation(
@@ -125,7 +240,9 @@ class StableDiffusionCtrl(StableDiffusion):
                     else int(np.ceil(ind_prev_t / xs_delta_t))
                 )
                 starting_ind = max(
-                    ind_prev_t - xs_delta_t * xs_inv_steps, torch.ones_like(ind_t) * 0
+                    # ind_prev_t - xs_delta_t * xs_inv_steps, torch.ones_like(ind_t) * 0
+                    ind_prev_t - xs_delta_t * xs_inv_steps,
+                    torch.zeros_like(ind_t),
                 )
 
                 _, prev_latents_noisy, pred_scores_xs = self.add_noise_with_cfg(
@@ -138,6 +255,13 @@ class StableDiffusionCtrl(StableDiffusion):
                     xs_delta_t,
                     xs_inv_steps,
                     eta=guidance_opt.xs_eta,
+                    use_plain_cfg=use_plain_cfg,
+                    guidance_type=guidance_type,
+                    w_src=w_src,
+                    w_tgt=w_tgt,
+                    w_src_ctrl_type=w_src_ctrl_type,
+                    w_tgt_ctrl_type=w_tgt_ctrl_type,
+                    t_ctrl_start=t_ctrl_start,
                 )
                 # Step 2: sample x_t
                 _, latents_noisy, pred_scores_xt = self.add_noise_with_cfg(
@@ -150,6 +274,13 @@ class StableDiffusionCtrl(StableDiffusion):
                     current_delta_t,
                     1,
                     is_noisy_latent=True,
+                    use_plain_cfg=use_plain_cfg,
+                    guidance_type=guidance_type,
+                    w_src=w_src,
+                    w_tgt=w_tgt,
+                    w_src_ctrl_type=w_src_ctrl_type,
+                    w_tgt_ctrl_type=w_tgt_ctrl_type,
+                    t_ctrl_start=t_ctrl_start,
                 )
 
                 pred_scores = pred_scores_xt + pred_scores_xs
@@ -217,19 +348,50 @@ class StableDiffusionCtrl(StableDiffusion):
                 resolution[0] // 8,
                 resolution[1] // 8,
             )
-            delta_DSD = noise_pred_text - noise_pred_uncond
 
-        pred_noise = noise_pred_uncond + guidance_opt.guidance_scale * delta_DSD
+        if use_plain_cfg:
+            noise_pred = noise_pred_uncond + guidance_opt.guidance_scale * (
+                noise_pred_text - noise_pred_uncond
+            )
+        elif t_ctrl_start is not None and t > t_ctrl_start:
+            # use the source prompt only
+            noise_pred_uncond = torch.chunk(noise_pred_uncond, 2)[0]
+            noise_pred_text = torch.chunk(noise_pred_text, 2)[0]
+
+            noise_pred = noise_pred_uncond + guidance_weight(
+                t, guidance_opt.guidance_scale, guidance_type
+            ) * (noise_pred_text - noise_pred_uncond)
+        else:  # aggregate noise
+            noise_pred_text_src, noise_pred_text_tgt = noise_pred_text.chunk(2)
+            noise_pred_uncond_src, noise_pred_uncond_tgt = noise_pred_uncond.chunk(2)
+
+            delta_noise_pred_src = noise_pred_text_src - noise_pred_uncond_src
+            delta_noise_pred_tgt = noise_pred_text_tgt - noise_pred_uncond_tgt
+
+            w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
+            w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
+
+            # TODO check torch.equal(noise_pred_uncond_src, noise_pred_uncond_tgt)
+            noise_pred = noise_pred_uncond_src + guidance_weight(
+                t, guidance_opt.guidance_scale, guidance_type
+            ) * add_aggregator_v1(
+                delta_noise_pred_src,
+                w_src_cur,
+                delta_noise_pred_tgt,
+                w_tgt_cur,
+                mode="latent",
+            )
 
         w = lambda alphas: (((1 - alphas) / alphas) ** 0.5)
 
-        grad = w(self.alphas[t]) * (pred_noise - target)
+        grad = w(self.alphas[t]) * (noise_pred - target)
 
         grad = torch.nan_to_num(grad_scale * grad)
         loss = SpecifyGradient.apply(latents, grad)
 
         if iteration % guidance_opt.vis_interval == 0:
-            noise_pred_post = noise_pred_uncond + 7.5 * delta_DSD
+            # noise_pred_post = noise_pred_uncond + 7.5 * delta_DSD
+            noise_pred_post = noise_pred
             lat2rgb = lambda x: torch.clip(
                 (x.permute(0, 2, 3, 1) @ self.rgb_latent_factors.to(x.dtype)).permute(
                     0, 3, 1, 2
@@ -253,7 +415,6 @@ class StableDiffusionCtrl(StableDiffusion):
                 pred_x0_sp = self.decode_latents(
                     pred_x0_latent_sp.type(self.precision_t)
                 )
-                # pred_x0_uncond = pred_x0_sp[:1, ...]
 
                 grad_abs = torch.abs(grad.detach())
                 norm_grad = F.interpolate(

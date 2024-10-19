@@ -17,11 +17,11 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 from plyfile import PlyData, PlyElement
-from scene.gaussian_model import BasicPointCloud
 
-from utils.graphics_utils import focal2fov, fov2focal
-from utils.pointe_utils import init_from_pointe
-from utils.sh_utils import SH2RGB
+from ctrl_3d.LucidDreamer.scene.gaussian_model import BasicPointCloud
+from ctrl_3d.LucidDreamer.utils.graphics_utils import focal2fov, fov2focal
+from ctrl_3d.LucidDreamer.utils.pointe_utils import init_from_pointe
+from ctrl_3d.LucidDreamer.utils.sh_utils import SH2RGB
 
 
 class RandCameraInfo(NamedTuple):

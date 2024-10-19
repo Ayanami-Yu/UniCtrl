@@ -21,6 +21,9 @@ GuidanceParams:
   max_t_range: 0.98
   lambda_guidance: 0.1
   guidance_scale: 7.5
+
+  # controls whether to use CFG in DDIM inversion (add_noise_with_cfg) or not
+  # denoise_guidance_scale: 7.5
   denoise_guidance_scale: 1.0
   noise_seed: 0
 

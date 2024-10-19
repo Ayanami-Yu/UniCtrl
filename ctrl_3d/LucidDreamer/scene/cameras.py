@@ -13,7 +13,11 @@ import numpy as np
 import torch
 from torch import nn
 
-from utils.graphics_utils import fov2focal, getProjectionMatrix, getWorld2View2
+from ctrl_3d.LucidDreamer.utils.graphics_utils import (
+    fov2focal,
+    getProjectionMatrix,
+    getWorld2View2,
+)
 
 
 def get_rays_torch(focal, c2w, H=64, W=64):

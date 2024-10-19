@@ -20,27 +20,20 @@ from random import randint
 import imageio
 import torch
 import torchvision.transforms as T
-from arguments import (
+from torchvision.utils import save_image
+from tqdm import tqdm
+
+from ctrl_3d.LucidDreamer.arguments import (
     GenerateCamParams,
     GuidanceParams,
     ModelParams,
     OptimizationParams,
     PipelineParams,
 )
-from gaussian_renderer import network_gui, render
-from scene import GaussianModel, Scene
-from torchvision.utils import save_image
-from tqdm import tqdm
-
-from utils.general_utils import safe_state
-from utils.loss_utils import tv_loss
-
-try:
-    from torch.utils.tensorboard import SummaryWriter
-
-    TENSORBOARD_FOUND = True
-except ImportError:
-    TENSORBOARD_FOUND = False
+from ctrl_3d.LucidDreamer.gaussian_renderer import network_gui, render
+from ctrl_3d.LucidDreamer.scene import GaussianModel, Scene
+from ctrl_3d.LucidDreamer.utils.general_utils import safe_state
+from ctrl_3d.LucidDreamer.utils.loss_utils import tv_loss
 
 
 def adjust_text_embeddings(embeddings, azimuth, guidance_opt):
@@ -330,7 +323,6 @@ def training(
                 text_z.append(text_z_comp)
                 weights_.append(weights)
 
-            # TODO will interpolation between embeds affect prompt ctrl?
             else:
                 if azimuth >= -90 and azimuth < 90:
                     if azimuth >= 0:
@@ -527,6 +519,13 @@ def training(
 
 
 def prepare_output_and_logger(args):
+    try:
+        from torch.utils.tensorboard import SummaryWriter
+
+        TENSORBOARD_FOUND = True
+    except ImportError:
+        TENSORBOARD_FOUND = False
+
     if not args._model_path:
         if os.getenv("OAR_JOB_ID"):
             unique_str = os.getenv("OAR_JOB_ID")

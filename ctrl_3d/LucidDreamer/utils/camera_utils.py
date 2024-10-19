@@ -10,10 +10,10 @@
 #
 
 import numpy as np
-from scene.cameras import Camera, RCamera
 
-from utils.general_utils import PILtoTorch
-from utils.graphics_utils import fov2focal
+from ctrl_3d.LucidDreamer.scene.cameras import Camera, RCamera
+from ctrl_3d.LucidDreamer.utils.general_utils import PILtoTorch
+from ctrl_3d.LucidDreamer.utils.graphics_utils import fov2focal
 
 WARNED = False
 

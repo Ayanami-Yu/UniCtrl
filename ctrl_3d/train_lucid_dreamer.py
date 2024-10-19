@@ -9,17 +9,14 @@
 # For inquiries contact  george.drettakis@inria.fr
 #
 
-import math
 import os
 import random
 import sys
-import uuid
-from argparse import ArgumentParser, Namespace
+from argparse import ArgumentParser
 from random import randint
 
 import imageio
 import torch
-import torchvision.transforms as T
 from LucidDreamer.arguments import (
     GenerateCamParams,
     GuidanceParams,
@@ -29,104 +26,21 @@ from LucidDreamer.arguments import (
 )
 from LucidDreamer.gaussian_renderer import network_gui, render
 from LucidDreamer.scene import GaussianModel, Scene
-from torchvision.utils import save_image
-from tqdm import tqdm
-
+from LucidDreamer.train import (
+    adjust_text_embeddings,
+    prepare_embeddings,
+    prepare_output_and_logger,
+    training_report,
+    video_inference,
+)
 from LucidDreamer.utils.general_utils import safe_state
 from LucidDreamer.utils.loss_utils import tv_loss
-
-try:
-    from torch.utils.tensorboard import SummaryWriter
-
-    TENSORBOARD_FOUND = True
-except ImportError:
-    TENSORBOARD_FOUND = False
-
-
-def adjust_text_embeddings(embeddings, azimuth, guidance_opt):
-    text_z_list = []
-    weights_list = []
-    K = 0
-    # for b in range(azimuth):
-    text_z_, weights_ = get_pos_neg_text_embeddings(embeddings, azimuth, guidance_opt)
-    K = max(K, weights_.shape[0])
-    text_z_list.append(text_z_)
-    weights_list.append(weights_)
-
-    # Interleave text_embeddings from different dirs to form a batch
-    text_embeddings = []
-    for i in range(K):
-        for text_z in text_z_list:
-            # if uneven length, pad with the first embedding
-            text_embeddings.append(text_z[i] if i < len(text_z) else text_z[0])
-    text_embeddings = torch.stack(text_embeddings, dim=0)  # [B * K, 77, 768]
-
-    # Interleave weights from different dirs to form a batch
-    weights = []
-    for i in range(K):
-        for weights_ in weights_list:
-            weights.append(
-                weights_[i] if i < len(weights_) else torch.zeros_like(weights_[0])
-            )
-    weights = torch.stack(weights, dim=0)  # [B * K]
-    return text_embeddings, weights
-
-
-def get_pos_neg_text_embeddings(embeddings, azimuth_val, opt):
-    if azimuth_val >= -90 and azimuth_val < 90:
-        if azimuth_val >= 0:
-            r = 1 - azimuth_val / 90
-        else:
-            r = 1 + azimuth_val / 90
-        start_z = embeddings["front"]
-        end_z = embeddings["side"]
-        pos_z = r * start_z + (1 - r) * end_z
-        text_z = torch.cat([pos_z, embeddings["front"], embeddings["side"]], dim=0)
-        if r > 0.8:
-            front_neg_w = 0.0
-        else:
-            front_neg_w = math.exp(-r * opt.front_decay_factor) * opt.negative_w
-        if r < 0.2:
-            side_neg_w = 0.0
-        else:
-            side_neg_w = math.exp(-(1 - r) * opt.side_decay_factor) * opt.negative_w
-
-        weights = torch.tensor([1.0, front_neg_w, side_neg_w])
-    else:
-        if azimuth_val >= 0:
-            r = 1 - (azimuth_val - 90) / 90
-        else:
-            r = 1 + (azimuth_val + 90) / 90
-        start_z = embeddings["side"]
-        end_z = embeddings["back"]
-        pos_z = r * start_z + (1 - r) * end_z
-        text_z = torch.cat([pos_z, embeddings["side"], embeddings["front"]], dim=0)
-        front_neg_w = opt.negative_w
-        if r > 0.8:
-            side_neg_w = 0.0
-        else:
-            side_neg_w = math.exp(-r * opt.side_decay_factor) * opt.negative_w / 2
-
-        weights = torch.tensor([1.0, side_neg_w, front_neg_w])
-    return text_z, weights.to(text_z.device)
-
-
-def prepare_embeddings(guidance_opt, guidance):
-    embeddings = {}
-    # text embeddings (stable-diffusion) and (IF)
-    embeddings["default"] = guidance.get_text_embeds([guidance_opt.text])
-    embeddings["uncond"] = guidance.get_text_embeds([guidance_opt.negative])
-
-    for d in ["front", "side", "back"]:
-        embeddings[d] = guidance.get_text_embeds([f"{guidance_opt.text}, {d} view"])
-    embeddings["inverse_text"] = guidance.get_text_embeds(guidance_opt.inverse_text)
-    return embeddings
+from tqdm import tqdm
 
 
 def guidance_setup(guidance_opt):
     if guidance_opt.guidance == "SD":
-        # from LucidDreamer.guidance.sd_utils import StableDiffusion
-        from sd_luciddreamer import StableDiffusionCtrl
+        from sd_lucid_dreamer import StableDiffusionCtrl
 
         guidance = StableDiffusionCtrl(
             guidance_opt.g_device,
@@ -185,7 +99,6 @@ def training(
     # set up pretrain diffusion models and text_embedings
     guidance, embeddings = guidance_setup(guidance_opt)
     viewpoint_stack = None
-    viewpoint_stack_around = None
     ema_loss_for_log = 0.0
     progress_bar = tqdm(range(first_iter, opt.iterations), desc="Training progress")
     first_iter += 1
@@ -201,7 +114,6 @@ def training(
         pro_img_frames = []
 
     for iteration in range(first_iter, opt.iterations + 1):
-        # TODO: DEBUG NETWORK_GUI
         if network_gui.conn == None:
             network_gui.try_connect()
         while network_gui.conn != None:
@@ -525,146 +437,6 @@ def training(
             fps=30,
             quality=8,
         )
-
-
-def prepare_output_and_logger(args):
-    if not args._model_path:
-        if os.getenv("OAR_JOB_ID"):
-            unique_str = os.getenv("OAR_JOB_ID")
-        else:
-            unique_str = str(uuid.uuid4())
-        args._model_path = os.path.join("./output/", args.workspace)
-
-    # Set up output folder
-    print("Output folder: {}".format(args._model_path))
-    os.makedirs(args._model_path, exist_ok=True)
-
-    # copy configs
-    if args.opt_path is not None:
-        os.system(
-            " ".join(
-                ["cp", args.opt_path, os.path.join(args._model_path, "config.yaml")]
-            )
-        )
-
-    with open(os.path.join(args._model_path, "cfg_args"), "w") as cfg_log_f:
-        cfg_log_f.write(str(Namespace(**vars(args))))
-
-    # Create Tensorboard writer
-    tb_writer = None
-    if TENSORBOARD_FOUND:
-        tb_writer = SummaryWriter(args._model_path)
-    else:
-        print("Tensorboard not available: not logging progress")
-    return tb_writer
-
-
-def training_report(
-    tb_writer,
-    iteration,
-    elapsed,
-    testing_iterations,
-    scene: Scene,
-    renderFunc,
-    renderArgs,
-):
-    if tb_writer:
-        tb_writer.add_scalar("iter_time", elapsed, iteration)
-    # Report test and samples of training set
-    if iteration in testing_iterations:
-        save_folder = os.path.join(
-            scene.args._model_path, "test_six_views/{}_iteration".format(iteration)
-        )
-        if not os.path.exists(save_folder):
-            os.makedirs(save_folder)  # makedirs 创建文件时如果路径不存在会创建这个路径
-            print("test views is in :", save_folder)
-        torch.cuda.empty_cache()
-        config = {"name": "test", "cameras": scene.getTestCameras()}
-        if config["cameras"] and len(config["cameras"]) > 0:
-            for idx, viewpoint in enumerate(config["cameras"]):
-                render_out = renderFunc(
-                    viewpoint, scene.gaussians, *renderArgs, test=True
-                )
-                rgb, depth = render_out["render"], render_out["depth"]
-                if depth is not None:
-                    depth_norm = depth / depth.max()
-                    save_image(
-                        depth_norm,
-                        os.path.join(
-                            save_folder, "render_depth_{}.png".format(viewpoint.uid)
-                        ),
-                    )
-
-                image = torch.clamp(rgb, 0.0, 1.0)
-                save_image(
-                    image,
-                    os.path.join(
-                        save_folder, "render_view_{}.png".format(viewpoint.uid)
-                    ),
-                )
-                if tb_writer:
-                    tb_writer.add_images(
-                        config["name"] + "_view_{}/render".format(viewpoint.uid),
-                        image[None],
-                        global_step=iteration,
-                    )
-            print("\n[ITER {}] Eval Done!".format(iteration))
-        if tb_writer:
-            tb_writer.add_histogram(
-                "scene/opacity_histogram", scene.gaussians.get_opacity, iteration
-            )
-            tb_writer.add_scalar(
-                "total_points", scene.gaussians.get_xyz.shape[0], iteration
-            )
-        torch.cuda.empty_cache()
-
-
-def video_inference(iteration, scene: Scene, renderFunc, renderArgs):
-    sharp = T.RandomAdjustSharpness(3, p=1.0)
-
-    save_folder = os.path.join(
-        scene.args._model_path, "videos/{}_iteration".format(iteration)
-    )
-    if not os.path.exists(save_folder):
-        os.makedirs(save_folder)  # makedirs
-        print("videos is in :", save_folder)
-    torch.cuda.empty_cache()
-    config = {"name": "test", "cameras": scene.getCircleVideoCameras()}
-    if config["cameras"] and len(config["cameras"]) > 0:
-        img_frames = []
-        depth_frames = []
-        print("Generating Video using", len(config["cameras"]), "different view points")
-        for idx, viewpoint in enumerate(config["cameras"]):
-            render_out = renderFunc(viewpoint, scene.gaussians, *renderArgs, test=True)
-            rgb, depth = render_out["render"], render_out["depth"]
-            if depth is not None:
-                depth_norm = depth / depth.max()
-                depths = torch.clamp(depth_norm, 0.0, 1.0)
-                depths = depths.detach().cpu().permute(1, 2, 0).numpy()
-                depths = (depths * 255).round().astype("uint8")
-                depth_frames.append(depths)
-
-            image = torch.clamp(rgb, 0.0, 1.0)
-            image = image.detach().cpu().permute(1, 2, 0).numpy()
-            image = (image * 255).round().astype("uint8")
-            img_frames.append(image)
-            # save_image(image,os.path.join(save_folder,"lora_view_{}.jpg".format(viewpoint.uid)))
-        # Img to Numpy
-        imageio.mimwrite(
-            os.path.join(save_folder, "video_rgb_{}.mp4".format(iteration)),
-            img_frames,
-            fps=30,
-            quality=8,
-        )
-        if len(depth_frames) > 0:
-            imageio.mimwrite(
-                os.path.join(save_folder, "video_depth_{}.mp4".format(iteration)),
-                depth_frames,
-                fps=30,
-                quality=8,
-            )
-        print("\n[ITER {}] Video Save Done!".format(iteration))
-    torch.cuda.empty_cache()
 
 
 if __name__ == "__main__":

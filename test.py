@@ -1,9 +1,9 @@
+# script for inferencing with original AnimateDiff
 import torch
 from diffusers import AnimateDiffPipeline, DDIMScheduler, MotionAdapter
 from diffusers.utils import export_to_gif
 
-
-# Load the motion adapter
+# load the motion adapter
 adapter = MotionAdapter.from_pretrained(
     "guoyww/animatediff-motion-adapter-v1-5-2", torch_dtype=torch.float16
 )
@@ -26,13 +26,14 @@ pipe.scheduler = scheduler
 pipe.enable_vae_slicing()
 pipe.enable_model_cpu_offload()
 
+w = 2.9
 output = pipe(
-    prompt="a high quality realistic photo of a cute cat running in a beautiful meadow",
+    prompt="a high quality realistic photo of a cute cat running in a beautiful meadow, Van Gogh style",
     negative_prompt="bad quality, worse quality",
     num_frames=16,
-    guidance_scale=7.5 * 0.9,
+    guidance_scale=7.5 * w,
     num_inference_steps=25,
     generator=torch.Generator("cpu").manual_seed(0),
 )
 frames = output.frames[0]
-export_to_gif(frames, "animation.gif")
+export_to_gif(frames, f"ablation/{w}_tgt.gif")

@@ -8,7 +8,6 @@ from pytorch_lightning import seed_everything
 
 from ctrl_video.video_animatediff_pipeline import VideoAnimateDiffPipeline
 
-
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
 parser.add_argument("--out_dir", type=str, default="./exp/animatediff/samples/")

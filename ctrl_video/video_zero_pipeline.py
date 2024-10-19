@@ -4,7 +4,7 @@ from typing import Callable, List, Optional, Union
 import torch
 import torch.nn.functional as F
 
-from utils.ctrl_utils import *
+from ctrl_utils.ctrl_utils import *
 
 from .pipeline_text_to_video_zero import (
     CrossFrameAttnProcessor,

@@ -17,16 +17,16 @@ from plyfile import PlyData, PlyElement
 from simple_knn._C import distCUDA2
 from torch import nn
 
-from utils.general_utils import (
+from ctrl_3d.LucidDreamer.utils.general_utils import (
     build_rotation,
     build_scaling_rotation,
     get_expon_lr_func,
     inverse_sigmoid,
     strip_symmetric,
 )
-from utils.graphics_utils import BasicPointCloud
-from utils.sh_utils import RGB2SH, SH2RGB
-from utils.system_utils import mkdir_p
+from ctrl_3d.LucidDreamer.utils.graphics_utils import BasicPointCloud
+from ctrl_3d.LucidDreamer.utils.sh_utils import RGB2SH, SH2RGB
+from ctrl_3d.LucidDreamer.utils.system_utils import mkdir_p
 
 
 class GaussianModel:

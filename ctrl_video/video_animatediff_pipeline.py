@@ -6,7 +6,7 @@ from diffusers.pipelines.animatediff.pipeline_output import AnimateDiffPipelineO
 from diffusers.utils import deprecate, replace_example_docstring
 from einops import rearrange
 
-from utils.ctrl_utils import *
+from ctrl_utils.ctrl_utils import *
 
 from .pipeline_animatediff import EXAMPLE_DOC_STRING, AnimateDiffPipeline
 

@@ -13,20 +13,19 @@ import json
 import os
 import random
 
-from arguments import GenerateCamParams, ModelParams
-from scene.dataset_readers import (
+from ctrl_3d.LucidDreamer.arguments import GenerateCamParams, ModelParams
+from ctrl_3d.LucidDreamer.scene.dataset_readers import (
     GenerateCircleCameras,
     GeneratePurnCameras,
     GenerateRandomCameras,
     sceneLoadTypeCallbacks,
 )
-from scene.gaussian_model import GaussianModel
-
-from utils.camera_utils import (
+from ctrl_3d.LucidDreamer.scene.gaussian_model import GaussianModel
+from ctrl_3d.LucidDreamer.utils.camera_utils import (
     camera_to_JSON,
     cameraList_from_RcamInfos,
 )
-from utils.system_utils import searchForMaxIteration
+from ctrl_3d.LucidDreamer.utils.system_utils import searchForMaxIteration
 
 
 class Scene:
