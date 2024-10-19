@@ -9,23 +9,25 @@
 # For inquiries contact  george.drettakis@inria.fr
 #
 
+import json
 import os
 import random
-import json
-from utils.system_utils import searchForMaxIteration
+
+from arguments import GenerateCamParams, ModelParams
 from scene.dataset_readers import (
-    sceneLoadTypeCallbacks,
-    GenerateRandomCameras,
-    GeneratePurnCameras,
     GenerateCircleCameras,
+    GeneratePurnCameras,
+    GenerateRandomCameras,
+    sceneLoadTypeCallbacks,
 )
 from scene.gaussian_model import GaussianModel
-from arguments import ModelParams, GenerateCamParams
+
 from utils.camera_utils import (
-    cameraList_from_camInfos,
     camera_to_JSON,
+    cameraList_from_camInfos,
     cameraList_from_RcamInfos,
 )
+from utils.system_utils import searchForMaxIteration
 
 
 class Scene:

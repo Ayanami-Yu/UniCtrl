@@ -10,16 +10,18 @@
 #
 
 import os
-import torch
 import random
-import torch.nn.functional as F
 from typing import NamedTuple
-from utils.graphics_utils import focal2fov, fov2focal
+
 import numpy as np
-from utils.pointe_utils import init_from_pointe
+import torch
+import torch.nn.functional as F
 from plyfile import PlyData, PlyElement
-from utils.sh_utils import SH2RGB
 from scene.gaussian_model import BasicPointCloud
+
+from utils.graphics_utils import focal2fov, fov2focal
+from utils.pointe_utils import init_from_pointe
+from utils.sh_utils import SH2RGB
 
 
 class RandCameraInfo(NamedTuple):

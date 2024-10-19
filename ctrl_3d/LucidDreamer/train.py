@@ -9,29 +9,31 @@
 # For inquiries contact  george.drettakis@inria.fr
 #
 
-import random
-import imageio
+import math
 import os
-import torch
-from random import randint
-from utils.loss_utils import tv_loss
-from gaussian_renderer import render, network_gui
+import random
 import sys
-from scene import Scene, GaussianModel
-from utils.general_utils import safe_state
 import uuid
-from tqdm import tqdm
 from argparse import ArgumentParser, Namespace
+from random import randint
+
+import imageio
+import torch
+import torchvision.transforms as T
 from arguments import (
-    ModelParams,
-    PipelineParams,
-    OptimizationParams,
     GenerateCamParams,
     GuidanceParams,
+    ModelParams,
+    OptimizationParams,
+    PipelineParams,
 )
-import math
+from gaussian_renderer import network_gui, render
+from scene import GaussianModel, Scene
 from torchvision.utils import save_image
-import torchvision.transforms as T
+from tqdm import tqdm
+
+from utils.general_utils import safe_state
+from utils.loss_utils import tv_loss
 
 try:
     from torch.utils.tensorboard import SummaryWriter

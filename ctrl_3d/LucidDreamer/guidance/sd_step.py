@@ -1,14 +1,14 @@
-import torch
+from dataclasses import dataclass
+from typing import Optional, Tuple, Union
 
+import torch
 from diffusers import (
-    DDPMScheduler,
     DDIMScheduler,
-    EulerDiscreteScheduler,
+    DDPMScheduler,
     EulerAncestralDiscreteScheduler,
+    EulerDiscreteScheduler,
 )
 from diffusers.utils import BaseOutput
-from typing import Optional, Tuple, Union
-from dataclasses import dataclass
 from diffusers.utils.torch_utils import randn_tensor
 
 

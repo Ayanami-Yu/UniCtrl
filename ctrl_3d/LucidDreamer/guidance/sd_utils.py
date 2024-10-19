@@ -1,9 +1,9 @@
-from transformers import logging
-from diffusers import StableDiffusionPipeline, DDIMScheduler, ControlNetModel
-from pathlib import Path
 import os
+from pathlib import Path
 
 import torchvision.transforms as T
+from diffusers import ControlNetModel, DDIMScheduler, StableDiffusionPipeline
+from transformers import logging
 
 # suppress partial model loading warning
 logging.set_verbosity_error()
@@ -13,10 +13,10 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import torchvision.transforms as T
-from torchvision.utils import save_image
 from torch.cuda.amp import custom_bwd, custom_fwd
-from .perpneg_utils import weighted_perpendicular_aggregator
+from torchvision.utils import save_image
 
+from .perpneg_utils import weighted_perpendicular_aggregator
 from .sd_step import *
 
 
@@ -125,7 +125,7 @@ class StableDiffusion(nn.Module):
             print("load textual inversion in:.{}".format(textual_inversion_path))
 
         if LoRA_path is not None:
-            from lora_diffusion import tune_lora_scale, patch_pipe
+            from lora_diffusion import patch_pipe, tune_lora_scale
 
             print("load lora in:.{}".format(LoRA_path))
             patch_pipe(

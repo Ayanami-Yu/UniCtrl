@@ -1,9 +1,10 @@
-import os
-import torch
 import argparse
+import os
 
+import torch
 from imageio import mimsave
 from pytorch_lightning import seed_everything
+
 from ctrl_video.video_zero_pipeline import VideoZeroPipeline
 
 

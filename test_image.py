@@ -1,11 +1,11 @@
 import os
+
 import torch
-from torchvision.utils import save_image
-from torchvision import transforms
 from pytorch_lightning import seed_everything
+from torchvision import transforms
+from torchvision.utils import save_image
 
 from ctrl_image.image_pipeline import ImagePipeline
-
 
 src_start, src_inc, src_n = 0.9, 0.1, 1
 tgt_start, tgt_inc, tgt_n = 0.5, 0.1, 11

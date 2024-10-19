@@ -1,8 +1,7 @@
-import torch
-import numpy as np
-
 from typing import Optional
-from einops import rearrange
+
+import numpy as np
+import torch
 
 
 # TODO should it adapt to different tensors of different shapes?

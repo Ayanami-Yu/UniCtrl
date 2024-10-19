@@ -1,10 +1,11 @@
-import os
-import torch
 import argparse
+import os
 
+import torch
 from diffusers import DDIMScheduler, MotionAdapter
 from diffusers.utils import export_to_gif
 from pytorch_lightning import seed_everything
+
 from ctrl_video.video_animatediff_pipeline import VideoAnimateDiffPipeline
 
 

@@ -9,10 +9,11 @@
 # For inquiries contact  george.drettakis@inria.fr
 #
 
+import numpy as np
 import torch
 from torch import nn
-import numpy as np
-from utils.graphics_utils import getWorld2View2, getProjectionMatrix, fov2focal
+
+from utils.graphics_utils import fov2focal, getProjectionMatrix, getWorld2View2
 
 
 def get_rays_torch(focal, c2w, H=64, W=64):

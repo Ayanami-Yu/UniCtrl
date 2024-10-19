@@ -1,21 +1,20 @@
-import torch
-import numpy as np
-
 from typing import Any, Callable, Dict, List, Optional, Union
+
+import numpy as np
+import torch
 from diffusers.callbacks import MultiPipelineCallbacks, PipelineCallback
 from diffusers.image_processor import PipelineImageInput
-from diffusers.utils import (
-    deprecate,
-    replace_example_docstring,
-)
-from .pipeline_stable_diffusion import (
-    StableDiffusionPipeline,
-    EXAMPLE_DOC_STRING,
-    retrieve_timesteps,
-    rescale_noise_cfg,
-    StableDiffusionPipelineOutput,
-)
+from diffusers.utils import deprecate, replace_example_docstring
+
 from utils.ctrl_utils import *
+
+from .pipeline_stable_diffusion import (
+    EXAMPLE_DOC_STRING,
+    StableDiffusionPipeline,
+    StableDiffusionPipelineOutput,
+    rescale_noise_cfg,
+    retrieve_timesteps,
+)
 
 
 class ImagePipeline(StableDiffusionPipeline):

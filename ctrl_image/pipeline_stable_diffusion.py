@@ -15,14 +15,6 @@ import inspect
 from typing import Any, Callable, Dict, List, Optional, Union
 
 import torch
-from packaging import version
-from transformers import (
-    CLIPImageProcessor,
-    CLIPTextModel,
-    CLIPTokenizer,
-    CLIPVisionModelWithProjection,
-)
-
 from diffusers.callbacks import MultiPipelineCallbacks, PipelineCallback
 from diffusers.configuration_utils import FrozenDict
 from diffusers.image_processor import PipelineImageInput, VaeImageProcessor
@@ -34,6 +26,13 @@ from diffusers.loaders import (
 )
 from diffusers.models import AutoencoderKL, ImageProjection, UNet2DConditionModel
 from diffusers.models.lora import adjust_lora_scale_text_encoder
+from diffusers.pipelines.pipeline_utils import DiffusionPipeline, StableDiffusionMixin
+from diffusers.pipelines.stable_diffusion.pipeline_output import (
+    StableDiffusionPipelineOutput,
+)
+from diffusers.pipelines.stable_diffusion.safety_checker import (
+    StableDiffusionSafetyChecker,
+)
 from diffusers.schedulers import KarrasDiffusionSchedulers
 from diffusers.utils import (
     USE_PEFT_BACKEND,
@@ -44,14 +43,13 @@ from diffusers.utils import (
     unscale_lora_layers,
 )
 from diffusers.utils.torch_utils import randn_tensor
-from diffusers.pipelines.pipeline_utils import DiffusionPipeline, StableDiffusionMixin
-from diffusers.pipelines.stable_diffusion.pipeline_output import (
-    StableDiffusionPipelineOutput,
+from packaging import version
+from transformers import (
+    CLIPImageProcessor,
+    CLIPTextModel,
+    CLIPTokenizer,
+    CLIPVisionModelWithProjection,
 )
-from diffusers.pipelines.stable_diffusion.safety_checker import (
-    StableDiffusionSafetyChecker,
-)
-
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 

@@ -9,14 +9,15 @@
 # For inquiries contact  george.drettakis@inria.fr
 #
 
-import torch
 import math
+import random
+
+import torch
 from diff_gaussian_rasterization import (
     GaussianRasterizationSettings,
     GaussianRasterizer,
 )
 from scene.gaussian_model import GaussianModel
-import random
 
 
 def render(

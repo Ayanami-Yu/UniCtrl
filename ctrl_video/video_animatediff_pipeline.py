@@ -1,15 +1,14 @@
-import torch
-
 from typing import Any, Callable, Dict, List, Optional, Union
-from einops import rearrange
+
+import torch
 from diffusers.image_processor import PipelineImageInput
-from diffusers.utils import (
-    deprecate,
-    replace_example_docstring,
-)
 from diffusers.pipelines.animatediff.pipeline_output import AnimateDiffPipelineOutput
-from .pipeline_animatediff import AnimateDiffPipeline, EXAMPLE_DOC_STRING
+from diffusers.utils import deprecate, replace_example_docstring
+from einops import rearrange
+
 from utils.ctrl_utils import *
+
+from .pipeline_animatediff import EXAMPLE_DOC_STRING, AnimateDiffPipeline
 
 
 class VideoAnimateDiffPipeline(AnimateDiffPipeline):

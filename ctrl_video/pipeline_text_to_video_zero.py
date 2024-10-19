@@ -7,9 +7,6 @@ import numpy as np
 import PIL.Image
 import torch
 import torch.nn.functional as F
-from torch.nn.functional import grid_sample
-from transformers import CLIPImageProcessor, CLIPTextModel, CLIPTokenizer
-
 from diffusers.image_processor import VaeImageProcessor
 from diffusers.loaders import (
     StableDiffusionLoraLoaderMixin,
@@ -17,6 +14,8 @@ from diffusers.loaders import (
 )
 from diffusers.models import AutoencoderKL, UNet2DConditionModel
 from diffusers.models.lora import adjust_lora_scale_text_encoder
+from diffusers.pipelines.pipeline_utils import DiffusionPipeline, StableDiffusionMixin
+from diffusers.pipelines.stable_diffusion import StableDiffusionSafetyChecker
 from diffusers.schedulers import KarrasDiffusionSchedulers
 from diffusers.utils import (
     USE_PEFT_BACKEND,
@@ -26,9 +25,8 @@ from diffusers.utils import (
     unscale_lora_layers,
 )
 from diffusers.utils.torch_utils import randn_tensor
-from diffusers.pipelines.pipeline_utils import DiffusionPipeline, StableDiffusionMixin
-from diffusers.pipelines.stable_diffusion import StableDiffusionSafetyChecker
-
+from torch.nn.functional import grid_sample
+from transformers import CLIPImageProcessor, CLIPTextModel, CLIPTokenizer
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 

@@ -16,13 +16,6 @@ import inspect
 from typing import Any, Callable, Dict, List, Optional, Union
 
 import torch
-from transformers import (
-    CLIPImageProcessor,
-    CLIPTextModel,
-    CLIPTokenizer,
-    CLIPVisionModelWithProjection,
-)
-
 from diffusers.image_processor import PipelineImageInput
 from diffusers.loaders import (
     IPAdapterMixin,
@@ -37,6 +30,10 @@ from diffusers.models import (
 )
 from diffusers.models.lora import adjust_lora_scale_text_encoder
 from diffusers.models.unets.unet_motion_model import MotionAdapter
+from diffusers.pipelines.animatediff.pipeline_output import AnimateDiffPipelineOutput
+from diffusers.pipelines.free_init_utils import FreeInitMixin
+from diffusers.pipelines.free_noise_utils import AnimateDiffFreeNoiseMixin
+from diffusers.pipelines.pipeline_utils import DiffusionPipeline, StableDiffusionMixin
 from diffusers.schedulers import (
     DDIMScheduler,
     DPMSolverMultistepScheduler,
@@ -55,11 +52,12 @@ from diffusers.utils import (
 )
 from diffusers.utils.torch_utils import randn_tensor
 from diffusers.video_processor import VideoProcessor
-from diffusers.pipelines.free_init_utils import FreeInitMixin
-from diffusers.pipelines.free_noise_utils import AnimateDiffFreeNoiseMixin
-from diffusers.pipelines.pipeline_utils import DiffusionPipeline, StableDiffusionMixin
-from diffusers.pipelines.animatediff.pipeline_output import AnimateDiffPipelineOutput
-
+from transformers import (
+    CLIPImageProcessor,
+    CLIPTextModel,
+    CLIPTokenizer,
+    CLIPVisionModelWithProjection,
+)
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 

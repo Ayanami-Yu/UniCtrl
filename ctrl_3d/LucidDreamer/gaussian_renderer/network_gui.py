@@ -9,10 +9,11 @@
 # For inquiries contact  george.drettakis@inria.fr
 #
 
-import torch
-import traceback
-import socket
 import json
+import socket
+import traceback
+
+import torch
 from scene.cameras import MiniCam
 
 host = "127.0.0.1"
