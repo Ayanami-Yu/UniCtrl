@@ -67,7 +67,7 @@ t = 0.5-1.5
 
 `nohup python test_video_animatediff.py --prompt "an astronaut is riding a horse" "an astronaut holding a Gatling gun is riding a horse" --out_dir "./exp/animatediff/astronaut_horse_gun/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 --gpu 3 > nohup/astronaut_horse_gun.txt 2>&1 &`
 
-`nohup python test_video_animatediff.py --prompt "Catwoman is holding a sniper rifle" "Catwoman holding a sniper rifle is wearing a hat on her head" --out_dir "./exp/animatediff/catwoman_rifle_hat/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 --gpu 4 > nohup/catwoman_rifle_hat.txt 2>&1 &`
+`CUDA_VISIBLE_DEVICES=1 nohup python test_video_animatediff.py --prompt "Catwoman is holding a sniper rifle" "Catwoman holding a sniper rifle is wearing a hat on her head" --out_dir "./exp/animatediff/catwoman_rifle_hat/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 17 > nohup/catwoman_rifle_hat.txt 2>&1 &`
 
 `CUDA_VISIBLE_DEVICES=4 nohup python test_video_animatediff.py --prompt "a panda is playing guitar on times square" "a panda is playing guitar on times square, with a drum next to it" --out_dir "./exp/animatediff/panda_guitar_drum/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/panda_guitar_drum.txt 2>&1 &`
 
@@ -80,3 +80,5 @@ t = 0.5-1.5
 `CUDA_VISIBLE_DEVICES=5 nohup python test_video_animatediff.py --prompt "a silver wolf is resting on a grassland, with a golden eagle flying high above it" "a silver wolf is resting on a grassland, while a golden eagle is dashing towards it" --out_dir "./exp/animatediff/wolf_change_eagle_position/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/wolf_change_eagle_position.txt 2>&1 &`
 
 `CUDA_VISIBLE_DEVICES=6 nohup python test_video_animatediff.py --prompt "a silver wolf is resting on a grassland" "a silver wolf is resting on a grassland, while a golden eagle is flying towards it" --out_dir "./exp/animatediff/wolf_rest_eagle/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/wolf_rest_eagle.txt 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=1 nohup python test_video_animatediff.py --prompt "a high quality realistic photo of a cute cat running in a beautiful meadow" "a high quality realistic photo of a cute cat running in a beautiful meadow, Van Gogh style" --out_dir "./exp/animatediff/cat_meadow_van_gogh/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/cat_meadow_van_gogh.txt 2>&1 &`
