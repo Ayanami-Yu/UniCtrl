@@ -44,7 +44,6 @@ except ImportError:
 
 
 def adjust_text_embeddings(embeddings, azimuth, guidance_opt):
-    # TODO: add prenerg functions
     text_z_list = []
     weights_list = []
     K = 0
@@ -81,8 +80,6 @@ def get_pos_neg_text_embeddings(embeddings, azimuth_val, opt):
             r = 1 + azimuth_val / 90
         start_z = embeddings["front"]
         end_z = embeddings["side"]
-        # if random.random() < 0.3:
-        #     r = r + random.gauss(0, 0.08)
         pos_z = r * start_z + (1 - r) * end_z
         text_z = torch.cat([pos_z, embeddings["front"], embeddings["side"]], dim=0)
         if r > 0.8:
@@ -102,8 +99,6 @@ def get_pos_neg_text_embeddings(embeddings, azimuth_val, opt):
             r = 1 + (azimuth_val + 90) / 90
         start_z = embeddings["side"]
         end_z = embeddings["back"]
-        # if random.random() < 0.3:
-        #     r = r + random.gauss(0, 0.08)
         pos_z = r * start_z + (1 - r) * end_z
         text_z = torch.cat([pos_z, embeddings["side"], embeddings["front"]], dim=0)
         front_neg_w = opt.negative_w
@@ -180,10 +175,9 @@ def training(
     iter_start = torch.cuda.Event(enable_timing=True)
     iter_end = torch.cuda.Event(enable_timing=True)
 
-    #
     save_folder = os.path.join(dataset._model_path, "train_process/")
     if not os.path.exists(save_folder):
-        os.makedirs(save_folder)  # makedirs
+        os.makedirs(save_folder)
         print("train_process is in :", save_folder)
     # controlnet
     use_control_net = False
@@ -198,7 +192,7 @@ def training(
     if opt.save_process:
         save_folder_proc = os.path.join(scene.args._model_path, "process_videos/")
         if not os.path.exists(save_folder_proc):
-            os.makedirs(save_folder_proc)  # makedirs
+            os.makedirs(save_folder_proc)
         process_view_points = scene.getCircleVideoCameras(
             batch_size=opt.pro_frames_num, render45=opt.pro_render_45
         ).copy()
@@ -283,7 +277,6 @@ def training(
                     scene.pose_args.theta_range[0] * 1 / opt.phi_scale_up_factor,
                 )
 
-                # opt.reset_resnet_iter = max(500, opt.reset_resnet_iter // 1.25)
                 scene.pose_args.phi_range[0] = max(
                     scene.pose_args.max_phi_range[0],
                     scene.pose_args.phi_range[0] * opt.phi_scale_up_factor,
@@ -315,7 +308,7 @@ def training(
             [embeddings["uncond"], embeddings["inverse_text"]], dim=0
         )
 
-        for i in range(C_batch_size):
+        for _ in range(C_batch_size):
             try:
                 viewpoint_cam = viewpoint_stack.pop(
                     randint(0, len(viewpoint_stack) - 1)
@@ -337,6 +330,7 @@ def training(
                 text_z.append(text_z_comp)
                 weights_.append(weights)
 
+            # TODO will interpolation between embeds affect prompt ctrl?
             else:
                 if azimuth >= -90 and azimuth < 90:
                     if azimuth >= 0:
