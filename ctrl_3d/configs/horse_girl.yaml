@@ -2,8 +2,21 @@ port: 2355
 save_video: true
 seed: 0
 
+CtrlParams:
+  use_plain_cfg: false
+  guidance_type: 'static'
+  w_src: 0.9
+  w_tgt: 1.1
+  w_src_ctrl_type: 'static'
+  w_tgt_ctrl_type: 'static'
+  t_ctrl_start: null
+
+  src_prompt: 'a horse galloping on the street, best quality'
+  tgt_prompt: 'a horse galloping on the street with a girl riding on it, best quality'
+
 PipelineParams:
-  convert_SHs_python: False #true = using direct rgb
+  convert_SHs_python: False  # true = using direct rgb
+
 ModelParams:
   workspace: horse_girl
   sh_degree: 0

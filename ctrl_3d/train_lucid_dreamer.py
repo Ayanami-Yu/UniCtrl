@@ -36,6 +36,7 @@ from LucidDreamer.train import (
 from LucidDreamer.utils.general_utils import safe_state
 from LucidDreamer.utils.loss_utils import tv_loss
 from tqdm import tqdm
+from args_lucid_dreamer import CtrlParams
 
 
 def guidance_setup(guidance_opt):
@@ -75,6 +76,7 @@ def training(
     checkpoint,
     debug_from,
     save_video,
+    ctrl_params: CtrlParams,
 ):
     first_iter = 0
     tb_writer = prepare_output_and_logger(dataset)
@@ -461,24 +463,26 @@ if __name__ == "__main__":
     parser.add_argument("--start_checkpoint", type=str, default=None)
     # parser.add_argument("--device", type=str, default='cuda')
 
-    lp = ModelParams(parser)
+    mp = ModelParams(parser)
     op = OptimizationParams(parser)
     pp = PipelineParams(parser)
     gcp = GenerateCamParams(parser)
     gp = GuidanceParams(parser)
+    cp = CtrlParams(parser)
 
     args = parser.parse_args(sys.argv[1:])
 
     if args.opt is not None:
         with open(args.opt) as f:
             opts = yaml.load(f, Loader=yaml.FullLoader)
-        lp.load_yaml(opts.get("ModelParams", None))
+        mp.load_yaml(opts.get("ModelParams", None))
         op.load_yaml(opts.get("OptimizationParams", None))
         pp.load_yaml(opts.get("PipelineParams", None))
         gcp.load_yaml(opts.get("GenerateCamParams", None))
         gp.load_yaml(opts.get("GuidanceParams", None))
+        cp.load_yaml(opts.get("CtrlParams", None))
 
-        lp.opt_path = args.opt
+        mp.opt_path = args.opt
         args.port = opts["port"]
         args.save_video = opts.get("save_video", True)
         args.seed = opts.get("seed", 0)
@@ -486,7 +490,7 @@ if __name__ == "__main__":
 
         # override device
         gp.g_device = args.device
-        lp.data_device = args.device
+        mp.data_device = args.device
         gcp.device = args.device
 
     # save iterations
@@ -505,7 +509,7 @@ if __name__ == "__main__":
     print("Test iter:", args.test_iterations)
     print("Save iter:", args.save_iterations)
 
-    print("Optimizing " + lp._model_path)
+    print("Optimizing " + mp._model_path)
 
     # Initialize system state (RNG)
     safe_state(args.quiet, seed=args.seed)
@@ -513,7 +517,7 @@ if __name__ == "__main__":
     network_gui.init(args.ip, args.port)
     torch.autograd.set_detect_anomaly(args.detect_anomaly)
     training(
-        lp,
+        mp,
         op,
         pp,
         gcp,
@@ -524,6 +528,7 @@ if __name__ == "__main__":
         args.start_checkpoint,
         args.debug_from,
         args.save_video,
+        ctrl_params=cp,
     )
 
     # All done
