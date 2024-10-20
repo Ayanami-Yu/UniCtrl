@@ -230,10 +230,11 @@ def training(
             viewpoint_stack = scene.getRandTrainCameras().copy()
 
         # Index 0 corresponds to src and 1 to tgt
-        text_z_inverse = [
-            torch.cat([embs["uncond"], embs["inverse_text"]], dim=0)
-            for embs in embeddings
-        ]
+        # NOTE only used in add_noise_with_cfg where prompt ctrl is not involved,
+        # so only one tensor is needed
+        text_z_inverse = torch.cat(
+            [embeddings[0]["uncond"], embeddings[0]["inverse_text"]], dim=0
+        )
 
         # 1) Render 3D assets
         viewpoint_cams = []
@@ -306,7 +307,7 @@ def training(
                     end_z = embs["back"]
                 text_z = r * start_z + (1 - r) * end_z
 
-                text_z = torch.cat(embs["uncond"], text_z, dim=0)
+                text_z = torch.cat((embs["uncond"], text_z), dim=0)
                 text_z_.append(text_z)
 
         # Loss
@@ -318,7 +319,7 @@ def training(
             random.random() < guidance_opt.controlnet_ratio
         ):
             use_control_net = True
-        
+
         loss = guidance.train_step(
             torch.stack(text_z_, dim=1),
             images,
@@ -340,7 +341,7 @@ def training(
             w_src_ctrl_type=ctrl_params.w_src_ctrl_type,
             w_tgt_ctrl_type=ctrl_params.w_tgt_ctrl_type,
             t_ctrl_start=ctrl_params.t_ctrl_start,
-        )  
+        )
         scales = torch.stack(scales, dim=0)
 
         loss_scale = torch.mean(scales, dim=-1).mean()

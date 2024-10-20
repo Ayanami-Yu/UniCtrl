@@ -134,14 +134,19 @@ class StableDiffusionCtrl(StableDiffusion):
         w_tgt_ctrl_type: str = "static",
         t_ctrl_start: Optional[int] = None,
     ):
+        """
+        Params:
+            text_embeddings:
+                Tensor of shape (2, 2B, 77, 1024), where text_embeddings[0, ...] are uncond, text_embeddings[1, :B, ...] are src, text_embeddings[1, B:2B, ...] are tgt
+            embedding_inverse:
+                Tensor of shape (2, 77, 1024), used in add_noise_with_cfg
+        """
 
         pred_rgb, pred_depth, pred_alpha = self.augmentation(
             pred_rgb, pred_depth, pred_alpha
         )
 
         B = pred_rgb.shape[0]
-        K = text_embeddings.shape[0] - 1
-
         if as_latent:
             latents, _ = self.encode_imgs(
                 pred_depth.repeat(1, 3, 1, 1).to(self.precision_t)
@@ -182,10 +187,7 @@ class StableDiffusionCtrl(StableDiffusion):
                 latents.shape[0], 1, 1, 1
             )
 
-        text_embeddings = text_embeddings[:, :, ...]
-        text_embeddings = text_embeddings.reshape(
-            -1, text_embeddings.shape[-2], text_embeddings.shape[-1]
-        )  # make it k+1, c * t, ...
+        text_embeddings = torch.cat((text_embeddings[0], text_embeddings[1]), dim=0)
 
         inverse_text_embeddings = (
             embedding_inverse.unsqueeze(1)
