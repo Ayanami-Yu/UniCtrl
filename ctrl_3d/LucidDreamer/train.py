@@ -368,7 +368,7 @@ def training(
             images.append(image)
             depths.append(depth)
             alphas.append(alpha)
-            viewpoint_cams.append(viewpoint_cams)
+            viewpoint_cams.append(viewpoint_cam)
 
         images = torch.stack(images, dim=0)
         depths = torch.stack(depths, dim=0)
@@ -518,12 +518,15 @@ def training(
         )
 
 
-def prepare_output_and_logger(args):
-    try:
-        from torch.utils.tensorboard import SummaryWriter
+def prepare_output_and_logger(args, use_tensorboard=True):
+    if use_tensorboard:
+        try:
+            from torch.utils.tensorboard import SummaryWriter
 
-        TENSORBOARD_FOUND = True
-    except ImportError:
+            TENSORBOARD_FOUND = True
+        except ImportError:
+            TENSORBOARD_FOUND = False
+    else:
         TENSORBOARD_FOUND = False
 
     if not args._model_path:

@@ -15,7 +15,7 @@ from ctrl_utils.ctrl_utils import *
 
 class StableDiffusionCtrl(StableDiffusion):
 
-    # TODO try adding prompt ctrl to DDIM inv
+    # NOTE text_inverse in ISM is empty string, so no use to apply prompt ctrl here
     def add_noise_with_cfg(
         self,
         latents,
@@ -28,13 +28,6 @@ class StableDiffusionCtrl(StableDiffusion):
         inv_steps=1,
         is_noisy_latent=False,
         eta=0.0,
-        use_plain_cfg=False,
-        guidance_type: str = "static",
-        w_src=1.0,
-        w_tgt=1.0,
-        w_src_ctrl_type: str = "static",
-        w_tgt_ctrl_type: str = "static",
-        t_ctrl_start: Optional[int] = None,
     ):
 
         text_embeddings = text_embeddings.to(self.precision_t)
@@ -255,13 +248,6 @@ class StableDiffusionCtrl(StableDiffusion):
                     xs_delta_t,
                     xs_inv_steps,
                     eta=guidance_opt.xs_eta,
-                    use_plain_cfg=use_plain_cfg,
-                    guidance_type=guidance_type,
-                    w_src=w_src,
-                    w_tgt=w_tgt,
-                    w_src_ctrl_type=w_src_ctrl_type,
-                    w_tgt_ctrl_type=w_tgt_ctrl_type,
-                    t_ctrl_start=t_ctrl_start,
                 )
                 # Step 2: sample x_t
                 _, latents_noisy, pred_scores_xt = self.add_noise_with_cfg(
@@ -274,13 +260,6 @@ class StableDiffusionCtrl(StableDiffusion):
                     current_delta_t,
                     1,
                     is_noisy_latent=True,
-                    use_plain_cfg=use_plain_cfg,
-                    guidance_type=guidance_type,
-                    w_src=w_src,
-                    w_tgt=w_tgt,
-                    w_src_ctrl_type=w_src_ctrl_type,
-                    w_tgt_ctrl_type=w_tgt_ctrl_type,
-                    t_ctrl_start=t_ctrl_start,
                 )
 
                 pred_scores = pred_scores_xt + pred_scores_xs

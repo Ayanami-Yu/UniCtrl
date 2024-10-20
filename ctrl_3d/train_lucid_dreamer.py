@@ -28,7 +28,6 @@ from LucidDreamer.gaussian_renderer import network_gui, render
 from LucidDreamer.scene import GaussianModel, Scene
 from LucidDreamer.train import (
     adjust_text_embeddings,
-    prepare_embeddings,
     prepare_output_and_logger,
     training_report,
     video_inference,
@@ -37,30 +36,45 @@ from LucidDreamer.utils.general_utils import safe_state
 from LucidDreamer.utils.loss_utils import tv_loss
 from tqdm import tqdm
 from args_lucid_dreamer import CtrlParams
+from sd_lucid_dreamer import StableDiffusionCtrl
 
 
-def guidance_setup(guidance_opt):
-    if guidance_opt.guidance == "SD":
-        from sd_lucid_dreamer import StableDiffusionCtrl
+def prepare_embeddings(
+    guidance: StableDiffusionCtrl, guidance_opt: GuidanceParams, text_prompt: str
+):
+    embeddings = {}
+    embeddings["text"] = guidance.get_text_embeds(text_prompt)
+    embeddings["uncond"] = guidance.get_text_embeds([guidance_opt.negative])
 
-        guidance = StableDiffusionCtrl(
-            guidance_opt.g_device,
-            guidance_opt.fp16,
-            guidance_opt.vram_O,
-            guidance_opt.t_range,
-            guidance_opt.max_t_range,
-            num_train_timesteps=guidance_opt.num_train_timesteps,
-            ddim_inv=guidance_opt.ddim_inv,
-            textual_inversion_path=guidance_opt.textual_inversion_path,
-            LoRA_path=guidance_opt.LoRA_path,
-            guidance_opt=guidance_opt,
-        )
-    else:
+    for d in ["front", "side", "back"]:
+        embeddings[d] = guidance.get_text_embeds([f"{text_prompt}, {d} view"])
+    embeddings["inverse_text"] = guidance.get_text_embeds(guidance_opt.inverse_text)
+    return embeddings
+
+
+def guidance_setup(guidance_opt: GuidanceParams, ctrl_params: CtrlParams):
+    if guidance_opt.guidance != "SD":
         raise ValueError(f"{guidance_opt.guidance} not supported.")
+
+    guidance = StableDiffusionCtrl(
+        guidance_opt.g_device,
+        guidance_opt.fp16,
+        guidance_opt.vram_O,
+        guidance_opt.t_range,
+        guidance_opt.max_t_range,
+        num_train_timesteps=guidance_opt.num_train_timesteps,
+        ddim_inv=guidance_opt.ddim_inv,
+        textual_inversion_path=guidance_opt.textual_inversion_path,
+        LoRA_path=guidance_opt.LoRA_path,
+        guidance_opt=guidance_opt,
+    )
     if guidance is not None:
         for p in guidance.parameters():
             p.requires_grad = False
-    embeddings = prepare_embeddings(guidance_opt, guidance)
+
+    embeddings = [
+        prepare_embeddings(guidance, guidance_opt, ctrl_params.src_prompt)
+    ] + [prepare_embeddings(guidance, guidance_opt, ctrl_params.tgt_prompt)]
     return guidance, embeddings
 
 
@@ -78,8 +92,10 @@ def training(
     save_video,
     ctrl_params: CtrlParams,
 ):
+    assert not guidance_opt.perpneg, "Prompt ctrl with Perp-Neg not implemented"
+
     first_iter = 0
-    tb_writer = prepare_output_and_logger(dataset)
+    tb_writer = prepare_output_and_logger(dataset, use_tensorboard=False)
     gaussians = GaussianModel(dataset.sh_degree)
     scene = Scene(dataset, gcams, gaussians)
     gaussians.training_setup(opt)
@@ -96,10 +112,9 @@ def training(
     if not os.path.exists(save_folder):
         os.makedirs(save_folder)
         print("train_process is in :", save_folder)
-    # controlnet
-    use_control_net = False
-    # set up pretrain diffusion models and text_embedings
-    guidance, embeddings = guidance_setup(guidance_opt)
+
+    # set up pretrained diffusion models and text_embedings
+    guidance, embeddings = guidance_setup(guidance_opt, ctrl_params)
     viewpoint_stack = None
     ema_loss_for_log = 0.0
     progress_bar = tqdm(range(first_iter, opt.iterations), desc="Training progress")
@@ -114,6 +129,9 @@ def training(
         ).copy()
         save_process_iter = opt.iterations // len(process_view_points)
         pro_img_frames = []
+
+    # controlnet
+    use_control_net = False
 
     for iteration in range(first_iter, opt.iterations + 1):
         if network_gui.conn == None:
@@ -155,11 +173,12 @@ def training(
         gaussians.update_feature_learning_rate(iteration)
         gaussians.update_rotation_learning_rate(iteration)
         gaussians.update_scaling_learning_rate(iteration)
+
         # Every 500 its we increase the levels of SH up to a maximum degree
         if iteration % 500 == 0:
             gaussians.oneupSHdegree()
 
-        # progressively relaxing view range
+        # Progressively relaxing view range
         if not opt.use_progressive:
             if (
                 iteration >= opt.progressive_view_iter
@@ -210,20 +229,19 @@ def training(
         if not viewpoint_stack:
             viewpoint_stack = scene.getRandTrainCameras().copy()
 
-        C_batch_size = guidance_opt.C_batch_size
+        # Index 0 corresponds to src and 1 to tgt
+        text_z_inverse = [
+            torch.cat([embs["uncond"], embs["inverse_text"]], dim=0)
+            for embs in embeddings
+        ]
+
+        # 1) Render 3D assets
         viewpoint_cams = []
         images = []
-        text_z_ = []
-        weights_ = []
         depths = []
         alphas = []
         scales = []
-
-        text_z_inverse = torch.cat(
-            [embeddings["uncond"], embeddings["inverse_text"]], dim=0
-        )
-
-        for _ in range(C_batch_size):
+        for _ in range(guidance_opt.C_batch_size):
             try:
                 viewpoint_cam = viewpoint_stack.pop(
                     randint(0, len(viewpoint_stack) - 1)
@@ -234,39 +252,6 @@ def training(
                     randint(0, len(viewpoint_stack) - 1)
                 )
 
-            # pred text_z
-            azimuth = viewpoint_cam.delta_azimuth
-            text_z = [embeddings["uncond"]]
-
-            if guidance_opt.perpneg:
-                text_z_comp, weights = adjust_text_embeddings(
-                    embeddings, azimuth, guidance_opt
-                )
-                text_z.append(text_z_comp)
-                weights_.append(weights)
-
-            # TODO will interpolation between embeds affect prompt ctrl?
-            else:
-                if azimuth >= -90 and azimuth < 90:
-                    if azimuth >= 0:
-                        r = 1 - azimuth / 90
-                    else:
-                        r = 1 + azimuth / 90
-                    start_z = embeddings["front"]
-                    end_z = embeddings["side"]
-                else:
-                    if azimuth >= 0:
-                        r = 1 - (azimuth - 90) / 90
-                    else:
-                        r = 1 + (azimuth + 90) / 90
-                    start_z = embeddings["side"]
-                    end_z = embeddings["back"]
-                text_z.append(r * start_z + (1 - r) * end_z)
-
-            text_z = torch.cat(text_z, dim=0)
-            text_z_.append(text_z)
-
-            # Render
             if (iteration - 1) == debug_from:
                 pipe.debug = True
             render_pkg = render(
@@ -291,15 +276,41 @@ def training(
             images.append(image)
             depths.append(depth)
             alphas.append(alpha)
-            viewpoint_cams.append(viewpoint_cams)
+            viewpoint_cams.append(viewpoint_cam)
 
         images = torch.stack(images, dim=0)
         depths = torch.stack(depths, dim=0)
         alphas = torch.stack(alphas, dim=0)
 
+        # 2) Adjust text embeddings
+        text_z_ = []
+        weights_ = []
+        for embs in embeddings:
+            for i in range(guidance_opt.C_batch_size):
+                azimuth = viewpoint_cams[i].delta_azimuth
+
+                # TODO will interpolation between embeds affect prompt ctrl?
+                if azimuth >= -90 and azimuth < 90:
+                    if azimuth >= 0:
+                        r = 1 - azimuth / 90
+                    else:
+                        r = 1 + azimuth / 90
+                    start_z = embs["front"]
+                    end_z = embs["side"]
+                else:
+                    if azimuth >= 0:
+                        r = 1 - (azimuth - 90) / 90
+                    else:
+                        r = 1 + (azimuth + 90) / 90
+                    start_z = embs["side"]
+                    end_z = embs["back"]
+                text_z = r * start_z + (1 - r) * end_z
+
+                text_z = torch.cat(embs["uncond"], text_z, dim=0)
+                text_z_.append(text_z)
+
         # Loss
         warm_up_rate = 1.0 - min(iteration / opt.warmup_iter, 1.0)
-        guidance_scale = guidance_opt.guidance_scale
         _aslatent = False
         if iteration < opt.geo_iter or random.random() < opt.as_latent_ratio:
             _aslatent = True
@@ -307,40 +318,29 @@ def training(
             random.random() < guidance_opt.controlnet_ratio
         ):
             use_control_net = True
-        if guidance_opt.perpneg:
-            loss = guidance.train_step_perpneg(
-                torch.stack(text_z_, dim=1),
-                images,
-                pred_depth=depths,
-                pred_alpha=alphas,
-                grad_scale=guidance_opt.lambda_guidance,
-                use_control_net=use_control_net,
-                save_folder=save_folder,
-                iteration=iteration,
-                warm_up_rate=warm_up_rate,
-                weights=torch.stack(weights_, dim=1),
-                resolution=(gcams.image_h, gcams.image_w),
-                guidance_opt=guidance_opt,
-                as_latent=_aslatent,
-                embedding_inverse=text_z_inverse,
-            )
-        else:
-            loss = guidance.train_step(
-                torch.stack(text_z_, dim=1),
-                images,
-                pred_depth=depths,
-                pred_alpha=alphas,
-                grad_scale=guidance_opt.lambda_guidance,
-                use_control_net=use_control_net,
-                save_folder=save_folder,
-                iteration=iteration,
-                warm_up_rate=warm_up_rate,
-                resolution=(gcams.image_h, gcams.image_w),
-                guidance_opt=guidance_opt,
-                as_latent=_aslatent,
-                embedding_inverse=text_z_inverse,
-            )
-            # raise ValueError(f'original version not supported.')
+        
+        loss = guidance.train_step(
+            torch.stack(text_z_, dim=1),
+            images,
+            pred_depth=depths,
+            pred_alpha=alphas,
+            grad_scale=guidance_opt.lambda_guidance,
+            use_control_net=use_control_net,
+            save_folder=save_folder,
+            iteration=iteration,
+            warm_up_rate=warm_up_rate,
+            resolution=(gcams.image_h, gcams.image_w),
+            guidance_opt=guidance_opt,
+            as_latent=_aslatent,
+            embedding_inverse=text_z_inverse,
+            use_plain_cfg=False,
+            guidance_type=ctrl_params.guidance_type,
+            w_src=ctrl_params.w_src,
+            w_tgt=ctrl_params.w_tgt,
+            w_src_ctrl_type=ctrl_params.w_src_ctrl_type,
+            w_tgt_ctrl_type=ctrl_params.w_tgt_ctrl_type,
+            t_ctrl_start=ctrl_params.t_ctrl_start,
+        )  
         scales = torch.stack(scales, dim=0)
 
         loss_scale = torch.mean(scales, dim=-1).mean()
