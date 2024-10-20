@@ -94,7 +94,7 @@ class GuidanceParams(ParamGroup):
         self.delta_t = 80
         self.delta_t_start = 100
         self.annealing_intervals = True
-        self.text = ""
+        self.text = ""  # unused by prompt ctrl
         self.inverse_text = ""
         self.textual_inversion_path = None
         self.LoRA_path = None

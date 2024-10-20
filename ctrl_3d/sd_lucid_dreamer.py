@@ -63,7 +63,7 @@ class StableDiffusionCtrl(StableDiffusion):
                 cur_noisy_lat, self.timesteps[cur_ind_t]
             ).to(self.precision_t)
 
-            if cfg > 1.0:  # TODO why false
+            if cfg > 1.0:
                 latent_model_input = torch.cat([cur_noisy_lat_, cur_noisy_lat_])
                 timestep_model_input = (
                     self.timesteps[cur_ind_t]
