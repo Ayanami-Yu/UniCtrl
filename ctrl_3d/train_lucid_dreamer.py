@@ -15,20 +15,20 @@ from random import randint
 
 import imageio
 import torch
-from LucidDreamer.arguments import (
+from ctrl_3d.LucidDreamer.arguments import (
     GuidanceParams,
 )
-from LucidDreamer.gaussian_renderer import network_gui, render
-from LucidDreamer.scene import GaussianModel, Scene
-from LucidDreamer.train import (
+from ctrl_3d.LucidDreamer.gaussian_renderer import network_gui, render
+from ctrl_3d.LucidDreamer.scene import GaussianModel, Scene
+from ctrl_3d.LucidDreamer.train import (
     prepare_output_and_logger,
     training_report,
     video_inference,
 )
-from LucidDreamer.utils.loss_utils import tv_loss
+from ctrl_3d.LucidDreamer.utils.loss_utils import tv_loss
 from tqdm import tqdm
-from args_lucid_dreamer import CtrlParams
-from sd_lucid_dreamer import StableDiffusionCtrl
+from ctrl_3d.args_lucid_dreamer import CtrlParams
+from ctrl_3d.sd_lucid_dreamer import StableDiffusionCtrl
 
 
 def prepare_embeddings(

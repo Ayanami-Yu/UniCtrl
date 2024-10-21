@@ -1,4 +1,4 @@
-from LucidDreamer.arguments import ParamGroup
+from ctrl_3d.LucidDreamer.arguments import ParamGroup
 
 
 class CtrlParams(ParamGroup):

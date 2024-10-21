@@ -27,15 +27,15 @@ if __name__ == "__main__":
     parser.add_argument("--debug_from", type=int, default=-1)
     parser.add_argument("--seed", type=int, default=0)
     parser.add_argument("--detect_anomaly", action="store_true", default=False)
-    parser.add_argument(
-        "--test_ratio", type=int, default=5
-    )  # [2500,5000,7500,10000,12000]
-    parser.add_argument("--save_ratio", type=int, default=2)  # [10000,12000]
+    parser.add_argument("--test_ratio", type=int, default=5)
+    parser.add_argument("--save_ratio", type=int, default=2)
     parser.add_argument("--save_video", type=bool, default=False)
     parser.add_argument("--quiet", action="store_true")
     parser.add_argument("--checkpoint_iterations", nargs="+", type=int, default=[])
     parser.add_argument("--start_checkpoint", type=str, default=None)
-    # parser.add_argument("--device", type=str, default='cuda')
+    parser.add_argument("--w_src", type=float, default=None)
+    parser.add_argument("--w_tgt", type=float, default=None)
+    parser.add_argument("--workspace", type=str, default=None)
 
     mp = ModelParams(parser)
     op = OptimizationParams(parser)
@@ -79,6 +79,12 @@ if __name__ == "__main__":
         k * op.iterations // args.save_ratio for k in range(1, args.save_ratio)
     ] + [op.iterations]
     args.save_iterations = save_iter
+
+    # override the values with the params from command line
+    if args.w_src and args.w_tgt:
+        cp.w_src, cp.w_tgt = args.w_src, args.w_tgt
+    if args.workspace is not None:
+        mp.workspace = args.workspace
 
     print("Test iter:", args.test_iterations)
     print("Save iter:", args.save_iterations)

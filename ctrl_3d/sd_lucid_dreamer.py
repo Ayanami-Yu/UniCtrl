@@ -6,8 +6,8 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 from diffusers import DDIMScheduler
-from LucidDreamer.guidance.sd_step import pred_original
-from LucidDreamer.guidance.sd_utils import SpecifyGradient, StableDiffusion, rgb2sat
+from ctrl_3d.LucidDreamer.guidance.sd_step import pred_original
+from ctrl_3d.LucidDreamer.guidance.sd_utils import SpecifyGradient, StableDiffusion, rgb2sat
 from torchvision.utils import save_image
 
 from ctrl_utils.ctrl_utils import *
@@ -309,7 +309,7 @@ class StableDiffusionCtrl(StableDiffusion):
             w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
             w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
 
-            # TODO check torch.equal(noise_pred_uncond_src, noise_pred_uncond_tgt)
+            # NOTE noise_pred_uncond_src should be the same as noise_pred_uncond_tgt
             noise_pred = noise_pred_uncond_src + guidance_weight(
                 t, guidance_opt.guidance_scale, guidance_type
             ) * add_aggregator_v1(
@@ -342,7 +342,8 @@ class StableDiffusionCtrl(StableDiffusion):
             )
             with torch.no_grad():
                 pred_x0_latent_sp = pred_original(
-                    self.scheduler, noise_pred_uncond, prev_t, prev_latents_noisy
+                    # self.scheduler, noise_pred_uncond, prev_t, prev_latents_noisy
+                    self.scheduler, noise_pred_uncond_src, prev_t, prev_latents_noisy
                 )
                 pred_x0_latent_pos = pred_original(
                     self.scheduler, noise_pred_post, prev_t, prev_latents_noisy
