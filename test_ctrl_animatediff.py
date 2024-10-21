@@ -80,7 +80,7 @@ pipe.scheduler = scheduler
 pipe.enable_vae_slicing()
 pipe.enable_model_cpu_offload()
 
-# inference the synthesized video
+# generate the synthesized videos
 src_weights = [round(src_start + src_inc * i, 2) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 2) for i in range(int(tgt_n))]
 

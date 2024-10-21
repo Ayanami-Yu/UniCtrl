@@ -36,7 +36,7 @@ model = CtrlSDPipeline.from_pretrained(model_path).to(device)
 start_code = torch.randn([1, 4, 64, 64], device=device)
 start_code = start_code.expand(len(prompts), -1, -1, -1)
 
-# inference the synthesized image
+# generate the synthesized images
 src_weights = [round(src_start + src_inc * i, 2) for i in range(src_n)]
 tgt_weights = [round(tgt_start + tgt_inc * i, 2) for i in range(tgt_n)]
 

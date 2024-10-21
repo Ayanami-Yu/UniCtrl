@@ -85,6 +85,11 @@ t = 0.5-1.5
 
 ## 3D
 
+[
+    'a horse galloping on the street, best quality',
+    'a horse galloping on the street with a girl riding on it, best quality'
+]
+
 ### CLI
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/horse_girl.yaml &`

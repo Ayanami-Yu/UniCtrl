@@ -4,6 +4,7 @@ import torch
 from diffusers.utils import replace_example_docstring
 
 from .pipeline_shap_e import EXAMPLE_DOC_STRING, ShapEPipeline, ShapEPipelineOutput
+from ctrl_utils.ctrl_utils import *
 
 
 class CtrlShapEPipeline(ShapEPipeline):
@@ -21,6 +22,13 @@ class CtrlShapEPipeline(ShapEPipeline):
         frame_size: int = 64,
         output_type: Optional[str] = "pil",  # pil, np, latent, mesh
         return_dict: bool = True,
+        use_plain_cfg=False,
+        guidance_type: str = "static",
+        w_src=1.0,
+        w_tgt=1.0,
+        w_src_ctrl_type: str = "static",
+        w_tgt_ctrl_type: str = "static",
+        t_ctrl_start: Optional[int] = None,
     ):
         """
         The call function to the pipeline for generation.
@@ -117,10 +125,47 @@ class CtrlShapEPipeline(ShapEPipeline):
             )  # batch_size, num_embeddings, embedding_dim
 
             if do_classifier_free_guidance:
-                noise_pred_uncond, noise_pred = noise_pred.chunk(2)
-                noise_pred = noise_pred_uncond + guidance_scale * (
-                    noise_pred - noise_pred_uncond
-                )
+                noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
+
+                if use_plain_cfg:
+                    noise_pred = noise_pred_uncond + guidance_scale * (
+                        noise_pred_text - noise_pred_uncond
+                    )
+                elif t_ctrl_start is not None and t > t_ctrl_start:
+                    # use the source prompt only
+                    noise_pred_uncond = torch.chunk(noise_pred_uncond, 2)[0]
+                    noise_pred_text = torch.chunk(noise_pred_text, 2)[0]
+
+                    noise_pred = noise_pred_uncond + guidance_weight(
+                        t, guidance_scale, guidance_type
+                    ) * (noise_pred_text - noise_pred_uncond)
+                else:  # aggregate noise
+                    noise_pred_text_src, noise_pred_text_tgt = (
+                        noise_pred_text.chunk(2)
+                    )
+                    noise_pred_uncond_src, noise_pred_uncond_tgt = (
+                        noise_pred_uncond.chunk(2)
+                    )
+
+                    delta_noise_pred_src = (
+                        noise_pred_text_src - noise_pred_uncond_src
+                    )
+                    delta_noise_pred_tgt = (
+                        noise_pred_text_tgt - noise_pred_uncond_tgt
+                    )
+
+                    w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
+                    w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
+
+                    noise_pred = noise_pred_uncond_src + guidance_weight(
+                        t, guidance_scale, guidance_type
+                    ) * add_aggregator_v1(
+                        delta_noise_pred_src,
+                        w_src_cur,
+                        delta_noise_pred_tgt,
+                        w_tgt_cur,
+                        mode="latent",
+                    )
 
             latents = self.scheduler.step(
                 noise_pred,
