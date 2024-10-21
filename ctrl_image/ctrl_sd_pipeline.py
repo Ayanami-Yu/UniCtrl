@@ -17,7 +17,7 @@ from .pipeline_stable_diffusion import (
 )
 
 
-class ImagePipeline(StableDiffusionPipeline):
+class CtrlSDPipeline(StableDiffusionPipeline):
 
     @torch.no_grad()
     @replace_example_docstring(EXAMPLE_DOC_STRING)

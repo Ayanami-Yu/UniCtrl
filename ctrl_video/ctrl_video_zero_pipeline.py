@@ -15,7 +15,7 @@ from .pipeline_text_to_video_zero import (
 )
 
 
-class VideoZeroPipeline(TextToVideoZeroPipeline):
+class CtrlVideoZeroPipeline(TextToVideoZeroPipeline):
 
     @torch.no_grad()
     def __call__(

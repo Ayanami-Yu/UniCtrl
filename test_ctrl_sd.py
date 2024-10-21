@@ -5,7 +5,7 @@ from pytorch_lightning import seed_everything
 from torchvision import transforms
 from torchvision.utils import save_image
 
-from ctrl_image.image_pipeline import ImagePipeline
+from ctrl_image.ctrl_sd_pipeline import CtrlSDPipeline
 
 src_start, src_inc, src_n = 0.9, 0.1, 1
 tgt_start, tgt_inc, tgt_n = 0.5, 0.1, 11
@@ -30,7 +30,7 @@ out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 
 # initialize model
 model_path = "/mnt/hdd1/hongyu/models/stable-diffusion-2-1-base"
-model = ImagePipeline.from_pretrained(model_path).to(device)
+model = CtrlSDPipeline.from_pretrained(model_path).to(device)
 
 # initialize the noise map
 start_code = torch.randn([1, 4, 64, 64], device=device)

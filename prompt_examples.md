@@ -87,4 +87,4 @@ t = 0.5-1.5
 
 ### CLI
 
-`CUDA_VISIBLE_DEVICES=3 nohup python ctrl_3d/LucidDreamer/train.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/horse_girl.yaml &`
+`CUDA_VISIBLE_DEVICES=3 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/horse_girl.yaml &`

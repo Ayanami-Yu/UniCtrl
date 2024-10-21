@@ -6,7 +6,7 @@ from diffusers import DDIMScheduler, MotionAdapter
 from diffusers.utils import export_to_gif
 from pytorch_lightning import seed_everything
 
-from ctrl_video.video_animatediff_pipeline import VideoAnimateDiffPipeline
+from ctrl_video.ctrl_animatediff_pipeline import CtrlAnimateDiffPipeline
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
@@ -62,7 +62,7 @@ adapter = MotionAdapter.from_pretrained(
 
 # load SD 1.5 based finetuned model
 model_id = "SG161222/Realistic_Vision_V5.1_noVAE"
-pipe = VideoAnimateDiffPipeline.from_pretrained(
+pipe = CtrlAnimateDiffPipeline.from_pretrained(
     model_id, motion_adapter=adapter, torch_dtype=torch.float16
 )
 

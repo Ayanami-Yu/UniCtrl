@@ -11,7 +11,7 @@ from ctrl_utils.ctrl_utils import *
 from .pipeline_animatediff import EXAMPLE_DOC_STRING, AnimateDiffPipeline
 
 
-class VideoAnimateDiffPipeline(AnimateDiffPipeline):
+class CtrlAnimateDiffPipeline(AnimateDiffPipeline):
 
     @torch.no_grad()
     @replace_example_docstring(EXAMPLE_DOC_STRING)
