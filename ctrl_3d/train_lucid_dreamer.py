@@ -15,9 +15,10 @@ from random import randint
 
 import imageio
 import torch
-from ctrl_3d.LucidDreamer.arguments import (
-    GuidanceParams,
-)
+from tqdm import tqdm
+
+from ctrl_3d.args_lucid_dreamer import CtrlParams
+from ctrl_3d.LucidDreamer.arguments import GuidanceParams
 from ctrl_3d.LucidDreamer.gaussian_renderer import network_gui, render
 from ctrl_3d.LucidDreamer.scene import GaussianModel, Scene
 from ctrl_3d.LucidDreamer.train import (
@@ -26,8 +27,6 @@ from ctrl_3d.LucidDreamer.train import (
     video_inference,
 )
 from ctrl_3d.LucidDreamer.utils.loss_utils import tv_loss
-from tqdm import tqdm
-from ctrl_3d.args_lucid_dreamer import CtrlParams
 from ctrl_3d.sd_lucid_dreamer import StableDiffusionCtrl
 
 

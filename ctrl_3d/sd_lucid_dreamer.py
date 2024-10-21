@@ -6,10 +6,14 @@ import numpy as np
 import torch
 import torch.nn.functional as F
 from diffusers import DDIMScheduler
-from ctrl_3d.LucidDreamer.guidance.sd_step import pred_original
-from ctrl_3d.LucidDreamer.guidance.sd_utils import SpecifyGradient, StableDiffusion, rgb2sat
 from torchvision.utils import save_image
 
+from ctrl_3d.LucidDreamer.guidance.sd_step import pred_original
+from ctrl_3d.LucidDreamer.guidance.sd_utils import (
+    SpecifyGradient,
+    StableDiffusion,
+    rgb2sat,
+)
 from ctrl_utils.ctrl_utils import *
 
 
@@ -343,7 +347,10 @@ class StableDiffusionCtrl(StableDiffusion):
             with torch.no_grad():
                 pred_x0_latent_sp = pred_original(
                     # self.scheduler, noise_pred_uncond, prev_t, prev_latents_noisy
-                    self.scheduler, noise_pred_uncond_src, prev_t, prev_latents_noisy
+                    self.scheduler,
+                    noise_pred_uncond_src,
+                    prev_t,
+                    prev_latents_noisy,
                 )
                 pred_x0_latent_pos = pred_original(
                     self.scheduler, noise_pred_post, prev_t, prev_latents_noisy

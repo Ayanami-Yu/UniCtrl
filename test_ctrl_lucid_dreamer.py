@@ -2,6 +2,8 @@ import sys
 from argparse import ArgumentParser
 
 import torch
+
+from ctrl_3d.args_lucid_dreamer import CtrlParams
 from ctrl_3d.LucidDreamer.arguments import (
     GenerateCamParams,
     GuidanceParams,
@@ -11,9 +13,7 @@ from ctrl_3d.LucidDreamer.arguments import (
 )
 from ctrl_3d.LucidDreamer.gaussian_renderer import network_gui
 from ctrl_3d.LucidDreamer.utils.general_utils import safe_state
-from ctrl_3d.args_lucid_dreamer import CtrlParams
 from ctrl_3d.train_lucid_dreamer import training
-
 
 if __name__ == "__main__":
     import yaml
@@ -33,9 +33,9 @@ if __name__ == "__main__":
     parser.add_argument("--quiet", action="store_true")
     parser.add_argument("--checkpoint_iterations", nargs="+", type=int, default=[])
     parser.add_argument("--start_checkpoint", type=str, default=None)
-    parser.add_argument("--w_src", type=float, default=None)
-    parser.add_argument("--w_tgt", type=float, default=None)
-    parser.add_argument("--workspace", type=str, default=None)
+    parser.add_argument("--w_src_cli", type=float, default=None)
+    parser.add_argument("--w_tgt_cli", type=float, default=None)
+    parser.add_argument("--workspace_cli", type=str, default=None)
 
     mp = ModelParams(parser)
     op = OptimizationParams(parser)
@@ -81,10 +81,10 @@ if __name__ == "__main__":
     args.save_iterations = save_iter
 
     # override the values with the params from command line
-    if args.w_src and args.w_tgt:
-        cp.w_src, cp.w_tgt = args.w_src, args.w_tgt
-    if args.workspace is not None:
-        mp.workspace = args.workspace
+    if args.w_src_cli and args.w_tgt_cli:
+        cp.w_src, cp.w_tgt = args.w_src_cli, args.w_tgt_cli
+    if args.workspace_cli is not None:
+        mp.workspace = args.workspace_cli
 
     print("Test iter:", args.test_iterations)
     print("Save iter:", args.save_iterations)

@@ -1,10 +1,11 @@
 import torch
-from diffusers import ShapEPipeline
 from diffusers.utils import export_to_gif
+
+from ctrl_3d.ctrl_shap_e_pipeline import CtrlShapEPipeline
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-pipe = ShapEPipeline.from_pretrained(
+pipe = CtrlShapEPipeline.from_pretrained(
     "openai/shap-e", torch_dtype=torch.float16, variant="fp16"
 )
 pipe = pipe.to(device)

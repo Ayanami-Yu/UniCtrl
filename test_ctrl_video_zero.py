@@ -50,7 +50,9 @@ out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 # initialize model
 # NOTE setting torch_dtype=torch.float16 in from_pretrained will cause error in unet
 model_path = "/mnt/hdd1/hongyu/models/stable-diffusion-2-1-base"
-model = CtrlVideoZeroPipeline.from_pretrained(model_path, safety_checker=dummy).to(device)
+model = CtrlVideoZeroPipeline.from_pretrained(model_path, safety_checker=dummy).to(
+    device
+)
 
 # inference the synthesized video
 src_weights = [round(src_start + src_inc * i, 2) for i in range(int(src_n))]

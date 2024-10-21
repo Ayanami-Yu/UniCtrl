@@ -1,12 +1,9 @@
 from typing import List, Optional, Union
 
 import torch
+from diffusers.utils import replace_example_docstring
 
-from diffusers.utils import (
-    replace_example_docstring,
-)
-
-from .pipeline_shap_e import ShapEPipeline, EXAMPLE_DOC_STRING, ShapEPipelineOutput
+from .pipeline_shap_e import EXAMPLE_DOC_STRING, ShapEPipeline, ShapEPipelineOutput
 
 
 class CtrlShapEPipeline(ShapEPipeline):
@@ -68,14 +65,18 @@ class CtrlShapEPipeline(ShapEPipeline):
         elif isinstance(prompt, list):
             batch_size = len(prompt)
         else:
-            raise ValueError(f"`prompt` has to be of type `str` or `list` but is {type(prompt)}")
+            raise ValueError(
+                f"`prompt` has to be of type `str` or `list` but is {type(prompt)}"
+            )
 
         device = self._execution_device
 
         batch_size = batch_size * num_images_per_prompt
 
         do_classifier_free_guidance = guidance_scale > 1.0
-        prompt_embeds = self._encode_prompt(prompt, device, num_images_per_prompt, do_classifier_free_guidance)
+        prompt_embeds = self._encode_prompt(
+            prompt, device, num_images_per_prompt, do_classifier_free_guidance
+        )
 
         # prior
 
@@ -99,7 +100,9 @@ class CtrlShapEPipeline(ShapEPipeline):
 
         for i, t in enumerate(self.progress_bar(timesteps)):
             # expand the latents if we are doing classifier free guidance
-            latent_model_input = torch.cat([latents] * 2) if do_classifier_free_guidance else latents
+            latent_model_input = (
+                torch.cat([latents] * 2) if do_classifier_free_guidance else latents
+            )
             scaled_model_input = self.scheduler.scale_model_input(latent_model_input, t)
 
             noise_pred = self.prior(
@@ -115,7 +118,9 @@ class CtrlShapEPipeline(ShapEPipeline):
 
             if do_classifier_free_guidance:
                 noise_pred_uncond, noise_pred = noise_pred.chunk(2)
-                noise_pred = noise_pred_uncond + guidance_scale * (noise_pred - noise_pred_uncond)
+                noise_pred = noise_pred_uncond + guidance_scale * (
+                    noise_pred - noise_pred_uncond
+                )
 
             latents = self.scheduler.step(
                 noise_pred,

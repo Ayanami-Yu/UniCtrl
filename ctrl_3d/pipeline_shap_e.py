@@ -19,19 +19,13 @@ from typing import List, Optional, Union
 import numpy as np
 import PIL.Image
 import torch
-from transformers import CLIPTextModelWithProjection, CLIPTokenizer
-
 from diffusers.models import PriorTransformer
-from diffusers.schedulers import HeunDiscreteScheduler
-from diffusers.utils import (
-    BaseOutput,
-    logging,
-    replace_example_docstring,
-)
-from diffusers.utils.torch_utils import randn_tensor
 from diffusers.pipelines.pipeline_utils import DiffusionPipeline
 from diffusers.pipelines.shap_e.renderer import ShapERenderer
-
+from diffusers.schedulers import HeunDiscreteScheduler
+from diffusers.utils import BaseOutput, logging, replace_example_docstring
+from diffusers.utils.torch_utils import randn_tensor
+from transformers import CLIPTextModelWithProjection, CLIPTokenizer
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 
@@ -121,10 +115,14 @@ class ShapEPipeline(DiffusionPipeline):
     # Copied from diffusers.pipelines.unclip.pipeline_unclip.UnCLIPPipeline.prepare_latents
     def prepare_latents(self, shape, dtype, device, generator, latents, scheduler):
         if latents is None:
-            latents = randn_tensor(shape, generator=generator, device=device, dtype=dtype)
+            latents = randn_tensor(
+                shape, generator=generator, device=device, dtype=dtype
+            )
         else:
             if latents.shape != shape:
-                raise ValueError(f"Unexpected latents shape, got {latents.shape}, expected {shape}")
+                raise ValueError(
+                    f"Unexpected latents shape, got {latents.shape}, expected {shape}"
+                )
             latents = latents.to(device)
 
         latents = latents * scheduler.init_noise_sigma
@@ -150,10 +148,16 @@ class ShapEPipeline(DiffusionPipeline):
             return_tensors="pt",
         )
         text_input_ids = text_inputs.input_ids
-        untruncated_ids = self.tokenizer(prompt, padding="longest", return_tensors="pt").input_ids
+        untruncated_ids = self.tokenizer(
+            prompt, padding="longest", return_tensors="pt"
+        ).input_ids
 
-        if untruncated_ids.shape[-1] >= text_input_ids.shape[-1] and not torch.equal(text_input_ids, untruncated_ids):
-            removed_text = self.tokenizer.batch_decode(untruncated_ids[:, self.tokenizer.model_max_length - 1 : -1])
+        if untruncated_ids.shape[-1] >= text_input_ids.shape[-1] and not torch.equal(
+            text_input_ids, untruncated_ids
+        ):
+            removed_text = self.tokenizer.batch_decode(
+                untruncated_ids[:, self.tokenizer.model_max_length - 1 : -1]
+            )
             logger.warning(
                 "The following part of your input was truncated because CLIP can only handle sequences up to"
                 f" {self.tokenizer.model_max_length} tokens: {removed_text}"
@@ -164,7 +168,9 @@ class ShapEPipeline(DiffusionPipeline):
 
         prompt_embeds = prompt_embeds.repeat_interleave(num_images_per_prompt, dim=0)
         # in Shap-E it normalize the prompt_embeds and then later rescale it
-        prompt_embeds = prompt_embeds / torch.linalg.norm(prompt_embeds, dim=-1, keepdim=True)
+        prompt_embeds = prompt_embeds / torch.linalg.norm(
+            prompt_embeds, dim=-1, keepdim=True
+        )
 
         if do_classifier_free_guidance:
             negative_prompt_embeds = torch.zeros_like(prompt_embeds)
@@ -236,14 +242,18 @@ class ShapEPipeline(DiffusionPipeline):
         elif isinstance(prompt, list):
             batch_size = len(prompt)
         else:
-            raise ValueError(f"`prompt` has to be of type `str` or `list` but is {type(prompt)}")
+            raise ValueError(
+                f"`prompt` has to be of type `str` or `list` but is {type(prompt)}"
+            )
 
         device = self._execution_device
 
         batch_size = batch_size * num_images_per_prompt
 
         do_classifier_free_guidance = guidance_scale > 1.0
-        prompt_embeds = self._encode_prompt(prompt, device, num_images_per_prompt, do_classifier_free_guidance)
+        prompt_embeds = self._encode_prompt(
+            prompt, device, num_images_per_prompt, do_classifier_free_guidance
+        )
 
         # prior
 
@@ -267,7 +277,9 @@ class ShapEPipeline(DiffusionPipeline):
 
         for i, t in enumerate(self.progress_bar(timesteps)):
             # expand the latents if we are doing classifier free guidance
-            latent_model_input = torch.cat([latents] * 2) if do_classifier_free_guidance else latents
+            latent_model_input = (
+                torch.cat([latents] * 2) if do_classifier_free_guidance else latents
+            )
             scaled_model_input = self.scheduler.scale_model_input(latent_model_input, t)
 
             noise_pred = self.prior(
@@ -283,7 +295,9 @@ class ShapEPipeline(DiffusionPipeline):
 
             if do_classifier_free_guidance:
                 noise_pred_uncond, noise_pred = noise_pred.chunk(2)
-                noise_pred = noise_pred_uncond + guidance_scale * (noise_pred - noise_pred_uncond)
+                noise_pred = noise_pred_uncond + guidance_scale * (
+                    noise_pred - noise_pred_uncond
+                )
 
             latents = self.scheduler.step(
                 noise_pred,
