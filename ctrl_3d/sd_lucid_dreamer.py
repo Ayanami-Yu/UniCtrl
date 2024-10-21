@@ -268,15 +268,8 @@ class StableDiffusionCtrl(StableDiffusion):
                 target = pred_scores[0][1]
 
         with torch.no_grad():
-            latent_model_input = (
-                latents_noisy[None, :, ...]
-                .repeat(2, 1, 1, 1, 1)
-                .reshape(
-                    -1,
-                    4,
-                    resolution[0] // 8,
-                    resolution[1] // 8,
-                )
+            latent_model_input = latents_noisy.repeat(
+                4 if not use_plain_cfg else 2, 1, 1, 1
             )
             tt = t.reshape(1, 1).repeat(latent_model_input.shape[0], 1).reshape(-1)
 
@@ -284,26 +277,7 @@ class StableDiffusionCtrl(StableDiffusion):
                 latent_model_input, tt[0]
             )
             if use_control_net:
-                pred_depth_input = (
-                    pred_depth_input[None, :, ...]
-                    .repeat(1 + K, 1, 3, 1, 1)
-                    .reshape(-1, 3, 512, 512)
-                    .half()
-                )
-                down_block_res_samples, mid_block_res_sample = self.controlnet_depth(
-                    latent_model_input,
-                    tt,
-                    encoder_hidden_states=text_embeddings,
-                    controlnet_cond=pred_depth_input,
-                    return_dict=False,
-                )
-                unet_output = self.unet(
-                    latent_model_input,
-                    tt,
-                    encoder_hidden_states=text_embeddings,
-                    down_block_additional_residuals=down_block_res_samples,
-                    mid_block_additional_residual=mid_block_res_sample,
-                ).sample
+                raise NotImplementedError("ControlNet not supported")
             else:
                 unet_output = self.unet(
                     latent_model_input.to(self.precision_t),
@@ -311,24 +285,7 @@ class StableDiffusionCtrl(StableDiffusion):
                     encoder_hidden_states=text_embeddings.to(self.precision_t),
                 ).sample
 
-            unet_output = unet_output.reshape(
-                2,
-                -1,
-                4,
-                resolution[0] // 8,
-                resolution[1] // 8,
-            )
-            noise_pred_uncond, noise_pred_text = unet_output[:1].reshape(
-                -1,
-                4,
-                resolution[0] // 8,
-                resolution[1] // 8,
-            ), unet_output[1:].reshape(
-                -1,
-                4,
-                resolution[0] // 8,
-                resolution[1] // 8,
-            )
+            noise_pred_uncond, noise_pred_text = unet_output.chunk(2)
 
         if use_plain_cfg:
             noise_pred = noise_pred_uncond + guidance_opt.guidance_scale * (

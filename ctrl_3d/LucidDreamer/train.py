@@ -577,7 +577,7 @@ def training_report(
             scene.args._model_path, "test_six_views/{}_iteration".format(iteration)
         )
         if not os.path.exists(save_folder):
-            os.makedirs(save_folder)  # makedirs 创建文件时如果路径不存在会创建这个路径
+            os.makedirs(save_folder)
             print("test views is in :", save_folder)
         torch.cuda.empty_cache()
         config = {"name": "test", "cameras": scene.getTestCameras()}
