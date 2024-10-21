@@ -15,7 +15,7 @@ def dummy(images, **kwargs):
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
 parser.add_argument("--out_dir", type=str, default="./exp/video_zero/samples/")
-parser.add_argument("--gpu", type=int, default=1)
+parser.add_argument("--gpu", type=int, default=0)
 
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
@@ -49,7 +49,7 @@ out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 
 # initialize model
 # NOTE setting torch_dtype=torch.float16 in from_pretrained will cause error in unet
-model_path = "/mnt/hdd1/hongyu/models/stable-diffusion-2-1-base"
+model_path = "stabilityai/stable-diffusion-2-1-base"
 model = CtrlVideoZeroPipeline.from_pretrained(model_path, safety_checker=dummy).to(
     device
 )
@@ -58,7 +58,7 @@ model = CtrlVideoZeroPipeline.from_pretrained(model_path, safety_checker=dummy).
 src_weights = [round(src_start + src_inc * i, 2) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 2) for i in range(int(tgt_n))]
 
-# TODO provide per-generated latents
+# TODO provide pre-generated latents
 for w_src in src_weights:
     for w_tgt in tgt_weights:
         images = model(

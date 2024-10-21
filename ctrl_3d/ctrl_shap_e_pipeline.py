@@ -68,7 +68,8 @@ class CtrlShapEPipeline(ShapEPipeline):
                 otherwise a `tuple` is returned where the first element is a list with the generated images.
         """
 
-        if isinstance(prompt, str):
+        # when using prompt ctrl, only one latent is persistent throughout
+        if isinstance(prompt, str) or not use_plain_cfg:
             batch_size = 1
         elif isinstance(prompt, list):
             batch_size = len(prompt)
@@ -111,6 +112,9 @@ class CtrlShapEPipeline(ShapEPipeline):
             latent_model_input = (
                 torch.cat([latents] * 2) if do_classifier_free_guidance else latents
             )
+            # expand the latents as there are two prompts for prompt ctrl
+            if not use_plain_cfg:
+                latent_model_input = torch.cat([latent_model_input] * 2)
             scaled_model_input = self.scheduler.scale_model_input(latent_model_input, t)
 
             noise_pred = self.prior(
@@ -140,19 +144,13 @@ class CtrlShapEPipeline(ShapEPipeline):
                         t, guidance_scale, guidance_type
                     ) * (noise_pred_text - noise_pred_uncond)
                 else:  # aggregate noise
-                    noise_pred_text_src, noise_pred_text_tgt = (
-                        noise_pred_text.chunk(2)
-                    )
+                    noise_pred_text_src, noise_pred_text_tgt = noise_pred_text.chunk(2)
                     noise_pred_uncond_src, noise_pred_uncond_tgt = (
                         noise_pred_uncond.chunk(2)
                     )
 
-                    delta_noise_pred_src = (
-                        noise_pred_text_src - noise_pred_uncond_src
-                    )
-                    delta_noise_pred_tgt = (
-                        noise_pred_text_tgt - noise_pred_uncond_tgt
-                    )
+                    delta_noise_pred_src = noise_pred_text_src - noise_pred_uncond_src
+                    delta_noise_pred_tgt = noise_pred_text_tgt - noise_pred_uncond_tgt
 
                     w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
                     w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)

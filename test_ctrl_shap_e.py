@@ -8,7 +8,7 @@ from ctrl_3d.ctrl_shap_e_pipeline import CtrlShapEPipeline
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
-parser.add_argument("--out_dir", type=str, default="./exp/shape_e/samples/")
+parser.add_argument("--out_dir", type=str, default="./exp/shap_e/samples/")
 
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
@@ -21,10 +21,14 @@ device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # set ctrl params
 src_start, src_inc, src_n = (0.9, 0.1, 2) if not args.src_params else args.src_params
 tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 16) if not args.tgt_params else args.tgt_params
-prompts = [
-    'a horse galloping on the street, best quality',
-    'a horse galloping on the street with a girl riding on it, best quality',
-] if not args.prompt else args.prompt
+prompts = (
+    [
+        "a horse galloping on the street, best quality",
+        "a horse galloping on the street with a girl riding on it, best quality",
+    ]
+    if not args.prompt
+    else args.prompt
+)
 
 # set seed
 seed = 0
@@ -57,5 +61,5 @@ for w_src in src_weights:
 
         # no need to makedirs when no result has been generated
         os.makedirs(out_dir, exist_ok=True)
-        export_to_gif(images, os.path.join(out_dir, f"{w_src}_{w_tgt}.gif"))
+        export_to_gif(images[0], os.path.join(out_dir, f"{w_src}_{w_tgt}.gif"))
         print("Syntheiszed result is saved in", out_dir)

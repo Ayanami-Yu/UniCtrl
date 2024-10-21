@@ -10,7 +10,10 @@ pipe = ShapEPipeline.from_pretrained(
 pipe = pipe.to(device)
 
 guidance_scale = 15.0
-prompt = ["A firecracker", "A birthday cupcake"]
+prompt = [
+    "a horse galloping on the street, best quality",
+    "a horse galloping on the street with a girl riding on it, best quality",
+]
 
 images = pipe(
     prompt,
@@ -19,5 +22,5 @@ images = pipe(
     frame_size=256,
 ).images
 
-export_to_gif(images[0], "firecracker_3d.gif")
-export_to_gif(images[1], "cake_3d.gif")
+export_to_gif(images[0], "src.gif")
+export_to_gif(images[1], "tgt.gif")

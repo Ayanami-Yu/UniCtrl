@@ -29,7 +29,7 @@ sample_count = len(os.listdir(out_dir))
 out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 
 # initialize model
-model_path = "/mnt/hdd1/hongyu/models/stable-diffusion-2-1-base"
+model_path = "stabilityai/stable-diffusion-2-1-base"
 model = CtrlSDPipeline.from_pretrained(model_path).to(device)
 
 # initialize the noise map
