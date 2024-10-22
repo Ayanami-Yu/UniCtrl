@@ -11,20 +11,20 @@ CtrlParams:
   w_tgt_ctrl_type: 'static'
   t_ctrl_start: null
 
-  src_prompt: 'a horse galloping on the street, best quality'
-  tgt_prompt: 'a horse galloping on the street with a girl riding on it, best quality'
+  src_prompt: 'a panda standing like a human, high quality, highly detailed'
+  tgt_prompt: 'a panda standing like a human and playing guitar, high quality, highly detailed'
 
 PipelineParams:
   convert_SHs_python: False  # true = using direct rgb
 
 ModelParams:
-  workspace: horse_girl_point_e/samples
+  workspace: panda_guitar/samples
   sh_degree: 0
   bg_aug_ratio: 0.66
 
 GuidanceParams:
   model_key: 'stabilityai/stable-diffusion-2-1-base'
-  text: 'a horse galloping on the street, best quality'
+  text: ''
   negative: 'unrealistic, blurry, low quality, out of focus, ugly, low contrast, dull, low-resolution, oversaturation.'
   inverse_text: ''
   perpneg: true

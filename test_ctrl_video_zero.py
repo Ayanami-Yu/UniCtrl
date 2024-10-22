@@ -55,8 +55,8 @@ model = CtrlVideoZeroPipeline.from_pretrained(model_path, safety_checker=dummy).
 )
 
 # generate the synthesized videos
-src_weights = [round(src_start + src_inc * i, 2) for i in range(int(src_n))]
-tgt_weights = [round(tgt_start + tgt_inc * i, 2) for i in range(int(tgt_n))]
+src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
+tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
 # TODO provide pre-generated latents
 for w_src in src_weights:

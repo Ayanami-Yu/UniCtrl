@@ -23,8 +23,8 @@ src_start, src_inc, src_n = (0.9, 0.1, 2) if not args.src_params else args.src_p
 tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 16) if not args.tgt_params else args.tgt_params
 prompts = (
     [
-        "a horse galloping on the street, best quality",
-        "a horse galloping on the street with a girl riding on it, best quality",
+        "a chair",
+        "a chair next to a desk",
     ]
     if not args.prompt
     else args.prompt
@@ -47,8 +47,8 @@ pipe = CtrlShapEPipeline.from_pretrained(
 pipe = pipe.to(device)
 
 # generate synthesized 3d assets
-src_weights = [round(src_start + src_inc * i, 2) for i in range(int(src_n))]
-tgt_weights = [round(tgt_start + tgt_inc * i, 2) for i in range(int(tgt_n))]
+src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
+tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
 for w_src in src_weights:
     for w_tgt in tgt_weights:
@@ -57,6 +57,13 @@ for w_src in src_weights:
             guidance_scale=15.0,
             num_inference_steps=64,
             frame_size=256,
+            use_plain_cfg=False,
+            guidance_type="static",
+            w_src=w_src,
+            w_tgt=w_tgt,
+            w_src_ctrl_type="static",
+            w_tgt_ctrl_type="static",
+            t_ctrl_start=None,
         ).images
 
         # no need to makedirs when no result has been generated

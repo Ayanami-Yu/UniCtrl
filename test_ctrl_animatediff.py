@@ -81,8 +81,8 @@ pipe.enable_vae_slicing()
 pipe.enable_model_cpu_offload()
 
 # generate the synthesized videos
-src_weights = [round(src_start + src_inc * i, 2) for i in range(int(src_n))]
-tgt_weights = [round(tgt_start + tgt_inc * i, 2) for i in range(int(tgt_n))]
+src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
+tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
 for w_src in src_weights:
     for w_tgt in tgt_weights:

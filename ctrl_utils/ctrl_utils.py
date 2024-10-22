@@ -1,10 +1,7 @@
-from typing import Optional
-
 import numpy as np
 import torch
 
 
-# TODO should it adapt to different tensors of different shapes?
 def get_perpendicular_component(x, y, mode: str):
     """Get the component of x that is perpendicular to y"""
     assert x.shape == y.shape
@@ -32,7 +29,7 @@ def add_aggregator_v1(
     w_src,
     delta_noise_pred_tgt,
     w_tgt,
-    mode: Optional[str] = "latent",
+    mode: str = "latent",
 ):
     return w_src * delta_noise_pred_src + w_tgt * get_perpendicular_component(
         delta_noise_pred_tgt, delta_noise_pred_src, mode=mode
@@ -44,13 +41,27 @@ def add_aggregator_v2(
     w_src,
     delta_noise_pred_tgt,
     w_tgt,
-    mode: Optional[str] = "latent",
+    mode: str = "latent",
 ):
     return w_src * delta_noise_pred_src + w_tgt * (
         get_perpendicular_component(
             delta_noise_pred_tgt, delta_noise_pred_src, mode=mode
         )
         - delta_noise_pred_src
+    )
+
+
+def remove_aggregator(
+    delta_noise_pred_src,
+    w_src,
+    delta_noise_pred_tgt,
+    w_tgt,
+    mode: str = "latent",
+):
+    return (
+        w_src
+        * get_perpendicular_component(delta_noise_pred_src, delta_noise_pred_tgt, mode=mode)
+        - w_tgt * delta_noise_pred_tgt
     )
 
 

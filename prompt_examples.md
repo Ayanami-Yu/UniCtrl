@@ -20,6 +20,10 @@ tgt = 1.0 ~ 3.0
 src = 0.9
 tgt = 0.5 ~ 1.5
 
+### CLI
+
+`CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_sd.py --prompt "Catwoman holding a sniper rifle" "a sniper rifle" --out_dir "./exp/sd/catwoman_rifle_rm/" --src_params 2.3 0.1 2 --tgt_params 0.0 0.1 23 > nohup/catwoman_rifle_rm 2>&1 &`
+
 ## Video
 
 [
@@ -112,6 +116,14 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/horse_girl.yaml --w_src_cli=0.9 --w_tgt_cli=0.7 --workspace_cli='horse_girl_sphere/0.9_0.7' &`
 
+`CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/panda_guitar.yaml --w_src_cli=0.9 --w_tgt_cli=0.6 --workspace_cli='panda_guitar/0.9_0.6' &`
+
+`CUDA_VISIBLE_DEVICES=2 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/girl_hat.yaml --w_src_cli=0.9 --w_tgt_cli=0.2 --workspace_cli='girl_hat/0.9_0.2' &`
+
 #### Shap-E
 
 `CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_shap_e.py --prompt "a horse galloping on the street, best quality" "a horse galloping on the street with a girl riding on it, best quality" --out_dir "./exp/shap_e/horse_girl/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/horse_girl.txt 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_shap_e.py --prompt "a dog" "a dog wearing a hat" --out_dir "./exp/shap_e/dog_hat/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 17 > nohup/dog_hat.txt 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=6 nohup python test_ctrl_shap_e.py --prompt "a chair" "a chair and a desk" --out_dir "./exp/shap_e/chair_desk/" --src_params 1.0 0.1 2 --tgt_params 0.0 0.1 17 > nohup/chair_desk.txt 2>&1 &`

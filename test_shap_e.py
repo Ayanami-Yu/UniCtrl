@@ -11,8 +11,8 @@ pipe = pipe.to(device)
 
 guidance_scale = 15.0
 prompt = [
-    "a horse galloping on the street, best quality",
-    "a horse galloping on the street with a girl riding on it, best quality",
+    "a chair",
+    "a chair and a desk",
 ]
 
 images = pipe(

@@ -25,6 +25,7 @@ from ctrl_3d.LucidDreamer.train import (
     prepare_output_and_logger,
     training_report,
     video_inference,
+    adjust_text_embeddings,
 )
 from ctrl_3d.LucidDreamer.utils.loss_utils import tv_loss
 from ctrl_3d.sd_lucid_dreamer import StableDiffusionCtrl
@@ -83,7 +84,7 @@ def training(
     save_video,
     ctrl_params: CtrlParams,
 ):
-    assert not guidance_opt.perpneg, "Prompt ctrl with Perp-Neg not implemented"
+    # assert not guidance_opt.perpneg, "Prompt ctrl with Perp-Neg not implemented"
 
     first_iter = 0
     tb_writer = prepare_output_and_logger(dataset, use_tensorboard=False)
@@ -280,23 +281,29 @@ def training(
         for embs in embeddings:
             for i in range(guidance_opt.C_batch_size):
                 azimuth = viewpoint_cams[i].delta_azimuth
-
-                # TODO will interpolation between embeds affect prompt ctrl?
-                if azimuth >= -90 and azimuth < 90:
-                    if azimuth >= 0:
-                        r = 1 - azimuth / 90
-                    else:
-                        r = 1 + azimuth / 90
-                    start_z = embs["front"]
-                    end_z = embs["side"]
+                if guidance_opt.perpneg:
+                    text_z_comp, weights = adjust_text_embeddings(
+                        embs, azimuth, guidance_opt
+                    )
+                    text_z = text_z_comp
+                    weights_.append(weights)
                 else:
-                    if azimuth >= 0:
-                        r = 1 - (azimuth - 90) / 90
+                    # TODO will interpolation between embeds affect prompt ctrl?
+                    if azimuth >= -90 and azimuth < 90:
+                        if azimuth >= 0:
+                            r = 1 - azimuth / 90
+                        else:
+                            r = 1 + azimuth / 90
+                        start_z = embs["front"]
+                        end_z = embs["side"]
                     else:
-                        r = 1 + (azimuth + 90) / 90
-                    start_z = embs["side"]
-                    end_z = embs["back"]
-                text_z = r * start_z + (1 - r) * end_z
+                        if azimuth >= 0:
+                            r = 1 - (azimuth - 90) / 90
+                        else:
+                            r = 1 + (azimuth + 90) / 90
+                        start_z = embs["side"]
+                        end_z = embs["back"]
+                    text_z = r * start_z + (1 - r) * end_z
 
                 text_z = torch.cat((embs["uncond"], text_z), dim=0)
                 text_z_.append(text_z)
@@ -325,6 +332,7 @@ def training(
             guidance_opt=guidance_opt,
             as_latent=_aslatent,
             embedding_inverse=text_z_inverse,
+            weights=weights_,
             use_plain_cfg=False,
             guidance_type=ctrl_params.guidance_type,
             w_src=ctrl_params.w_src,
