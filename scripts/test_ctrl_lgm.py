@@ -13,12 +13,58 @@ import tyro
 from kiui.cam import orbit_camera
 from kiui.op import recenter
 from safetensors.torch import load_file
+from pytorch_lightning import seed_everything
 
 from ctrl_3d.ctrl_mvdream_pipeline import CtrlMVDreamPipeline
 from ctrl_3d.LGM.core.models import LGM
 from ctrl_3d.LGM.core.options import AllConfigs
 
-# Usage: python test.py big --resume ../ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace ../exp/lgm
+
+IMAGENET_DEFAULT_MEAN = (0.485, 0.456, 0.406)
+IMAGENET_DEFAULT_STD = (0.229, 0.224, 0.225)
+
+opt = tyro.cli(AllConfigs)
+
+# model
+model = LGM(opt)
+
+# resume pretrained checkpoint
+if opt.resume is not None:
+    if opt.resume.endswith("safetensors"):
+        ckpt = load_file(opt.resume, device="cpu")
+    else:
+        ckpt = torch.load(opt.resume, map_location="cpu")
+    model.load_state_dict(ckpt, strict=False)
+    print(f"[INFO] Loaded checkpoint from {opt.resume}")
+else:
+    print(f"[WARN] model randomly initialized, are you sure?")
+
+# device
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = model.half().to(device)
+model.eval()
+
+rays_embeddings = model.prepare_default_rays(device)
+
+tan_half_fov = np.tan(0.5 * np.deg2rad(opt.fovy))
+proj_matrix = torch.zeros(4, 4, dtype=torch.float32, device=device)
+proj_matrix[0, 0] = 1 / tan_half_fov
+proj_matrix[1, 1] = 1 / tan_half_fov
+proj_matrix[2, 2] = (opt.zfar + opt.znear) / (opt.zfar - opt.znear)
+proj_matrix[3, 2] = -(opt.zfar * opt.znear) / (opt.zfar - opt.znear)
+proj_matrix[2, 3] = 1
+
+# load dreams
+pipe = CtrlMVDreamPipeline.from_pretrained(
+    "ashawkey/mvdream-sd2.1-diffusers",  # remote weights
+    torch_dtype=torch.float16,
+    trust_remote_code=True,
+    # local_files_only=True,
+)
+pipe = pipe.to(device)
+
+# load rembg
+bg_remover = rembg.new_session()
 
 
 # process function
@@ -28,7 +74,8 @@ def process(
     prompt_neg="",
     input_elevation=0,
     input_num_steps=30,
-    input_seed=42,
+    input_seed=0,
+    latents=None,
     use_plain_cfg=False,
     guidance_type: str = "static",
     w_src=1.0,
@@ -44,12 +91,13 @@ def process(
     output_video_path = os.path.join(opt.workspace, name + ".mp4")
 
     # text-conditioned
-    mv_image_uint8 = pipe_text(
+    mv_image_uint8 = pipe(
         prompt,
         negative_prompt=prompt_neg,
         num_inference_steps=input_num_steps,
         guidance_scale=7.5,
         elevation=input_elevation,
+        latents=latents,
         use_plain_cfg=use_plain_cfg,
         guidance_type=guidance_type,
         w_src=w_src,
@@ -191,65 +239,37 @@ def process(
     return mv_image_grid
 
 
-IMAGENET_DEFAULT_MEAN = (0.485, 0.456, 0.406)
-IMAGENET_DEFAULT_STD = (0.229, 0.224, 0.225)
+# set seed
+seed = 0
+seed_everything(seed)
 
-opt = tyro.cli(AllConfigs)
-
-# model
-model = LGM(opt)
-
-# resume pretrained checkpoint
-if opt.resume is not None:
-    if opt.resume.endswith("safetensors"):
-        ckpt = load_file(opt.resume, device="cpu")
-    else:
-        ckpt = torch.load(opt.resume, map_location="cpu")
-    model.load_state_dict(ckpt, strict=False)
-    print(f"[INFO] Loaded checkpoint from {opt.resume}")
-else:
-    print(f"[WARN] model randomly initialized, are you sure?")
-
-# device
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = model.half().to(device)
-model.eval()
-
-rays_embeddings = model.prepare_default_rays(device)
-
-tan_half_fov = np.tan(0.5 * np.deg2rad(opt.fovy))
-proj_matrix = torch.zeros(4, 4, dtype=torch.float32, device=device)
-proj_matrix[0, 0] = 1 / tan_half_fov
-proj_matrix[1, 1] = 1 / tan_half_fov
-proj_matrix[2, 2] = (opt.zfar + opt.znear) / (opt.zfar - opt.znear)
-proj_matrix[3, 2] = -(opt.zfar * opt.znear) / (opt.zfar - opt.znear)
-proj_matrix[2, 3] = 1
-
-# load dreams
-pipe_text = CtrlMVDreamPipeline.from_pretrained(
-    "ashawkey/mvdream-sd2.1-diffusers",  # remote weights
-    torch_dtype=torch.float16,
-    trust_remote_code=True,
-    # local_files_only=True,
-)
-pipe_text = pipe_text.to(device)
-
-# load rembg
-bg_remover = rembg.new_session()
+# set output path
+out_dir = opt.workspace
+os.makedirs(out_dir, exist_ok=True)
+sample_count = len(os.listdir(out_dir))
+out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 
 prompts = [
     "a corgi",
-    "a corgi wearing a red hat",
+    "a corgi wearing a bowler hat",
 ]
 negative_prompts = [
     "",
     "",
 ]
 
+src_start, src_inc, src_n = opt.src_params
+tgt_start, tgt_inc, tgt_n = opt.tgt_params
+
+src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
+tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
+
+# TODO provide pre-generated latents
 process(
     prompt=prompts,
     prompt_neg=negative_prompts,
     name="sample",
+    input_seed=seed,
     use_plain_cfg=False,
     guidance_type="static",
     w_src=1.0,

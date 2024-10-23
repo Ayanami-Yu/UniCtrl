@@ -14,7 +14,7 @@ from diffusers.utils import (
     logging,
 )
 from diffusers.utils.torch_utils import randn_tensor
-from mvdream.mv_unet import MultiViewUNetModel, get_camera
+from ctrl_3d.LGM.mvdream.mv_unet import MultiViewUNetModel, get_camera
 from transformers import (
     CLIPImageProcessor,
     CLIPTextModel,

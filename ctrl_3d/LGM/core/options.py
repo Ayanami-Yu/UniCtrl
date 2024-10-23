@@ -72,6 +72,12 @@ class Options:
     # render fancy video with gaussian scaling effect
     fancy_video: bool = False
 
+    ### prompt ctrl
+    # source and target prompts
+    prompts: list[str] = ["a corgi", "a corgi wearing a bowler hat"]
+    # start, inc, n
+    src_params: list[float] = [1.0, 0.1, 2]
+    tgt_params: list[float] = [0.0, 0.1, 16]
 
 # all the default settings
 config_defaults: Dict[str, Options] = {}

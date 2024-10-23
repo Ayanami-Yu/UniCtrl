@@ -32,6 +32,7 @@ class CtrlMVDreamPipeline(MVDreamPipeline):
         callback_steps: int = 1,
         num_frames: int = 4,
         device=torch.device("cuda:0"),
+        latents: Optional[torch.Tensor] = None,
         use_plain_cfg=False,
         guidance_type: str = "static",
         w_src=1.0,
@@ -88,7 +89,8 @@ class CtrlMVDreamPipeline(MVDreamPipeline):
             prompt_embeds_pos.dtype,
             device,
             generator,
-            None,
+            # None,
+            latents=latents,
         )  # (4, 4, 32, 32)
 
         if image is not None:

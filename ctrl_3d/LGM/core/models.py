@@ -3,9 +3,9 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from core.gs import GaussianRenderer
-from core.options import Options
-from core.unet import UNet
+from ctrl_3d.LGM.core.gs import GaussianRenderer
+from ctrl_3d.LGM.core.options import Options
+from ctrl_3d.LGM.core.unet import UNet
 from kiui.lpips import LPIPS
 
 

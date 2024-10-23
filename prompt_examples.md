@@ -130,4 +130,8 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/car_gun.yaml --w_src_cli=1.0 --w_tgt_cli=0.0 --workspace_cli='car_gun/1.0_0.0' &`
 
-`CUDA_VISIBLE_DEVICES=4 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/motor_flames.yaml --w_src_cli=1.0 --w_tgt_cli=0.8 --workspace_cli='motor_flames/1.0_0.8' &`
+`CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/motor_flames.yaml --w_src_cli=1.0 --w_tgt_cli=1.3 --workspace_cli='motor_flames/1.0_1.3' &`
+
+#### LGM
+
+`python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm --prompts "a corgi" "a corgi wearing a bowler hat" --src_params 1.0 0.1 2 --tgt_params 0.0 0.1 16`

@@ -17,8 +17,6 @@ from ctrl_3d.LGM.core.models import LGM
 from ctrl_3d.LGM.core.options import AllConfigs
 from ctrl_3d.LGM.mvdream.pipeline_mvdream import MVDreamPipeline
 
-# Usage: python test.py big --resume ../ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace ../exp/lgm
-
 
 # process function
 def process(

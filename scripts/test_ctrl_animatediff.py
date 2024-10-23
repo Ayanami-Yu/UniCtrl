@@ -10,7 +10,7 @@ from ctrl_video.ctrl_animatediff_pipeline import CtrlAnimateDiffPipeline
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
-parser.add_argument("--out_dir", type=str, default="./exp/animatediff/samples/")
+parser.add_argument("--out_dir", type=str, default="../exp/animatediff/samples/")
 parser.add_argument("--gpu", type=int, default=0)
 # parser.add_argument("--gpu", type=str, default="7")
 
