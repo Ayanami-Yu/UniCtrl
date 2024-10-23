@@ -22,10 +22,10 @@ from ctrl_3d.LucidDreamer.arguments import GuidanceParams
 from ctrl_3d.LucidDreamer.gaussian_renderer import network_gui, render
 from ctrl_3d.LucidDreamer.scene import GaussianModel, Scene
 from ctrl_3d.LucidDreamer.train import (
+    adjust_text_embeddings,
     prepare_output_and_logger,
     training_report,
     video_inference,
-    adjust_text_embeddings,
 )
 from ctrl_3d.LucidDreamer.utils.loss_utils import tv_loss
 from ctrl_3d.sd_lucid_dreamer import StableDiffusionCtrl

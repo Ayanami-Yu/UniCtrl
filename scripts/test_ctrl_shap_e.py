@@ -1,10 +1,11 @@
-import os
-import torch
 import argparse
+import os
+
+import torch
 from diffusers.utils import export_to_gif
 from pytorch_lightning import seed_everything
-from ctrl_3d.ctrl_shap_e_pipeline import CtrlShapEPipeline
 
+from ctrl_3d.ctrl_shap_e_pipeline import CtrlShapEPipeline
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)

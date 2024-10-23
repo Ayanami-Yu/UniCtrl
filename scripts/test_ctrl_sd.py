@@ -1,13 +1,12 @@
+import argparse
 import os
 
 import torch
-import argparse
 from pytorch_lightning import seed_everything
 from torchvision import transforms
 from torchvision.utils import save_image
 
 from ctrl_image.ctrl_sd_pipeline import CtrlSDPipeline
-
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
@@ -49,7 +48,7 @@ model = CtrlSDPipeline.from_pretrained(model_path).to(device)
 
 # initialize the noisy latents
 # NOTE torch.Generator will produce different results if called for multiple
-# times even when the seed is fixed, so the intial noisy latents have to be 
+# times even when the seed is fixed, so the intial noisy latents have to be
 # fixed and pre-generated
 start_code = torch.randn([1, 4, 64, 64], device=device)
 start_code = start_code.expand(len(prompts), -1, -1, -1)

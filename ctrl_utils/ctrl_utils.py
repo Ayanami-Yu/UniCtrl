@@ -60,7 +60,9 @@ def remove_aggregator(
 ):
     return (
         w_src
-        * get_perpendicular_component(delta_noise_pred_src, delta_noise_pred_tgt, mode=mode)
+        * get_perpendicular_component(
+            delta_noise_pred_src, delta_noise_pred_tgt, mode=mode
+        )
         - w_tgt * delta_noise_pred_tgt
     )
 

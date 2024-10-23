@@ -3,8 +3,9 @@ from typing import List, Optional, Union
 import torch
 from diffusers.utils import replace_example_docstring
 
-from .pipeline_shap_e import EXAMPLE_DOC_STRING, ShapEPipeline, ShapEPipelineOutput
 from ctrl_utils.ctrl_utils import *
+
+from .pipeline_shap_e import EXAMPLE_DOC_STRING, ShapEPipeline, ShapEPipelineOutput
 
 
 class CtrlShapEPipeline(ShapEPipeline):

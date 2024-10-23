@@ -346,9 +346,11 @@ class CtrlSDPipeline(StableDiffusionPipeline):
                         else:
                             raise ValueError("Unrecognized prompt ctrl mode")
 
-                        noise_pred = noise_pred_uncond + guidance_weight(
-                            t, self.guidance_scale, guidance_type
-                        ) * aggregated_noise
+                        noise_pred = (
+                            noise_pred_uncond
+                            + guidance_weight(t, self.guidance_scale, guidance_type)
+                            * aggregated_noise
+                        )
 
                 if self.do_classifier_free_guidance and self.guidance_rescale > 0.0:
                     # Based on 3.4. in https://arxiv.org/pdf/2305.08891.pdf

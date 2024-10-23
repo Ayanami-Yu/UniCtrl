@@ -8,7 +8,9 @@ import torch.nn.functional as F
 from diffusers import DDIMScheduler
 from torchvision.utils import save_image
 
-from ctrl_3d.LucidDreamer.guidance.perpneg_utils import weighted_perpendicular_aggregator
+from ctrl_3d.LucidDreamer.guidance.perpneg_utils import (
+    weighted_perpendicular_aggregator,
+)
 from ctrl_3d.LucidDreamer.guidance.sd_step import pred_original
 from ctrl_3d.LucidDreamer.guidance.sd_utils import (
     SpecifyGradient,
@@ -196,7 +198,9 @@ class StableDiffusionCtrl(StableDiffusion):
                 latents.shape[0], 1, 1, 1
             )
 
-        text_embeddings = text_embeddings.reshape(-1, text_embeddings.shape[-2], text_embeddings.shape[-1])
+        text_embeddings = text_embeddings.reshape(
+            -1, text_embeddings.shape[-2], text_embeddings.shape[-1]
+        )
 
         inverse_text_embeddings = (
             embedding_inverse.unsqueeze(1)
@@ -298,14 +302,21 @@ class StableDiffusionCtrl(StableDiffusion):
 
             if guidance_opt.perpneg:
                 noise_pred_chunks = unet_output.chunk(4)
-                noise_pred_uncond, noise_pred_text = noise_pred_chunks[0], noise_pred_chunks[1:]
+                noise_pred_uncond, noise_pred_text = (
+                    noise_pred_chunks[0],
+                    noise_pred_chunks[1:],
+                )
             else:
                 noise_pred_uncond, noise_pred_text = unet_output.chunk(2)
 
             noise_pred_uncond_src, noise_pred_uncond_tgt = noise_pred_uncond.chunk(2)
             if guidance_opt.perpneg:
-                noise_pred_text_src = torch.cat([x.chunk(2)[0] for x in noise_pred_text], dim=0)
-                noise_pred_text_tgt = torch.cat([x.chunk(2)[1] for x in noise_pred_text], dim=0)
+                noise_pred_text_src = torch.cat(
+                    [x.chunk(2)[0] for x in noise_pred_text], dim=0
+                )
+                noise_pred_text_tgt = torch.cat(
+                    [x.chunk(2)[1] for x in noise_pred_text], dim=0
+                )
             else:
                 noise_pred_text_src, noise_pred_text_tgt = noise_pred_text.chunk(2)
 
@@ -313,8 +324,16 @@ class StableDiffusionCtrl(StableDiffusion):
                 weights_src = torch.cat([w.chunk(2)[0] for w in weights], dim=0)
                 weights_tgt = torch.cat([w.chunk(2)[1] for w in weights], dim=0)
 
-                delta_noise_pred_src = weighted_perpendicular_aggregator(noise_pred_text_src - noise_pred_uncond_src.repeat(3, 1, 1, 1), weights_src, B)
-                delta_noise_pred_tgt = weighted_perpendicular_aggregator(noise_pred_text_tgt - noise_pred_uncond_tgt.repeat(3, 1, 1, 1), weights_tgt, B)
+                delta_noise_pred_src = weighted_perpendicular_aggregator(
+                    noise_pred_text_src - noise_pred_uncond_src.repeat(3, 1, 1, 1),
+                    weights_src,
+                    B,
+                )
+                delta_noise_pred_tgt = weighted_perpendicular_aggregator(
+                    noise_pred_text_tgt - noise_pred_uncond_tgt.repeat(3, 1, 1, 1),
+                    weights_tgt,
+                    B,
+                )
             else:
                 delta_noise_pred_src = noise_pred_text_src - noise_pred_uncond_src
                 delta_noise_pred_tgt = noise_pred_text_tgt - noise_pred_uncond_tgt
@@ -325,9 +344,11 @@ class StableDiffusionCtrl(StableDiffusion):
             )
         elif t_ctrl_start is not None and t > t_ctrl_start:
             # use the source prompt only
-            noise_pred = noise_pred_uncond_src + guidance_weight(
-                t, guidance_opt.guidance_scale, guidance_type
-            ) * delta_noise_pred_src
+            noise_pred = (
+                noise_pred_uncond_src
+                + guidance_weight(t, guidance_opt.guidance_scale, guidance_type)
+                * delta_noise_pred_src
+            )
         else:  # aggregate noise
             w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
             w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
