@@ -11,7 +11,7 @@ from ctrl_image.ctrl_sd_pipeline import CtrlSDPipeline
 
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
-parser.add_argument("--out_dir", type=str, default="./exp/shap_e/samples/")
+parser.add_argument("--out_dir", type=str, default="./exp/sd/samples/")
 
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
@@ -22,12 +22,12 @@ args = parser.parse_args()
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # set ctrl params
-src_start, src_inc, src_n = (0.9, 0.1, 2) if not args.src_params else args.src_params
-tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 16) if not args.tgt_params else args.tgt_params
+src_start, src_inc, src_n = (1.3, 0.1, 2) if not args.src_params else args.src_params
+tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 31) if not args.tgt_params else args.tgt_params
 prompts = (
     [
-        "an astronaut riding a horse",
-        "an astronaut riding a horse and holding a Gatling gun",
+        "Catwoman holding a sniper rifle",
+        "Catwoman holding a sniper rifle and wearing a hat",
     ]
     if not args.prompt
     else args.prompt
@@ -47,6 +47,13 @@ out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 model_path = "stabilityai/stable-diffusion-2-1-base"
 model = CtrlSDPipeline.from_pretrained(model_path).to(device)
 
+# initialize the noisy latents
+# NOTE torch.Generator will produce different results if called for multiple
+# times even when the seed is fixed, so the intial noisy latents have to be 
+# fixed and pre-generated
+start_code = torch.randn([1, 4, 64, 64], device=device)
+start_code = start_code.expand(len(prompts), -1, -1, -1)
+
 # generate the synthesized images
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
@@ -58,12 +65,13 @@ for w_src in src_weights:
         image = model(
             prompts,
             guidance_scale=7.5,
+            latents=start_code,
             w_src=w_src,
             w_tgt=w_tgt,
             guidance_type="static",
             w_tgt_ctrl_type="static",
             t_ctrl_start=None,
-            ctrl_mode="remove",
+            ctrl_mode="add",
         ).images
         image = [transform(img) for img in image]
 

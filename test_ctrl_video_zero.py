@@ -54,16 +54,21 @@ model = CtrlVideoZeroPipeline.from_pretrained(model_path, safety_checker=dummy).
     device
 )
 
+# initialize the noisy latents
+# NOTE comment out start_code if you don't want to use prompt ctrl,
+# as start_code.shape[0] could be incorrect
+start_code = torch.randn([1, 4, 64, 64], device=device)
+
 # generate the synthesized videos
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
-# TODO provide pre-generated latents
 for w_src in src_weights:
     for w_tgt in tgt_weights:
         images = model(
             prompts,
             guidance_scale=7.5,
+            latents=start_code,
             use_plain_cfg=False,
             w_src=w_src,
             w_tgt=w_tgt,

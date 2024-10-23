@@ -80,9 +80,17 @@ pipe.scheduler = scheduler
 pipe.enable_vae_slicing()
 pipe.enable_model_cpu_offload()
 
+# initialize the noisy latents
+# (batch_size, num_channel, num_frames, height, width)
+start_code = torch.randn([1, 4, 16, 64, 64], device=device)
+
 # generate the synthesized videos
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
+
+# NOTE AnimateDiff uses float16 for prompt_embeds,
+# but we have handled dtype conversion inside our modified code
+# start_code = start_code.to(torch.float16)
 
 for w_src in src_weights:
     for w_tgt in tgt_weights:
@@ -92,7 +100,8 @@ for w_src in src_weights:
             num_frames=16,
             guidance_scale=7.5,
             num_inference_steps=25,
-            generator=torch.Generator("cpu").manual_seed(seed),
+            # generator=torch.Generator("cpu").manual_seed(seed),
+            latents=start_code,
             use_plain_cfg=False,
             w_src=w_src,
             w_tgt=w_tgt,

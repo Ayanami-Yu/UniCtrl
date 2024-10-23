@@ -85,7 +85,7 @@ tgt = 0.5 ~ 1.5
 
 `nohup python test_ctrl_animatediff.py --prompt "a woman is walking in the rain" "a woman is walking in the rain and carrying a red handbag" --out_dir "./exp/animatediff/woman_rain_handbag/" --src_params 0.5 0.1 31 --tgt_params 0.1 0.1 41 --gpu 7 > nohup/woman_rain_handbag.txt 2>&1 &`
 
-`nohup python test_ctrl_animatediff.py --prompt "a horse galloping on the street, best quality" "a horse galloping on the street with a girl riding on it, best quality" --out_dir "./exp/animatediff/horse_girl/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 --gpu 7 > nohup/horse_girl.txt 2>&1 &`
+`CUDA_VISIBLE_DEVICES=6 nohup python test_ctrl_animatediff.py --prompt "a horse galloping on the street, best quality" "a horse galloping on the street with a girl riding on it, best quality" --out_dir "./exp/animatediff/horse_girl/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/horse_girl.txt 2>&1 &`
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_animatediff.py --prompt "a high quality realistic photo of a cute cat running in a beautiful meadow" "a high quality realistic photo of a cute cat running in a beautiful meadow, Van Gogh style" --out_dir "./exp/animatediff/cat_meadow_van_gogh/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/cat_meadow_van_gogh.txt 2>&1 &`
 

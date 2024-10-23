@@ -271,6 +271,7 @@ def training(
             alphas.append(alpha)
             viewpoint_cams.append(viewpoint_cam)
 
+        # FIXME are depths actually alphas?
         images = torch.stack(images, dim=0)
         depths = torch.stack(depths, dim=0)
         alphas = torch.stack(alphas, dim=0)
