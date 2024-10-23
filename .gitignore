@@ -180,6 +180,9 @@ pyrightconfig.json
 output
 point_e_model_cache/
 
+# for LGM
+pretrained
+
 exp
 .vscode
 nohup/
