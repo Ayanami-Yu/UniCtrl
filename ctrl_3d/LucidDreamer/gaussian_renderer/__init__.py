@@ -149,9 +149,7 @@ def render(
         scales = torch.clamp(scales + (torch.randn_like(scales) * variance), 0.0)
 
     # Rasterize visible Gaussians to image, obtain their radii (on screen).
-    # NOTE the diff-gaussian-rasterization used here is different from that of LucidDreamer
-    # rendered_image, radii, depth_alpha = rasterizer(
-    rendered_image, radii, alpha, depth = rasterizer(  # TODO
+    rendered_image, radii, depth_alpha = rasterizer(
         means3D=means3D,
         means2D=means2D,
         shs=shs,
@@ -161,7 +159,7 @@ def render(
         rotations=rotations,
         cov3D_precomp=cov3D_precomp,
     )
-    # depth, alpha = torch.chunk(depth_alpha, 2)
+    depth, alpha = torch.chunk(depth_alpha, 2)
 
     focal = 1 / (2 * math.tan(viewpoint_camera.FoVx / 2))
     disp = focal / (depth + (alpha * 10) + 1e-5)

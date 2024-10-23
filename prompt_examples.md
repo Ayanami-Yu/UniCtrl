@@ -120,6 +120,8 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=2 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/girl_hat.yaml --w_src_cli=0.9 --w_tgt_cli=0.2 --workspace_cli='girl_hat/0.9_0.2' &`
 
+`CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/car_gun.yaml --w_src_cli=1.0 --w_tgt_cli=0.0 --workspace_cli='car_gun/1.0_0.0' &`
+
 #### Shap-E
 
 `CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_shap_e.py --prompt "a horse galloping on the street, best quality" "a horse galloping on the street with a girl riding on it, best quality" --out_dir "./exp/shap_e/horse_girl/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/horse_girl.txt 2>&1 &`
