@@ -110,6 +110,14 @@ tgt = 0.5 ~ 1.5
 
 ### CLI
 
+#### Shap-E
+
+`CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_shap_e.py --prompt "a horse galloping on the street, best quality" "a horse galloping on the street with a girl riding on it, best quality" --out_dir "./exp/shap_e/horse_girl/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/horse_girl.txt 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_shap_e.py --prompt "a dog" "a dog wearing a hat" --out_dir "./exp/shap_e/dog_hat/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 17 > nohup/dog_hat.txt 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=6 nohup python test_ctrl_shap_e.py --prompt "a chair" "a chair and a desk" --out_dir "./exp/shap_e/chair_desk/" --src_params 1.0 0.1 2 --tgt_params 0.0 0.1 17 > nohup/chair_desk.txt 2>&1 &`
+
 #### LucidDreamer
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/horse_girl.yaml &`
@@ -122,10 +130,4 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/car_gun.yaml --w_src_cli=1.0 --w_tgt_cli=0.0 --workspace_cli='car_gun/1.0_0.0' &`
 
-#### Shap-E
-
-`CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_shap_e.py --prompt "a horse galloping on the street, best quality" "a horse galloping on the street with a girl riding on it, best quality" --out_dir "./exp/shap_e/horse_girl/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/horse_girl.txt 2>&1 &`
-
-`CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_shap_e.py --prompt "a dog" "a dog wearing a hat" --out_dir "./exp/shap_e/dog_hat/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 17 > nohup/dog_hat.txt 2>&1 &`
-
-`CUDA_VISIBLE_DEVICES=6 nohup python test_ctrl_shap_e.py --prompt "a chair" "a chair and a desk" --out_dir "./exp/shap_e/chair_desk/" --src_params 1.0 0.1 2 --tgt_params 0.0 0.1 17 > nohup/chair_desk.txt 2>&1 &`
+`CUDA_VISIBLE_DEVICES=4 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/motor_flames.yaml --w_src_cli=1.0 --w_tgt_cli=0.8 --workspace_cli='motor_flames/1.0_0.8' &`
