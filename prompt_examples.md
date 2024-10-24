@@ -22,7 +22,13 @@ tgt = 0.5 ~ 1.5
 
 ### CLI
 
-`CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_sd.py --prompt "Catwoman holding a sniper rifle" "a sniper rifle" --out_dir "./exp/sd/catwoman_rifle_rm/" --src_params 2.3 0.1 2 --tgt_params 0.0 0.1 23 > nohup/catwoman_rifle_rm 2>&1 &`
+#### Remove
+
+`CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_sd.py --prompt "Catwoman holding a sniper rifle" "a sniper rifle" --out_dir "./exp/sd/catwoman_rifle_rm/" --src_params 2.3 0.1 2 --tgt_params 0.0 0.1 23 --ctrl_mode "remove" > nohup/catwoman_rifle_rm 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=7 nohup python scripts/test_ctrl_sd.py --prompt "Catwoman holding a sniper rifle" "a sniper rifle" --out_dir "./exp/sd/catwoman_rifle_rm_fix_scale/" --scale 1.0 --theta_params 0.0 0.025 62 --ctrl_mode "remove" > nohup/catwoman_rifle_rm 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=7 nohup scripts/python test_ctrl_sd.py --prompt "a DSLR photo of a cat wearing armor" "an armor" --out_dir "./exp/sd/cat_armor/" --scale 1.0 --theta_params 0.0 0.1 62 --ctrl_mode "remove" > nohup/cat_armor 2>&1 &`
 
 ## Video
 
@@ -151,6 +157,8 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/cat_armor.yaml --w_src_cli=1.0 --w_tgt_cli=0.2 --workspace_cli='cat_armor/1.0_0.2' --ctrl_mode_cli "remove" &`
 
+`CUDA_VISIBLE_DEVICES=5 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/warrior_horse.yaml --w_src_cli=1.0 --w_tgt_cli=0.2 --workspace_cli='warrior_horse/1.0_0.2' --ctrl_mode_cli "remove" &`
+
 #### LGM
 
 `python scripts/test_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/samples`
@@ -162,3 +170,5 @@ tgt = 0.5 ~ 1.5
 ##### Remove
 
 `CUDA_VISIBLE_DEVICES=7 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/cat_armor/ --prompts "a DSLR photo of a cat wearing armor" "an armor" --src_params 0.5 0.1 11 --tgt_params 0.0 0.1 21 --ctrl_mode "remove" > nohup/cat_armor.txt 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=0 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/cat_armor/ --prompts "a white cat wearing blue clothes" "blue clothes" --src_params 0.5 0.1 16 --tgt_params 0.0 0.1 23 --ctrl_mode "remove" > nohup/cat_clothes.txt 2>&1 &`

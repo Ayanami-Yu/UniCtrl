@@ -219,7 +219,7 @@ def process(
 
     return mv_image_grid
 
-prompt = "a blue bird flying on a cloud"
+prompt = "a white cat wearing blue clothes"
 
 process(
     prompt=prompt,

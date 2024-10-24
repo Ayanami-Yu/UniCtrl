@@ -5,6 +5,7 @@ import torch
 from pytorch_lightning import seed_everything
 from torchvision import transforms
 from torchvision.utils import save_image
+from math import cos, sin
 
 from ctrl_image.ctrl_sd_pipeline import CtrlSDPipeline
 
@@ -15,6 +16,12 @@ parser.add_argument("--out_dir", type=str, default="./exp/sd/samples/")
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
 parser.add_argument("--tgt_params", nargs="+", type=float, default=None)
+
+# w_src = scale * cos(theta), w_tgt = scale * sin(theta)
+# used to fix the scale applied to the aggregated noise
+# theta shoule be in range(0, pi / 2 = 1.5707963267948966)
+parser.add_argument("--scale", type=float, default=None)
+parser.add_argument("--theta_params", nargs="+", type=float, default=None)
 parser.add_argument("--ctrl_mode", type=str, default="add")
 args = parser.parse_args()
 
@@ -55,13 +62,15 @@ start_code = torch.randn([1, 4, 64, 64], device=device)
 start_code = start_code.expand(len(prompts), -1, -1, -1)
 
 # generate the synthesized images
-src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
-tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
-
 transform = transforms.ToTensor()
 
-for w_src in src_weights:
-    for w_tgt in tgt_weights:
+if args.scale is not None:
+    x_start, x_inc, x_n = args.theta_params
+
+    for i in range(int(x_n)):
+        w_src = round(args.scale * cos(x_start + x_inc * i), 4)
+        w_tgt = round(args.scale * sin(x_start + x_inc * i), 4)
+
         image = model(
             prompts,
             guidance_scale=7.5,
@@ -79,6 +88,33 @@ for w_src in src_weights:
         os.makedirs(out_dir, exist_ok=True)
         save_image(
             image,
-            os.path.join(out_dir, f"{w_src}_{w_tgt}.png"),
+            os.path.join(out_dir, f"{w_src:.4f}_{w_tgt:.4f}.png"),
         )
         print("Synthesized images are saved in", out_dir)
+
+else:
+    src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
+    tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
+
+    for w_src in src_weights:
+        for w_tgt in tgt_weights:
+            image = model(
+                prompts,
+                guidance_scale=7.5,
+                latents=start_code,
+                w_src=w_src,
+                w_tgt=w_tgt,
+                guidance_type="static",
+                w_tgt_ctrl_type="static",
+                t_ctrl_start=None,
+                ctrl_mode=args.ctrl_mode,
+            ).images
+            image = [transform(img) for img in image]
+
+            # no need to makedirs when no result has been generated
+            os.makedirs(out_dir, exist_ok=True)
+            save_image(
+                image,
+                os.path.join(out_dir, f"{w_src}_{w_tgt}.png"),
+            )
+            print("Synthesized images are saved in", out_dir)
