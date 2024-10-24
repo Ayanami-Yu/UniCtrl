@@ -82,6 +82,7 @@ def process(
     w_src_ctrl_type: str = "static",
     w_tgt_ctrl_type: str = "static",
     t_ctrl_start: Optional[int] = None,
+    ctrl_mode: str = "add",
 ):
     # text-conditioned
     mv_image_uint8 = pipe(
@@ -98,6 +99,7 @@ def process(
         w_src_ctrl_type=w_src_ctrl_type,
         w_tgt_ctrl_type=w_tgt_ctrl_type,
         t_ctrl_start=t_ctrl_start,
+        ctrl_mode=ctrl_mode,
     )
     mv_image_uint8 = (mv_image_uint8 * 255).astype(np.uint8)
 
@@ -280,4 +282,5 @@ for w_src in src_weights:
             w_src_ctrl_type="static",
             w_tgt_ctrl_type="static",
             t_ctrl_start=None,
+            ctrl_mode=opt.ctrl_mode,
         )

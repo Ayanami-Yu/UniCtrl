@@ -131,6 +131,8 @@ tgt = 0.5 ~ 1.5
 
 #### LucidDreamer
 
+##### Add
+
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/horse_girl.yaml &`
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/horse_girl.yaml --w_src_cli=0.9 --w_tgt_cli=0.7 --workspace_cli='horse_girl_sphere/0.9_0.7' &`
@@ -145,8 +147,18 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/burger_fries.yaml --w_src_cli=1.0 --w_tgt_cli=0.2 --workspace_cli='burger_fries/1.0_0.2' &`
 
+##### Remove
+
+`CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/cat_armor.yaml --w_src_cli=1.0 --w_tgt_cli=0.2 --workspace_cli='cat_armor/1.0_0.2' --ctrl_mode_cli "remove" &`
+
 #### LGM
+
+`python scripts/test_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/samples`
+
+##### Add
 
 `CUDA_VISIBLE_DEVICES=5 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/corgi_hat/ --prompts "a corgi" "a corgi wearing a bowler hat" --src_params 0.5 0.2 7 --tgt_params 0.0 0.1 21 > nohup/corgi_hat.txt 2>&1 &`
 
-`python scripts/test_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/samples`
+##### Remove
+
+`CUDA_VISIBLE_DEVICES=7 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/cat_armor/ --prompts "a DSLR photo of a cat wearing armor" "an armor" --src_params 0.5 0.1 11 --tgt_params 0.0 0.1 21 --ctrl_mode "remove" > nohup/cat_armor.txt 2>&1 &`

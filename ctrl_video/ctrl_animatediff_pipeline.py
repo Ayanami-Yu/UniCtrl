@@ -333,7 +333,6 @@ class CtrlAnimateDiffPipeline(AnimateDiffPipeline):
                             w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
                             w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
 
-                            # TODO test
                             if ctrl_mode == "add":
                                 aggregated_noise = add_aggregator_v1(
                                     delta_noise_pred_src,
