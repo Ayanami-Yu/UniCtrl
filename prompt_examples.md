@@ -134,4 +134,4 @@ tgt = 0.5 ~ 1.5
 
 #### LGM
 
-`python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm --prompts "a corgi" "a corgi wearing a bowler hat" --src_params 1.0 0.1 2 --tgt_params 0.0 0.1 16`
+`python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/ --prompts "a corgi" "a corgi wearing a bowler hat" --src_params 1.0 0.1 1 --tgt_params 0.0 0.1 16`

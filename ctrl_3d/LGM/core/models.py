@@ -61,7 +61,7 @@ class LGM(nn.Module):
 
     def prepare_default_rays(self, device, elevation=0):
 
-        from core.utils import get_rays
+        from ctrl_3d.LGM.core.utils import get_rays
         from kiui.cam import orbit_camera
 
         cam_poses = np.stack(

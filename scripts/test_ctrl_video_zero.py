@@ -81,4 +81,4 @@ for w_src in src_weights:
         # no need to makedirs when no result has been generated
         os.makedirs(out_dir, exist_ok=True)
         mimsave(os.path.join(out_dir, f"{w_src}_{w_tgt}.mp4"), video, fps=4)
-        print("Syntheiszed video is saved in", out_dir)
+        print("Synthesized video is saved in", out_dir)

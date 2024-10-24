@@ -80,4 +80,4 @@ for w_src in src_weights:
             image,
             os.path.join(out_dir, f"{w_src}_{w_tgt}.png"),
         )
-        print("Syntheiszed images are saved in", out_dir)
+        print("Synthesized images are saved in", out_dir)

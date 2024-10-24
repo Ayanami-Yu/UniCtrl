@@ -82,15 +82,12 @@ pipe.enable_model_cpu_offload()
 
 # initialize the noisy latents
 # (batch_size, num_channel, num_frames, height, width)
-start_code = torch.randn([1, 4, 16, 64, 64], device=device)
+# NOTE AnimateDiff uses float16 for prompt_embeds
+start_code = torch.randn([1, 4, 16, 64, 64], device=device, dtype=torch.float16)
 
 # generate the synthesized videos
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
-
-# NOTE AnimateDiff uses float16 for prompt_embeds,
-# but we have handled dtype conversion inside our modified code
-# start_code = start_code.to(torch.float16)
 
 for w_src in src_weights:
     for w_tgt in tgt_weights:
@@ -114,4 +111,4 @@ for w_src in src_weights:
         # no need to makedirs when no result has been generated
         os.makedirs(out_dir, exist_ok=True)
         export_to_gif(frames, os.path.join(out_dir, f"{w_src}_{w_tgt}.gif"))
-        print("Syntheiszed video is saved in", out_dir)
+        print("Synthesized video is saved in", out_dir)

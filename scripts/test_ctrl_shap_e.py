@@ -70,4 +70,4 @@ for w_src in src_weights:
         # no need to makedirs when no result has been generated
         os.makedirs(out_dir, exist_ok=True)
         export_to_gif(images[0], os.path.join(out_dir, f"{w_src}_{w_tgt}.gif"))
-        print("Syntheiszed result is saved in", out_dir)
+        print("Synthesized result is saved in", out_dir)

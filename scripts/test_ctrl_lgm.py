@@ -70,11 +70,10 @@ bg_remover = rembg.new_session()
 # process function
 def process(
     prompt,
-    name,
     prompt_neg="",
     input_elevation=0,
     input_num_steps=30,
-    input_seed=0,
+    out_dir="exp/lgm/",
     latents=None,
     use_plain_cfg=False,
     guidance_type: str = "static",
@@ -84,12 +83,6 @@ def process(
     w_tgt_ctrl_type: str = "static",
     t_ctrl_start: Optional[int] = None,
 ):
-    # seed
-    kiui.seed_everything(input_seed)
-
-    os.makedirs(opt.workspace, exist_ok=True)
-    output_video_path = os.path.join(opt.workspace, name + ".mp4")
-
     # text-conditioned
     mv_image_uint8 = pipe(
         prompt,
@@ -107,6 +100,7 @@ def process(
         t_ctrl_start=t_ctrl_start,
     )
     mv_image_uint8 = (mv_image_uint8 * 255).astype(np.uint8)
+
     # bg removal
     mv_image = []
     for i in range(4):
@@ -151,7 +145,7 @@ def process(
             gaussians = model.forward_gaussians(input_image)
 
         # save gaussians
-        model.gs.save_ply(gaussians, os.path.join(opt.workspace, name + ".ply"))
+        # model.gs.save_ply(gaussians, os.path.join(out_dir, f"{w_src}_{w_tgt}.ply"))
 
         # render 360 video
         images = []
@@ -233,8 +227,12 @@ def process(
                     ).astype(np.uint8)
                 )
 
+        # no need to makedirs when no result has been generated
+        output_video_path = os.path.join(out_dir, f"{w_src}_{w_tgt}.mp4")
+        os.makedirs(out_dir, exist_ok=True)
         images = np.concatenate(images, axis=0)
         imageio.mimwrite(output_video_path, images, fps=30)
+        print("Synthesized result is saved in", out_dir)
 
     return mv_image_grid
 
@@ -248,6 +246,9 @@ out_dir = opt.workspace
 os.makedirs(out_dir, exist_ok=True)
 sample_count = len(os.listdir(out_dir))
 out_dir = os.path.join(out_dir, f"sample_{sample_count}")
+
+# initialize the noisy latents
+start_code = torch.randn([4, 4, 32, 32], device=device, dtype=torch.float16)
 
 prompts = [
     "a corgi",
@@ -264,17 +265,19 @@ tgt_start, tgt_inc, tgt_n = opt.tgt_params
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
-# TODO provide pre-generated latents
-process(
-    prompt=prompts,
-    prompt_neg=negative_prompts,
-    name="sample",
-    input_seed=seed,
-    use_plain_cfg=False,
-    guidance_type="static",
-    w_src=1.0,
-    w_tgt=0.8,
-    w_src_ctrl_type="static",
-    w_tgt_ctrl_type="static",
-    t_ctrl_start=None,
-)
+
+for w_src in src_weights:
+    for w_tgt in tgt_weights:
+        process(
+            prompt=prompts,
+            prompt_neg=negative_prompts,
+            out_dir=out_dir,
+            latents=start_code,
+            use_plain_cfg=False,
+            guidance_type="static",
+            w_src=1.0,
+            w_tgt=0.8,
+            w_src_ctrl_type="static",
+            w_tgt_ctrl_type="static",
+            t_ctrl_start=None,
+        )

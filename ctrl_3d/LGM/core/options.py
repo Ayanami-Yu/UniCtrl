@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Dict, Literal, Optional, Tuple
 
 import tyro
@@ -74,10 +74,11 @@ class Options:
 
     ### prompt ctrl
     # source and target prompts
-    prompts: list[str] = ["a corgi", "a corgi wearing a bowler hat"]
+    prompts: list[str] = field(default_factory=list)
     # start, inc, n
-    src_params: list[float] = [1.0, 0.1, 2]
-    tgt_params: list[float] = [0.0, 0.1, 16]
+    src_params: list[float] = field(default_factory=list)
+    tgt_params: list[float] = field(default_factory=list)
+
 
 # all the default settings
 config_defaults: Dict[str, Options] = {}
