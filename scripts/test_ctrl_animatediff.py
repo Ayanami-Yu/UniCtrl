@@ -17,6 +17,7 @@ parser.add_argument("--gpu", type=int, default=0)
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
 parser.add_argument("--tgt_params", nargs="+", type=float, default=None)
+parser.add_argument("--ctrl_mode", type=str, default="add")
 args = parser.parse_args()
 
 # set visible GPU
@@ -105,6 +106,7 @@ for w_src in src_weights:
             guidance_type="static",
             w_tgt_ctrl_type="static",
             t_ctrl_start=None,
+            ctrl_mode=args.ctrl_mode,
         )
         frames = output.frames[0]
 

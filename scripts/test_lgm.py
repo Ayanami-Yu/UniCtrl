@@ -18,15 +18,60 @@ from ctrl_3d.LGM.core.options import AllConfigs
 from ctrl_3d.LGM.mvdream.pipeline_mvdream import MVDreamPipeline
 
 
+IMAGENET_DEFAULT_MEAN = (0.485, 0.456, 0.406)
+IMAGENET_DEFAULT_STD = (0.229, 0.224, 0.225)
+
+opt = tyro.cli(AllConfigs)
+
+# model
+model = LGM(opt)
+
+# resume pretrained checkpoint
+if opt.resume is not None:
+    if opt.resume.endswith("safetensors"):
+        ckpt = load_file(opt.resume, device="cpu")
+    else:
+        ckpt = torch.load(opt.resume, map_location="cpu")
+    model.load_state_dict(ckpt, strict=False)
+    print(f"[INFO] Loaded checkpoint from {opt.resume}")
+else:
+    print(f"[WARN] model randomly initialized, are you sure?")
+
+# device
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = model.half().to(device)
+model.eval()
+
+rays_embeddings = model.prepare_default_rays(device)
+
+tan_half_fov = np.tan(0.5 * np.deg2rad(opt.fovy))
+proj_matrix = torch.zeros(4, 4, dtype=torch.float32, device=device)
+proj_matrix[0, 0] = 1 / tan_half_fov
+proj_matrix[1, 1] = 1 / tan_half_fov
+proj_matrix[2, 2] = (opt.zfar + opt.znear) / (opt.zfar - opt.znear)
+proj_matrix[3, 2] = -(opt.zfar * opt.znear) / (opt.zfar - opt.znear)
+proj_matrix[2, 3] = 1
+
+# load dreams
+pipe = MVDreamPipeline.from_pretrained(
+    "ashawkey/mvdream-sd2.1-diffusers",  # remote weights
+    torch_dtype=torch.float16,
+    trust_remote_code=True,
+    # local_files_only=True,
+)
+pipe = pipe.to(device)
+
+# load rembg
+bg_remover = rembg.new_session()
+
 # process function
 def process(
-    input_image,
     prompt,
     name,
     prompt_neg="",
     input_elevation=0,
     input_num_steps=30,
-    input_seed=42,
+    input_seed=0,
 ):
     # seed
     kiui.seed_everything(input_seed)
@@ -35,41 +80,23 @@ def process(
     output_video_path = os.path.join(opt.workspace, name + ".mp4")
 
     # text-conditioned
-    if input_image is None:
-        mv_image_uint8 = pipe_text(
-            prompt,
-            negative_prompt=prompt_neg,
-            num_inference_steps=input_num_steps,
-            guidance_scale=7.5,
-            elevation=input_elevation,
-        )
-        mv_image_uint8 = (mv_image_uint8 * 255).astype(np.uint8)
-        # bg removal
-        mv_image = []
-        for i in range(4):
-            image = rembg.remove(mv_image_uint8[i], session=bg_remover)  # [H, W, 4]
-            # to white bg
-            image = image.astype(np.float32) / 255
-            image = recenter(image, image[..., 0] > 0, border_ratio=0.2)
-            image = image[..., :3] * image[..., -1:] + (1 - image[..., -1:])
-            mv_image.append(image)
-    # image-conditioned (may also input text, but no text usually works too)
-    else:
-        input_image = np.array(input_image)  # uint8
-        # bg removal
-        carved_image = rembg.remove(input_image, session=bg_remover)  # [H, W, 4]
-        mask = carved_image[..., -1] > 0
-        image = recenter(carved_image, mask, border_ratio=0.2)
-        image = image.astype(np.float32) / 255.0
-        image = image[..., :3] * image[..., 3:4] + (1 - image[..., 3:4])
-        mv_image = pipe_image(
-            prompt,
-            image,
-            negative_prompt=prompt_neg,
-            num_inference_steps=input_num_steps,
-            guidance_scale=5.0,
-            elevation=input_elevation,
-        )
+    mv_image_uint8 = pipe(
+        prompt,
+        negative_prompt=prompt_neg,
+        num_inference_steps=input_num_steps,
+        guidance_scale=7.5,
+        elevation=input_elevation,
+    )
+    mv_image_uint8 = (mv_image_uint8 * 255).astype(np.uint8)
+    # bg removal
+    mv_image = []
+    for i in range(4):
+        image = rembg.remove(mv_image_uint8[i], session=bg_remover)  # [H, W, 4]
+        # to white bg
+        image = image.astype(np.float32) / 255
+        image = recenter(image, image[..., 0] > 0, border_ratio=0.2)
+        image = image[..., :3] * image[..., -1:] + (1 - image[..., -1:])
+        mv_image.append(image)
 
     mv_image_grid = np.concatenate(
         [
@@ -105,7 +132,7 @@ def process(
             gaussians = model.forward_gaussians(input_image)
 
         # save gaussians
-        model.gs.save_ply(gaussians, os.path.join(opt.workspace, name + ".ply"))
+        # model.gs.save_ply(gaussians, os.path.join(opt.workspace, name + ".ply"))
 
         # render 360 video
         images = []
@@ -192,66 +219,9 @@ def process(
 
     return mv_image_grid
 
-
-IMAGENET_DEFAULT_MEAN = (0.485, 0.456, 0.406)
-IMAGENET_DEFAULT_STD = (0.229, 0.224, 0.225)
-
-opt = tyro.cli(AllConfigs)
-
-# model
-model = LGM(opt)
-
-# resume pretrained checkpoint
-if opt.resume is not None:
-    if opt.resume.endswith("safetensors"):
-        ckpt = load_file(opt.resume, device="cpu")
-    else:
-        ckpt = torch.load(opt.resume, map_location="cpu")
-    model.load_state_dict(ckpt, strict=False)
-    print(f"[INFO] Loaded checkpoint from {opt.resume}")
-else:
-    print(f"[WARN] model randomly initialized, are you sure?")
-
-# device
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model = model.half().to(device)
-model.eval()
-
-rays_embeddings = model.prepare_default_rays(device)
-
-tan_half_fov = np.tan(0.5 * np.deg2rad(opt.fovy))
-proj_matrix = torch.zeros(4, 4, dtype=torch.float32, device=device)
-proj_matrix[0, 0] = 1 / tan_half_fov
-proj_matrix[1, 1] = 1 / tan_half_fov
-proj_matrix[2, 2] = (opt.zfar + opt.znear) / (opt.zfar - opt.znear)
-proj_matrix[3, 2] = -(opt.zfar * opt.znear) / (opt.zfar - opt.znear)
-proj_matrix[2, 3] = 1
-
-# load dreams
-pipe_text = MVDreamPipeline.from_pretrained(
-    "ashawkey/mvdream-sd2.1-diffusers",  # remote weights
-    torch_dtype=torch.float16,
-    trust_remote_code=True,
-    # local_files_only=True,
-)
-pipe_text = pipe_text.to(device)
-
-# load image dream
-pipe_image = MVDreamPipeline.from_pretrained(
-    "ashawkey/imagedream-ipmv-diffusers",  # remote weights
-    torch_dtype=torch.float16,
-    trust_remote_code=True,
-    # local_files_only=True,
-)
-pipe_image = pipe_image.to(device)
-
-# load rembg
-bg_remover = rembg.new_session()
-
-text = "a corgi wearing a hat"
+prompt = "a blue bird flying on a cloud"
 
 process(
-    input_image=None,
-    prompt=text,
+    prompt=prompt,
     name="sample",
 )

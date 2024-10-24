@@ -15,6 +15,7 @@ parser.add_argument("--out_dir", type=str, default="./exp/sd/samples/")
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
 parser.add_argument("--tgt_params", nargs="+", type=float, default=None)
+parser.add_argument("--ctrl_mode", type=str, default="add")
 args = parser.parse_args()
 
 # set device
@@ -70,7 +71,7 @@ for w_src in src_weights:
             guidance_type="static",
             w_tgt_ctrl_type="static",
             t_ctrl_start=None,
-            ctrl_mode="add",
+            ctrl_mode=args.ctrl_mode,
         ).images
         image = [transform(img) for img in image]
 

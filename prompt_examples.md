@@ -75,7 +75,9 @@ tgt = 0.5 ~ 1.5
 
 #### AnimateDiff
 
-##### Good
+##### Add
+
+###### Good
 
 `nohup python test_ctrl_animatediff.py --prompt "an astronaut is riding a horse" "an astronaut holding a Gatling gun is riding a horse" --out_dir "./exp/animatediff/astronaut_horse_gun/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 --gpu 3 > nohup/astronaut_horse_gun.txt 2>&1 &`
 
@@ -89,7 +91,7 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_animatediff.py --prompt "a high quality realistic photo of a cute cat running in a beautiful meadow" "a high quality realistic photo of a cute cat running in a beautiful meadow, Van Gogh style" --out_dir "./exp/animatediff/cat_meadow_van_gogh/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/cat_meadow_van_gogh.txt 2>&1 &`
 
-##### Not So Good
+###### Not So Good
 
 `nohup python test_ctrl_animatediff.py --prompt "a silver wolf is running" "a silver wolf is running after a golden eagle" --out_dir "./exp/animatediff/wolf_eagle/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 --gpu 1 > nohup/wolf_eagle.txt 2>&1 &`
 
@@ -101,11 +103,20 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=6 nohup python test_ctrl_animatediff.py --prompt "a silver wolf is resting on a grassland" "a silver wolf is resting on a grassland, while a golden eagle is flying towards it" --out_dir "./exp/animatediff/wolf_rest_eagle/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 > nohup/wolf_rest_eagle.txt 2>&1 &`
 
+##### Remove
+
+`CUDA_VISIBLE_DEVICES=7 nohup python scripts/test_ctrl_animatediff.py --prompt "a panda is playing guitar on times square" "a guitar" --out_dir "./exp/animatediff/panda_guitar_rm/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 --ctrl_mode "remove" > nohup/panda_guitar_rm.txt 2>&1 &`
+
 ## 3D
 
 [
     'a horse galloping on the street, best quality',
     'a horse galloping on the street with a girl riding on it, best quality'
+]
+
+[
+    "a corgi",
+    "a corgi wearing a bowler hat",
 ]
 
 ### CLI
@@ -132,6 +143,10 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/motor_flames.yaml --w_src_cli=1.0 --w_tgt_cli=1.3 --workspace_cli='motor_flames/1.0_1.3' &`
 
+`CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/burger_fries.yaml --w_src_cli=1.0 --w_tgt_cli=0.2 --workspace_cli='burger_fries/1.0_0.2' &`
+
 #### LGM
 
-`python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/ --prompts "a corgi" "a corgi wearing a bowler hat" --src_params 1.0 0.1 1 --tgt_params 0.0 0.1 16`
+`CUDA_VISIBLE_DEVICES=5 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/corgi_hat/ --prompts "a corgi" "a corgi wearing a bowler hat" --src_params 0.5 0.2 7 --tgt_params 0.0 0.1 21 > nohup/corgi_hat.txt 2>&1 &`
+
+`python scripts/test_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/samples`

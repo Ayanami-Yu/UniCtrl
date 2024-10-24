@@ -46,6 +46,7 @@ class CtrlAnimateDiffPipeline(AnimateDiffPipeline):
         w_src_ctrl_type: str = "static",
         w_tgt_ctrl_type: str = "static",
         t_ctrl_start: Optional[int] = None,
+        ctrl_mode: str = "add",
         **kwargs,
     ):
         r"""
@@ -332,15 +333,29 @@ class CtrlAnimateDiffPipeline(AnimateDiffPipeline):
                             w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
                             w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
 
+                            # TODO test
+                            if ctrl_mode == "add":
+                                aggregated_noise = add_aggregator_v1(
+                                    delta_noise_pred_src,
+                                    w_src_cur,
+                                    delta_noise_pred_tgt,
+                                    w_tgt_cur,
+                                    mode="latent",
+                                )
+                            elif ctrl_mode == "remove":
+                                aggregated_noise = remove_aggregator(
+                                    delta_noise_pred_src,
+                                    w_src_cur,
+                                    delta_noise_pred_tgt,
+                                    w_tgt_cur,
+                                    mode="latent",
+                                )
+                            else:
+                                raise ValueError("Unrecognized prompt ctrl mode")
+
                             noise_pred = noise_pred_uncond_src + guidance_weight(
                                 t, guidance_scale, guidance_type
-                            ) * add_aggregator_v1(
-                                delta_noise_pred_src,
-                                w_src_cur,
-                                delta_noise_pred_tgt,
-                                w_tgt_cur,
-                                mode="latent",
-                            )
+                            ) * aggregated_noise
                             noise_pred = rearrange(noise_pred, "b l c h w -> b c l h w")
 
                     # compute the previous noisy sample x_t -> x_t-1
