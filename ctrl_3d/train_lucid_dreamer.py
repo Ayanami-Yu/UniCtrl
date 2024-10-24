@@ -341,6 +341,7 @@ def training(
             w_src_ctrl_type=ctrl_params.w_src_ctrl_type,
             w_tgt_ctrl_type=ctrl_params.w_tgt_ctrl_type,
             t_ctrl_start=ctrl_params.t_ctrl_start,
+            ctrl_mode=ctrl_params.ctrl_mode,
         )
         scales = torch.stack(scales, dim=0)
 

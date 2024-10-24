@@ -14,6 +14,8 @@ CtrlParams:
   src_prompt: 'a delicious hamburger, photorealistic'
   tgt_prompt: 'a delicious hamburger on a plate, with some French fries next to it, photorealistic'
 
+  ctrl_mode: 'add'
+
 PipelineParams:
   convert_SHs_python: False  # true = using direct rgb
 

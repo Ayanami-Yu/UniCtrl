@@ -14,6 +14,8 @@ CtrlParams:
   src_prompt: 'a panda standing like a human, high quality, highly detailed'
   tgt_prompt: 'a panda standing like a human and playing guitar, high quality, highly detailed'
 
+  ctrl_mode: 'add'
+
 PipelineParams:
   convert_SHs_python: False  # true = using direct rgb
 

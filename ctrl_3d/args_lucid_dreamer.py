@@ -14,4 +14,6 @@ class CtrlParams(ParamGroup):
         self.src_prompt = ""
         self.tgt_prompt = ""
 
+        self.ctrl_mode = "add"
+
         super().__init__(parser, "PromptCtrl Parameters")

@@ -14,6 +14,8 @@ CtrlParams:
   src_prompt: 'a horse galloping on the street, best quality'
   tgt_prompt: 'a horse galloping on the street with a girl riding on it, best quality'
 
+  ctrl_mode: 'add'
+
 PipelineParams:
   convert_SHs_python: False  # true = using direct rgb
 

@@ -14,6 +14,8 @@ CtrlParams:
   src_prompt: 'a purple stylish Harley motorcycle, photorealistic'
   tgt_prompt: 'a purple stylish Harley motorcycle surrounded by skulls and flames, photorealistic'
 
+  ctrl_mode: 'add'
+
 PipelineParams:
   convert_SHs_python: False  # true = using direct rgb
 
