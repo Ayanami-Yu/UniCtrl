@@ -12,7 +12,7 @@ CtrlParams:
   t_ctrl_start: null
 
   src_prompt: 'Pikachu wearing a golden crown on his head, high quality'
-  tgt_prompt: 'a golden crown'
+  tgt_prompt: 'wearing a golden crown'
 
   ctrl_mode: 'remove'
 

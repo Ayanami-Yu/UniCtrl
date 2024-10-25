@@ -26,6 +26,8 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=7 nohup python test_ctrl_sd.py --prompt "Catwoman holding a sniper rifle" "a sniper rifle" --out_dir "./exp/sd/catwoman_rifle_rm/" --src_params 2.3 0.1 2 --tgt_params 0.0 0.1 23 --ctrl_mode "remove" > nohup/catwoman_rifle_rm 2>&1 &`
 
+`CUDA_VISIBLE_DEVICES=0 nohup python scripts/test_ctrl_sd.py --prompt "Catwoman holding a sniper rifle" "a sniper rifle" --out_dir "./exp/sd/catwoman_rifle_rm_v2/" --src_params 0.9 0.1 3 --tgt_params -1.0 0.1 23 --ctrl_mode "remove" --removal_version 2 > nohup/catwoman_rifle_rm 2>&1 &`
+
 `CUDA_VISIBLE_DEVICES=7 nohup python scripts/test_ctrl_sd.py --prompt "Catwoman holding a sniper rifle" "a sniper rifle" --out_dir "./exp/sd/catwoman_rifle_rm_fix_scale/" --scale 1.0 --theta_params 0.0 0.025 62 --ctrl_mode "remove" > nohup/catwoman_rifle_rm 2>&1 &`
 
 `CUDA_VISIBLE_DEVICES=7 nohup scripts/python test_ctrl_sd.py --prompt "a DSLR photo of a cat wearing armor" "an armor" --out_dir "./exp/sd/cat_armor/" --scale 1.0 --theta_params 0.0 0.1 62 --ctrl_mode "remove" > nohup/cat_armor 2>&1 &`
@@ -112,6 +114,8 @@ tgt = 0.5 ~ 1.5
 ##### Remove
 
 `CUDA_VISIBLE_DEVICES=7 nohup python scripts/test_ctrl_animatediff.py --prompt "a panda is playing guitar on times square" "a guitar" --out_dir "./exp/animatediff/panda_guitar_rm/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 --ctrl_mode "remove" > nohup/panda_guitar_rm.txt 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=0 nohup python scripts/test_ctrl_animatediff.py --prompt "a panda is playing guitar on times square" "a guitar" --out_dir "./exp/animatediff/panda_guitar_rm_v2/" --src_params 0.9 0.1 2 --tgt_params -1.0 0.1 21 --ctrl_mode "remove" --removal_version 2 > nohup/panda_guitar_rm.txt 2>&1 &`
 
 ## 3D
 

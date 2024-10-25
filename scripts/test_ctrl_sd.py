@@ -23,6 +23,7 @@ parser.add_argument("--tgt_params", nargs="+", type=float, default=None)
 parser.add_argument("--scale", type=float, default=None)
 parser.add_argument("--theta_params", nargs="+", type=float, default=None)
 parser.add_argument("--ctrl_mode", type=str, default="add")
+parser.add_argument("--removal_version", type=int, default=1)
 args = parser.parse_args()
 
 # set device
@@ -81,6 +82,7 @@ if args.scale is not None:
             w_tgt_ctrl_type="static",
             t_ctrl_start=None,
             ctrl_mode=args.ctrl_mode,
+            removal_version=args.removal_version,
         ).images
         image = [transform(img) for img in image]
 
@@ -108,6 +110,7 @@ else:
                 w_tgt_ctrl_type="static",
                 t_ctrl_start=None,
                 ctrl_mode=args.ctrl_mode,
+                removal_version=args.removal_version,
             ).images
             image = [transform(img) for img in image]
 

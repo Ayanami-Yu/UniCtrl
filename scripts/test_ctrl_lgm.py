@@ -138,6 +138,10 @@ def process(
     )
     input_image = TF.normalize(input_image, IMAGENET_DEFAULT_MEAN, IMAGENET_DEFAULT_STD)
 
+    # for debug
+    # from torchvision.utils import save_image
+    # save_image(input_image, "sample.jpg")
+
     rays_embeddings = model.prepare_default_rays(device, elevation=input_elevation)
     input_image = torch.cat([input_image, rays_embeddings], dim=1).unsqueeze(
         0
@@ -254,10 +258,6 @@ out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 # initialize the noisy latents
 start_code = torch.randn([4, 4, 32, 32], device=device, dtype=torch.float16)
 
-prompts = [
-    "a corgi",
-    "a corgi wearing a bowler hat",
-]
 negative_prompts = [
     "",
     "",
@@ -269,11 +269,10 @@ tgt_start, tgt_inc, tgt_n = opt.tgt_params
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
-
 for w_src in src_weights:
     for w_tgt in tgt_weights:
         process(
-            prompt=prompts,
+            prompt=opt.prompts,
             prompt_neg=negative_prompts,
             out_dir=out_dir,
             latents=start_code,
