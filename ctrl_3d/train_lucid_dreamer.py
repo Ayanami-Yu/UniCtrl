@@ -342,12 +342,12 @@ def training(
             w_tgt_ctrl_type=ctrl_params.w_tgt_ctrl_type,
             t_ctrl_start=ctrl_params.t_ctrl_start,
             ctrl_mode=ctrl_params.ctrl_mode,
+            removal_version=ctrl_params.removal_version,
         )
         scales = torch.stack(scales, dim=0)
 
         loss_scale = torch.mean(scales, dim=-1).mean()
         loss_tv = tv_loss(images) + tv_loss(depths)
-        # loss_bin = torch.mean(torch.min(alphas - 0.0001, 1 - alphas))
 
         loss = (
             loss + opt.lambda_tv * loss_tv + opt.lambda_scale * loss_scale

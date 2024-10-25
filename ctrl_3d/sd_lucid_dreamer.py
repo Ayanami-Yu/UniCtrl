@@ -142,6 +142,7 @@ class StableDiffusionCtrl(StableDiffusion):
         w_tgt_ctrl_type: str = "static",
         t_ctrl_start: Optional[int] = None,
         ctrl_mode: str = "add",
+        removal_version: int = 1,
     ):
         """
         Params:
@@ -364,6 +365,7 @@ class StableDiffusionCtrl(StableDiffusion):
                     mode="latent",
                 )
             elif ctrl_mode == "remove":
+                remove_aggregator = remove_aggregator_v1 if removal_version == 1 else remove_aggregator_v2
                 aggregated_noise = remove_aggregator(
                     delta_noise_pred_src,
                     w_src_cur,

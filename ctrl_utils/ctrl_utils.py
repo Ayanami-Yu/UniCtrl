@@ -51,13 +51,18 @@ def add_aggregator_v2(
     )
 
 
-def remove_aggregator(
+def remove_aggregator_v1(
     delta_noise_pred_src,
     w_src,
     delta_noise_pred_tgt,
     w_tgt,
     mode: str = "latent",
 ):
+    """
+    Params:
+        w_tgt:
+            The strength to extract the semantics of target from source, should be greater than 0. When w_tgt equals 0, the result will be the perpendicular component of delta_noise_pred_src.
+    """
     return (
         w_src
         * get_perpendicular_component(
@@ -65,6 +70,24 @@ def remove_aggregator(
         )
         - w_tgt * delta_noise_pred_tgt
     )
+
+
+def remove_aggregator_v2(
+    delta_noise_pred_src,
+    w_src,
+    delta_noise_pred_tgt,
+    w_tgt,
+    mode: str = "latent",
+):
+    """
+    Params:
+        w_tgt:
+            The strength to extract the semantics of target from source, should be greater than -1. When w_tgt equals -1, the result will be delta_noise_pred_src.
+    """
+    noise_pred_src_perp = get_perpendicular_component(
+        delta_noise_pred_src, delta_noise_pred_tgt, mode=mode
+    )
+    return w_src * noise_pred_src_perp - w_tgt * (delta_noise_pred_src - noise_pred_src_perp)
 
 
 def guidance_weight(t, w0, guidance_type: str, t_total=1000, clamp=4):

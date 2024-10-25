@@ -195,7 +195,7 @@ class CtrlMVDreamPipeline(MVDreamPipeline):
                                     mode="latent",
                                 )
                             elif ctrl_mode == "remove":
-                                aggregated_noise = remove_aggregator(
+                                aggregated_noise = remove_aggregator_v1(
                                     delta_noise_pred_src,
                                     w_src_cur,
                                     delta_noise_pred_tgt,

@@ -15,5 +15,6 @@ class CtrlParams(ParamGroup):
         self.tgt_prompt = ""
 
         self.ctrl_mode = "add"
+        self.removal_version: int = 1
 
         super().__init__(parser, "PromptCtrl Parameters")

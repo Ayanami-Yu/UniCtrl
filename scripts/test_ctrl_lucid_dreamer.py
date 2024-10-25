@@ -37,6 +37,7 @@ if __name__ == "__main__":
     parser.add_argument("--w_tgt_cli", type=float, default=None)
     parser.add_argument("--workspace_cli", type=str, default=None)
     parser.add_argument("--ctrl_mode_cli", type=str, default=None)
+    parser.add_argument("--removal_version_cli", type=int, default=None)
 
     mp = ModelParams(parser)
     op = OptimizationParams(parser)
@@ -88,6 +89,8 @@ if __name__ == "__main__":
         mp.workspace = args.workspace_cli
     if args.ctrl_mode_cli is not None:
         cp.ctrl_mode = args.ctrl_mode_cli
+    if args.removal_version_cli is not None:
+        cp.removal_version = args.removal_version_cli
 
     print("Test iter:", args.test_iterations)
     print("Save iter:", args.save_iterations)

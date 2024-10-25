@@ -137,6 +137,8 @@ tgt = 0.5 ~ 1.5
 
 #### LucidDreamer
 
+`bash scripts/test_ctrl_lucid_dreamer.sh`
+
 ##### Add
 
 `CUDA_VISIBLE_DEVICES=1 nohup python test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/horse_girl.yaml &`
@@ -157,7 +159,9 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/cat_armor.yaml --w_src_cli=1.0 --w_tgt_cli=0.2 --workspace_cli='cat_armor/1.0_0.2' --ctrl_mode_cli "remove" &`
 
-`CUDA_VISIBLE_DEVICES=5 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/warrior_horse.yaml --w_src_cli=1.0 --w_tgt_cli=0.2 --workspace_cli='warrior_horse/1.0_0.2' --ctrl_mode_cli "remove" &`
+`CUDA_VISIBLE_DEVICES=2 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/warrior_horse.yaml --w_src_cli=1.0 --w_tgt_cli=0.2 --workspace_cli='warrior_horse/1.0_0.2' --ctrl_mode_cli "remove" &`
+
+`CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_lucid_dreamer.py --opt /home/hongyu/PromptCtrl/ctrl_3d/configs/pikachu_crown.yaml --w_src_cli=1.0 --w_tgt_cli=-1.0 --workspace_cli='pikachu_crown/1.0_-1.0' --ctrl_mode_cli "remove" --removal_version_cli=2 &`
 
 #### LGM
 
@@ -171,4 +175,4 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=7 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/cat_armor/ --prompts "a DSLR photo of a cat wearing armor" "an armor" --src_params 0.5 0.1 11 --tgt_params 0.0 0.1 21 --ctrl_mode "remove" > nohup/cat_armor.txt 2>&1 &`
 
-`CUDA_VISIBLE_DEVICES=0 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/cat_armor/ --prompts "a white cat wearing blue clothes" "blue clothes" --src_params 0.5 0.1 16 --tgt_params 0.0 0.1 23 --ctrl_mode "remove" > nohup/cat_clothes.txt 2>&1 &`
+`CUDA_VISIBLE_DEVICES=2 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/cat_clothes/ --prompts "a white cat wearing blue clothes" "blue clothes" --src_params 0.7 0.1 16 --tgt_params 0.0 0.1 24 --ctrl_mode "remove" > nohup/cat_clothes.txt 2>&1 &`

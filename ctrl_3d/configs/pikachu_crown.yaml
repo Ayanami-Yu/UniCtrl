@@ -11,8 +11,8 @@ CtrlParams:
   w_tgt_ctrl_type: 'static'
   t_ctrl_start: null
 
-  src_prompt: 'a warrior with red cape riding a horse, photorealistic, highly detailed'
-  tgt_prompt: 'a warrior with red cape'
+  src_prompt: 'Pikachu wearing a golden crown on his head, high quality'
+  tgt_prompt: 'a golden crown'
 
   ctrl_mode: 'remove'
 
@@ -20,7 +20,7 @@ PipelineParams:
   convert_SHs_python: False  # true = using direct rgb
 
 ModelParams:
-  workspace: warrior_horse/samples
+  workspace: pikachu_crown/samples
   sh_degree: 0
   bg_aug_ratio: 0.66
 
@@ -53,10 +53,10 @@ GuidanceParams:
   delta_t_start: 100
 
 GenerateCamParams:
-  # init_shape: 'pointe'
-  init_shape: 'sphere'
-  # init_prompt: 'a man on a horse'
-  init_prompt: '.'
+  init_shape: 'pointe'
+  # init_shape: 'sphere'
+  init_prompt: 'Pikachu'
+  # init_prompt: '.'
   use_pointe_rgb: false
   init_num_pts: 100_000
   phi_range: [-180, 180]
