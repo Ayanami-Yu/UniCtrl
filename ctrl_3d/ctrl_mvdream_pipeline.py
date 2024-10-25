@@ -41,6 +41,7 @@ class CtrlMVDreamPipeline(MVDreamPipeline):
         w_tgt_ctrl_type: str = "static",
         t_ctrl_start: Optional[int] = None,
         ctrl_mode: str = "add",
+        removal_version: int = 1,
     ):
         if not use_plain_cfg:
             assert (
@@ -195,7 +196,12 @@ class CtrlMVDreamPipeline(MVDreamPipeline):
                                     mode="latent",
                                 )
                             elif ctrl_mode == "remove":
-                                aggregated_noise = remove_aggregator_v1(
+                                remove_aggregator = (
+                                    remove_aggregator_v1
+                                    if removal_version == 1
+                                    else remove_aggregator_v2
+                                )
+                                aggregated_noise = remove_aggregator(
                                     delta_noise_pred_src,
                                     w_src_cur,
                                     delta_noise_pred_tgt,
@@ -205,10 +211,12 @@ class CtrlMVDreamPipeline(MVDreamPipeline):
                             else:
                                 raise ValueError("Unrecognized prompt ctrl mode")
 
-                            noise_pred = noise_pred_uncond_src + guidance_weight(
-                                t, guidance_scale, guidance_type
-                            ) * aggregated_noise
-                            
+                            noise_pred = (
+                                noise_pred_uncond_src
+                                + guidance_weight(t, guidance_scale, guidance_type)
+                                * aggregated_noise
+                            )
+
                 # compute the previous noisy sample x_t -> x_t-1
                 latents: torch.Tensor = self.scheduler.step(
                     noise_pred, t, latents, **extra_step_kwargs, return_dict=False

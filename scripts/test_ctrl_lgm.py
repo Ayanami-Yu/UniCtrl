@@ -17,7 +17,7 @@ from pytorch_lightning import seed_everything
 
 from ctrl_3d.ctrl_mvdream_pipeline import CtrlMVDreamPipeline
 from ctrl_3d.LGM.core.models import LGM
-from ctrl_3d.LGM.core.options import AllConfigs
+from ctrl_3d.args_lgm import AllConfigs
 
 
 IMAGENET_DEFAULT_MEAN = (0.485, 0.456, 0.406)
@@ -83,6 +83,7 @@ def process(
     w_tgt_ctrl_type: str = "static",
     t_ctrl_start: Optional[int] = None,
     ctrl_mode: str = "add",
+    removal_version: int = 1,
 ):
     # text-conditioned
     mv_image_uint8 = pipe(
@@ -100,6 +101,7 @@ def process(
         w_tgt_ctrl_type=w_tgt_ctrl_type,
         t_ctrl_start=t_ctrl_start,
         ctrl_mode=ctrl_mode,
+        removal_version=removal_version,
     )
     mv_image_uint8 = (mv_image_uint8 * 255).astype(np.uint8)
 
@@ -283,4 +285,5 @@ for w_src in src_weights:
             w_tgt_ctrl_type="static",
             t_ctrl_start=None,
             ctrl_mode=opt.ctrl_mode,
+            removal_version=opt.removal_version,
         )

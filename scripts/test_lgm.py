@@ -64,6 +64,7 @@ pipe = pipe.to(device)
 # load rembg
 bg_remover = rembg.new_session()
 
+
 # process function
 def process(
     prompt,
@@ -218,6 +219,7 @@ def process(
         imageio.mimwrite(output_video_path, images, fps=30)
 
     return mv_image_grid
+
 
 prompt = "a white cat wearing blue clothes"
 

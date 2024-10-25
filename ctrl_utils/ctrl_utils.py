@@ -87,7 +87,9 @@ def remove_aggregator_v2(
     noise_pred_src_perp = get_perpendicular_component(
         delta_noise_pred_src, delta_noise_pred_tgt, mode=mode
     )
-    return w_src * noise_pred_src_perp - w_tgt * (delta_noise_pred_src - noise_pred_src_perp)
+    return w_src * noise_pred_src_perp - w_tgt * (
+        delta_noise_pred_src - noise_pred_src_perp
+    )
 
 
 def guidance_weight(t, w0, guidance_type: str, t_total=1000, clamp=4):

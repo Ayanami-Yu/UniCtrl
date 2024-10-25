@@ -365,7 +365,11 @@ class StableDiffusionCtrl(StableDiffusion):
                     mode="latent",
                 )
             elif ctrl_mode == "remove":
-                remove_aggregator = remove_aggregator_v1 if removal_version == 1 else remove_aggregator_v2
+                remove_aggregator = (
+                    remove_aggregator_v1
+                    if removal_version == 1
+                    else remove_aggregator_v2
+                )
                 aggregated_noise = remove_aggregator(
                     delta_noise_pred_src,
                     w_src_cur,
@@ -377,9 +381,11 @@ class StableDiffusionCtrl(StableDiffusion):
                 raise ValueError("Unrecognized prompt ctrl mode")
 
             # NOTE noise_pred_uncond_src should be the same as noise_pred_uncond_tgt
-            noise_pred = noise_pred_uncond_src + guidance_weight(
-                t, guidance_opt.guidance_scale, guidance_type
-            ) * aggregated_noise
+            noise_pred = (
+                noise_pred_uncond_src
+                + guidance_weight(t, guidance_opt.guidance_scale, guidance_type)
+                * aggregated_noise
+            )
 
         w = lambda alphas: (((1 - alphas) / alphas) ** 0.5)
 

@@ -352,9 +352,11 @@ class CtrlAnimateDiffPipeline(AnimateDiffPipeline):
                             else:
                                 raise ValueError("Unrecognized prompt ctrl mode")
 
-                            noise_pred = noise_pred_uncond_src + guidance_weight(
-                                t, guidance_scale, guidance_type
-                            ) * aggregated_noise
+                            noise_pred = (
+                                noise_pred_uncond_src
+                                + guidance_weight(t, guidance_scale, guidance_type)
+                                * aggregated_noise
+                            )
                             noise_pred = rearrange(noise_pred, "b l c h w -> b c l h w")
 
                     # compute the previous noisy sample x_t -> x_t-1

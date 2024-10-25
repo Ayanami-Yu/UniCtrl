@@ -176,3 +176,5 @@ tgt = 0.5 ~ 1.5
 `CUDA_VISIBLE_DEVICES=7 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/cat_armor/ --prompts "a DSLR photo of a cat wearing armor" "an armor" --src_params 0.5 0.1 11 --tgt_params 0.0 0.1 21 --ctrl_mode "remove" > nohup/cat_armor.txt 2>&1 &`
 
 `CUDA_VISIBLE_DEVICES=2 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/cat_clothes/ --prompts "a white cat wearing blue clothes" "blue clothes" --src_params 0.7 0.1 16 --tgt_params 0.0 0.1 24 --ctrl_mode "remove" > nohup/cat_clothes.txt 2>&1 &`
+
+`CUDA_VISIBLE_DEVICES=7 python scripts/test_ctrl_lgm.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/lgm/cat_clothes/ --prompts "a white cat wearing blue clothes" "blue clothes" --src_params 0.6 0.1 14 --tgt_params -1.0 0.1 24 --ctrl_mode "remove" --removal_version 2 > nohup/cat_clothes.txt 2>&1 &`

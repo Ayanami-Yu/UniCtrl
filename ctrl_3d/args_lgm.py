@@ -72,6 +72,18 @@ class Options:
     # render fancy video with gaussian scaling effect
     fancy_video: bool = False
 
+    ### prompt ctrl
+    # source and target prompts
+    prompts: list[str] = field(default_factory=list)
+    # src_start, src_inc, src_n
+    src_params: list[float] = field(default_factory=list)
+    # tgt_start, tgt_inc, tgt_n
+    tgt_params: list[float] = field(default_factory=list)
+    # ctrl mode for MVDream
+    ctrl_mode: str = "add"
+    # the version of remove_aggregator
+    removal_version: int = 1
+
 
 # all the default settings
 config_defaults: Dict[str, Options] = {}
