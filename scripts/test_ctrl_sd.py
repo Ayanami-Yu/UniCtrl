@@ -16,6 +16,8 @@ parser.add_argument("--out_dir", type=str, default="./exp/sd/samples/")
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
 parser.add_argument("--tgt_params", nargs="+", type=float, default=None)
+parser.add_argument("--w_src_ctrl_type", type=str, default="static")
+parser.add_argument("--w_tgt_ctrl_type", type=str, default="static")
 
 # w_src = scale * cos(theta), w_tgt = scale * sin(theta)
 # used to fix the scale applied to the aggregated noise
@@ -106,8 +108,9 @@ else:
                 latents=start_code,
                 w_src=w_src,
                 w_tgt=w_tgt,
+                w_src_ctrl_type=args.w_src_ctrl_type,
+                w_tgt_ctrl_type=args.w_tgt_ctrl_type,
                 guidance_type="static",
-                w_tgt_ctrl_type="static",
                 t_ctrl_start=None,
                 ctrl_mode=args.ctrl_mode,
                 removal_version=args.removal_version,

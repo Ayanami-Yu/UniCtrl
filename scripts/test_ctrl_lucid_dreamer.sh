@@ -1,13 +1,14 @@
 #!/bin/bash
 # usage: bash scripts/test_ctrl_lucid_dreamer.sh
 
-config_name="cat_armor"
-workspace="${config_name}_rm_v2"
-devices=(1 2 3 4 5 6)
+config_name="lion_water"
+workspace="${config_name}"
+devices=(7)
 w_src=1.0
-w_tgt=(0.6 0.8 1.0 -1.0 1.2 1.4)
+w_tgt=(1.00)
 
-ctrl_mode="remove"
+# ctrl_mode="remove"
+ctrl_mode="add"
 removal_version=2
 
 for i in "${!devices[@]}"; do

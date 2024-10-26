@@ -1,4 +1,3 @@
-import numpy as np
 import torch
 
 
@@ -61,7 +60,9 @@ def remove_aggregator_v1(
     """
     Params:
         w_tgt:
-            The strength to extract the semantics of target from source, should be greater than 0. When w_tgt equals 0, the result will be the perpendicular component of delta_noise_pred_src.
+            The strength to extract the semantics of target from source, should be 
+            greater than 0. When w_tgt equals 0, the result will be the perpendicular 
+            component of delta_noise_pred_src.
     """
     return (
         w_src
@@ -82,7 +83,8 @@ def remove_aggregator_v2(
     """
     Params:
         w_tgt:
-            The strength to extract the semantics of target from source, should be greater than -1. When w_tgt equals -1, the result will be delta_noise_pred_src.
+            The strength to extract the semantics of target from source, should be 
+            greater than -1. When w_tgt equals -1, the result will be delta_noise_pred_src.
     """
     noise_pred_src_perp = get_perpendicular_component(
         delta_noise_pred_src, delta_noise_pred_tgt, mode=mode
@@ -98,7 +100,7 @@ def guidance_weight(t, w0, guidance_type: str, t_total=1000, clamp=4):
     elif guidance_type == "linear":
         w = w0 * 2 * (1 - t / t_total)
     elif guidance_type == "cosine":
-        w = w0 * (np.cos(np.pi * t / t_total) + 1)
+        w = w0 * (torch.cos(torch.pi * t / t_total) + 1)
     else:
         raise ValueError("Unrecognized guidance type")
     return max(clamp, w) if clamp else w
@@ -109,6 +111,10 @@ def ctrl_weight(t, w0, ctrl_type: str, t_total=1000, clamp=None):
         w = w0
     elif ctrl_type == "linear":
         w = w0 * 2 * (1 - t / t_total)
+    elif ctrl_type == "cosine":
+        w = w0 * (torch.cos(torch.pi * t / t_total) + 1)
+    elif ctrl_type == "inv_linear":
+        w = w0 * 2 * (t / t_total)
     else:
         raise ValueError("Unrecognized guidance type")
     return max(clamp, w) if clamp else w
