@@ -1,5 +1,5 @@
 #!/bin/bash
-# usage: bash scripts/test_ctrl_lucid_dreamer.sh
+# Usage: bash scripts/test_ctrl_lucid_dreamer.sh
 
 config_name="plant_pot"
 devices=(0 1 2 3 4 5 6 7)

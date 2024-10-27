@@ -115,6 +115,8 @@ def ctrl_weight(t, w0, ctrl_type: str, t_total=1000, clamp=None):
         w = w0 * (torch.cos(torch.pi * t / t_total) + 1)
     elif ctrl_type == "inv_linear":
         w = w0 * 2 * (t / t_total)
+    elif ctrl_type == "sine":
+        w = w0 * (torch.sin(torch.pi * t / t_total - torch.pi / 2) + 1)
     else:
         raise ValueError("Unrecognized guidance type")
     return max(clamp, w) if clamp else w

@@ -42,6 +42,8 @@ tgt = 0.5 ~ 1.5
 
 `CUDA_VISIBLE_DEVICES=3 nohup python scripts/test_ctrl_sd.py --prompt "an astronaut riding a horse" "an astronaut" --out_dir "./exp/sd/astronaut_horse_rm_v2_inv_linear/" --src_params 0.9 0.1 7 --tgt_params -1.0 0.1 30 --ctrl_mode "remove" --removal_version 2 > nohup/astronaut_horse 2>&1 &`
 
+`CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_sd.py --prompt "a Ragdoll cat wearing armor" "an armor" --out_dir "./exp/sd/ragdoll_armor/" --src_params 0.8 0.1 7 --tgt_params -1.0 0.1 30 --ctrl_mode "remove" --removal_version 2 --w_tgt_ctrl_type "inv_linear" > nohup/ragdoll_armor 2>&1 &`
+
 ## Video
 
 [
