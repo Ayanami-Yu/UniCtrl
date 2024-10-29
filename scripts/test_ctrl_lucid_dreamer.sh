@@ -1,17 +1,21 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl_lucid_dreamer.sh
 
-config_name="plant_pot"
-devices=(0 1 2 3 4 5 6 7)
+config_name="unicorn_rainbow"
+devices=(3 4 5 6 7)
 w_src=1.0
-w_tgt=(0.1 0.3 0.5 0.7 0.9 1.1 1.3 1.5)
+w_tgt=(-1.0 -0.6 0.2 0.6 0.8)
 
-ctrl_mode="add"
+ctrl_mode="rm"  # add or remove (rm)
 w_tgt_ctrl_type="cosine"
 removal_version=2
 
 fix_w_src="true"
 workspace="${config_name}_${ctrl_mode}_${w_tgt_ctrl_type}"
+
+if [ "${ctrl_mode}" == "rm" ]; then
+    ctrl_mode="remove"
+fi
 
 for i in "${!devices[@]}"; do
     if [ "$fix_w_src" == "true" ]; then

@@ -12,18 +12,16 @@ parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
 parser.add_argument("--out_dir", type=str, default="../exp/animatediff/samples/")
 parser.add_argument("--gpu", type=int, default=0)
-# parser.add_argument("--gpu", type=str, default="7")
 
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
 parser.add_argument("--tgt_params", nargs="+", type=float, default=None)
-parser.add_argument("--ctrl_mode", type=str, default="add")
-parser.add_argument("--removal_version", type=int, default=1)
-args = parser.parse_args()
+parser.add_argument("--w_src_ctrl_type", type=str, default="static")
+parser.add_argument("--w_tgt_ctrl_type", type=str, default="static")
 
-# set visible GPU
-# os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-# os.environ["CUDA_VISIBLE_DEVICES"] = args.gpu
+parser.add_argument("--ctrl_mode", type=str, default="add")
+parser.add_argument("--removal_version", type=int, default=2)
+args = parser.parse_args()
 
 # set device
 torch.cuda.set_device(args.gpu)
@@ -105,7 +103,8 @@ for w_src in src_weights:
             w_src=w_src,
             w_tgt=w_tgt,
             guidance_type="static",
-            w_tgt_ctrl_type="static",
+            w_src_ctrl_type=args.w_src_ctrl_type,
+            w_tgt_ctrl_type=args.w_tgt_ctrl_type,
             t_ctrl_start=None,
             ctrl_mode=args.ctrl_mode,
             removal_version=args.removal_version,

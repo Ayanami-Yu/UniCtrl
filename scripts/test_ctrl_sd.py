@@ -25,7 +25,7 @@ parser.add_argument("--w_tgt_ctrl_type", type=str, default="static")
 parser.add_argument("--scale", type=float, default=None)
 parser.add_argument("--theta_params", nargs="+", type=float, default=None)
 parser.add_argument("--ctrl_mode", type=str, default="add")
-parser.add_argument("--removal_version", type=int, default=1)
+parser.add_argument("--removal_version", type=int, default=2)
 args = parser.parse_args()
 
 # set device

@@ -4,6 +4,10 @@ All use `add_aggregator_v1`
 
 ## Image
 
+### Examples
+
+#### Add
+
 [
     "Catwoman holding a sniper rifle",
     "Catwoman holding a sniper rifle and wearing a hat",
@@ -19,6 +23,23 @@ tgt = 1.0 ~ 3.0
 
 src = 0.9
 tgt = 0.5 ~ 1.5
+
+#### Remove
+
+[
+    "a Ragdoll cat wearing armor, full body shot",
+    "ar armor",
+]
+
+[
+    "jack o lantern hanging on a tree",
+    "jack o lantern",
+]
+
+[
+    "Iron Man is walking towards the camera in the rain at night, with a lot of fog behind him. Science fiction movie, close-up",
+    "rain, a lot of fog",
+]
 
 ### CLI
 
@@ -45,6 +66,8 @@ tgt = 0.5 ~ 1.5
 `CUDA_VISIBLE_DEVICES=1 nohup python scripts/test_ctrl_sd.py --prompt "a Ragdoll cat wearing armor" "an armor" --out_dir "./exp/sd/ragdoll_armor/" --src_params 0.8 0.1 7 --tgt_params -1.0 0.1 30 --ctrl_mode "remove" --removal_version 2 --w_tgt_ctrl_type "inv_linear" > nohup/ragdoll_armor 2>&1 &`
 
 ## Video
+
+### Examples
 
 [
     "a silver wolf is running",
@@ -80,6 +103,9 @@ tgt = 0.5 ~ 1.5
     "a woman is walking in the rain",
     "a woman is walking in the rain and carrying a red handbag",
 ]
+
+src_prompt='"A gentleman with a handlebar mustache, a bowler hat, and a monocle"'
+tgt_prompt='"a handlebar mustache, a monocle"'
 
 ### CLI
 
