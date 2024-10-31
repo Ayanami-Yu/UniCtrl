@@ -60,8 +60,8 @@ def remove_aggregator_v1(
     """
     Params:
         w_tgt:
-            The strength to extract the semantics of target from source, should be 
-            greater than 0. When w_tgt equals 0, the result will be the perpendicular 
+            The strength to extract the semantics of target from source, should be
+            greater than 0. When w_tgt equals 0, the result will be the perpendicular
             component of delta_noise_pred_src.
     """
     return (
@@ -83,7 +83,7 @@ def remove_aggregator_v2(
     """
     Params:
         w_tgt:
-            The strength to extract the semantics of target from source, should be 
+            The strength to extract the semantics of target from source, should be
             greater than -1. When w_tgt equals -1, the result will be delta_noise_pred_src.
     """
     noise_pred_src_perp = get_perpendicular_component(

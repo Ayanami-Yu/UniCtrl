@@ -153,7 +153,7 @@ tgt_prompt='"a handlebar mustache, a monocle"'
 
 `CUDA_VISIBLE_DEVICES=7 nohup python scripts/test_ctrl_animatediff.py --prompt "a panda is playing guitar on times square" "a guitar" --out_dir "./exp/animatediff/panda_guitar_rm/" --src_params 0.9 0.1 2 --tgt_params 0.0 0.1 16 --ctrl_mode "remove" > nohup/panda_guitar_rm.txt 2>&1 &`
 
-`CUDA_VISIBLE_DEVICES=0 nohup python scripts/test_ctrl_animatediff.py --prompt "a panda is playing guitar on times square" "a guitar" --out_dir "./exp/animatediff/panda_guitar_rm_v2/" --src_params 0.9 0.1 2 --tgt_params -1.0 0.1 21 --ctrl_mode "remove" --removal_version 2 > nohup/panda_guitar_rm.txt 2>&1 &`
+`CUDA_VISIBLE_DEVICES=0 nohup python scripts/test_ctrl_animatediff.py --prompt "a panda is playing guitar on times square" "a guitar" --out_dir "./exp/animatediff/panda_guitar_rm_v2_cosine/" --src_params 0.9 0.1 2 --tgt_params -1.0 0.1 21 --ctrl_mode "remove" --removal_version 2 --w_tgt_ctrl_type "cosine" > nohup/panda_guitar_rm.txt 2>&1 &`
 
 ## 3D
 

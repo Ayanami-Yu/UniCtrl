@@ -1,11 +1,11 @@
 import argparse
 import os
+from math import cos, sin
 
 import torch
 from pytorch_lightning import seed_everything
 from torchvision import transforms
 from torchvision.utils import save_image
-from math import cos, sin
 
 from ctrl_image.ctrl_sd_pipeline import CtrlSDPipeline
 
@@ -44,7 +44,8 @@ prompts = (
 )
 
 # set seed
-seed = 0
+# NOTE seed 0 always produces close-up photos
+seed = 42
 seed_everything(seed)
 
 # set output path
@@ -81,7 +82,8 @@ if args.scale is not None:
             w_src=w_src,
             w_tgt=w_tgt,
             guidance_type="static",
-            w_tgt_ctrl_type="static",
+            w_src_ctrl_type=args.w_src_ctrl_type,
+            w_tgt_ctrl_type=args.w_tgt_ctrl_type,
             t_ctrl_start=None,
             ctrl_mode=args.ctrl_mode,
             removal_version=args.removal_version,
@@ -119,6 +121,17 @@ else:
 
             # no need to makedirs when no result has been generated
             os.makedirs(out_dir, exist_ok=True)
+
+            # document the configs
+            if not os.path.isfile(f"{out_dir}/configs.txt"):
+                with open(os.path.join(out_dir, "configs.txt"), "w") as f:
+                    f.write(f"seed: {seed}\n")
+                    f.write(f"prompts: {args.prompt}\n")
+                    f.write(f"ctrl_mode: {args.ctrl_mode}\n")
+                    f.write(f"removal_version: {args.removal_version}\n")
+                    f.write(f"w_tgt_ctrl_type: {args.w_tgt_ctrl_type}\n")
+                    f.write(f"src_weights: {src_weights}\n")
+                    f.write(f"tgt_weights: {tgt_weights}\n")
             save_image(
                 image,
                 os.path.join(out_dir, f"{w_src}_{w_tgt}.png"),

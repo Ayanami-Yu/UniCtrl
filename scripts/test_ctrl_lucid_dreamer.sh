@@ -1,13 +1,13 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl_lucid_dreamer.sh
 
-config_name="unicorn_rainbow"
-devices=(3 4 5 6 7)
+config_name="pikachu_sword_style"
+devices=(5 6 7)
 w_src=1.0
-w_tgt=(-1.0 -0.6 0.2 0.6 0.8)
+w_tgt=(-0.8 -0.2 0.4)
 
 ctrl_mode="rm"  # add or remove (rm)
-w_tgt_ctrl_type="cosine"
+w_tgt_ctrl_type="static"
 removal_version=2
 
 fix_w_src="true"

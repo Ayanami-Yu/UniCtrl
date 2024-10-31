@@ -12,13 +12,12 @@ import tqdm
 import tyro
 from kiui.cam import orbit_camera
 from kiui.op import recenter
-from safetensors.torch import load_file
 from pytorch_lightning import seed_everything
+from safetensors.torch import load_file
 
+from ctrl_3d.args_lgm import AllConfigs
 from ctrl_3d.ctrl_mvdream_pipeline import CtrlMVDreamPipeline
 from ctrl_3d.LGM.core.models import LGM
-from ctrl_3d.args_lgm import AllConfigs
-
 
 IMAGENET_DEFAULT_MEAN = (0.485, 0.456, 0.406)
 IMAGENET_DEFAULT_STD = (0.229, 0.224, 0.225)

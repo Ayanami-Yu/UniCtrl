@@ -1,19 +1,19 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=1
-src_prompt='"A gentleman with a handlebar mustache, a bowler hat, and a monocle"'
-tgt_prompt='"a handlebar mustache, a monocle"'
+device=2
+src_prompt='Fearsome dragon guarding its treasure hoard in a dimly lit cavern, fantasy style.'
+tgt_prompt='Fearsome dragon guarding its treasure hoard in a dimly lit cavern, with glowing embers scattered across the ground, fantasy style.'
 
-name="man_mustache"
-ctrl_mode="rm"  # add or remove (rm)
-model="ad"  # sd or animatediff (ad)
-src_params=(0.9 0.1 3)
-w_tgt_ctrl_type="static"
+name='samples'
+ctrl_mode='add'  # add or remove (rm)
+model='sd'  # sd or animatediff (ad)
+src_params=(1.0 0.1 1)
+w_tgt_ctrl_type='cosine'
 removal_version=2
 
 if [ "${ctrl_mode}" == "rm" ]; then
-    tgt_params=(-1.0 0.1 36)
+    tgt_params=(-1.0 0.1 31)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
     tgt_params=(0.0 0.1 36)  # add

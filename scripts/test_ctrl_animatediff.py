@@ -89,6 +89,10 @@ start_code = torch.randn([1, 4, 16, 64, 64], device=device, dtype=torch.float16)
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
+print(f"args = {args}")
+print(f"w_src = {src_weights}")
+print(f"w_tgt = {tgt_weights}")
+
 for w_src in src_weights:
     for w_tgt in tgt_weights:
         output = pipe(
