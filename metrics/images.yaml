@@ -179,3 +179,11 @@ rm:
       tgt_prompt: 'white hair, deep wrinkles'
       src_image: 'metrics/images/src/sd/rm/lady_hair_wrinkles_1.0_-1.0.png'
       tgt_image: 'metrics/images/tgt/sd/rm/lady_hair_wrinkles_1.0_0.5.png'
+
+  rabbit_low_poly:
+    src_prompt: 'a rabbit, low-poly game art style'
+    tgt_prompt: 'a rabbit'
+    sd:
+      tgt_prompt: 'low-poly game art style'
+      src_image: metrics/images/src/sd/rm/rabbit_low_poly_1.0_-1.0.png
+      tgt_image: metrics/images/tgt/sd/rm/rabbit_low_poly_1.0_0.7.png
