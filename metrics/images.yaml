@@ -154,3 +154,6 @@ add:
     p2p:
       src_image: 'metrics/images/src/p2p/add/train_stripes_src.png'
       tgt_image: 'metrics/images/tgt/p2p/add/train_stripes_tgt.png'
+
+rm:
+  

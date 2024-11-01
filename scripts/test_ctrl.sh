@@ -1,19 +1,19 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=4
-src_prompt='A hot air balloon.'
-tgt_prompt='A hot air balloon with a yin-yang symbol.'
+device=5
+src_prompt='a photograph of a knight in shining armor holding a basketball'
+tgt_prompt='a basketball'
 
 name='samples'
-ctrl_mode='add'  # add or remove (rm)
+ctrl_mode='rm'  # add or remove (rm)
 model='sd'  # sd or animatediff (ad)
 src_params=(1.0 0.1 1)
 w_tgt_ctrl_type='cosine'
 removal_version=2
 
 if [ "${ctrl_mode}" == "rm" ]; then
-    tgt_params=(-1.0 0.1 31)
+    tgt_params=(-1.0 0.1 36)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
     tgt_params=(0.0 0.1 36)  # add

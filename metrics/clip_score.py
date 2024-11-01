@@ -20,6 +20,6 @@ with open(config_file) as f:
 images = [read_image(data[model]['tgt_image']) for data in dataset[mode].values()]
 prompts = [data['tgt_prompt'] for data in dataset[mode].values()]
 
-# SD: 35.3821, MasaCtrl: 31.809, P2P: 34.6683
+# Add: SD = 35.3821, MasaCtrl = 31.809, P2P = 34.6683
 clip_score = calculate_clip_score(images, prompts)
 print(f"CLIP score: {clip_score}")
