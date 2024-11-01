@@ -2,22 +2,17 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torchmetrics.functional.multimodal import clip_score
-from functools import partial
-
-
-clip_score_fn = partial(clip_score, model_name_or_path="openai/clip-vit-base-patch16")
 
 
 def calculate_clip_score(images, prompts):
     """
     Params:
-        images: Tensor of shape (N, C, H, W) or a list of tensors of shape (C, H, W)
+        images: Tensor of shape (N, C, H, W) or a list of tensors of shape (C, H, W), the values should be in uint8 in [0, 255].
     """
-    images_int = (images * 255).astype("uint8")
-    clip_score = clip_score_fn(
-        torch.from_numpy(images_int).permute(0, 3, 1, 2), prompts
+    score = clip_score(
+        images, prompts, model_name_or_path="openai/clip-vit-base-patch16"
     ).detach()
-    return round(float(clip_score), 4)
+    return round(float(score), 4)
 
 
 class DirectionalSimilarity(nn.Module):

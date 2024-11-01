@@ -40,8 +40,8 @@ src_prompts:
   - 'A cat working as a lifeguard at a pool'
   - 'A robot DJ is playing the turntable.'
 
-tgt_images:
-  - ''A photo of a Corgi dog running in Times Square wearing sunglasses.'
+tgt_prompts:
+  - 'A photo of a Corgi dog running in Times Square wearing sunglasses.'
   - 'Iron Man is walking towards the camera in the rain at night with a lot of fog behind him'
   - 'City street at night with bright lights and busy traffic'
   - 'A silver metal train with blue and red stripes speeding through a mountainous landscape'
