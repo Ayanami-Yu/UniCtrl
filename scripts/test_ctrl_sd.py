@@ -44,7 +44,7 @@ prompts = (
 )
 
 # set seed
-# NOTE seed 0 always produces close-up photos
+# NOTE seed 0 often produces close-up photos
 seed = 42
 seed_everything(seed)
 

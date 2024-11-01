@@ -1,9 +1,9 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=2
-src_prompt='Fearsome dragon guarding its treasure hoard in a dimly lit cavern, fantasy style.'
-tgt_prompt='Fearsome dragon guarding its treasure hoard in a dimly lit cavern, with glowing embers scattered across the ground, fantasy style.'
+device=4
+src_prompt='A hot air balloon.'
+tgt_prompt='A hot air balloon with a yin-yang symbol.'
 
 name='samples'
 ctrl_mode='add'  # add or remove (rm)
