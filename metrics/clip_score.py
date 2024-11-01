@@ -20,4 +20,4 @@ images = [read_image(data[model]['tgt_image']) for data in dataset[mode].values(
 prompts = [data['tgt_prompt'] for data in dataset[mode].values()]
 
 clip_score = calculate_clip_score(images, prompts)
-print(f"CLIP score: {clip_score}")  # SD: 35.3821
+print(f"CLIP score: {clip_score}")  # SD: 35.3821, MasaCtrl: 31.809
