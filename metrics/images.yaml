@@ -5,6 +5,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/cat_sunglasses_1.0_0.0.png'
       tgt_image: 'metrics/images/tgt/sd/add/cat_sunglasses_1.0_2.0.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/cat_sunglasses_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/cat_sunglasses_tgt.png'
   
   corgi_animated:
     src_prompt: 'A cute happy Corgi playing in park'
@@ -12,6 +15,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/corgi_animated_1.0_0.0.png'
       tgt_image: 'metrics/images/tgt/sd/add/corgi_animated_1.0_3.0.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/corgi_animated_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/corgi_animated_tgt.png'
 
   corgi_painting:
     src_prompt: 'A cute happy Corgi playing in park'
@@ -19,6 +25,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/corgi_painting_1.0_0.0.png'
       tgt_image: 'metrics/images/tgt/sd/add/corgi_painting_1.0_3.0.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/corgi_painting_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/corgi_painting_tgt.png'
 
   corgi_pixel:
     src_prompt: 'A cute happy Corgi playing in park'
@@ -26,6 +35,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/corgi_pixel_1.0_0.0.png'
       tgt_image: 'metrics/images/tgt/sd/add/corgi_pixel_1.0_2.0.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/corgi_pixel_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/corgi_pixel_tgt.png'
 
   corgi_sunglasses:
     src_prompt: 'A photo of a Corgi dog running in Times Square.'
@@ -33,6 +45,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/corgi_sunglasses_1.0_0.4.png'
       tgt_image: 'metrics/images/tgt/sd/add/corgi_sunglasses_1.0_1.6.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/corgi_sunglasses_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/corgi_sunglasses_tgt.png'
 
   dog_soccer:
     src_prompt: 'a cute pomeranian dog is playing'
@@ -40,6 +55,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/dog_soccer_1.0_0.0.png'
       tgt_image: 'metrics/images/tgt/sd/add/dog_soccer_1.0_1.6.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/dog_soccer_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/dog_soccer_tgt.png'
 
   iron_man_fog:
     src_prompt: 'Iron Man is walking towards the camera at night'
@@ -47,6 +65,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/iron_man_fog_1.0_0.0.png'
       tgt_image: 'metrics/images/tgt/sd/add/iron_man_fog_1.0_1.9.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/iron_man_fog_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/iron_man_fog_tgt.png'
 
   man_mustache:
     src_prompt: 'A gentleman with a bowler hat, front view.'
@@ -54,6 +75,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/man_mustache_1.0_0.0.png'
       tgt_image: 'metrics/images/tgt/sd/add/man_mustache_1.0_2.1.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/man_mustache_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/man_mustache_tgt.png'
 
   man_scarf:
     src_prompt: 'a man is reading a book at bus stop'
@@ -61,6 +85,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/man_scarf_1.0_0.3.png'
       tgt_image: 'metrics/images/tgt/sd/add/man_scarf_1.0_0.9.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/man_scarf_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/man_scarf_tgt.png'
 
   robot_rain:
     src_prompt: 'A robot DJ is playing the turntable.'
@@ -68,6 +95,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/robot_rain_1.0_0.4.png'
       tgt_image: 'metrics/images/tgt/sd/add/robot_rain_1.0_2.4.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/robot_rain_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/robot_rain_tgt.png'
 
   street_traffic:
     src_prompt: 'City street at night'
@@ -75,6 +105,9 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/street_traffic_1.0_0.4.png'
       tgt_image: 'metrics/images/tgt/sd/add/street_traffic_1.0_2.0.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/street_traffic_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/street_traffic_tgt.png'
 
   train_stripes:
     src_prompt: 'A silver metal train speeding through a mountainous landscape'
@@ -82,3 +115,6 @@ add:
     sd:
       src_image: 'metrics/images/src/sd/add/train_stripes_1.0_0.0.png'
       tgt_image: 'metrics/images/tgt/sd/add/train_stripes_1.0_3.1.png'
+    masactrl:
+      src_image: 'metrics/images/src/masactrl/add/train_stripes_src.png'
+      tgt_image: 'metrics/images/tgt/masactrl/add/train_stripes_tgt.png'
