@@ -1,9 +1,9 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=5
-src_prompt='a photograph of a knight in shining armor holding a basketball'
-tgt_prompt='a basketball'
+device=2
+src_prompt='An elderly lady with a warm smile, white hair, and deep wrinkles.'
+tgt_prompt='a warm smile'
 
 name='samples'
 ctrl_mode='rm'  # add or remove (rm)

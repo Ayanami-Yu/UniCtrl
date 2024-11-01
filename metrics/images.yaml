@@ -156,4 +156,26 @@ add:
       tgt_image: 'metrics/images/tgt/p2p/add/train_stripes_tgt.png'
 
 rm:
-  
+  badger_painting:
+    src_prompt: 'A richly textured oil painting of a young badger delicately sniffing a yellow rose next to a tree trunk.'
+    tgt_prompt: 'A young badger delicately sniffing a yellow rose next to a tree trunk.'
+    sd:
+      tgt_prompt: 'A richly textured oil painting.'
+      src_image: 'metrics/images/src/sd/rm/badger_painting_1.0_-1.0.png'
+      tgt_image: 'metrics/images/tgt/sd/rm/badger_painting_1.0_1.0.png'
+
+  cow_flowers:
+    src_prompt: 'A cow is standing in a field with white flowers.'
+    tgt_prompt: 'A cow is standing in a field.'
+    sd:
+      tgt_prompt: 'White flowers.'
+      src_image: 'metrics/images/src/sd/rm/cow_flowers_1.0_-1.0.png'
+      tgt_image: 'metrics/images/tgt/sd/rm/cow_flowers_1.0_0.8.png'
+
+  lady_hair_wrinkles:
+    src_prompt: 'An elderly lady with a warm smile, white hair, and deep wrinkles.'
+    tgt_prompt: 'A lady with a warm smile.'
+    sd:
+      tgt_prompt: 'white hair, deep wrinkles'
+      src_image: 'metrics/images/src/sd/rm/lady_hair_wrinkles_1.0_-1.0.png'
+      tgt_image: 'metrics/images/tgt/sd/rm/lady_hair_wrinkles_1.0_0.5.png'
