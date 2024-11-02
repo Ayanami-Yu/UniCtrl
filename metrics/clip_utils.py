@@ -1,4 +1,3 @@
-import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torchmetrics.functional.multimodal import clip_score
