@@ -49,8 +49,12 @@ class DirectionalSimilarity(nn.Module):
         text_features = text_features / text_features.norm(dim=1, keepdim=True)
         return text_features
 
-    def compute_directional_similarity(self, img_feat_one, img_feat_two, text_feat_one, text_feat_two):
-        sim_direction = F.cosine_similarity(img_feat_two - img_feat_one, text_feat_two - text_feat_one)
+    def compute_directional_similarity(
+        self, img_feat_one, img_feat_two, text_feat_one, text_feat_two
+    ):
+        sim_direction = F.cosine_similarity(
+            img_feat_two - img_feat_one, text_feat_two - text_feat_one
+        )
         return sim_direction
 
     def forward(self, image_one, image_two, caption_one, caption_two):

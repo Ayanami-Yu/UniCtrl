@@ -1,0 +1,77 @@
+add:
+  xx:
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book by Hokusai, in the style of Ukiyo'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book, Van Gogh style'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book, oil painting'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book, in cyberpunk style'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book, watercolor painting'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'A boat sailing leisurely along River'
+    tgt_prompt: 'A boat sailing leisurely along the River with the Eiffel Tower in background'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'Campfire at night in a snowy forest.'
+    tgt_prompt: 'Campfire at night in a snowy forest with starry sky in the background.'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'Campfire at night in a snowy forest.'
+    tgt_prompt: 'Campfire at night in a snowy forest with some kids playing around it.'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'Peter Parker playing guitar on times square'
+    tgt_prompt: 'Peter Parker playing guitar on times square, with a lot of people watching'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'A panda is surfing in the ocean.'
+    tgt_prompt: 'A panda is surfing in the ocean in sunset.'
+    animatediff:
+      src_image:
+      tgt_image:
+
+  xx:
+    src_prompt: 'a cute pomeranian dog is playing'
+    tgt_prompt: 'a cute pomeranian dog is playing with a soccer ball'
+    animatediff:
+      src_image:
+      tgt_image:
