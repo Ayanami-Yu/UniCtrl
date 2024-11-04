@@ -7,6 +7,9 @@ add:
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_ukiyo'
 
   gwen_van_gogh:
     src_prompt: 'Gwen Stacy reading a book'
@@ -14,13 +17,19 @@ add:
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_van_gogh'
 
   gwen_painting:
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book, oil painting'
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
-      tgt_images:
+      tgt_images: 
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_painting'
 
   gwen_cyberpunk:
     src_prompt: 'Gwen Stacy reading a book'
@@ -28,6 +37,9 @@ add:
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_cyberpunk'
 
   gwen_watercolor:
     src_prompt: 'Gwen Stacy reading a book'
@@ -35,6 +47,9 @@ add:
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_watercolor'
 
   boat_tower:
     src_prompt: 'A boat sailing leisurely along River'
@@ -42,13 +57,19 @@ add:
     animatediff:
       src_images: 'metrics/videos/src/boat_river'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/boat_tower'
 
-  campfire_starry:
+  campfire_sky:
     src_prompt: 'Campfire at night in a snowy forest.'
     tgt_prompt: 'Campfire at night in a snowy forest with starry sky in the background.'
     animatediff:
       src_images: 'metrics/videos/src/campfire_forest'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/campfire_sky'
 
   campfire_kids:
     src_prompt: 'Campfire at night in a snowy forest.'
@@ -56,6 +77,9 @@ add:
     animatediff:
       src_images: 'metrics/videos/src/campfire_forest'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/campfire_kids'
 
   peter_people:
     src_prompt: 'Peter Parker playing guitar on times square'
@@ -63,6 +87,9 @@ add:
     animatediff:
       src_images: 'metrics/videos/src/peter_guitar'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/peter_people'
 
   panda_sunset:
     src_prompt: 'A panda is surfing in the ocean.'
@@ -70,6 +97,9 @@ add:
     animatediff:
       src_images: 'metrics/videos/src/panda_surf'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/panda_sunset'
 
   dog_soccer:
     src_prompt: 'a cute pomeranian dog is playing'
@@ -77,3 +107,6 @@ add:
     animatediff:
       src_images: 'metrics/videos/src/dog_play'
       tgt_images:
+    fatezero:
+      src_images: 'metrics/videos/src/gwen_book'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/dog_soccer'

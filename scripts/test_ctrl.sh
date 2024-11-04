@@ -1,9 +1,9 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=1
+device=5
 src_prompt='A porsche car turning a corner in the countryside.'
-tgt_prompt='A porsche car turning a corner in the countryside, followed by a helicopter.'
+tgt_prompt='A porsche car turning a corner in the countryside followed by helicopters.'
 
 name='samples'
 ctrl_mode='add'  # add or remove (rm)

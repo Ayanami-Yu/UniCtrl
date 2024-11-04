@@ -25,7 +25,7 @@ parser.add_argument("--removal_version", type=int, default=2)
 parser.add_argument("--seed", type=int, default=42)
 parser.add_argument("--num_frames", type=int, default=16)
 # parser.add_argument("--save_as_images", default=False, action="store_true")
-parser.add_argument("--save_as_images", default=True, action="store_true")  # TODO
+parser.add_argument("--save_as_images", default=False, action="store_true")  # TODO
 args = parser.parse_args()
 
 # set device
