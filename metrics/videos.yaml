@@ -6,7 +6,7 @@ add:
     tgt_prompt: 'Gwen Stacy reading a book by Hokusai, in the style of Ukiyo'
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/gwen_ukiyo/1.0_6.6'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_ukiyo'
@@ -16,7 +16,7 @@ add:
     tgt_prompt: 'Gwen Stacy reading a book, Van Gogh style'
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/gwen_van_gogh/1.0_5.4'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_van_gogh'
@@ -26,7 +26,7 @@ add:
     tgt_prompt: 'Gwen Stacy reading a book, oil painting'
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
-      tgt_images: 
+      tgt_images: 'metrics/videos/tgt/animatediff/add/gwen_painting/1.0_5.7'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_painting'
@@ -36,7 +36,7 @@ add:
     tgt_prompt: 'Gwen Stacy reading a book, in cyberpunk style'
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/gwen_cyberpunk/1.0_5.1'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_cyberpunk'
@@ -46,7 +46,7 @@ add:
     tgt_prompt: 'Gwen Stacy reading a book, watercolor painting'
     animatediff:
       src_images: 'metrics/videos/src/gwen_book'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/gwen_watercolor/1.0_3.6'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/gwen_watercolor'
@@ -56,7 +56,7 @@ add:
     tgt_prompt: 'A boat sailing leisurely along the River with the Eiffel Tower in background'
     animatediff:
       src_images: 'metrics/videos/src/boat_river'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/boat_tower/1.0_1.8'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/boat_tower'
@@ -66,7 +66,7 @@ add:
     tgt_prompt: 'Campfire at night in a snowy forest with starry sky in the background.'
     animatediff:
       src_images: 'metrics/videos/src/campfire_forest'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/campfire_sky/1.0_6.0'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/campfire_sky'
@@ -76,7 +76,7 @@ add:
     tgt_prompt: 'Campfire at night in a snowy forest with some kids playing around it.'
     animatediff:
       src_images: 'metrics/videos/src/campfire_forest'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/campfire_kids/1.0_3.3'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/campfire_kids'
@@ -86,7 +86,7 @@ add:
     tgt_prompt: 'Peter Parker playing guitar on times square, with a lot of people watching'
     animatediff:
       src_images: 'metrics/videos/src/peter_guitar'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/peter_people/1.0_6.0'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/peter_people'
@@ -96,7 +96,7 @@ add:
     tgt_prompt: 'A panda is surfing in the ocean in sunset.'
     animatediff:
       src_images: 'metrics/videos/src/panda_surf'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/panda_sunset/1.0_6.0'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/panda_sunset'
@@ -106,7 +106,27 @@ add:
     tgt_prompt: 'a cute pomeranian dog is playing with a soccer ball'
     animatediff:
       src_images: 'metrics/videos/src/dog_play'
-      tgt_images:
+      tgt_images: 'metrics/videos/tgt/animatediff/add/dog_soccer/1.0_2.4'
     fatezero:
       src_images: 'metrics/videos/src/gwen_book'
       tgt_images: 'metrics/videos/tgt/fatezero/add/dog_soccer'
+
+  car_one_helicopter:
+    src_prompt: 'A porsche car turning a corner in the countryside.'
+    tgt_prompt: 'A porsche car turning a corner in the countryside, with a helicopter following it.'
+    animatediff:
+      src_images: 'metrics/videos/src/car_turn'
+      tgt_images: 'metrics/videos/tgt/animatediff/add/car_one_helicopter/1.0_4.5'
+    fatezero:
+      src_images: 'metrics/videos/src/car_turn'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/car_one_helicopter'
+
+  car_helicopters:
+    src_prompt: 'A porsche car turning a corner in the countryside.'
+    tgt_prompt: 'A porsche car turning a corner in the countryside followed by helicopters.'
+    animatediff:
+      src_images: 'metrics/videos/src/car_turn'
+      tgt_images: 'metrics/videos/tgt/animatediff/add/car_helicopters/1.0_3.9'
+    fatezero:
+      src_images: 'metrics/videos/src/car_turn'
+      tgt_images: 'metrics/videos/tgt/fatezero/add/car_helicopters'
