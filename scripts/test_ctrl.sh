@@ -1,9 +1,9 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=7
-src_prompt='a cute pomeranian dog is playing'
-tgt_prompt='a cute pomeranian dog is playing with a soccer ball'
+device=1
+src_prompt='A porsche car turning a corner in the countryside.'
+tgt_prompt='A porsche car turning a corner in the countryside, followed by a helicopter.'
 
 name='samples'
 ctrl_mode='add'  # add or remove (rm)
@@ -16,7 +16,7 @@ if [ "${ctrl_mode}" == "rm" ]; then
     tgt_params=(-1.0 0.1 36)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
-    tgt_params=(0.0 0.3 23)  # add
+    tgt_params=(0.0 0.3 22)  # add
     workspace="${name}_add_${w_tgt_ctrl_type}"
 fi
 
