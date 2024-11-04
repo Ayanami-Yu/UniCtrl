@@ -1,5 +1,7 @@
 # Source images are the same for AnimateDiff and FateZero,
-# because the latter provides inversion for real images
+# because the latter provides inversion for real images.
+# When the number of frames of AnimateDiff don't align with
+# that of FateZero, we simply use the first 8 frames.
 add:
   gwen_ukiyo:
     src_prompt: 'Gwen Stacy reading a book'
