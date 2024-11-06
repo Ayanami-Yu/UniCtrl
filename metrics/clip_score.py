@@ -23,6 +23,7 @@ with open(config_file) as f:
     dataset = yaml.safe_load(f)
 
 if modality == "image":
+    # TODO refactor
     images = [read_image(data[model]["tgt_image"]) for data in dataset[mode].values()]
     prompts = [data["tgt_prompt"] for data in dataset[mode].values()]
 elif modality == "video":

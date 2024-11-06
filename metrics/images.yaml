@@ -5,8 +5,8 @@ add:
     src_image: 'metrics/images/src/add/cat_sunglasses_1.0_0.0.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/cat_sunglasses_1.0_2.0.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
   
   corgi_animated:
     src_prompt: 'A cute happy Corgi playing in park'
@@ -14,154 +14,167 @@ add:
     src_image: 'metrics/images/src/add/corgi_animated_1.0_0.0.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/corgi_animated_1.0_3.0.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   corgi_painting:
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, oil painting'
-    src_image: 'metrics/images/src/sd/add/corgi_painting_1.0_0.0.png'
+    src_image: 'metrics/images/src/add/corgi_painting_1.0_0.0.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/corgi_painting_1.0_3.0.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   corgi_pixel:
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, pixel art'
-    src_image: 'metrics/images/src/sd/add/corgi_pixel_1.0_0.0.png'
+    src_image: 'metrics/images/src/add/corgi_pixel_1.0_0.0.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/corgi_pixel_1.0_2.0.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   corgi_sunglasses:
     src_prompt: 'A photo of a Corgi dog running in Times Square.'
     tgt_prompt: 'A photo of a Corgi dog running in Times Square wearing sunglasses.'
-    src_image: 'metrics/images/src/sd/add/corgi_sunglasses_1.0_0.4.png'
+    src_image: 'metrics/images/src/add/corgi_sunglasses_1.0_0.4.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/corgi_sunglasses_1.0_1.6.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   dog_soccer:
     src_prompt: 'a cute pomeranian dog is playing'
     tgt_prompt: 'a cute pomeranian dog is playing with a soccer ball'
-    src_image: 'metrics/images/src/sd/add/dog_soccer_1.0_0.0.png'
+    src_image: 'metrics/images/src/add/dog_soccer_1.0_0.0.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/dog_soccer_1.0_1.6.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   iron_man_fog:
     src_prompt: 'Iron Man is walking towards the camera at night'
     tgt_prompt: 'Iron Man is walking towards the camera in the rain at night with a lot of fog behind him'
-    src_image: 'metrics/images/src/sd/add/iron_man_fog_1.0_0.0.png'
+    src_image: 'metrics/images/src/add/iron_man_fog_1.0_0.0.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/iron_man_fog_1.0_1.9.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   man_mustache:
     src_prompt: 'A gentleman with a bowler hat, front view.'
     tgt_prompt: 'A gentleman with a handlebar mustache and a bowler hat, front view.'
-    src_image: 'metrics/images/src/sd/add/man_mustache_1.0_0.0.png'
+    src_image: 'metrics/images/src/add/man_mustache_1.0_0.0.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/man_mustache_1.0_2.1.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   man_scarf:
     src_prompt: 'a man is reading a book at bus stop'
     tgt_prompt: 'a man wearing a pink scarf is reading a book at bus stop'
-    src_image: 'metrics/images/src/sd/add/man_scarf_1.0_0.3.png'
+    src_image: 'metrics/images/src/add/man_scarf_1.0_0.3.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/man_scarf_1.0_0.9.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   robot_rain:
     src_prompt: 'A robot DJ is playing the turntable.'
     tgt_prompt: 'A robot DJ is playing the turntable, in heavy raining futuristic tokyo rooftop cyberpunk night, sci-fi, fantasy.'
-    src_image: 'metrics/images/src/sd/add/robot_rain_1.0_0.4.png'
+    src_image: 'metrics/images/src/add/robot_rain_1.0_0.4.png'
+    tgt_image:
       sd: 'metrics/images/tgt/sd/add/robot_rain_1.0_2.4.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   street_traffic:
     src_prompt: 'City street at night'
     tgt_prompt: 'City street at night with bright lights and busy traffic'
-    src_image: 'metrics/images/src/sd/add/street_traffic_1.0_0.4.png'
+    src_image: 'metrics/images/src/add/street_traffic_1.0_0.4.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/street_traffic_1.0_2.0.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   train_stripes:
     src_prompt: 'A silver metal train speeding through a mountainous landscape'
     tgt_prompt: 'A silver metal train with blue and red stripes speeding through a mountainous landscape'
-    src_image: 'metrics/images/src/sd/add/train_stripes_1.0_0.0.png'
+    src_image: 'metrics/images/src/add/train_stripes_1.0_0.0.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/train_stripes_1.0_3.1.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   boat_tower:
     src_prompt: 'A boat sailing leisurely along River'
     tgt_prompt: 'A boat sailing leisurely along the River with the Eiffel Tower in background'
-    src_image: 'metrics/images/src/sd/add/boat_tower_1.0_0.1.png'
+    src_image: 'metrics/images/src/add/boat_tower_1.0_0.1.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/boat_tower_1.0_1.0.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   car_helicopter:
     src_prompt: 'A porsche car turning a corner in the countryside.'
     tgt_prompt: 'A porsche car turning a corner in the countryside, with a helicopter following it.'
-    src_image: 'metrics/images/src/sd/add/car_helicopter_1.0_0.0.png'
+    src_image: 'metrics/images/src/add/car_helicopter_1.0_0.0.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/car_helicopter_1.0_1.0.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
   campfire_kids:
     src_prompt: 'Campfire at night in a snowy forest.' 
     tgt_prompt: 'Campfire at night in a snowy forest with some kids playing around it.'
-    src_image: 'metrics/images/src/sd/add/campfire_kids_1.0_0.1.png'
+    src_image: 'metrics/images/src/add/campfire_kids_1.0_0.1.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/campfire_kids_1.0_1.8.png'
-      masactrl:
-      p2p:
+      masactrl: ''
+      p2p: ''
 
 rm:
   badger_painting:
     src_prompt: 'A richly textured oil painting of a young badger delicately sniffing a yellow rose next to a tree trunk.'
-    tgt_prompt: 'A young badger delicately sniffing a yellow rose next to a tree trunk.'
-    sd:
-      tgt_prompt: 'A richly textured oil painting.'
-      src_image: 'metrics/images/src/sd/rm/badger_painting_1.0_-1.0.png'
-      tgt_image: 'metrics/images/tgt/sd/rm/badger_painting_1.0_1.0.png'
+    tgt_prompt: 
+      modified: 'A young badger delicately sniffing a yellow rose next to a tree trunk.'
+      sd: 'A richly textured oil painting.'
+    src_image: 'metrics/images/src/rm/badger_painting_1.0_-1.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/rm/badger_painting_1.0_1.0.png'
+      masactrl: ''
+      p2p: ''
 
   cow_flowers:
     src_prompt: 'A cow is standing in a field with white flowers.'
-    tgt_prompt: 'A cow is standing in a field.'
-    sd:
-      tgt_prompt: 'White flowers.'
-      src_image: 'metrics/images/src/sd/rm/cow_flowers_1.0_-1.0.png'
-      tgt_image: 'metrics/images/tgt/sd/rm/cow_flowers_1.0_0.8.png'
+    tgt_prompt: 
+      modified: 'A cow is standing in a field.'
+      sd: 'White flowers.'
+    src_image: 'metrics/images/src/rm/cow_flowers_1.0_-1.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/rm/cow_flowers_1.0_0.8.png'
+      masactrl: ''
+      p2p: ''
 
   lady_hair_wrinkles:
     src_prompt: 'An elderly lady with a warm smile, white hair, and deep wrinkles.'
-    tgt_prompt: 'A lady with a warm smile.'
-    sd:
-      tgt_prompt: 'white hair, deep wrinkles'
-      src_image: 'metrics/images/src/sd/rm/lady_hair_wrinkles_1.0_-1.0.png'
-      tgt_image: 'metrics/images/tgt/sd/rm/lady_hair_wrinkles_1.0_0.5.png'
+    tgt_prompt: 
+      modified: 'A lady with a warm smile.'
+      sd: 'white hair, deep wrinkles'
+    src_image: 'metrics/images/src/rm/lady_hair_wrinkles_1.0_-1.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/rm/lady_hair_wrinkles_1.0_0.5.png'
+      masactrl: ''
+      p2p: ''
 
   rabbit_low_poly:
     src_prompt: 'a rabbit, low-poly game art style'
-    tgt_prompt: 'a rabbit'
-    sd:
-      tgt_prompt: 'low-poly game art style'
-      src_image: metrics/images/src/sd/rm/rabbit_low_poly_1.0_-1.0.png
-      tgt_image: metrics/images/tgt/sd/rm/rabbit_low_poly_1.0_0.7.png
+    tgt_prompt: 
+      modified: 'a rabbit'
+      sd: 'low-poly game art style'
+    src_image: 'metrics/images/src/rm/rabbit_low_poly_1.0_-1.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/rm/rabbit_low_poly_1.0_0.7.png'
+      masactrl: ''
+      p2p: ''
