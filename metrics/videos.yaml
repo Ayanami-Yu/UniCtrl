@@ -4,7 +4,7 @@ add:
   gwen_ukiyo:
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book by Hokusai, in the style of Ukiyo'
-    src_images: 'metrics/videos/src/gwen_book'
+    src_images: 'metrics/videos/src/add/gwen_book'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/gwen_ukiyo/1.0_6.6'
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_ukiyo'
@@ -12,7 +12,7 @@ add:
   gwen_van_gogh:
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book, Van Gogh style'
-    src_images: 'metrics/videos/src/gwen_book'
+    src_images: 'metrics/videos/src/add/gwen_book'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/gwen_van_gogh/1.0_5.4'
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_van_gogh'
@@ -20,7 +20,7 @@ add:
   gwen_painting:
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book, oil painting'
-    src_images: 'metrics/videos/src/gwen_book'
+    src_images: 'metrics/videos/src/add/gwen_book'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/gwen_painting/1.0_5.7'
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_painting'
@@ -28,7 +28,7 @@ add:
   gwen_cyberpunk:
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book, in cyberpunk style'
-    src_images: 'metrics/videos/src/gwen_book'
+    src_images: 'metrics/videos/src/add/gwen_book'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/gwen_cyberpunk/1.0_5.1'
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_cyberpunk'
@@ -36,14 +36,14 @@ add:
   gwen_watercolor:
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book, watercolor painting'
-    src_images: 'metrics/videos/src/gwen_book'
+    src_images: 'metrics/videos/src/add/gwen_book'
       animatediff: 'metrics/videos/tgt/animatediff/add/gwen_watercolor/1.0_3.6'
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_watercolor'
 
   boat_tower:
     src_prompt: 'A boat sailing leisurely along River'
     tgt_prompt: 'A boat sailing leisurely along the River with the Eiffel Tower in background'
-    src_images: 'metrics/videos/src/boat_river'
+    src_images: 'metrics/videos/src/add/boat_river'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/boat_tower/1.0_1.8'
       fatezero: 'metrics/videos/tgt/fatezero/add/boat_tower'
@@ -51,7 +51,7 @@ add:
   campfire_sky:
     src_prompt: 'Campfire at night in a snowy forest.'
     tgt_prompt: 'Campfire at night in a snowy forest with starry sky in the background.'
-    src_images: 'metrics/videos/src/campfire_forest'
+    src_images: 'metrics/videos/src/add/campfire_forest'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/campfire_sky/1.0_6.0'
       fatezero: 'metrics/videos/tgt/fatezero/add/campfire_sky'
@@ -59,7 +59,7 @@ add:
   campfire_kids:
     src_prompt: 'Campfire at night in a snowy forest.'
     tgt_prompt: 'Campfire at night in a snowy forest with some kids playing around it.'
-    src_images: 'metrics/videos/src/campfire_forest'
+    src_images: 'metrics/videos/src/add/campfire_forest'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/campfire_kids/1.0_3.3'
       fatezero: 'metrics/videos/tgt/fatezero/add/campfire_kids'
@@ -67,7 +67,7 @@ add:
   peter_people:
     src_prompt: 'Peter Parker playing guitar on times square'
     tgt_prompt: 'Peter Parker playing guitar on times square, with a lot of people watching'
-    src_images: 'metrics/videos/src/peter_guitar'
+    src_images: 'metrics/videos/src/add/peter_guitar'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/peter_people/1.0_6.0'
       fatezero: 'metrics/videos/tgt/fatezero/add/peter_people'
@@ -75,7 +75,7 @@ add:
   panda_sunset:
     src_prompt: 'A panda is surfing in the ocean.'
     tgt_prompt: 'A panda is surfing in the ocean in sunset.'
-    src_images: 'metrics/videos/src/panda_surf'
+    src_images: 'metrics/videos/src/add/panda_surf'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/panda_sunset/1.0_6.0'
       fatezero: 'metrics/videos/tgt/fatezero/add/panda_sunset'
@@ -83,7 +83,7 @@ add:
   dog_soccer:
     src_prompt: 'a cute pomeranian dog is playing'
     tgt_prompt: 'a cute pomeranian dog is playing with a soccer ball'
-    src_images: 'metrics/videos/src/dog_play'
+    src_images: 'metrics/videos/src/add/dog_play'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/dog_soccer/1.0_2.4'
       fatezero: 'metrics/videos/tgt/fatezero/add/dog_soccer'
@@ -91,7 +91,7 @@ add:
   car_one_helicopter:
     src_prompt: 'A porsche car turning a corner in the countryside.'
     tgt_prompt: 'A porsche car turning a corner in the countryside, with a helicopter following it.'
-    src_images: 'metrics/videos/src/car_turn'
+    src_images: 'metrics/videos/src/add/car_turn'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/car_one_helicopter/1.0_4.5'
       fatezero: 'metrics/videos/tgt/fatezero/add/car_one_helicopter'
@@ -99,7 +99,7 @@ add:
   car_helicopters:
     src_prompt: 'A porsche car turning a corner in the countryside.'
     tgt_prompt: 'A porsche car turning a corner in the countryside followed by helicopters.'
-    src_images: 'metrics/videos/src/car_turn'
+    src_images: 'metrics/videos/src/add/car_turn'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/car_helicopters/1.0_3.9'
       fatezero: 'metrics/videos/tgt/fatezero/add/car_helicopters'

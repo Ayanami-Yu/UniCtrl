@@ -26,6 +26,7 @@ if modality == "image":
     images = [read_image(data[model]["tgt_image"]) for data in dataset[mode].values()]
     prompts = [data["tgt_prompt"] for data in dataset[mode].values()]
 elif modality == "video":
+    # TODO refactor according to new videos.yaml
     # NOTE We haven't measured temporal consistency as it's not strongly
     # related to the scope of our research.
     images = []

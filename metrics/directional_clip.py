@@ -43,6 +43,7 @@ if modality == "image":
     src_prompts = [data["src_prompt"] for data in dataset[mode].values()]
     tgt_prompts = [data["tgt_prompt"] for data in dataset[mode].values()]
 elif modality == "video":
+    # TODO refactor according to new videos.yaml
     src_images = []
     tgt_images = []
     src_prompts = []

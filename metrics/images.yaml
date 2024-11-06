@@ -2,179 +2,136 @@ add:
   cat_sunglasses:
     src_prompt: 'A cat working as a lifeguard at a pool'
     tgt_prompt: 'A cat wearing sunglasses and working as a lifeguard at a pool'
-    sd:
-      src_image: 'metrics/images/src/sd/add/cat_sunglasses_1.0_0.0.png'
-      tgt_image: 'metrics/images/tgt/sd/add/cat_sunglasses_1.0_2.0.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/cat_sunglasses_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/cat_sunglasses_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/cat_sunglasses_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/cat_sunglasses_tgt.png'
+    src_image: 'metrics/images/src/add/cat_sunglasses_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/cat_sunglasses_1.0_2.0.png'
+      masactrl:
+      p2p:
   
   corgi_animated:
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, animated style'
-    sd:
-      src_image: 'metrics/images/src/sd/add/corgi_animated_1.0_0.0.png'
-      tgt_image: 'metrics/images/tgt/sd/add/corgi_animated_1.0_3.0.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/corgi_animated_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/corgi_animated_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/corgi_animated_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/corgi_animated_tgt.png'
+    src_image: 'metrics/images/src/add/corgi_animated_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/corgi_animated_1.0_3.0.png'
+      masactrl:
+      p2p:
 
   corgi_painting:
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, oil painting'
-    sd:
-      src_image: 'metrics/images/src/sd/add/corgi_painting_1.0_0.0.png'
-      tgt_image: 'metrics/images/tgt/sd/add/corgi_painting_1.0_3.0.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/corgi_painting_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/corgi_painting_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/corgi_painting_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/corgi_painting_tgt.png'
+    src_image: 'metrics/images/src/sd/add/corgi_painting_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/corgi_painting_1.0_3.0.png'
+      masactrl:
+      p2p:
 
   corgi_pixel:
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, pixel art'
-    sd:
-      src_image: 'metrics/images/src/sd/add/corgi_pixel_1.0_0.0.png'
-      tgt_image: 'metrics/images/tgt/sd/add/corgi_pixel_1.0_2.0.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/corgi_pixel_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/corgi_pixel_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/corgi_pixel_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/corgi_pixel_tgt.png'
+    src_image: 'metrics/images/src/sd/add/corgi_pixel_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/corgi_pixel_1.0_2.0.png'
+      masactrl:
+      p2p:
 
   corgi_sunglasses:
     src_prompt: 'A photo of a Corgi dog running in Times Square.'
     tgt_prompt: 'A photo of a Corgi dog running in Times Square wearing sunglasses.'
-    sd:
-      src_image: 'metrics/images/src/sd/add/corgi_sunglasses_1.0_0.4.png'
-      tgt_image: 'metrics/images/tgt/sd/add/corgi_sunglasses_1.0_1.6.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/corgi_sunglasses_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/corgi_sunglasses_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/corgi_sunglasses_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/corgi_sunglasses_tgt.png'
+    src_image: 'metrics/images/src/sd/add/corgi_sunglasses_1.0_0.4.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/corgi_sunglasses_1.0_1.6.png'
+      masactrl:
+      p2p:
 
   dog_soccer:
     src_prompt: 'a cute pomeranian dog is playing'
     tgt_prompt: 'a cute pomeranian dog is playing with a soccer ball'
-    sd:
-      src_image: 'metrics/images/src/sd/add/dog_soccer_1.0_0.0.png'
-      tgt_image: 'metrics/images/tgt/sd/add/dog_soccer_1.0_1.6.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/dog_soccer_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/dog_soccer_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/dog_soccer_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/dog_soccer_tgt.png'
+    src_image: 'metrics/images/src/sd/add/dog_soccer_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/dog_soccer_1.0_1.6.png'
+      masactrl:
+      p2p:
 
   iron_man_fog:
     src_prompt: 'Iron Man is walking towards the camera at night'
     tgt_prompt: 'Iron Man is walking towards the camera in the rain at night with a lot of fog behind him'
-    sd:
-      src_image: 'metrics/images/src/sd/add/iron_man_fog_1.0_0.0.png'
-      tgt_image: 'metrics/images/tgt/sd/add/iron_man_fog_1.0_1.9.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/iron_man_fog_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/iron_man_fog_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/iron_man_fog_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/iron_man_fog_tgt.png'
+    src_image: 'metrics/images/src/sd/add/iron_man_fog_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/iron_man_fog_1.0_1.9.png'
+      masactrl:
+      p2p:
 
   man_mustache:
     src_prompt: 'A gentleman with a bowler hat, front view.'
     tgt_prompt: 'A gentleman with a handlebar mustache and a bowler hat, front view.'
-    sd:
-      src_image: 'metrics/images/src/sd/add/man_mustache_1.0_0.0.png'
-      tgt_image: 'metrics/images/tgt/sd/add/man_mustache_1.0_2.1.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/man_mustache_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/man_mustache_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/man_mustache_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/man_mustache_tgt.png'
+    src_image: 'metrics/images/src/sd/add/man_mustache_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/man_mustache_1.0_2.1.png'
+      masactrl:
+      p2p:
 
   man_scarf:
     src_prompt: 'a man is reading a book at bus stop'
     tgt_prompt: 'a man wearing a pink scarf is reading a book at bus stop'
-    sd:
-      src_image: 'metrics/images/src/sd/add/man_scarf_1.0_0.3.png'
-      tgt_image: 'metrics/images/tgt/sd/add/man_scarf_1.0_0.9.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/man_scarf_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/man_scarf_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/man_scarf_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/man_scarf_tgt.png'
+    src_image: 'metrics/images/src/sd/add/man_scarf_1.0_0.3.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/man_scarf_1.0_0.9.png'
+      masactrl:
+      p2p:
 
   robot_rain:
     src_prompt: 'A robot DJ is playing the turntable.'
     tgt_prompt: 'A robot DJ is playing the turntable, in heavy raining futuristic tokyo rooftop cyberpunk night, sci-fi, fantasy.'
-    sd:
-      src_image: 'metrics/images/src/sd/add/robot_rain_1.0_0.4.png'
-      tgt_image: 'metrics/images/tgt/sd/add/robot_rain_1.0_2.4.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/robot_rain_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/robot_rain_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/robot_rain_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/robot_rain_tgt.png'
+    src_image: 'metrics/images/src/sd/add/robot_rain_1.0_0.4.png'
+      sd: 'metrics/images/tgt/sd/add/robot_rain_1.0_2.4.png'
+      masactrl:
+      p2p:
 
   street_traffic:
     src_prompt: 'City street at night'
     tgt_prompt: 'City street at night with bright lights and busy traffic'
-    sd:
-      src_image: 'metrics/images/src/sd/add/street_traffic_1.0_0.4.png'
-      tgt_image: 'metrics/images/tgt/sd/add/street_traffic_1.0_2.0.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/street_traffic_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/street_traffic_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/street_traffic_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/street_traffic_tgt.png'
+    src_image: 'metrics/images/src/sd/add/street_traffic_1.0_0.4.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/street_traffic_1.0_2.0.png'
+      masactrl:
+      p2p:
 
   train_stripes:
     src_prompt: 'A silver metal train speeding through a mountainous landscape'
     tgt_prompt: 'A silver metal train with blue and red stripes speeding through a mountainous landscape'
-    sd:
-      src_image: 'metrics/images/src/sd/add/train_stripes_1.0_0.0.png'
-      tgt_image: 'metrics/images/tgt/sd/add/train_stripes_1.0_3.1.png'
-    masactrl:
-      src_image: 'metrics/images/src/masactrl/add/train_stripes_src.png'
-      tgt_image: 'metrics/images/tgt/masactrl/add/train_stripes_tgt.png'
-    p2p:
-      src_image: 'metrics/images/src/p2p/add/train_stripes_src.png'
-      tgt_image: 'metrics/images/tgt/p2p/add/train_stripes_tgt.png'
+    src_image: 'metrics/images/src/sd/add/train_stripes_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/train_stripes_1.0_3.1.png'
+      masactrl:
+      p2p:
 
   boat_tower:
     src_prompt: 'A boat sailing leisurely along River'
     tgt_prompt: 'A boat sailing leisurely along the River with the Eiffel Tower in background'
-    sd:
-      src_image: 'metrics/images/src/sd/add/boat_tower_1.0_0.1.png'
-      tgt_image: 'metrics/images/tgt/sd/add/boat_tower_1.0_1.0.png'
+    src_image: 'metrics/images/src/sd/add/boat_tower_1.0_0.1.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/boat_tower_1.0_1.0.png'
+      masactrl:
+      p2p:
 
   car_helicopter:
     src_prompt: 'A porsche car turning a corner in the countryside.'
     tgt_prompt: 'A porsche car turning a corner in the countryside, with a helicopter following it.'
-    sd:
-      src_image: 'metrics/images/src/sd/add/car_helicopter_1.0_0.0.png'
-      tgt_image: 'metrics/images/tgt/sd/add/car_helicopter_1.0_1.0.png'
+    src_image: 'metrics/images/src/sd/add/car_helicopter_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/car_helicopter_1.0_1.0.png'
+      masactrl:
+      p2p:
 
   campfire_kids:
     src_prompt: 'Campfire at night in a snowy forest.' 
     tgt_prompt: 'Campfire at night in a snowy forest with some kids playing around it.'
-    sd:
-      src_image: 'metrics/images/src/sd/add/campfire_kids_1.0_0.1.png'
-      tgt_image: 'metrics/images/tgt/sd/add/campfire_kids_1.0_1.8.png'
+    src_image: 'metrics/images/src/sd/add/campfire_kids_1.0_0.1.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/campfire_kids_1.0_1.8.png'
+      masactrl:
+      p2p:
 
 rm:
   badger_painting:
