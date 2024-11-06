@@ -1,13 +1,13 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=1
-src_prompt='A porsche car turning a corner in the countryside.'
-tgt_prompt='A porsche car turning a corner in the countryside followed by helicopters.'
+device=7
+src_prompt='A boat sailing leisurely along River'
+tgt_prompt='A boat sailing leisurely along the River with the Eiffel Tower in background'
 
 name='temp'
 ctrl_mode='add'  # add or remove (rm)
-model='ad'  # sd or animatediff (ad)
+model='sd'  # sd or animatediff (ad)
 src_params=(1.0 0.1 1)
 w_tgt_ctrl_type='cosine'
 removal_version=2
@@ -16,7 +16,7 @@ if [ "${ctrl_mode}" == "rm" ]; then
     tgt_params=(-1.0 0.1 36)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
-    tgt_params=(0.0 0.3 1)  # add
+    tgt_params=(0.0 0.1 31)  # add
     workspace="${name}_add_${w_tgt_ctrl_type}"
 fi
 
