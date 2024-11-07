@@ -1,9 +1,9 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=7
-src_prompt='A boat sailing leisurely along River'
-tgt_prompt='A boat sailing leisurely along the River with the Eiffel Tower in background'
+device=1
+src_prompt='Campfire at night in a snowy forest.'
+tgt_prompt='Campfire at night in a snowy forest with some kids playing around it.'
 
 name='temp'
 ctrl_mode='add'  # add or remove (rm)
@@ -13,10 +13,10 @@ w_tgt_ctrl_type='cosine'
 removal_version=2
 
 if [ "${ctrl_mode}" == "rm" ]; then
-    tgt_params=(-1.0 0.1 36)
+    tgt_params=(-0.4 0.01 5)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
-    tgt_params=(0.0 0.1 31)  # add
+    tgt_params=(1.8 0.1 1)  # add
     workspace="${name}_add_${w_tgt_ctrl_type}"
 fi
 

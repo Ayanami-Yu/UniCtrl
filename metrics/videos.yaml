@@ -103,3 +103,13 @@ add:
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/car_helicopters/1.0_3.9'
       fatezero: 'metrics/videos/tgt/fatezero/add/car_helicopters'
+
+rm:
+  captain_coffee:
+    src_prompt: 'Captain America drinking coffee in a cafe in Paris'
+    tgt_prompt:
+      modified: 'Captain America in a cafe in Paris'
+      animatediff: 'a cup of coffee'
+    src_images: 'metrics/videos/src/rm/captain_coffee'
+    tgt_images:
+      animatediff: 'metrics/videos/tgt/animatediff/rm/captain_coffee'

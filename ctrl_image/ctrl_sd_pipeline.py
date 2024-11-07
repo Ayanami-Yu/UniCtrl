@@ -7,6 +7,7 @@ from diffusers.image_processor import PipelineImageInput
 from diffusers.utils import deprecate, replace_example_docstring
 
 from ctrl_utils.ctrl_utils import *
+from ctrl_utils.misc import *
 
 from .pipeline_stable_diffusion import (
     EXAMPLE_DOC_STRING,
@@ -357,6 +358,54 @@ class CtrlSDPipeline(StableDiffusionPipeline):
                             + guidance_weight(t, self.guidance_scale, guidance_type)
                             * aggregated_noise
                         )
+
+                # TODO check the intermediates
+                latents_tmp = latents.chunk(2)[0].repeat(3, 1, 1, 1)
+                noise_pred_tmp = torch.cat(
+                    [
+                        noise_pred_uncond.chunk(2)[0] + self.guidance_scale * w_src * delta_noise_pred_src,
+                        noise_pred_uncond.chunk(2)[0] + self.guidance_scale * w_tgt * delta_noise_pred_tgt,
+                        noise_pred.chunk(2)[0],
+                    ]
+                    dim=0,
+                )
+                pred_clean_image(
+                    self,
+                    latents=latents_tmp,
+                    noise_pred=noise_pred_tmp,
+                    t,
+                    generator,
+                    
+                )
+                pred_clean_image(
+                    self,
+                    latents.chunk(2)[0],
+                    noise_pred_uncond.chunk(2)[0]
+                    + self.guidance_scale * w_src * delta_noise_pred_src,
+                    t,
+                    generator,
+                    save=True,
+                    path=f"temp_t_{t}_src.png",
+                )
+                pred_clean_image(
+                    self,
+                    latents.chunk(2)[0],
+                    noise_pred_uncond.chunk(2)[0]
+                    + self.guidance_scale * w_tgt * delta_noise_pred_tgt,
+                    t,
+                    generator,
+                    save=True,
+                    path=f"temp_t_{t}_tgt.png",
+                )
+                pred_clean_image(
+                    self,
+                    latents.chunk(2)[0],
+                    noise_pred.chunk(2)[0],
+                    t,
+                    generator,
+                    save=True,
+                    path=f"temp_t_{t}_pred.png",
+                )
 
                 if self.do_classifier_free_guidance and self.guidance_rescale > 0.0:
                     # Based on 3.4. in https://arxiv.org/pdf/2305.08891.pdf

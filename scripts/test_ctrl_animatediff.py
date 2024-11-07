@@ -25,7 +25,7 @@ parser.add_argument("--removal_version", type=int, default=2)
 parser.add_argument("--seed", type=int, default=42)
 parser.add_argument("--num_frames", type=int, default=8)
 # parser.add_argument("--save_as_images", default=False, action="store_true")
-parser.add_argument("--save_as_images", default=False, action="store_true")  # TODO
+parser.add_argument("--save_as_images", default=True, action="store_true")  # TODO
 args = parser.parse_args()
 
 # set device
@@ -89,7 +89,9 @@ pipe.enable_model_cpu_offload()
 # initialize the noisy latents
 # (batch_size, num_channel, num_frames, height, width)
 # NOTE AnimateDiff uses float16 for prompt_embeds
-start_code = torch.randn([1, 4, args.num_frames, 64, 64], device=device, dtype=torch.float16)
+start_code = torch.randn(
+    [1, 4, args.num_frames, 64, 64], device=device, dtype=torch.float16
+)
 
 # generate the synthesized videos
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
@@ -100,12 +102,11 @@ for w_src in src_weights:
         output = pipe(
             prompt=prompts,
             negative_prompt=negative_prompts,
-            # num_frames=16,
             num_frames=args.num_frames,
             guidance_scale=7.5,
             num_inference_steps=25,
-            # generator=torch.Generator("cpu").manual_seed(seed),
-            latents=start_code,
+            # generator=torch.Generator("cpu").manual_seed(args.seed),
+            latents=start_code,  # TODO
             use_plain_cfg=False,
             w_src=w_src,
             w_tgt=w_tgt,
