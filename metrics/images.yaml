@@ -178,3 +178,14 @@ rm:
       sd: 'metrics/images/tgt/sd/rm/rabbit_low_poly_1.0_0.7.png'
       masactrl: ''
       p2p: ''
+
+  witch_book:
+    src_prompt: 'a witch reading a large open book, fantasy, anime'
+    tgt_prompt: 
+      modified: 'a witch, fantasy, anime'
+      sd: 'a large open book'
+    src_image: 'metrics/images/src/rm/witch_book_1.0_-0.22.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/rm/witch_book_1.0_0.08.png'
+      masactrl: ''
+      p2p: ''

@@ -1,10 +1,10 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl_lucid_dreamer.sh
 
-config_name="girl_van_gogh"
-devices=(1 6 7)
+config_name="dragon_van_gogh"
+devices=(2 3 4 5 6)
 w_src=1.0
-w_tgt=(0.1 0.7 1.3)
+w_tgt=(0.1 0.4 0.7 1.0 1.3)
 
 ctrl_mode="add"  # add or remove (rm)
 w_tgt_ctrl_type="cosine"

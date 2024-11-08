@@ -11,8 +11,8 @@ CtrlParams:
   w_tgt_ctrl_type: 'cosine'
   t_ctrl_start: null
 
-  src_prompt: 'portrait of a girl'
-  tgt_prompt: 'portrait of a girl, Van Gogh style'
+  src_prompt: 'a dragon'
+  tgt_prompt: 'a dragon, Van Gogh style'
 
   ctrl_mode: 'add'
 
