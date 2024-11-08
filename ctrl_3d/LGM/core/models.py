@@ -3,10 +3,11 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+from kiui.lpips import LPIPS
+
 from ctrl_3d.LGM.core.gs import GaussianRenderer
 from ctrl_3d.LGM.core.options import Options
 from ctrl_3d.LGM.core.unet import UNet
-from kiui.lpips import LPIPS
 
 
 class LGM(nn.Module):
@@ -61,8 +62,9 @@ class LGM(nn.Module):
 
     def prepare_default_rays(self, device, elevation=0):
 
-        from ctrl_3d.LGM.core.utils import get_rays
         from kiui.cam import orbit_camera
+
+        from ctrl_3d.LGM.core.utils import get_rays
 
         cam_poses = np.stack(
             [

@@ -14,13 +14,14 @@ from diffusers.utils import (
     logging,
 )
 from diffusers.utils.torch_utils import randn_tensor
-from ctrl_3d.LGM.mvdream.mv_unet import MultiViewUNetModel, get_camera
 from transformers import (
     CLIPImageProcessor,
     CLIPTextModel,
     CLIPTokenizer,
     CLIPVisionModel,
 )
+
+from ctrl_3d.LGM.mvdream.mv_unet import MultiViewUNetModel, get_camera
 
 logger = logging.get_logger(__name__)  # pylint: disable=invalid-name
 

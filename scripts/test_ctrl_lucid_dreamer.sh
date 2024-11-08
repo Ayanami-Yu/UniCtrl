@@ -1,15 +1,16 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl_lucid_dreamer.sh
 
-config_name="pikachu_sword_style"
-devices=(5 6 7)
+config_name="girl_van_gogh"
+devices=(1 6 7)
 w_src=1.0
-w_tgt=(-0.8 -0.2 0.4)
+w_tgt=(0.1 0.7 1.3)
 
-ctrl_mode="rm"  # add or remove (rm)
-w_tgt_ctrl_type="static"
+ctrl_mode="add"  # add or remove (rm)
+w_tgt_ctrl_type="cosine"
 removal_version=2
 
+# w_src should be a list if not fixed
 fix_w_src="true"
 workspace="${config_name}_${ctrl_mode}_${w_tgt_ctrl_type}"
 

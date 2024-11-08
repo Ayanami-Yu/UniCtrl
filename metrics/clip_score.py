@@ -1,9 +1,10 @@
+import os
+
 import torch
 import yaml
-import os
 from torchvision.io import read_image
-from metrics.clip_utils import calculate_clip_score
 
+from metrics.clip_utils import calculate_clip_score
 
 # specify the model to test
 # available config files: metrics/images.yaml, metrics/videos.yaml

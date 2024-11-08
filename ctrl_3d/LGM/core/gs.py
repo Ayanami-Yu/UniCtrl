@@ -1,11 +1,12 @@
 import kiui
 import numpy as np
 import torch
-from ctrl_3d.LGM.core.options import Options
 from diff_gaussian_rasterization import (
     GaussianRasterizationSettings,
     GaussianRasterizer,
 )
+
+from ctrl_3d.LGM.core.options import Options
 
 
 class GaussianRenderer:

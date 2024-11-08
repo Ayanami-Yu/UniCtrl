@@ -1,17 +1,17 @@
+import os
+
+import numpy as np
 import torch
 import yaml
-import os
-import numpy as np
-
 from torchvision.io import read_image
 from transformers import (
-    CLIPTokenizer,
-    CLIPTextModelWithProjection,
-    CLIPVisionModelWithProjection,
     CLIPImageProcessor,
+    CLIPTextModelWithProjection,
+    CLIPTokenizer,
+    CLIPVisionModelWithProjection,
 )
-from metrics.clip_utils import DirectionalSimilarity
 
+from metrics.clip_utils import DirectionalSimilarity
 
 # specify the model to test
 # available config files: metrics/images.yaml, metrics/videos.yaml

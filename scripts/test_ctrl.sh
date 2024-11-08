@@ -1,19 +1,19 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=1
-src_prompt='Campfire at night in a snowy forest.'
-tgt_prompt='Campfire at night in a snowy forest with some kids playing around it.'
+device=0
+src_prompt='a motorcycle in front of an rhinoceros'
+tgt_prompt='an rhinoceros'
 
 name='temp'
-ctrl_mode='add'  # add or remove (rm)
+ctrl_mode='rm'  # add or remove (rm)
 model='sd'  # sd or animatediff (ad)
 src_params=(1.0 0.1 1)
 w_tgt_ctrl_type='cosine'
 removal_version=2
 
 if [ "${ctrl_mode}" == "rm" ]; then
-    tgt_params=(-0.4 0.01 5)
+    tgt_params=(-1.0 0.1 31)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
     tgt_params=(1.8 0.1 1)  # add
