@@ -83,6 +83,7 @@ def process(
     t_ctrl_start: Optional[int] = None,
     ctrl_mode: str = "add",
     removal_version: int = 1,
+    save_as_images: bool = False,
 ):
     # text-conditioned
     mv_image_uint8 = pipe(
@@ -235,11 +236,17 @@ def process(
                 )
 
         # no need to makedirs when no result has been generated
-        output_video_path = os.path.join(out_dir, f"{w_src}_{w_tgt}.mp4")
-        os.makedirs(out_dir, exist_ok=True)
-        images = np.concatenate(images, axis=0)
-        imageio.mimwrite(output_video_path, images, fps=30)
-        print("Synthesized result is saved in", out_dir)
+        if save_as_images:
+            img_paths = [os.path.join(out_dir, f"{i}.png") for i in range(len(images))]
+            os.makedirs(out_dir, exist_ok=True)
+            for img, path in zip(images, img_paths):
+                imageio.imwrite(path, img, format='png')
+        else:
+            output_video_path = os.path.join(out_dir, f"{w_src}_{w_tgt}.mp4")
+            os.makedirs(out_dir, exist_ok=True)
+            images = np.concatenate(images, axis=0)
+            imageio.mimwrite(output_video_path, images, fps=30)
+            print("Synthesized result is saved in", out_dir)
 
     return mv_image_grid
 
@@ -247,6 +254,9 @@ def process(
 # set seed
 seed = 0
 seed_everything(seed)
+
+# whether to save as images or a video
+save_as_images = True
 
 # set output path
 out_dir = opt.workspace
@@ -279,9 +289,10 @@ for w_src in src_weights:
             guidance_type="static",
             w_src=w_src,
             w_tgt=w_tgt,
-            w_src_ctrl_type="static",
-            w_tgt_ctrl_type="static",
+            w_src_ctrl_type=opt.w_src_ctrl_type,
+            w_tgt_ctrl_type=opt.w_tgt_ctrl_type,
             t_ctrl_start=None,
             ctrl_mode=opt.ctrl_mode,
             removal_version=opt.removal_version,
+            save_as_images=save_as_images,
         )

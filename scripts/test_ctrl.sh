@@ -7,7 +7,7 @@ tgt_prompt='Amidst the sea of cherry blossom trees on Sakura Street in Japan, st
 
 name='temp'
 ctrl_mode='add'  # add or remove (rm)
-model='sd'  # sd or animatediff (ad)
+model='lgm'  # sd, animatediff (ad), or lgm
 src_params=(1.0 0.1 1)
 w_tgt_ctrl_type='static'
 removal_version=2
@@ -16,7 +16,7 @@ if [ "${ctrl_mode}" == "rm" ]; then
     tgt_params=(-1.0 0.1 21)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
-    tgt_params=(0.0 0.1 24)  # add
+    tgt_params=(0.2 0.1 6)  # add
     workspace="${name}_add_${w_tgt_ctrl_type}"
 fi
 
@@ -28,4 +28,9 @@ if [ "${ctrl_mode}" == "rm" ]; then
     ctrl_mode="remove"
 fi
 
-CUDA_VISIBLE_DEVICES=${device} nohup python scripts/test_ctrl_${model}.py --prompt "${src_prompt}" "${tgt_prompt}" --out_dir "./exp/${model}/${workspace}/" --src_params ${src_params[@]} --tgt_params ${tgt_params[@]} --ctrl_mode "${ctrl_mode}" --removal_version ${removal_version} --w_tgt_ctrl_type "${w_tgt_ctrl_type}" > "nohup/${name}.txt" 2>&1 &
+if [ "${model}" == "lgm" ]; then
+    CUDA_VISIBLE_DEVICES=${device} nohup python scripts/test_ctrl_${model}.py big --resume ctrl_3d/LGM/pretrained/model_fp16_fixrot.safetensors --workspace exp/${model}/${workspace}/ --prompt "${src_prompt}" "${tgt_prompt}" --src_params ${src_params[@]} --tgt_params ${tgt_params[@]} --ctrl_mode "${ctrl_mode}" --removal_version ${removal_version} --w_tgt_ctrl_type "${w_tgt_ctrl_type}" > "nohup/${name}.txt" 2>&1 &
+
+else
+    CUDA_VISIBLE_DEVICES=${device} nohup python scripts/test_ctrl_${model}.py --prompt "${src_prompt}" "${tgt_prompt}" --out_dir "./exp/${model}/${workspace}/" --src_params ${src_params[@]} --tgt_params ${tgt_params[@]} --ctrl_mode "${ctrl_mode}" --removal_version ${removal_version} --w_tgt_ctrl_type "${w_tgt_ctrl_type}" > "nohup/${name}.txt" 2>&1 &
+fi
