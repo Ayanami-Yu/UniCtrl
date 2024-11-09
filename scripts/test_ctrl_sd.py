@@ -12,6 +12,7 @@ from ctrl_image.ctrl_sd_pipeline import CtrlSDPipeline
 parser = argparse.ArgumentParser()
 parser.add_argument("--prompt", nargs="+", type=str, default=None)
 parser.add_argument("--out_dir", type=str, default="./exp/sd/samples/")
+parser.add_argument("--seed", type=int, default=42)
 
 # weight_start, weight_inc, weight_n
 parser.add_argument("--src_params", nargs="+", type=float, default=None)
@@ -45,7 +46,7 @@ prompts = (
 
 # set seed
 # NOTE seed 0 often produces close-up photos
-seed = 42
+seed = args.seed
 seed_everything(seed)
 
 # set output path

@@ -134,6 +134,15 @@ add:
       masactrl: ''
       p2p: ''
 
+  sakura_robot:
+    src_prompt: 'A sea of cherry blossom trees on Sakura Street in Japan.'
+    tgt_prompt: 'Amidst the sea of cherry blossom trees on Sakura Street in Japan, stands a delightful and little Tachikoma robot.'
+    src_image: 'metrics/images/src/add/sakura_robot_1.0_0.0.png'
+    tgt_image:
+      sd: 'metrics/images/tgt/sd/add/sakura_robot_1.0_1.0.png'
+      masactrl: ''
+      p2p: ''
+
 rm:
   badger_painting:
     src_prompt: 'A richly textured oil painting of a young badger delicately sniffing a yellow rose next to a tree trunk.'
