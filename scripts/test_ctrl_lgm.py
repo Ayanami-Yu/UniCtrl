@@ -84,6 +84,7 @@ def process(
     ctrl_mode: str = "add",
     removal_version: int = 1,
     save_as_images: bool = False,
+    save_images_interval: int = 1,
 ):
     # text-conditioned
     mv_image_uint8 = pipe(
@@ -235,18 +236,20 @@ def process(
                     ).astype(np.uint8)
                 )
 
-        # no need to makedirs when no result has been generated
         if save_as_images:
-            img_paths = [os.path.join(out_dir, f"{i}.png") for i in range(len(images))]
-            os.makedirs(out_dir, exist_ok=True)
+            cur_dir = os.path.join(out_dir, f"{w_src}_{w_tgt}")
+            os.makedirs(cur_dir, exist_ok=True)
+
+            images = images[0::save_images_interval]
+            img_paths = [os.path.join(cur_dir, f"{i}.png") for i in range(len(images))]
             for img, path in zip(images, img_paths):
-                imageio.imwrite(path, img, format='png')
+                imageio.imwrite(path, np.squeeze(img, axis=0), format='png')
         else:
             output_video_path = os.path.join(out_dir, f"{w_src}_{w_tgt}.mp4")
-            os.makedirs(out_dir, exist_ok=True)
             images = np.concatenate(images, axis=0)
             imageio.mimwrite(output_video_path, images, fps=30)
-            print("Synthesized result is saved in", out_dir)
+        
+        print("Synthesized result is saved in", out_dir)
 
     return mv_image_grid
 
@@ -256,13 +259,16 @@ seed = 0
 seed_everything(seed)
 
 # whether to save as images or a video
+# NOTE LGM will generate 180 images for a video by default
 save_as_images = True
+save_images_interval = 22
 
 # set output path
 out_dir = opt.workspace
 os.makedirs(out_dir, exist_ok=True)
 sample_count = len(os.listdir(out_dir))
 out_dir = os.path.join(out_dir, f"sample_{sample_count}")
+os.makedirs(out_dir, exist_ok=True)
 
 # initialize the noisy latents
 start_code = torch.randn([4, 4, 32, 32], device=device, dtype=torch.float16)
@@ -277,6 +283,16 @@ tgt_start, tgt_inc, tgt_n = opt.tgt_params
 
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
+
+# document the configs
+with open(os.path.join(out_dir, "configs.txt"), "w") as f:
+    f.write(f"seed: {seed}\n")
+    f.write(f"prompts: {opt.prompts}\n")
+    f.write(f"ctrl_mode: {opt.ctrl_mode}\n")
+    f.write(f"removal_version: {opt.removal_version}\n")
+    f.write(f"w_tgt_ctrl_type: {opt.w_tgt_ctrl_type}\n")
+    f.write(f"src_weights: {src_weights}\n")
+    f.write(f"tgt_weights: {tgt_weights}\n")
 
 for w_src in src_weights:
     for w_tgt in tgt_weights:
@@ -295,4 +311,5 @@ for w_src in src_weights:
             ctrl_mode=opt.ctrl_mode,
             removal_version=opt.removal_version,
             save_as_images=save_as_images,
+            save_images_interval=save_images_interval,
         )

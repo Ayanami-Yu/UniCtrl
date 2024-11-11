@@ -1,13 +1,13 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl_lucid_dreamer.sh
 
-config_name="fox_rock"
-devices=(1 2 3 4 5 6 7)
+config_name="witch_ball"
+devices=(0 6 7)
 w_src=1.0
-w_tgt=(0.05 0.2 0.4 0.8 1.2 1.6 1.8)
+w_tgt=(-0.5 0.5 1.0)
 
-ctrl_mode="add"  # add or remove (rm)
-w_tgt_ctrl_type="static"
+ctrl_mode="rm"  # add or remove (rm)
+w_tgt_ctrl_type="cosine"
 removal_version=2
 
 # w_src should be a list if not fixed

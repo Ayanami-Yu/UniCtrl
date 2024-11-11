@@ -23,7 +23,7 @@ parser.add_argument("--ctrl_mode", type=str, default="add")
 parser.add_argument("--removal_version", type=int, default=2)
 
 parser.add_argument("--seed", type=int, default=42)
-parser.add_argument("--num_frames", type=int, default=16)
+parser.add_argument("--num_frames", type=int, default=8)
 # parser.add_argument("--save_as_images", default=False, action="store_true")
 parser.add_argument("--save_as_images", default=True, action="store_true")  # TODO
 args = parser.parse_args()
@@ -123,6 +123,7 @@ for w_src in src_weights:
         if not os.path.isfile(os.path.join(out_dir, "configs.txt")):
             with open(os.path.join(out_dir, "configs.txt"), "w") as f:
                 f.write(f"seed: {args.seed}\n")
+                f.write(f"num_frames: {args.num_frames}\n")
                 f.write(f"prompts: {args.prompt}\n")
                 f.write(f"ctrl_mode: {args.ctrl_mode}\n")
                 f.write(f"removal_version: {args.removal_version}\n")
