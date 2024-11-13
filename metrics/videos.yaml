@@ -1,7 +1,9 @@
 # When the number of frames of AnimateDiff doesn't align with
 # that of FateZero, we simply use the first 8 frames.
+
 add:
   gwen_ukiyo:
+    seed: 42
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book by Hokusai, in the style of Ukiyo'
     src_images: 'metrics/videos/src/add/gwen_book'
@@ -10,6 +12,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_ukiyo'
 
   gwen_van_gogh:
+    seed: 42
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book, Van Gogh style'
     src_images: 'metrics/videos/src/add/gwen_book'
@@ -18,6 +21,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_van_gogh'
 
   gwen_painting:
+    seed: 42
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book, oil painting'
     src_images: 'metrics/videos/src/add/gwen_book'
@@ -26,6 +30,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_painting'
 
   gwen_cyberpunk:
+    seed: 42
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book, in cyberpunk style'
     src_images: 'metrics/videos/src/add/gwen_book'
@@ -34,9 +39,11 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_cyberpunk'
 
   gwen_watercolor:
+    seed: 42
     src_prompt: 'Gwen Stacy reading a book'
     tgt_prompt: 'Gwen Stacy reading a book, watercolor painting'
     src_images: 'metrics/videos/src/add/gwen_book'
+    tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/gwen_watercolor/1.0_3.6'
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_watercolor'
 
@@ -49,6 +56,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/boat_tower'
 
   campfire_sky:
+    seed: 42
     src_prompt: 'Campfire at night in a snowy forest.'
     tgt_prompt: 'Campfire at night in a snowy forest with starry sky in the background.'
     src_images: 'metrics/videos/src/add/campfire_forest'
@@ -57,6 +65,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/campfire_sky'
 
   campfire_kids:
+    seed: 42
     src_prompt: 'Campfire at night in a snowy forest.'
     tgt_prompt: 'Campfire at night in a snowy forest with some kids playing around it.'
     src_images: 'metrics/videos/src/add/campfire_forest'
@@ -113,3 +122,15 @@ rm:
     src_images: 'metrics/videos/src/rm/captain_coffee'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/rm/captain_coffee'
+      fatezero: 'metrics/videos/tgt/fatezero/rm/captain_coffee'
+
+  panda_guitar:
+    seed: 0
+    src_prompt: 'a panda is playing guitar on times square'
+    tgt_prompt:
+      modified: 'a panda on times square'
+      animatediff: 'a guitar'
+    src_images: 'metrics/videos/src/rm/panda_guitar'
+    tgt_images:
+      animatediff: 'metrics/videos/tgt/animatediff/rm/panda_guitar'
+      fatezero: 'metrics/videos/tgt/fatezero/rm/panda_guitar'

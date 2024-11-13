@@ -243,12 +243,12 @@ def process(
             images = images[0::save_images_interval]
             img_paths = [os.path.join(cur_dir, f"{i}.png") for i in range(len(images))]
             for img, path in zip(images, img_paths):
-                imageio.imwrite(path, np.squeeze(img, axis=0), format='png')
+                imageio.imwrite(path, np.squeeze(img, axis=0), format="png")
         else:
             output_video_path = os.path.join(out_dir, f"{w_src}_{w_tgt}.mp4")
             images = np.concatenate(images, axis=0)
             imageio.mimwrite(output_video_path, images, fps=30)
-        
+
         print("Synthesized result is saved in", out_dir)
 
     return mv_image_grid

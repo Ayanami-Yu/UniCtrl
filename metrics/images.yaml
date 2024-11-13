@@ -9,6 +9,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/cat_sunglasses_p2p_tgt.png'
   
   corgi_animated:
+    seed: 42
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, animated style'
     src_image: 'metrics/images/src/add/corgi_animated_1.0_0.0.png'
@@ -18,6 +19,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/corgi_animated_p2p_tgt.png'
 
   corgi_painting:
+    seed: 42
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, oil painting'
     src_image: 'metrics/images/src/add/corgi_painting_1.0_0.0.png'
@@ -27,6 +29,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/corgi_painting_p2p_tgt.png'
 
   corgi_pixel:
+    seed: 42
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, pixel art'
     src_image: 'metrics/images/src/add/corgi_pixel_1.0_0.0.png'
@@ -197,4 +200,4 @@ rm:
     tgt_image:
       sd: 'metrics/images/tgt/sd/rm/witch_book_1.0_0.08.png'
       masactrl: 'metrics/images/tgt/masactrl/rm/witch_book_masactrl_step4_layer10.png'
-      p2p: 'metrics/images/tgt/p2p/rm/witch_book_p2p_tgt.pngvscode-remote://ssh-remote%2B121.48.163.203/home/hongyu/prompt-to-prompt/metrics/sample_9/sakura_robot_p2p_tgt.png'
+      p2p: 'metrics/images/tgt/p2p/rm/witch_book_p2p_tgt.png'
