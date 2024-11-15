@@ -11,8 +11,8 @@ CtrlParams:
   w_tgt_ctrl_type: 'cosine'
   t_ctrl_start: null
 
-  src_prompt: 'a dragon'
-  tgt_prompt: 'a dragon, Van Gogh style'
+  src_prompt: 'a fox'
+  tgt_prompt: 'a fox on rock wearing vr goggles'
 
   ctrl_mode: 'add'
 
@@ -52,8 +52,10 @@ GuidanceParams:
   delta_t_start: 100
 
 GenerateCamParams:
-  init_shape: 'pointe'
-  init_prompt: 'a dragon'
+  # init_shape: 'pointe'
+  init_shape: 'sphere'
+  # init_prompt: 'a fox'
+  init_prompt: '.'
   use_pointe_rgb: false
   init_num_pts: 100_000
   phi_range: [-180, 180]

@@ -8,11 +8,11 @@ CtrlParams:
   w_src: 1.0
   w_tgt: 1.0
   w_src_ctrl_type: 'static'
-  w_tgt_ctrl_type: 'cosine'
+  w_tgt_ctrl_type: 'static'
   t_ctrl_start: null
 
-  src_prompt: 'a dragon'
-  tgt_prompt: 'a dragon, Van Gogh style'
+  src_prompt: 'Pikachu, Van Gogh style'
+  tgt_prompt: 'Pikachu, Van Gogh style'
 
   ctrl_mode: 'add'
 
@@ -53,7 +53,7 @@ GuidanceParams:
 
 GenerateCamParams:
   init_shape: 'pointe'
-  init_prompt: 'a dragon'
+  init_prompt: 'Pikachu'
   use_pointe_rgb: false
   init_num_pts: 100_000
   phi_range: [-180, 180]

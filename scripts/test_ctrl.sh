@@ -2,21 +2,21 @@
 # Usage: bash scripts/test_ctrl.sh
 
 device=2
-src_prompt='a panda is playing guitar on times square'
-tgt_prompt='a guitar'
+src_prompt='electronic dog wearing hat'
+tgt_prompt='hat'
 
-name='temp'
+name='save'
 ctrl_mode='rm'  # add or remove (rm)
-model='ad'  # sd, animatediff (ad), or lgm
-src_params=(0.9 0.1 1)
+model='lgm'  # sd, animatediff (ad), or lgm
+src_params=(1.0 0.1 1)
 w_tgt_ctrl_type='static'
 removal_version=2
 
 if [ "${ctrl_mode}" == "rm" ]; then
-    tgt_params=(0.3 0.1 1)
+    tgt_params=(-1.2 -0.05 7)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
-    tgt_params=(0.0 3.0 2)  # add
+    tgt_params=(0.0 0.1 1)  # add
     workspace="${name}_add_${w_tgt_ctrl_type}"
 fi
 

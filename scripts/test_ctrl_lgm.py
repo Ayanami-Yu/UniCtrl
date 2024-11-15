@@ -261,7 +261,7 @@ seed_everything(seed)
 # whether to save as images or a video
 # NOTE LGM will generate 180 images for a video by default
 save_as_images = True
-save_images_interval = 22
+save_images_interval = 10
 
 # set output path
 out_dir = opt.workspace
