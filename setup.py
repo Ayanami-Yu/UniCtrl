@@ -3,7 +3,7 @@ from setuptools import find_packages, setup
 
 # There are modules inside LucidDreamer that need to be found as well
 setup(
-    name="PromptCtrl",
+    name="UniCtrl",
     version="1.0",
     packages=find_packages(),
     # packages=["ctrl_utils", "arguments", "gaussian_renderer", "scene"],

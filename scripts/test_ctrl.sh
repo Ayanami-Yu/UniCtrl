@@ -2,21 +2,21 @@
 # Usage: bash scripts/test_ctrl.sh
 
 device=3
-src_prompt='a corgi'
-tgt_prompt='a corgi wearing a bowler hat'
+src_prompt='a witch reading a large open book, fantasy, anime'
+tgt_prompt='a large open book'
 
 name='save'
-ctrl_mode='add'  # add or remove (rm)
-model='lgm'  # sd, animatediff (ad), or lgm
-src_params=(2.0 0.1 1)
-w_tgt_ctrl_type='static'
+ctrl_mode='rm'  # add or remove (rm)
+model='sd'  # sd, animatediff (ad), or lgm
+src_params=(1.0 0.1 1)
+w_tgt_ctrl_type='cosine'
 removal_version=2
 
 if [ "${ctrl_mode}" == "rm" ]; then
-    tgt_params=(-1.0 0.1 1)
+    tgt_params=(-0.22 0.1 2)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
-    tgt_params=(0.0 0.025 20)  # add
+    tgt_params=(0.0 0.1 3)  # add
     workspace="${name}_add_${w_tgt_ctrl_type}"
 fi
 

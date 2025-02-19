@@ -1,5 +1,8 @@
+# The default scheduler is 'cosine' if not specified
+
 add:
   cat_sunglasses:
+    seed: 42
     src_prompt: 'A cat working as a lifeguard at a pool'
     tgt_prompt: 'A cat wearing sunglasses and working as a lifeguard at a pool'
     src_image: 'metrics/images/src/add/cat_sunglasses_1.0_0.0.png'
@@ -39,6 +42,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/corgi_pixel_p2p_tgt.png'
 
   corgi_sunglasses:
+    seed: 0
     src_prompt: 'A photo of a Corgi dog running in Times Square.'
     tgt_prompt: 'A photo of a Corgi dog running in Times Square wearing sunglasses.'
     src_image: 'metrics/images/src/add/corgi_sunglasses_1.0_0.4.png'
@@ -48,6 +52,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/cat_sunglasses_p2p_tgt.png'
 
   dog_soccer:
+    seed: 42
     src_prompt: 'a cute pomeranian dog is playing'
     tgt_prompt: 'a cute pomeranian dog is playing with a soccer ball'
     src_image: 'metrics/images/src/add/dog_soccer_1.0_0.0.png'
@@ -57,6 +62,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/dog_soccer_p2p_tgt.png'
 
   iron_man_fog:
+    seed: 0
     src_prompt: 'Iron Man is walking towards the camera at night'
     tgt_prompt: 'Iron Man is walking towards the camera in the rain at night with a lot of fog behind him'
     src_image: 'metrics/images/src/add/iron_man_fog_1.0_0.0.png'
@@ -66,6 +72,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/iron_man_fog_p2p_tgt.png'
 
   man_mustache:
+    seed: 42
     src_prompt: 'A gentleman with a bowler hat, front view.'
     tgt_prompt: 'A gentleman with a handlebar mustache and a bowler hat, front view.'
     src_image: 'metrics/images/src/add/man_mustache_1.0_0.0.png'
@@ -75,6 +82,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/man_mustache_p2p_tgt.png'
 
   man_scarf:
+    seed: 42
     src_prompt: 'a man is reading a book at bus stop'
     tgt_prompt: 'a man wearing a pink scarf is reading a book at bus stop'
     src_image: 'metrics/images/src/add/man_scarf_1.0_0.3.png'
@@ -84,6 +92,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/man_scarf_p2p_tgt.png'
 
   robot_rain:
+    seed: 42
     src_prompt: 'A robot DJ is playing the turntable.'
     tgt_prompt: 'A robot DJ is playing the turntable, in heavy raining futuristic tokyo rooftop cyberpunk night, sci-fi, fantasy.'
     src_image: 'metrics/images/src/add/robot_rain_1.0_0.4.png'
@@ -93,6 +102,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/robot_rain_p2p_tgt.png'
 
   street_traffic:
+    seed: 0
     src_prompt: 'City street at night'
     tgt_prompt: 'City street at night with bright lights and busy traffic'
     src_image: 'metrics/images/src/add/street_traffic_1.0_0.4.png'
@@ -102,6 +112,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/street_traffic_p2p_tgt.png'
 
   train_stripes:
+    seed: 0
     src_prompt: 'A silver metal train speeding through a mountainous landscape'
     tgt_prompt: 'A silver metal train with blue and red stripes speeding through a mountainous landscape'
     src_image: 'metrics/images/src/add/train_stripes_1.0_0.0.png'
@@ -111,6 +122,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/train_stripes_p2p_tgt.png'
 
   boat_tower:
+    seed: 42
     src_prompt: 'A boat sailing leisurely along River'
     tgt_prompt: 'A boat sailing leisurely along the River with the Eiffel Tower in background'
     src_image: 'metrics/images/src/add/boat_tower_1.0_0.1.png'
@@ -120,6 +132,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/boat_tower_p2p_tgt.png'
 
   car_helicopter:
+    seed: 42
     src_prompt: 'A porsche car turning a corner in the countryside.'
     tgt_prompt: 'A porsche car turning a corner in the countryside, with a helicopter following it.'
     src_image: 'metrics/images/src/add/car_helicopter_1.0_0.0.png'
@@ -129,6 +142,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/car_helicopter_p2p_tgt.png'
 
   campfire_kids:
+    seed: 42
     src_prompt: 'Campfire at night in a snowy forest.' 
     tgt_prompt: 'Campfire at night in a snowy forest with some kids playing around it.'
     src_image: 'metrics/images/src/add/campfire_kids_1.0_0.1.png'
@@ -138,6 +152,7 @@ add:
       p2p: 'metrics/images/tgt/p2p/add/campfire_kids_p2p_tgt.png'
 
   sakura_robot:
+    seed: 42
     src_prompt: 'A sea of cherry blossom trees on Sakura Street in Japan.'
     tgt_prompt: 'Amidst the sea of cherry blossom trees on Sakura Street in Japan, stands a delightful and little Tachikoma robot.'
     src_image: 'metrics/images/src/add/sakura_robot_1.0_0.0.png'
@@ -148,6 +163,7 @@ add:
 
 rm:
   badger_painting:
+    seed: 42
     src_prompt: 'A richly textured oil painting of a young badger delicately sniffing a yellow rose next to a tree trunk.'
     tgt_prompt: 
       modified: 'A young badger delicately sniffing a yellow rose next to a tree trunk.'
@@ -159,6 +175,7 @@ rm:
       p2p: 'metrics/images/tgt/p2p/rm/badger_painting_p2p_tgt.png'
 
   cow_flowers:
+    seed: 42
     src_prompt: 'A cow is standing in a field with white flowers.'
     tgt_prompt: 
       modified: 'A cow is standing in a field.'
@@ -170,6 +187,8 @@ rm:
       p2p: 'metrics/images/tgt/p2p/rm/cow_flowers_p2p_tgt.png'
 
   lady_hair_wrinkles:
+    seed: 42
+    scheduler: 'static'
     src_prompt: 'An elderly lady with a warm smile, white hair, and deep wrinkles.'
     tgt_prompt: 
       modified: 'A lady with a warm smile.'
@@ -181,6 +200,7 @@ rm:
       p2p: 'metrics/images/tgt/p2p/rm/lady_hair_wrinkles_p2p_tgt.png'
 
   rabbit_low_poly:
+    seed: 42
     src_prompt: 'a rabbit, low-poly game art style'
     tgt_prompt: 
       modified: 'a rabbit'
@@ -192,6 +212,7 @@ rm:
       p2p: 'metrics/images/tgt/p2p/rm/rabbit_low_poly_p2p_tgt.png'
 
   witch_book:
+    seed: 42
     src_prompt: 'a witch reading a large open book, fantasy, anime'
     tgt_prompt: 
       modified: 'a witch, fantasy, anime'
