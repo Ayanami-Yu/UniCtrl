@@ -1,22 +1,22 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=2
-src_prompt='electronic dog wearing hat'
-tgt_prompt='hat'
+device=3
+src_prompt='a corgi'
+tgt_prompt='a corgi wearing a bowler hat'
 
 name='save'
-ctrl_mode='rm'  # add or remove (rm)
+ctrl_mode='add'  # add or remove (rm)
 model='lgm'  # sd, animatediff (ad), or lgm
-src_params=(1.0 0.1 1)
+src_params=(2.0 0.1 1)
 w_tgt_ctrl_type='static'
 removal_version=2
 
 if [ "${ctrl_mode}" == "rm" ]; then
-    tgt_params=(-1.2 -0.05 7)
+    tgt_params=(-1.0 0.1 1)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
-    tgt_params=(0.0 0.1 1)  # add
+    tgt_params=(0.0 0.025 20)  # add
     workspace="${name}_add_${w_tgt_ctrl_type}"
 fi
 

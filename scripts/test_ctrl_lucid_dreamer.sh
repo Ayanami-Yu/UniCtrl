@@ -1,13 +1,13 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl_lucid_dreamer.sh
 
-config_name="pikachu_van_gogh"
-devices=(1)
+config_name="temp_wolf_wings"
+devices=(4)
 w_src=1.0
-w_tgt=(0.05)
+w_tgt=(0.02)
 
 ctrl_mode="add"  # add or remove (rm)
-w_tgt_ctrl_type="cosine"
+w_tgt_ctrl_type="static"
 removal_version=2
 
 # w_src should be a list if not fixed

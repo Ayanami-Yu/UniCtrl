@@ -220,9 +220,9 @@ def process(
     return mv_image_grid
 
 
-prompt = "a white cat wearing blue clothes"
+prompt = "electronic dog wearing hat"
 
 process(
     prompt=prompt,
-    name="sample",
+    name="save",
 )

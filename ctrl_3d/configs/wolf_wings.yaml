@@ -11,8 +11,8 @@ CtrlParams:
   w_tgt_ctrl_type: 'cosine'
   t_ctrl_start: null
 
-  src_prompt: 'a cat, low-poly game art style'
-  tgt_prompt: 'a cat, low-poly game art style'
+  src_prompt: 'a wolf, fantasy'
+  tgt_prompt: 'a wolf with a pair of large wings is standing on clouds, fantasy'
 
   ctrl_mode: 'add'
 
@@ -53,7 +53,7 @@ GuidanceParams:
 
 GenerateCamParams:
   init_shape: 'pointe'
-  init_prompt: 'a cat'
+  init_prompt: 'a wolf'
   use_pointe_rgb: false
   init_num_pts: 100_000
   phi_range: [-180, 180]
