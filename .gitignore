@@ -187,3 +187,4 @@ exp
 .vscode
 nohup/
 nohup.out
+.DS_Store
