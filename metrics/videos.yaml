@@ -117,7 +117,7 @@ rm:
   captain_coffee:
     src_prompt: 'Captain America drinking coffee in a cafe in Paris'
     tgt_prompt:
-      modified: 'Captain America in a cafe in Paris'
+      default: 'Captain America in a cafe in Paris'
       animatediff: 'a cup of coffee'
     src_images: 'metrics/videos/src/rm/captain_coffee'
     tgt_images:
@@ -128,7 +128,7 @@ rm:
     seed: 0
     src_prompt: 'a panda is playing guitar on times square'
     tgt_prompt:
-      modified: 'a panda on times square'
+      default: 'a panda on times square'
       animatediff: 'a guitar'
     src_images: 'metrics/videos/src/rm/panda_guitar'
     tgt_images:

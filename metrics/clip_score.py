@@ -28,9 +28,8 @@ if modality == "image":
     if mode == "add":
         prompts = [data["tgt_prompt"] for data in dataset[mode].values()]
     else:
-        # TODO
-        # prompts = [data["tgt_prompt"]["modified"] for data in dataset[mode].values()]
-        prompts = [data["tgt_prompt"]["sd"] for data in dataset[mode].values()]
+        label = "sd" if model == "sd" else "default"
+        prompts = [data["tgt_prompt"][label] for data in dataset[mode].values()]
 elif modality == "video":
     # NOTE We haven't measured temporal consistency as it's not strongly
     # related to the scope of our research.
@@ -42,9 +41,8 @@ elif modality == "video":
         if mode == "add":
             prompts.extend([data["tgt_prompt"]] * len(os.listdir(path)))
         else:
-            # TODO
-            # prompts.extend([data["tgt_prompt"]["modified"]] * len(os.listdir(path)))
-            prompts.extend([data["tgt_prompt"]["animatediff"]] * len(os.listdir(path)))
+            label = "animatediff" if model == "animatediff" else "default"
+            prompts.extend([data["tgt_prompt"][label]] * len(os.listdir(path)))
 else:
     raise ValueError("Unrecognized modality")
 

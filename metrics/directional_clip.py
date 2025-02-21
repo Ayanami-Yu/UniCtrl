@@ -38,8 +38,9 @@ with open(config_file) as f:
     dataset = yaml.safe_load(f)
 
 if modality == "image":
+    label = "sega" if model == "sega" else "default"
     src_images = [
-        read_image(data["src_image"]) for data in dataset[mode].values()
+        read_image(data["src_image"][label]) for data in dataset[mode].values()
     ]
     tgt_images = [
         read_image(data["tgt_image"][model]) for data in dataset[mode].values()
@@ -48,8 +49,8 @@ if modality == "image":
     if mode == "add":
         tgt_prompts = [data["tgt_prompt"] for data in dataset[mode].values()]
     else:
-        # TODO
-        tgt_prompts = [data["tgt_prompt"]["modified"] for data in dataset[mode].values()]
+        label = "sd" if model == "sd" else "default"
+        tgt_prompts = [data["tgt_prompt"][label] for data in dataset[mode].values()]
 elif modality == "video":
     src_images = []
     tgt_images = []

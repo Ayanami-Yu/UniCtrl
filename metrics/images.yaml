@@ -5,220 +5,283 @@ add:
     seed: 42
     src_prompt: 'A cat working as a lifeguard at a pool'
     tgt_prompt: 'A cat wearing sunglasses and working as a lifeguard at a pool'
-    src_image: 'metrics/images/src/add/cat_sunglasses_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/cat_sunglasses_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/cat_sunglasses_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/cat_sunglasses_1.0_2.0.png'
       masactrl: 'metrics/images/tgt/masactrl/add/cat_sunglasses_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/cat_sunglasses_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/cat_sunglasses_sega_tgt.png'
   
   corgi_animated:
     seed: 42
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, animated style'
-    src_image: 'metrics/images/src/add/corgi_animated_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/corgi_animated_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/corgi_animated_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/corgi_animated_1.0_3.0.png'
       masactrl: 'metrics/images/tgt/masactrl/add/corgi_animated_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/corgi_animated_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/corgi_animated_sega_tgt.png'
 
   corgi_painting:
     seed: 42
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, oil painting'
-    src_image: 'metrics/images/src/add/corgi_painting_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/corgi_painting_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/corgi_painting_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/corgi_painting_1.0_3.0.png'
       masactrl: 'metrics/images/tgt/masactrl/add/corgi_painting_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/corgi_painting_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/corgi_painting_sega_tgt.png'
 
   corgi_pixel:
     seed: 42
     src_prompt: 'A cute happy Corgi playing in park'
     tgt_prompt: 'A cute happy Corgi playing in park, sunset, pixel art'
-    src_image: 'metrics/images/src/add/corgi_pixel_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/corgi_pixel_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/corgi_pixel_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/corgi_pixel_1.0_2.0.png'
       masactrl: 'metrics/images/tgt/masactrl/add/corgi_pixel_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/corgi_pixel_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/corgi_pixel_sega_tgt.png'
 
   corgi_sunglasses:
     seed: 0
     src_prompt: 'A photo of a Corgi dog running in Times Square.'
     tgt_prompt: 'A photo of a Corgi dog running in Times Square wearing sunglasses.'
-    src_image: 'metrics/images/src/add/corgi_sunglasses_1.0_0.4.png'
+    src_image:
+      default: 'metrics/images/src/default/add/corgi_sunglasses_1.0_0.4.png'
+      sega: 'metrics/images/src/sega/add/corgi_sunglasses_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/corgi_sunglasses_1.0_1.6.png'
       masactrl: 'metrics/images/tgt/masactrl/add/corgi_sunglasses_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/cat_sunglasses_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/corgi_sunglasses_sega_tgt.png'
 
   dog_soccer:
     seed: 42
     src_prompt: 'a cute pomeranian dog is playing'
     tgt_prompt: 'a cute pomeranian dog is playing with a soccer ball'
-    src_image: 'metrics/images/src/add/dog_soccer_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/dog_soccer_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/dog_soccer_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/dog_soccer_1.0_1.6.png'
       masactrl: 'metrics/images/tgt/masactrl/add/dog_soccer_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/dog_soccer_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/dog_soccer_sega_tgt.png'
 
   iron_man_fog:
     seed: 0
     src_prompt: 'Iron Man is walking towards the camera at night'
     tgt_prompt: 'Iron Man is walking towards the camera in the rain at night with a lot of fog behind him'
-    src_image: 'metrics/images/src/add/iron_man_fog_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/iron_man_fog_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/iron_man_fog_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/iron_man_fog_1.0_1.9.png'
       masactrl: 'metrics/images/tgt/masactrl/add/iron_man_fog_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/iron_man_fog_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/iron_man_fog_sega_tgt.png'
 
   man_mustache:
     seed: 42
     src_prompt: 'A gentleman with a bowler hat, front view.'
     tgt_prompt: 'A gentleman with a handlebar mustache and a bowler hat, front view.'
-    src_image: 'metrics/images/src/add/man_mustache_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/man_mustache_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/man_mustache_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/man_mustache_1.0_2.1.png'
       masactrl: 'metrics/images/tgt/masactrl/add/man_mustache_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/man_mustache_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/man_mustache_sega_tgt.png'
 
   man_scarf:
     seed: 42
     src_prompt: 'a man is reading a book at bus stop'
     tgt_prompt: 'a man wearing a pink scarf is reading a book at bus stop'
-    src_image: 'metrics/images/src/add/man_scarf_1.0_0.3.png'
+    src_image:
+      default: 'metrics/images/src/default/add/man_scarf_1.0_0.3.png'
+      sega: 'metrics/images/src/sega/add/man_scarf_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/man_scarf_1.0_0.9.png'
       masactrl: 'metrics/images/tgt/masactrl/add/man_scarf_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/man_scarf_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/man_scarf_sega_tgt.png'
 
   robot_rain:
     seed: 42
     src_prompt: 'A robot DJ is playing the turntable.'
     tgt_prompt: 'A robot DJ is playing the turntable, in heavy raining futuristic tokyo rooftop cyberpunk night, sci-fi, fantasy.'
-    src_image: 'metrics/images/src/add/robot_rain_1.0_0.4.png'
+    src_image:
+      default: 'metrics/images/src/default/add/robot_rain_1.0_0.4.png'
+      sega: 'metrics/images/src/sega/add/robot_rain_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/robot_rain_1.0_2.4.png'
       masactrl: 'metrics/images/tgt/masactrl/add/robot_rain_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/robot_rain_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/robot_rain_sega_tgt.png'
 
   street_traffic:
     seed: 0
     src_prompt: 'City street at night'
     tgt_prompt: 'City street at night with bright lights and busy traffic'
-    src_image: 'metrics/images/src/add/street_traffic_1.0_0.4.png'
+    src_image:
+      default: 'metrics/images/src/default/add/street_traffic_1.0_0.4.png'
+      sega: 'metrics/images/src/sega/add/street_traffic_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/street_traffic_1.0_2.0.png'
       masactrl: 'metrics/images/tgt/masactrl/add/street_traffic_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/street_traffic_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/street_traffic_sega_tgt.png'
 
   train_stripes:
     seed: 0
     src_prompt: 'A silver metal train speeding through a mountainous landscape'
     tgt_prompt: 'A silver metal train with blue and red stripes speeding through a mountainous landscape'
-    src_image: 'metrics/images/src/add/train_stripes_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/train_stripes_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/train_stripes_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/train_stripes_1.0_3.1.png'
       masactrl: 'metrics/images/tgt/masactrl/add/train_stripes_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/train_stripes_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/train_stripes_sega_tgt.png'
 
   boat_tower:
     seed: 42
     src_prompt: 'A boat sailing leisurely along River'
     tgt_prompt: 'A boat sailing leisurely along the River with the Eiffel Tower in background'
-    src_image: 'metrics/images/src/add/boat_tower_1.0_0.1.png'
+    src_image:
+      default: 'metrics/images/src/default/add/boat_tower_1.0_0.1.png'
+      sega: 'metrics/images/src/sega/add/boat_tower_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/boat_tower_1.0_1.0.png'
       masactrl: 'metrics/images/tgt/masactrl/add/boat_tower_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/boat_tower_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/boat_tower_sega_tgt.png'
 
   car_helicopter:
     seed: 42
     src_prompt: 'A porsche car turning a corner in the countryside.'
     tgt_prompt: 'A porsche car turning a corner in the countryside, with a helicopter following it.'
-    src_image: 'metrics/images/src/add/car_helicopter_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/car_helicopter_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/car_helicopter_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/car_helicopter_1.0_1.0.png'
       masactrl: 'metrics/images/tgt/masactrl/add/car_helicopter_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/car_helicopter_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/car_helicopter_sega_tgt.png'
 
   campfire_kids:
     seed: 42
     src_prompt: 'Campfire at night in a snowy forest.' 
     tgt_prompt: 'Campfire at night in a snowy forest with some kids playing around it.'
-    src_image: 'metrics/images/src/add/campfire_kids_1.0_0.1.png'
+    src_image:
+      default: 'metrics/images/src/default/add/campfire_kids_1.0_0.1.png'
+      sega: 'metrics/images/src/sega/add/campfire_kids_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/campfire_kids_1.0_1.8.png'
       masactrl: 'metrics/images/tgt/masactrl/add/campfire_kids_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/add/campfire_kids_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/campfire_kids_sega_tgt.png'
 
   sakura_robot:
     seed: 42
     src_prompt: 'A sea of cherry blossom trees on Sakura Street in Japan.'
     tgt_prompt: 'Amidst the sea of cherry blossom trees on Sakura Street in Japan, stands a delightful and little Tachikoma robot.'
-    src_image: 'metrics/images/src/add/sakura_robot_1.0_0.0.png'
+    src_image:
+      default: 'metrics/images/src/default/add/sakura_robot_1.0_0.0.png'
+      sega: 'metrics/images/src/sega/add/sakura_robot_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/sakura_robot_1.0_1.0.png'
       masactrl: 'metrics/images/tgt/masactrl/add/sakura_robot_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/rm/sakura_robot_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/add/sakura_robot_sega_tgt.png'
 
 rm:
   badger_painting:
     seed: 42
     src_prompt: 'A richly textured oil painting of a young badger delicately sniffing a yellow rose next to a tree trunk.'
     tgt_prompt: 
-      modified: 'A young badger delicately sniffing a yellow rose next to a tree trunk.'
+      default: 'A young badger delicately sniffing a yellow rose next to a tree trunk.'
       sd: 'A richly textured oil painting.'
-    src_image: 'metrics/images/src/rm/badger_painting_1.0_-1.0.png'
+    src_image:
+      default: 'metrics/images/src/default/rm/badger_painting_1.0_-1.0.png'
+      sega: 'metrics/images/src/sega/rm/badger_painting_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/rm/badger_painting_1.0_1.0.png'
       masactrl: 'metrics/images/tgt/masactrl/rm/badger_painting_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/rm/badger_painting_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/rm/badger_painting_sega_tgt.png'
 
   cow_flowers:
     seed: 42
     src_prompt: 'A cow is standing in a field with white flowers.'
     tgt_prompt: 
-      modified: 'A cow is standing in a field.'
+      default: 'A cow is standing in a field.'
       sd: 'White flowers.'
-    src_image: 'metrics/images/src/rm/cow_flowers_1.0_-1.0.png'
+    src_image:
+      default: 'metrics/images/src/default/rm/cow_flowers_1.0_-1.0.png'
+      sega: 'metrics/images/src/sega/rm/cow_flowers_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/rm/cow_flowers_1.0_0.8.png'
       masactrl: 'metrics/images/tgt/masactrl/rm/cow_flowers_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/rm/cow_flowers_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/rm/cow_flowers_sega_tgt.png'
 
   lady_hair_wrinkles:
     seed: 42
     scheduler: 'static'
     src_prompt: 'An elderly lady with a warm smile, white hair, and deep wrinkles.'
     tgt_prompt: 
-      modified: 'A lady with a warm smile.'
+      default: 'A lady with a warm smile.'
       sd: 'white hair, deep wrinkles'
-    src_image: 'metrics/images/src/rm/lady_hair_wrinkles_1.0_-1.0.png'
+    src_image:
+      default: 'metrics/images/src/default/rm/lady_hair_wrinkles_1.0_-1.0.png'
+      sega: 'metrics/images/src/sega/rm/lady_hair_wrinkles_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/rm/lady_hair_wrinkles_1.0_0.5.png'
       masactrl: 'metrics/images/tgt/masactrl/rm/lady_hair_wrinkles_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/rm/lady_hair_wrinkles_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/rm/lady_hair_wrinkles_sega_tgt.png'
 
   rabbit_low_poly:
     seed: 42
     src_prompt: 'a rabbit, low-poly game art style'
     tgt_prompt: 
-      modified: 'a rabbit'
+      default: 'a rabbit'
       sd: 'low-poly game art style'
-    src_image: 'metrics/images/src/rm/rabbit_low_poly_1.0_-1.0.png'
+    src_image:
+      default: 'metrics/images/src/default/rm/rabbit_low_poly_1.0_-1.0.png'
+      sega: 'metrics/images/src/sega/rm/rabbit_low_poly_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/rm/rabbit_low_poly_1.0_0.7.png'
       masactrl: 'metrics/images/tgt/masactrl/rm/rabbit_low_poly_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/rm/rabbit_low_poly_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/rm/rabbit_low_poly_sega_tgt.png'
 
   witch_book:
     seed: 42
     src_prompt: 'a witch reading a large open book, fantasy, anime'
     tgt_prompt: 
-      modified: 'a witch, fantasy, anime'
+      default: 'a witch, fantasy, anime'
       sd: 'a large open book'
-    src_image: 'metrics/images/src/rm/witch_book_1.0_-0.22.png'
+    src_image:
+      default: 'metrics/images/src/default/rm/witch_book_1.0_-0.22.png'
+      sega: 'metrics/images/src/sega/rm/witch_book_sega_src.png'
     tgt_image:
       sd: 'metrics/images/tgt/sd/rm/witch_book_1.0_0.08.png'
       masactrl: 'metrics/images/tgt/masactrl/rm/witch_book_masactrl_step4_layer10.png'
       p2p: 'metrics/images/tgt/p2p/rm/witch_book_p2p_tgt.png'
+      sega: 'metrics/images/tgt/sega/rm/witch_book_sega_tgt.png'
