@@ -97,7 +97,7 @@ add:
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/add/panda_sunset/1.0_6.0'
       fatezero: 'metrics/videos/tgt/fatezero/add/panda_sunset'
-      tokenflow: ''
+      tokenflow: 'metrics/videos/tgt/tokenflow/add/panda_sunset'
 
   dog_soccer:
     src_prompt: 'a cute pomeranian dog is playing'

@@ -16,10 +16,11 @@ from metrics.clip_utils import DirectionalSimilarity
 # specify the model to test
 # available config files: metrics/images.yaml, metrics/videos.yaml
 # available modalities: image, video
-# available models: sd, masactrl, p2p, animatediff, fatezero
+# available image models: sd, masactrl, p2p, sega, ledits_pp, mdp, cg
+# available video models: animatediff, fatezero, tokenflow
 # available modes: add, rm
 modality = "video"
-model = "fatezero"
+model = "tokenflow"
 mode = "rm"
 config_file = "metrics/images.yaml" if modality == "image" else "metrics/videos.yaml"
 
@@ -49,8 +50,7 @@ if modality == "image":
     if mode == "add":
         tgt_prompts = [data["tgt_prompt"] for data in dataset[mode].values()]
     else:
-        label = "sd" if model == "sd" else "default"
-        tgt_prompts = [data["tgt_prompt"][label] for data in dataset[mode].values()]
+        tgt_prompts = [data["tgt_prompt"]["default"] for data in dataset[mode].values()]
 elif modality == "video":
     src_images = []
     tgt_images = []
@@ -70,8 +70,7 @@ elif modality == "video":
         if mode == "add":
             tgt_prompts.extend([data["tgt_prompt"]] * len(os.listdir(tgt_path)))
         else:
-            # TODO
-            tgt_prompts.extend([data["tgt_prompt"]["modified"]] * len(os.listdir(tgt_path)))
+            tgt_prompts.extend([data["tgt_prompt"]["default"]] * len(os.listdir(tgt_path)))
 else:
     raise ValueError("Unrecognized modality")
 
@@ -92,15 +91,9 @@ for i in range(len(src_images)):
     )
     scores.append(float(similarity_score.detach().cpu()))
 
-# Without inversion:
-# Add (image): SD = 0.2147, MasaCtrl = 0.0785, P2P = 0.162
-# Add (video): AnimateDiff = 0.2297, FateZero = 0.031
-# Remove: SD = 0.1414
-    
-# TODO
-# With inversion:
-# Add (image): SD = 0.2388, MasaCtrl = 0.0956, P2P = 0.1081
-# Add (video): AnimateDiff = 0.2297, FateZero = 0.0652
-# Remove (image): SD = 0.1243, MasaCtrl = 0.0339, P2P = 0.072
-# Remove (video): AnimateDiff = 0.1735, FateZero = 0.0241
+# Add (image): SD = 0.2388, MasaCtrl = 0.0956, P2P = 0.1081, SEGA = 0.1369, LEDITS++ = 0.2109, MDP = 0.1836, CG = 0.2255
+# Add (video): AnimateDiff = 0.2297, FateZero = 0.0652, TokenFlow = 0.0986
+
+# Remove (image): SD = 0.1243, MasaCtrl = 0.0339, P2P = 0.072, SEGA = 0.0944, LEDITS++ = 0.1641, MDP = 0.1205, CG = 0.1274
+# Remove (video): AnimateDiff = 0.1735, FateZero = 0.0241, TokenFlow = 0.1176
 print(f"CLIP directional similarity: {round(np.mean(scores), 4)}")
