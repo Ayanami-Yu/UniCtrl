@@ -15,6 +15,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/cat_sunglasses_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/cat_sunglasses.png'
       mdp: 'metrics/images/tgt/mdp/add/cat_sunglasses_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/cat_sunglasses_cg_tgt.png'
   
   corgi_animated:
     seed: 42
@@ -30,6 +31,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/corgi_animated_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/corgi_animated.png'
       mdp: 'metrics/images/tgt/mdp/add/corgi_animated_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/corgi_animated_cg_tgt.png'
 
   corgi_painting:
     seed: 42
@@ -45,6 +47,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/corgi_painting_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/corgi_painting.png'
       mdp: 'metrics/images/tgt/mdp/add/corgi_painting_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/corgi_painting_cg_tgt.png'
 
   corgi_pixel:
     seed: 42
@@ -60,6 +63,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/corgi_pixel_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/corgi_pixel.png'
       mdp: 'metrics/images/tgt/mdp/add/corgi_pixel_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/corgi_pixel_cg_tgt.png'
 
   corgi_sunglasses:
     seed: 0
@@ -75,6 +79,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/corgi_sunglasses_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/corgi_sunglasses.png'
       mdp: 'metrics/images/tgt/mdp/add/corgi_sunglasses_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/corgi_sunglasses_cg_tgt.png'
 
   dog_soccer:
     seed: 42
@@ -90,6 +95,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/dog_soccer_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/dog_soccer.png'
       mdp: 'metrics/images/tgt/mdp/add/corgi_sunglasses_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/dog_soccer_cg_tgt.png'
 
   iron_man_fog:
     seed: 0
@@ -105,6 +111,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/iron_man_fog_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/iron_man_fog.png'
       mdp: 'metrics/images/tgt/mdp/add/iron_man_fog_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/iron_man_fog_cg_tgt.png'
 
   man_mustache:
     seed: 42
@@ -120,6 +127,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/man_mustache_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/man_mustache.png'
       mdp: 'metrics/images/tgt/mdp/add/man_mustache_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/man_mustache_cg_tgt.png'
 
   man_scarf:
     seed: 42
@@ -135,6 +143,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/man_scarf_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/man_scarf.png'
       mdp: 'metrics/images/tgt/mdp/add/man_scarf_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/man_scarf_cg_tgt.png'
 
   robot_rain:
     seed: 42
@@ -150,6 +159,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/robot_rain_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/robot_rain.png'
       mdp: 'metrics/images/tgt/mdp/add/robot_rain_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/robot_rain_cg_tgt.png'
 
   street_traffic:
     seed: 0
@@ -165,6 +175,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/street_traffic_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/street_traffic.png'
       mdp: 'metrics/images/tgt/mdp/add/street_traffic_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/street_traffic_cg_tgt.png'
 
   train_stripes:
     seed: 0
@@ -180,6 +191,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/train_stripes_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/train_stripes.png'
       mdp: 'metrics/images/tgt/mdp/add/train_stripes_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/train_stripes_cg_tgt.png'
 
   boat_tower:
     seed: 42
@@ -195,6 +207,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/boat_tower_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/boat_tower.png'
       mdp: 'metrics/images/tgt/mdp/add/boat_tower_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/boat_tower_cg_tgt.png'
 
   car_helicopter:
     seed: 42
@@ -210,6 +223,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/car_helicopter_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/car_helicopter.png'
       mdp: 'metrics/images/tgt/mdp/add/car_helicopter_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/car_helicopter_cg_tgt.png'
 
   campfire_kids:
     seed: 42
@@ -225,6 +239,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/campfire_kids_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/campfire_kids.png'
       mdp: 'metrics/images/tgt/mdp/add/campfire_kids_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/campfire_kids_cg_tgt.png'
 
   sakura_robot:
     seed: 42
@@ -240,6 +255,7 @@ add:
       sega: 'metrics/images/tgt/sega/add/sakura_robot_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/sakura_robot.png'
       mdp: 'metrics/images/tgt/mdp/add/sakura_robot_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/add/sakura_robot_cg_tgt.png'
 
 rm:
   badger_painting:
@@ -258,6 +274,7 @@ rm:
       sega: 'metrics/images/tgt/sega/rm/badger_painting_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/rm/badger_painting.png'
       mdp: 'metrics/images/tgt/mdp/rm/badger_painting_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/rm/badger_painting_cg_tgt.png'
 
   cow_flowers:
     seed: 42
@@ -275,6 +292,7 @@ rm:
       sega: 'metrics/images/tgt/sega/rm/cow_flowers_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/rm/cow_flowers.png'
       mdp: 'metrics/images/tgt/mdp/rm/cow_flowers_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/rm/cow_flowers_cg_tgt.png'
 
   lady_hair_wrinkles:
     seed: 42
@@ -293,6 +311,7 @@ rm:
       sega: 'metrics/images/tgt/sega/rm/lady_hair_wrinkles_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/rm/lady_hair_wrinkles.png'
       mdp: 'metrics/images/tgt/mdp/rm/lady_hair_wrinkles_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/rm/lady_hair_wrinkles_cg_tgt.png'
 
   rabbit_low_poly:
     seed: 42
@@ -310,6 +329,7 @@ rm:
       sega: 'metrics/images/tgt/sega/rm/rabbit_low_poly_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/rm/rabbit_low_poly.png'
       mdp: 'metrics/images/tgt/mdp/rm/rabbit_low_poly_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/rm/rabbit_low_poly_cg_tgt.png'
 
   witch_book:
     seed: 42
@@ -327,3 +347,4 @@ rm:
       sega: 'metrics/images/tgt/sega/rm/witch_book_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/rm/witch_book.png'
       mdp: 'metrics/images/tgt/mdp/rm/witch_book_mdp_tgt.png'
+      cg: 'metrics/images/tgt/cg/rm/witch_book_cg_tgt.png'
