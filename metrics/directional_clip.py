@@ -17,10 +17,10 @@ from metrics.clip_utils import DirectionalSimilarity
 # available config files: metrics/images.yaml, metrics/videos.yaml
 # available modalities: image, video
 # available image models: sd, masactrl, p2p, sega, ledits_pp, mdp, cg
-# available video models: animatediff, fatezero, tokenflow, vidtome, flatten
+# available video models: animatediff, fatezero, tokenflow, vidtome, flatten, v2v_zero
 # available modes: add, rm
 modality = "video"
-model = "flatten"
+model = "v2v_zero"
 mode = "rm"
 config_file = "metrics/images.yaml" if modality == "image" else "metrics/videos.yaml"
 
@@ -92,8 +92,8 @@ for i in range(len(src_images)):
     scores.append(float(similarity_score.detach().cpu()))
 
 # Add (image): SD = 0.2388, MasaCtrl = 0.0956, P2P = 0.1081, SEGA = 0.1369, LEDITS++ = 0.2109, MDP = 0.1836, CG = 0.2255
-# Add (video): AnimateDiff = 0.2297, FateZero = 0.0662, TokenFlow = 0.0987, VidToMe = 0.089, FLATTEN = 0.104
+# Add (video): AnimateDiff = 0.2297, FateZero = 0.0662, TokenFlow = 0.0987, VidToMe = 0.089, FLATTEN = 0.104, Vid2Vid-Zero = 0.1008
 
 # Remove (image): SD = 0.1243, MasaCtrl = 0.0339, P2P = 0.072, SEGA = 0.0944, LEDITS++ = 0.1641, MDP = 0.1205, CG = 0.1274
-# Remove (video): AnimateDiff = 0.1735, FateZero = 0.0247, TokenFlow = 0.1184, VidToMe = 0.1223, FLATTEN = -0.0137
+# Remove (video): AnimateDiff = 0.1735, FateZero = 0.0247, TokenFlow = 0.1184, VidToMe = 0.1223, FLATTEN = -0.0137, Vid2Vid-Zero = 0.1085
 print(f"CLIP directional similarity: {round(np.mean(scores), 4)}")
