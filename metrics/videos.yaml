@@ -12,6 +12,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_ukiyo'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_ukiyo'
       vidtome: 'metrics/videos/tgt/vidtome/add/gwen_ukiyo'
+      flatten: 'metrics/videos/tgt/flatten/add/gwen_ukiyo'
 
   gwen_van_gogh:
     seed: 42
@@ -23,6 +24,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_van_gogh'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_van_gogh'
       vidtome: 'metrics/videos/tgt/vidtome/add/gwen_van_gogh'
+      flatten: 'metrics/videos/tgt/flatten/add/gwen_van_gogh'
 
   gwen_painting:
     seed: 42
@@ -34,6 +36,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_painting'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_painting'
       vidtome: 'metrics/videos/tgt/vidtome/add/gwen_painting'
+      flatten: 'metrics/videos/tgt/flatten/add/gwen_painting'
 
   gwen_cyberpunk:
     seed: 42
@@ -45,6 +48,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_cyberpunk'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_cyberpunk'
       vidtome: 'metrics/videos/tgt/vidtome/add/gwen_cyberpunk'
+      flatten: 'metrics/videos/tgt/flatten/add/gwen_cyberpunk'
 
   gwen_watercolor:
     seed: 42
@@ -56,6 +60,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/gwen_watercolor'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_watercolor'
       vidtome: 'metrics/videos/tgt/vidtome/add/gwen_watercolor'
+      flatten: 'metrics/videos/tgt/flatten/add/gwen_watercolor'
 
   boat_tower:
     src_prompt: 'A boat sailing leisurely along River'
@@ -66,6 +71,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/boat_tower'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/boat_tower'
       vidtome: 'metrics/videos/tgt/vidtome/add/boat_tower'
+      flatten: 'metrics/videos/tgt/flatten/add/boat_tower'
 
   campfire_sky:
     seed: 42
@@ -77,6 +83,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/campfire_sky'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/campfire_sky'
       vidtome: 'metrics/videos/tgt/vidtome/add/campfire_sky'
+      flatten: 'metrics/videos/tgt/flatten/add/campfire_sky'
 
   campfire_kids:
     seed: 42
@@ -88,6 +95,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/campfire_kids'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/campfire_kids'
       vidtome: 'metrics/videos/tgt/vidtome/add/campfire_kids'
+      flatten: 'metrics/videos/tgt/flatten/add/campfire_kids'
 
   peter_people:
     src_prompt: 'Peter Parker playing guitar on times square'
@@ -98,6 +106,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/peter_people'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/peter_people'
       vidtome: 'metrics/videos/tgt/vidtome/add/peter_people'
+      flatten: 'metrics/videos/tgt/flatten/add/peter_people'
 
   panda_sunset:
     src_prompt: 'A panda is surfing in the ocean.'
@@ -108,6 +117,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/panda_sunset'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/panda_sunset'
       vidtome: 'metrics/videos/tgt/vidtome/add/panda_sunset'
+      flatten: 'metrics/videos/tgt/flatten/add/panda_sunset'
 
   dog_soccer:
     src_prompt: 'a cute pomeranian dog is playing'
@@ -118,6 +128,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/dog_soccer'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/dog_soccer'
       vidtome: 'metrics/videos/tgt/vidtome/add/dog_soccer'
+      flatten: 'metrics/videos/tgt/flatten/add/dog_soccer'
 
   car_one_helicopter:
     src_prompt: 'A porsche car turning a corner in the countryside.'
@@ -128,6 +139,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/car_one_helicopter'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/car_one_helicopter'
       vidtome: 'metrics/videos/tgt/vidtome/add/car_one_helicopter'
+      flatten: 'metrics/videos/tgt/flatten/add/car_one_helicopter'
 
   car_helicopters:
     src_prompt: 'A porsche car turning a corner in the countryside.'
@@ -138,6 +150,7 @@ add:
       fatezero: 'metrics/videos/tgt/fatezero/add/car_helicopters'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/car_helicopters'
       vidtome: 'metrics/videos/tgt/vidtome/add/car_helicopters'
+      flatten: 'metrics/videos/tgt/flatten/add/car_helicopters'
 
 rm:
   captain_coffee:
@@ -151,6 +164,7 @@ rm:
       fatezero: 'metrics/videos/tgt/fatezero/rm/captain_coffee'
       tokenflow: 'metrics/videos/tgt/tokenflow/rm/captain_coffee'
       vidtome: 'metrics/videos/tgt/vidtome/rm/captain_coffee'
+      flatten: 'metrics/videos/tgt/flatten/rm/captain_coffee'
 
   panda_guitar:
     seed: 0
@@ -164,3 +178,4 @@ rm:
       fatezero: 'metrics/videos/tgt/fatezero/rm/panda_guitar'
       tokenflow: 'metrics/videos/tgt/tokenflow/rm/panda_guitar'
       vidtome: 'metrics/videos/tgt/vidtome/rm/panda_guitar'
+      flatten: 'metrics/videos/tgt/flatten/rm/panda_guitar'

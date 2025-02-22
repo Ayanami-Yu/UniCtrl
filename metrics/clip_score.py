@@ -10,10 +10,10 @@ from metrics.clip_utils import calculate_clip_score
 # available config files: metrics/images.yaml, metrics/videos.yaml
 # available modalities: image, video
 # available image models: sd, masactrl, p2p, sega, ledits_pp, mdp, cg
-# available video models: animatediff, fatezero, tokenflow, vidtome
+# available video models: animatediff, fatezero, tokenflow, vidtome, flatten
 # available modes: add, rm
 modality = "video"
-model = "vidtome"
+model = "flatten"
 mode = "rm"
 config_file = "metrics/images.yaml" if modality == "image" else "metrics/videos.yaml"
 
@@ -47,9 +47,9 @@ else:
     raise ValueError("Unrecognized modality")
 
 # CLIPsim (image): SD = 35.4878, MasaCtrl = 31.3468, P2P = 30.2197, SEGA = 32.847, LEDITS++ = 33.8337, MDP = 32.396, CG = 34.1302
-# CLIPsim (video): AnimateDiff = 36.3802, FateZero = 33.8866, TokenFlow = 34.3846, VidToMe = 34.6253
+# CLIPsim (video): AnimateDiff = 36.3802, FateZero = 33.8866, TokenFlow = 34.3846, VidToMe = 34.6253, FLATTEN = 34.3304
 
 # CLIPinv (image): SD = 19.784, MasaCtrl = 24.0757, P2P = 23.3297, SEGA = 21.7271, LEDITS++ = 20.9888, MDP = 21.071, CG = 19.54
-# CLIPinv (video): AnimateDiff = 22.9229, FateZero = 26.743, TokenFlow = 22.5713, VidToMe = 23.832
+# CLIPinv (video): AnimateDiff = 22.9229, FateZero = 26.743, TokenFlow = 22.5713, VidToMe = 23.832, FLATTEN = 25.3677
 clip_score = calculate_clip_score(images, prompts)
 print(f"CLIP score: {clip_score}")
