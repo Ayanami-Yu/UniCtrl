@@ -38,7 +38,9 @@ elif modality == "video":
     prompts = []
     for data in dataset[mode].values():
         path = data["tgt_images"][model]
-        images.extend([read_image(os.path.join(path, img)) for img in sorted(os.listdir(path))])
+        images.extend(
+            [read_image(os.path.join(path, img)) for img in sorted(os.listdir(path))]
+        )
         if mode == "add":
             prompts.extend([data["tgt_prompt"]] * len(os.listdir(path)))
         else:

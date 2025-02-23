@@ -61,16 +61,24 @@ elif modality == "video":
         tgt_path = data["tgt_images"][model]
 
         src_images.extend(
-            [read_image(os.path.join(src_path, img)) for img in sorted(os.listdir(src_path))]
+            [
+                read_image(os.path.join(src_path, img))
+                for img in sorted(os.listdir(src_path))
+            ]
         )
         tgt_images.extend(
-            [read_image(os.path.join(tgt_path, img)) for img in sorted(os.listdir(tgt_path))]
+            [
+                read_image(os.path.join(tgt_path, img))
+                for img in sorted(os.listdir(tgt_path))
+            ]
         )
         src_prompts.extend([data["src_prompt"]] * len(os.listdir(src_path)))
         if mode == "add":
             tgt_prompts.extend([data["tgt_prompt"]] * len(os.listdir(tgt_path)))
         else:
-            tgt_prompts.extend([data["tgt_prompt"]["default"]] * len(os.listdir(tgt_path)))
+            tgt_prompts.extend(
+                [data["tgt_prompt"]["default"]] * len(os.listdir(tgt_path))
+            )
 else:
     raise ValueError("Unrecognized modality")
 
