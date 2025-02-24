@@ -19,8 +19,8 @@ from metrics.clip_utils import DirectionalSimilarity
 # available image models: sd, masactrl, p2p, sega, ledits_pp, mdp, cg
 # available video models: animatediff, fatezero, tokenflow, vidtome, flatten, v2v_zero, rav
 # available modes: add, rm
-modality = "video"
-model = "flatten"
+modality = "image"
+model = "cg"
 mode = "rm"
 config_file = "metrics/images.yaml" if modality == "image" else "metrics/videos.yaml"
 
@@ -102,7 +102,7 @@ for i in range(len(src_images)):
 # Add (image): 
 # SD = 0.2388, MasaCtrl = 0.0956, P2P = 0.1081, SEGA = 0.1369, 
 # LEDITS++ = 0.2109 (hugging face space), 0.1632 (threshold = 0.95, scale = 7), 0.1826 (threshold = 0.75, scale = 10), 
-# MDP = 0.1836, CG = 0.2255
+# MDP = 0.1836, CG = 0.2077
 
 # Add (video): 
 # AnimateDiff = 0.2297, FateZero = 0.0662, TokenFlow = 0.0987, 
@@ -110,7 +110,7 @@ for i in range(len(src_images)):
 
 # Remove (image): SD = 0.1243, MasaCtrl = 0.0339, P2P = 0.072, SEGA = 0.0944, 
 # LEDITS++ = 0.1641, 0.036 (threshold = 0.95, scale = 7), 0.1752 (threshold = 0.75, scale = 10), 
-# MDP = 0.1205, CG = 0.1274
+# MDP = 0.1205, CG = 0.1682
 
 # Remove (video): 
 # AnimateDiff = 0.1735, FateZero = 0.0247, TokenFlow = 0.1184, 
