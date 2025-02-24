@@ -10,10 +10,10 @@ from metrics.clip_utils import calculate_clip_score
 # available config files: metrics/images.yaml, metrics/videos.yaml
 # available modalities: image, video
 # available image models: sd, masactrl, p2p, sega, ledits_pp, mdp, cg
-# available video models: animatediff, fatezero, tokenflow, vidtome, flatten, v2v_zero
+# available video models: animatediff, fatezero, tokenflow, vidtome, flatten, v2v_zero, rav
 # available modes: add, rm
-modality = "image"
-model = "ledits_pp"
+modality = "video"
+model = "rav"
 mode = "rm"
 config_file = "metrics/images.yaml" if modality == "image" else "metrics/videos.yaml"
 
@@ -55,7 +55,7 @@ else:
 
 # CLIPsim (video): 
 # AnimateDiff = 36.3802, FateZero = 33.8866, TokenFlow = 34.3846, 
-# VidToMe = 34.6253, FLATTEN = 34.3304, Vid2Vid-Zero = 34.7291
+# VidToMe = 34.6253, FLATTEN = 34.3304, Vid2Vid-Zero = 34.7291, Rerender-A-Video = 34.2491
 
 # CLIPinv (image): 
 # SD = 19.784, MasaCtrl = 24.0757, P2P = 23.3297, SEGA = 21.7271, 
@@ -64,6 +64,6 @@ else:
 
 # CLIPinv (video): 
 # AnimateDiff = 22.9229, FateZero = 26.743, TokenFlow = 22.5713, 
-# VidToMe = 23.832, FLATTEN = 25.3677, Vid2Vid-Zero = 21.7432
+# VidToMe = 23.832, FLATTEN = 25.3677, Vid2Vid-Zero = 21.7432, Rerender-A-Video = 24.2228
 clip_score = calculate_clip_score(images, prompts)
 print(f"CLIP score: {clip_score}")
