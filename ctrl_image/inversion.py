@@ -144,16 +144,7 @@ class DirectInversion:
         ddim_latents = self.ddim_loop(latent)
         return image_rec, ddim_latents
 
-    def offset_calculate(
-        self,
-        latents,
-        guidance_scale,
-        w_src=1.0,
-        w_tgt=1.0,
-        w_src_ctrl_type: str = "static",
-        w_tgt_ctrl_type: str = "static",
-        ctrl_mode: str = "add",
-    ):
+    def offset_calculate(self, latents, guidance_scale):
         noise_loss_list = []
         latent_cur = torch.concat([latents[-1]] * (self.context.shape[0] // 2))
         # As i increases latents[i] gets noisier
@@ -173,6 +164,7 @@ class DirectInversion:
                 latents_prev_rec, _ = self.prev_step(
                     noise_pred_w_guidance, t, latent_cur
                 )
+                # NOTE Only loss[:1] which corresponds to source prompt will be used
                 loss = latent_prev - latents_prev_rec
 
             noise_loss_list.append(loss.detach())
@@ -185,22 +177,12 @@ class DirectInversion:
         image_gt,
         prompt,
         guidance_scale,
-        w_src=1.0,
-        w_tgt=1.0,
-        w_src_ctrl_type: str = "static",
-        w_tgt_ctrl_type: str = "static",
-        ctrl_mode: str = "add",
     ):
         self.init_prompt(prompt)
-        image_rec, ddim_latents = self.ddim_inversion(image_gt)
+        _, ddim_latents = self.ddim_inversion(image_gt)
 
         noise_loss_list = self.offset_calculate(
-            ddim_latents, 
+            ddim_latents,
             guidance_scale,
-            w_src=w_src,
-            w_tgt=w_tgt,
-            w_src_ctrl_type = w_src_ctrl_type,
-            w_tgt_ctrl_type = w_tgt_ctrl_type,
-            ctrl_mode = ctrl_mode,
-            )
-        return image_gt, image_rec, ddim_latents, noise_loss_list
+        )
+        return ddim_latents, noise_loss_list

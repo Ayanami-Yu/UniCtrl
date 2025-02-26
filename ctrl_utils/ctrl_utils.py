@@ -120,3 +120,45 @@ def ctrl_weight(t, w0, ctrl_type: str, t_total=1000, clamp=None):
     else:
         raise ValueError("Unrecognized guidance type")
     return max(clamp, w) if clamp else w
+
+
+def aggregate_noise_pred(
+    noise_pred_uncond,
+    noise_pred_cond,
+    t,
+    w_src,
+    w_tgt,
+    w_src_ctrl_type,
+    w_tgt_ctrl_type,
+    ctrl_mode,
+    removal_version=2,
+):
+    delta_noise_pred_src = noise_pred_cond[0] - noise_pred_uncond[0]
+    delta_noise_pred_tgt = noise_pred_cond[1] - noise_pred_uncond[1]
+
+    w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
+    w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
+
+    if ctrl_mode == "add":
+        aggregated_noise = add_aggregator_v1(
+            delta_noise_pred_src,
+            w_src_cur,
+            delta_noise_pred_tgt,
+            w_tgt_cur,
+            mode="latent",
+        )
+    elif ctrl_mode == "remove":
+        remove_aggregator = (
+            remove_aggregator_v1 if removal_version == 1 else remove_aggregator_v2
+        )
+        aggregated_noise = remove_aggregator(
+            delta_noise_pred_src,
+            w_src_cur,
+            delta_noise_pred_tgt,
+            w_tgt_cur,
+            mode="latent",
+        )
+    else:
+        raise ValueError("Unrecognized prompt ctrl mode")
+
+    return aggregated_noise

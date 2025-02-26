@@ -1,16 +1,10 @@
-from typing import Any, Callable, Dict, List, Optional, Union
-
 import torch
-from diffusers.callbacks import MultiPipelineCallbacks, PipelineCallback
-from diffusers.image_processor import PipelineImageInput
-from diffusers.utils import replace_example_docstring
+from typing import Any, Dict, List, Optional, Union
 
-from ctrl_utils.ctrl_utils import *
+from ctrl_utils.ctrl_utils import aggregate_noise_pred
 from ctrl_utils.image_utils import *
-
 from .pipeline_stable_diffusion import (
     StableDiffusionPipeline,
-    StableDiffusionPipelineOutput,
     rescale_noise_cfg,
     retrieve_timesteps,
 )
@@ -36,15 +30,11 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         latents: Optional[torch.Tensor] = None,
         prompt_embeds: Optional[torch.Tensor] = None,
         negative_prompt_embeds: Optional[torch.Tensor] = None,
-        ip_adapter_image: Optional[PipelineImageInput] = None,
-        ip_adapter_image_embeds: Optional[List[torch.Tensor]] = None,
         output_type: Optional[str] = "pil",
-        return_dict: bool = True,
         cross_attention_kwargs: Optional[Dict[str, Any]] = None,
         guidance_rescale: float = 0.0,
         clip_skip: Optional[int] = None,
         use_plain_cfg=False,
-        guidance_type: str = "static",
         w_src=1.0,
         w_tgt=1.0,
         w_src_ctrl_type: str = "static",
@@ -63,14 +53,14 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         device = (
             torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
         )
-        source_image = load_image(image_path, device)  # TODO
         image_gt = load_512(image_path)
 
         inversion = DirectInversion(model=self, num_ddim_steps=num_inference_steps)
-        _, image_enc_latent, x_stars, noise_loss_list = inversion.invert(
+        x_stars, noise_loss_list = inversion.invert(
             image_gt=image_gt, prompt=prompt, guidance_scale=guidance_scale
         )
         x_t = x_stars[-1]
+        latents = x_t.expand(len(prompt), -1, -1, -1)
 
         # 0. Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
@@ -86,8 +76,6 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
             negative_prompt,
             prompt_embeds,
             negative_prompt_embeds,
-            ip_adapter_image,
-            ip_adapter_image_embeds,
         )
 
         self._guidance_scale = guidance_scale
@@ -113,6 +101,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
             else None
         )
 
+        # TODO Remove redundant prompt encoding
         prompt_embeds, negative_prompt_embeds = self.encode_prompt(
             prompt,
             device,
@@ -130,15 +119,6 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         # to avoid doing two forward passes
         if self.do_classifier_free_guidance:
             prompt_embeds = torch.cat([negative_prompt_embeds, prompt_embeds])
-
-        if ip_adapter_image is not None or ip_adapter_image_embeds is not None:
-            image_embeds = self.prepare_ip_adapter_image_embeds(
-                ip_adapter_image,
-                ip_adapter_image_embeds,
-                device,
-                batch_size * num_images_per_prompt,
-                self.do_classifier_free_guidance,
-            )
 
         # 4. Prepare timesteps
         timesteps, num_inference_steps = retrieve_timesteps(
@@ -158,17 +138,10 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
             latents,
         )
 
-        # 6. Prepare extra step kwargs. TODO: Logic should ideally just be moved out of the pipeline
+        # 6. Prepare extra step kwargs
         extra_step_kwargs = self.prepare_extra_step_kwargs(generator, eta)
 
-        # 6.1 Add image embeds for IP-Adapter
-        added_cond_kwargs = (
-            {"image_embeds": image_embeds}
-            if (ip_adapter_image is not None or ip_adapter_image_embeds is not None)
-            else None
-        )
-
-        # 6.2 Optionally get Guidance Scale Embedding
+        # 6.1 Optionally get Guidance Scale Embedding
         timestep_cond = None
         if self.unet.config.time_cond_proj_dim is not None:
             guidance_scale_tensor = torch.tensor(self.guidance_scale - 1).repeat(
@@ -203,62 +176,57 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                     encoder_hidden_states=prompt_embeds,
                     timestep_cond=timestep_cond,
                     cross_attention_kwargs=self.cross_attention_kwargs,
-                    added_cond_kwargs=added_cond_kwargs,
                     return_dict=False,
                 )[0]
 
                 # perform guidance
                 if self.do_classifier_free_guidance:
-                    noise_pred_uncond, noise_pred_text = noise_pred.chunk(2)
+                    noise_pred_uncond, noise_pred_cond = noise_pred.chunk(2)
 
                     if use_plain_cfg:
                         noise_pred = noise_pred_uncond + self.guidance_scale * (
-                            noise_pred_text - noise_pred_uncond
+                            noise_pred_cond - noise_pred_uncond
                         )
-                    else:  # aggregate noise
-                        delta_noise_pred_src = noise_pred_text[0] - noise_pred_uncond[0]
-                        delta_noise_pred_tgt = noise_pred_text[1] - noise_pred_uncond[1]
-
-                        w_src_cur = ctrl_weight(t, w_src, w_src_ctrl_type)
-                        w_tgt_cur = ctrl_weight(t, w_tgt, w_tgt_ctrl_type)
-
-                        if ctrl_mode == "add":
-                            aggregated_noise = add_aggregator_v1(
-                                delta_noise_pred_src,
-                                w_src_cur,
-                                delta_noise_pred_tgt,
-                                w_tgt_cur,
-                                mode="latent",
-                            )
-                        elif ctrl_mode == "remove":
-                            aggregated_noise = remove_aggregator_v2(
-                                delta_noise_pred_src,
-                                w_src_cur,
-                                delta_noise_pred_tgt,
-                                w_tgt_cur,
-                                mode="latent",
-                            )
-                        else:
-                            raise ValueError("Unrecognized prompt ctrl mode")
-
+                    else:
+                        aggregated_noise = aggregate_noise_pred(
+                            noise_pred_uncond,
+                            noise_pred_cond,
+                            t,
+                            w_src,
+                            w_tgt,
+                            w_src_ctrl_type,
+                            w_tgt_ctrl_type,
+                            ctrl_mode,
+                        )
+                        # Keep the first half of noise_pred conditioned on
+                        # source prompt for Direct Inversion
+                        aggregated_noise = torch.cat(
+                            (
+                                noise_pred_cond[:1] - noise_pred_uncond[:1],
+                                aggregated_noise,
+                            ),
+                            dim=0,
+                        )
                         noise_pred = (
-                            noise_pred_uncond
-                            + guidance_weight(t, self.guidance_scale, guidance_type)
-                            * aggregated_noise
+                            noise_pred_uncond + self.guidance_scale * aggregated_noise
                         )
 
                 if self.do_classifier_free_guidance and self.guidance_rescale > 0.0:
                     # Based on 3.4. in https://arxiv.org/pdf/2305.08891.pdf
                     noise_pred = rescale_noise_cfg(
                         noise_pred,
-                        noise_pred_text,
+                        noise_pred_cond,
                         guidance_rescale=self.guidance_rescale,
                     )
 
-                # compute the previous noisy sample x_t -> x_t-1
+                # Compute the previous noisy sample x_t -> x_t-1
                 latents = self.scheduler.step(
                     noise_pred, t, latents, **extra_step_kwargs, return_dict=False
                 )[0]
+                # Add loss back to source branch
+                latents = torch.cat(
+                    (latents[:1] + noise_loss_list[i][:1], latents[1:]), dim=0
+                )
 
                 if i == len(timesteps) - 1 or (
                     (i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0
@@ -283,19 +251,15 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         else:
             do_denormalize = [not has_nsfw for has_nsfw in has_nsfw_concept]
 
-        image = self.image_processor.postprocess(
-            image, output_type=output_type, do_denormalize=do_denormalize
+        image_reconstructed, image_edited = image.chunk(2)
+        image_reconstructed = self.image_processor.postprocess(  # TODO
+            image_reconstructed, output_type=output_type, do_denormalize=do_denormalize
+        )
+        image_edited = self.image_processor.postprocess(
+            image_edited, output_type=output_type, do_denormalize=do_denormalize
         )
 
         # Offload all models
         self.maybe_free_model_hooks()
 
-        # If noises have been aggregated then they are the same
-        image = [image[0]] if not use_plain_cfg else image
-
-        if not return_dict:
-            return (image, has_nsfw_concept)
-
-        return StableDiffusionPipelineOutput(
-            images=image, nsfw_content_detected=has_nsfw_concept
-        )
+        return image_reconstructed, image_edited
