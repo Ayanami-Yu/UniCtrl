@@ -251,7 +251,7 @@ add:
     tgt_image:
       sd: 'metrics/images/tgt/sd/add/sakura_robot_1.0_1.0.png'
       masactrl: 'metrics/images/tgt/masactrl/add/sakura_robot_masactrl_step4_layer10.png'
-      p2p: 'metrics/images/tgt/p2p/rm/sakura_robot_p2p_tgt.png'
+      p2p: 'metrics/images/tgt/p2p/add/sakura_robot_p2p_tgt.png'
       sega: 'metrics/images/tgt/sega/add/sakura_robot_sega_tgt.png'
       ledits_pp: 'metrics/images/tgt/ledits_pp/add/sakura_robot.png'
       mdp: 'metrics/images/tgt/mdp/add/sakura_robot_mdp_tgt.png'

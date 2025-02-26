@@ -99,20 +99,20 @@ for i in range(len(src_images)):
     )
     scores.append(float(similarity_score.detach().cpu()))
 
-# Add (image): 
-# SD = 0.2388, MasaCtrl = 0.0956, P2P = 0.1081, SEGA = 0.1369, 
-# LEDITS++ = 0.2109 (hugging face space), 0.1632 (threshold = 0.95, scale = 7), 0.1826 (threshold = 0.75, scale = 10), 
+# Add (image):
+# SD = 0.2388, MasaCtrl = 0.0956, P2P = 0.1081, SEGA = 0.1369,
+# LEDITS++ = 0.2109 (hugging face space), 0.1632 (threshold = 0.95, scale = 7), 0.1826 (threshold = 0.75, scale = 10),
 # MDP = 0.1836, CG = 0.2077
 
-# Add (video): 
-# AnimateDiff = 0.2297, FateZero = 0.0662, TokenFlow = 0.0987, 
+# Add (video):
+# AnimateDiff = 0.2297, FateZero = 0.0662, TokenFlow = 0.0987,
 # VidToMe = 0.089, FLATTEN = 0.104, Vid2Vid-Zero = 0.1008, Rerender-A-Video = 0.1157
 
-# Remove (image): SD = 0.1243, MasaCtrl = 0.0339, P2P = 0.072, SEGA = 0.0944, 
-# LEDITS++ = 0.1641, 0.036 (threshold = 0.95, scale = 7), 0.1752 (threshold = 0.75, scale = 10), 
+# Remove (image): SD = 0.1243, MasaCtrl = 0.0339, P2P = 0.072, SEGA = 0.0944,
+# LEDITS++ = 0.1641, 0.036 (threshold = 0.95, scale = 7), 0.1752 (threshold = 0.75, scale = 10),
 # MDP = 0.1205, CG = 0.1682
 
-# Remove (video): 
-# AnimateDiff = 0.1735, FateZero = 0.0247, TokenFlow = 0.1184, 
+# Remove (video):
+# AnimateDiff = 0.1735, FateZero = 0.0247, TokenFlow = 0.1184,
 # VidToMe = 0.1223, FLATTEN = -0.0137, Vid2Vid-Zero = 0.1085, Rerender-A-Video = 0.0181
 print(f"CLIP directional similarity: {round(np.mean(scores), 4)}")

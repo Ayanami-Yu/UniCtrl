@@ -48,22 +48,22 @@ elif modality == "video":
 else:
     raise ValueError("Unrecognized modality")
 
-# CLIPsim (image): 
-# SD = 35.4878, MasaCtrl = 31.3468, P2P = 30.2197, SEGA = 32.847, 
-# LEDITS++ = 33.8337 (hugging face space), 32.1255 (threshold = 0.95, scale = 7), 29.943 (threshold = 0.75, scale = 10), 
+# CLIPsim (image):
+# SD = 35.4878, MasaCtrl = 31.3468, P2P = 30.2197, SEGA = 32.847,
+# LEDITS++ = 33.8337 (hugging face space), 32.1255 (threshold = 0.95, scale = 7), 29.943 (threshold = 0.75, scale = 10),
 # MDP = 32.396, CG = 33.6144
 
-# CLIPsim (video): 
-# AnimateDiff = 36.3802, FateZero = 33.8866, TokenFlow = 34.3846, 
+# CLIPsim (video):
+# AnimateDiff = 36.3802, FateZero = 33.8866, TokenFlow = 34.3846,
 # VidToMe = 34.6253, FLATTEN = 34.3304, Vid2Vid-Zero = 34.7291, Rerender-A-Video = 34.2491
 
-# CLIPinv (image): 
-# SD = 19.784, MasaCtrl = 24.0757, P2P = 23.3297, SEGA = 21.7271, 
-# LEDITS++ = 20.9888 (hugging face space), 23.1463 (threshold = 0.95, scale = 7), 20.1063 (threshold = 0.75, scale = 10), 
+# CLIPinv (image):
+# SD = 19.784, MasaCtrl = 24.0757, P2P = 23.3297, SEGA = 21.7271,
+# LEDITS++ = 20.9888 (hugging face space), 23.1463 (threshold = 0.95, scale = 7), 20.1063 (threshold = 0.75, scale = 10),
 # MDP = 21.071, CG = 19.8915
 
-# CLIPinv (video): 
-# AnimateDiff = 22.9229, FateZero = 26.743, TokenFlow = 22.5713, 
+# CLIPinv (video):
+# AnimateDiff = 22.9229, FateZero = 26.743, TokenFlow = 22.5713,
 # VidToMe = 23.832, FLATTEN = 25.3677, Vid2Vid-Zero = 21.7432, Rerender-A-Video = 24.2228
 clip_score = calculate_clip_score(images, prompts)
 print(f"CLIP score: {clip_score}")

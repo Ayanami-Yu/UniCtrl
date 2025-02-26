@@ -57,7 +57,7 @@ out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 
 # initialize model
 model_path = "stabilityai/stable-diffusion-2-1-base"
-model = CtrlSDPipeline.from_pretrained(model_path).to(device)
+model = CtrlSDPipeline.from_pretrained(model_path, device=device).to(device)
 
 # initialize the noisy latents
 # NOTE torch.Generator will produce different results if called for multiple
