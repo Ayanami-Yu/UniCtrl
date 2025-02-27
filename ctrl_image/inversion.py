@@ -45,7 +45,6 @@ class DirectInversion:
 
         return prev_sample, difference_scale
 
-    # TODO should probably use the scheduler's step function
     def next_step(self, model_output, timestep: int, sample):
         timestep, next_timestep = (
             min(
@@ -64,11 +63,11 @@ class DirectInversion:
         alpha_prod_t_next = self.scheduler.alphas_cumprod[next_timestep]
         beta_prod_t = 1 - alpha_prod_t
         next_original_sample = (
-            sample - beta_prod_t**0.5 * model_output
-        ) / alpha_prod_t**0.5
+            sample - beta_prod_t ** 0.5 * model_output
+        ) / alpha_prod_t ** 0.5
         next_sample_direction = (1 - alpha_prod_t_next) ** 0.5 * model_output
         next_sample = (
-            alpha_prod_t_next**0.5 * next_original_sample + next_sample_direction
+            alpha_prod_t_next ** 0.5 * next_original_sample + next_sample_direction
         )
         return next_sample
 
@@ -77,24 +76,6 @@ class DirectInversion:
             "sample"
         ]
         return noise_pred
-
-    def get_noise_pred(self, latents, t, guidance_scale, is_forward=True, context=None):
-        latents_input = torch.cat([latents] * 2)
-        if context is None:
-            context = self.context
-        guidance_scale = 1 if is_forward else guidance_scale
-        noise_pred = self.model.unet(latents_input, t, encoder_hidden_states=context)[
-            "sample"
-        ]
-        noise_pred_uncond, noise_prediction_text = noise_pred.chunk(2)
-        noise_pred = noise_pred_uncond + guidance_scale * (
-            noise_prediction_text - noise_pred_uncond
-        )
-        if is_forward:
-            latents = self.next_step(noise_pred, t, latents)
-        else:
-            latents = self.prev_step(noise_pred, t, latents)
-        return latents
 
     @torch.no_grad()
     def init_prompt(self, prompt: str):

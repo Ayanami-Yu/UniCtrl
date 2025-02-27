@@ -1,6 +1,6 @@
 import torch
 from typing import Any, Dict, List, Optional, Union
-from diffusers import DPMSolverMultistepScheduler, DDIMScheduler, EulerAncestralDiscreteScheduler
+from diffusers import DDIMScheduler
 
 from ctrl_utils.ctrl_utils import aggregate_noise_pred
 from ctrl_utils.image_utils import *
@@ -42,6 +42,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         w_tgt_ctrl_type: str = "static",
         ctrl_mode: str = "add",
         image_path: str = None,
+        do_direct_inversion: bool = True,
         **kwargs,
     ):
         assert image_path is not None, "Provide the path to the image to be edited"
@@ -57,15 +58,11 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         image_gt = load_512(image_path)
 
         # Prepare timesteps
-        # self.scheduler = DPMSolverMultistepScheduler.from_config(self.scheduler.config, algorithm_type="sde-dpmsolver++")
-        # self.scheduler = DDIMScheduler.from_config(self.scheduler.config)
-        self.scheduler = EulerAncestralDiscreteScheduler.from_config(self.scheduler.config)
+        # NOTE Direct Inversion only applies to DDIM scheduler
+        self.scheduler = DDIMScheduler.from_config(self.scheduler.config)
         timesteps, num_inference_steps = retrieve_timesteps(
             self.scheduler, num_inference_steps, device, timesteps, sigmas
         )
-        if not hasattr(self.scheduler, 'final_alpha_cumprod'):  # TODO
-            self.scheduler.alphas_cumprod = self.scheduler.alphas_cumprod.to(device)
-            self.scheduler.final_alpha_cumprod = self.scheduler.alphas_cumprod[-1]
 
         # Perform inversion
         inversion = DirectInversion(model=self, num_ddim_steps=num_inference_steps)
@@ -208,13 +205,14 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                         )
                         # Keep the first half of noise_pred conditioned on
                         # source prompt for Direct Inversion
-                        aggregated_noise = torch.cat(
-                            (
-                                noise_pred_cond[:1] - noise_pred_uncond[:1],
-                                aggregated_noise.unsqueeze(0),
-                            ),
-                            dim=0,
-                        )
+                        if do_direct_inversion:  # TODO
+                            aggregated_noise = torch.cat(
+                                (
+                                    noise_pred_cond[:1] - noise_pred_uncond[:1],
+                                    aggregated_noise.unsqueeze(0),
+                                ),
+                                dim=0,
+                            )
                         noise_pred = (
                             noise_pred_uncond + self.guidance_scale * aggregated_noise
                         )
@@ -232,9 +230,10 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                     noise_pred, t, latents, **extra_step_kwargs, return_dict=False
                 )[0]
                 # Add loss back to source branch
-                latents = torch.cat(
-                    (latents[:1] + noise_loss_list[i][:1], latents[1:]), dim=0
-                )
+                if do_direct_inversion:
+                    latents = torch.cat(
+                        (latents[:1] + noise_loss_list[i][:1], latents[1:]), dim=0
+                    )
 
                 if i == len(timesteps) - 1 or (
                     (i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0

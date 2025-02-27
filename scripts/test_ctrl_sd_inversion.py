@@ -1,3 +1,4 @@
+import os
 import torch
 
 from pytorch_lightning import seed_everything
@@ -6,14 +7,16 @@ from ctrl_image.ctrl_sd_inversion_pipeline import CtrlSDInversionPipeline
 from ctrl_utils.image_utils import image_grid
 
 
-image_path = "metrics/images/src/default/rm/witch_book_1.0_-0.22.png"
-name = "witch_book"
+image_path = "metrics/images/src/default/add/dog_soccer_1.0_0.0.png"
+out_dir = "exp/sd/real/dog_soccer"
 
-mode = "remove"
-w_src, w_tgt = 1.0, -0.22
+mode = "add"
+src_start, src_inc, src_n = (1.0, 0.1, 1)
+tgt_start, tgt_inc, tgt_n = (0.0, 0.2, 11)
+
 prompts = [
-    "a witch reading a large open book, fantasy, anime",
-    "a large open book",
+    "a cute pomeranian dog is playing",
+    "a soccer ball",
 ]
 
 torch.cuda.set_device(2)
@@ -22,19 +25,33 @@ device = torch.device("cuda") if torch.cuda.is_available() else torch.device("cp
 seed = 42
 seed_everything(seed)
 
+os.makedirs(out_dir, exist_ok=True)
+sample_count = len(os.listdir(out_dir))
+out_dir = os.path.join(out_dir, f"sample_{sample_count}")
+
 model_path = "stabilityai/stable-diffusion-2-1-base"
 model = CtrlSDInversionPipeline.from_pretrained(model_path).to(device)
 
-image_rec, image_edit = model(
-    prompts,
-    guidance_scale=7.5,
-    w_src=w_src,
-    w_tgt=w_tgt,
-    w_src_ctrl_type="static",
-    w_tgt_ctrl_type="cosine",
-    ctrl_mode=mode,
-    image_path=image_path,
-)
+src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
+tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
+
 image_src = Image.open(image_path)
-image = image_grid((image_src, image_rec, image_edit), rows=1, cols=3)
-image.save(f"{name}.png")
+
+for w_src in src_weights:
+    for w_tgt in tgt_weights:
+        image_rec, image_edit = model(
+            prompts,
+            guidance_scale=7.5,
+            w_src=w_src,
+            w_tgt=w_tgt,
+            w_src_ctrl_type="static",
+            w_tgt_ctrl_type="static",
+            ctrl_mode=mode,
+            image_path=image_path,
+        )
+        os.makedirs(out_dir, exist_ok=True)
+
+        image = image_grid((image_src, image_rec, image_edit), rows=1, cols=3)
+        image.save(os.path.join(out_dir, f"{w_src}_{w_tgt}.png"))
+
+print("Synthesized images are saved in", out_dir)

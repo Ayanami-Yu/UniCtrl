@@ -100,7 +100,6 @@ if args.scale is not None:
             os.path.join(out_dir, f"{w_src:.4f}_{w_tgt:.4f}.png"),
         )
         print("Synthesized images are saved in", out_dir)
-
 else:
     src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
     tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
