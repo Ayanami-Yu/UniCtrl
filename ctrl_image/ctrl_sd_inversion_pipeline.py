@@ -42,7 +42,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         w_tgt_ctrl_type: str = "static",
         ctrl_mode: str = "add",
         image_path: str = None,
-        do_direct_inversion: bool = True,
+        do_direct_inversion: bool = True,  # TODO
         **kwargs,
     ):
         assert image_path is not None, "Provide the path to the image to be edited"
@@ -230,7 +230,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                     noise_pred, t, latents, **extra_step_kwargs, return_dict=False
                 )[0]
                 # Add loss back to source branch
-                if do_direct_inversion:
+                if do_direct_inversion:  # TODO
                     latents = torch.cat(
                         (latents[:1] + noise_loss_list[i][:1], latents[1:]), dim=0
                     )

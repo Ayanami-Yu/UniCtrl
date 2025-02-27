@@ -12,7 +12,7 @@ out_dir = "exp/sd/real/dog_soccer"
 
 mode = "add"
 src_start, src_inc, src_n = (1.0, 0.1, 1)
-tgt_start, tgt_inc, tgt_n = (0.0, 0.2, 11)
+tgt_start, tgt_inc, tgt_n = (0.9, 0.1, 1)
 
 prompts = [
     "a cute pomeranian dog is playing",
@@ -37,21 +37,24 @@ tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
 image_src = Image.open(image_path)
 
-for w_src in src_weights:
-    for w_tgt in tgt_weights:
-        image_rec, image_edit = model(
-            prompts,
-            guidance_scale=7.5,
-            w_src=w_src,
-            w_tgt=w_tgt,
-            w_src_ctrl_type="static",
-            w_tgt_ctrl_type="static",
-            ctrl_mode=mode,
-            image_path=image_path,
-        )
-        os.makedirs(out_dir, exist_ok=True)
+for scale in range(3.5, 15.5, 0.5):  # TODO check effect of CFG
+    for w_src in src_weights:
+        for w_tgt in tgt_weights:
+            image_rec, image_edit = model(
+                prompts,
+                guidance_scale=scale,
+                w_src=w_src,
+                w_tgt=w_tgt,
+                w_src_ctrl_type="static",
+                w_tgt_ctrl_type="static",
+                ctrl_mode=mode,
+                image_path=image_path,
+                do_direct_inversion=True,
+            )
+            os.makedirs(out_dir, exist_ok=True)
 
-        image = image_grid((image_src, image_rec, image_edit), rows=1, cols=3)
-        image.save(os.path.join(out_dir, f"{w_src}_{w_tgt}.png"))
+            image = image_grid((image_src, image_rec, image_edit), rows=1, cols=3)
+            # image.save(os.path.join(out_dir, f"{w_src}_{w_tgt}.png"))
+            image.save(os.path.join(out_dir, f"{w_src}_{w_tgt}_scale_{scale}.png"))
 
 print("Synthesized images are saved in", out_dir)
