@@ -1,3 +1,5 @@
+# Usage: python scripts/test_ctrl_sd.py --prompt "a witch reading a large open book, fantasy, anime" "a large open book" --out_dir "./exp/sd/witch_book/" --src_params 1.0 0.1 1 --tgt_params -0.2 0.1 1 --ctrl_mode "remove"
+
 import argparse
 import os
 from math import cos, sin
@@ -57,7 +59,7 @@ out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 
 # initialize model
 model_path = "stabilityai/stable-diffusion-2-1-base"
-model = CtrlSDPipeline.from_pretrained(model_path, device=device).to(device)
+model = CtrlSDPipeline.from_pretrained(model_path).to(device)
 
 # initialize the noisy latents
 # NOTE torch.Generator will produce different results if called for multiple

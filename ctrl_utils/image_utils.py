@@ -2,15 +2,6 @@ import torch
 import numpy as np
 import torch.nn.functional as F
 from PIL import Image
-from torchvision.io import read_image
-
-
-def load_image(image_path, device):
-    image = read_image(image_path)
-    image = image[:3].unsqueeze_(0).float() / 127.5 - 1.0  # [-1, 1]
-    image = F.interpolate(image, (512, 512))
-    image = image.to(device)
-    return image
 
 
 def load_512(image_path, left=0, right=0, top=0, bottom=0):
@@ -59,3 +50,18 @@ def latent2image(model, latents, return_type="np"):
         image = image.cpu().permute(0, 2, 3, 1).numpy()
         image = (image * 255).astype(np.uint8)
     return image
+
+
+def image_grid(imgs, rows, cols, spacing=20):
+    assert len(imgs) == rows * cols
+
+    w, h = imgs[0].size
+    grid = Image.new(
+        "RGBA",
+        size=(cols * w + (cols - 1) * spacing, rows * h + (rows - 1) * spacing),
+        color=(255, 255, 255, 0),
+    )
+    for i, img in enumerate(imgs):
+        grid.paste(img, box=(i // rows * (w + spacing), i % rows * (h + spacing)))
+
+    return grid

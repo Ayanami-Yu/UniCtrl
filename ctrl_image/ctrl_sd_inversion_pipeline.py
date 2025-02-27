@@ -1,5 +1,6 @@
 import torch
 from typing import Any, Dict, List, Optional, Union
+from diffusers import DPMSolverMultistepScheduler, DDIMScheduler, EulerAncestralDiscreteScheduler
 
 from ctrl_utils.ctrl_utils import aggregate_noise_pred
 from ctrl_utils.image_utils import *
@@ -55,6 +56,18 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         )
         image_gt = load_512(image_path)
 
+        # Prepare timesteps
+        # self.scheduler = DPMSolverMultistepScheduler.from_config(self.scheduler.config, algorithm_type="sde-dpmsolver++")
+        # self.scheduler = DDIMScheduler.from_config(self.scheduler.config)
+        self.scheduler = EulerAncestralDiscreteScheduler.from_config(self.scheduler.config)
+        timesteps, num_inference_steps = retrieve_timesteps(
+            self.scheduler, num_inference_steps, device, timesteps, sigmas
+        )
+        if not hasattr(self.scheduler, 'final_alpha_cumprod'):  # TODO
+            self.scheduler.alphas_cumprod = self.scheduler.alphas_cumprod.to(device)
+            self.scheduler.final_alpha_cumprod = self.scheduler.alphas_cumprod[-1]
+
+        # Perform inversion
         inversion = DirectInversion(model=self, num_ddim_steps=num_inference_steps)
         x_stars, noise_loss_list = inversion.invert(
             image_gt=image_gt, prompt=prompt, guidance_scale=guidance_scale
@@ -62,12 +75,12 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         x_t = x_stars[-1]
         latents = x_t.expand(len(prompt), -1, -1, -1)
 
-        # 0. Default height and width to unet
+        # Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
         width = width or self.unet.config.sample_size * self.vae_scale_factor
         # to deal with lora scaling and other possible forward hooks
 
-        # 1. Check inputs. Raise error if not correct
+        # Check inputs. Raise error if not correct
         self.check_inputs(
             prompt,
             height,
@@ -84,7 +97,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         self._cross_attention_kwargs = cross_attention_kwargs
         self._interrupt = False
 
-        # 2. Define call parameters
+        # Define call parameters
         if prompt is not None and isinstance(prompt, str):
             batch_size = 1
         elif prompt is not None and isinstance(prompt, list):
@@ -94,7 +107,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
 
         device = self._execution_device
 
-        # 3. Encode input prompt
+        # Encode input prompt
         lora_scale = (
             self.cross_attention_kwargs.get("scale", None)
             if self.cross_attention_kwargs is not None
@@ -120,12 +133,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         if self.do_classifier_free_guidance:
             prompt_embeds = torch.cat([negative_prompt_embeds, prompt_embeds])
 
-        # 4. Prepare timesteps
-        timesteps, num_inference_steps = retrieve_timesteps(
-            self.scheduler, num_inference_steps, device, timesteps, sigmas
-        )
-
-        # 5. Prepare latent variables
+        # Prepare latent variables
         num_channels_latents = self.unet.config.in_channels
         latents = self.prepare_latents(
             batch_size * num_images_per_prompt,
@@ -138,10 +146,10 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
             latents,
         )
 
-        # 6. Prepare extra step kwargs
+        # Prepare extra step kwargs
         extra_step_kwargs = self.prepare_extra_step_kwargs(generator, eta)
 
-        # 6.1 Optionally get Guidance Scale Embedding
+        # Optionally get Guidance Scale Embedding
         timestep_cond = None
         if self.unet.config.time_cond_proj_dim is not None:
             guidance_scale_tensor = torch.tensor(self.guidance_scale - 1).repeat(
@@ -151,7 +159,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                 guidance_scale_tensor, embedding_dim=self.unet.config.time_cond_proj_dim
             ).to(device=device, dtype=latents.dtype)
 
-        # 7. Denoising loop
+        # Denoising loop
         num_warmup_steps = len(timesteps) - num_inference_steps * self.scheduler.order
         self._num_timesteps = len(timesteps)
         with self.progress_bar(total=num_inference_steps) as progress_bar:
@@ -159,7 +167,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                 if self.interrupt:
                     continue
 
-                # expand the latents if we are doing classifier free guidance
+                # Expand the latents if we are doing classifier free guidance
                 latent_model_input = (
                     torch.cat([latents] * 2)
                     if self.do_classifier_free_guidance
@@ -169,7 +177,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                     latent_model_input, t
                 )
 
-                # predict the noise residual
+                # Predict the noise residual
                 noise_pred = self.unet(
                     latent_model_input,
                     t,
@@ -179,7 +187,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                     return_dict=False,
                 )[0]
 
-                # perform guidance
+                # Perform guidance
                 if self.do_classifier_free_guidance:
                     noise_pred_uncond, noise_pred_cond = noise_pred.chunk(2)
 
@@ -203,7 +211,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                         aggregated_noise = torch.cat(
                             (
                                 noise_pred_cond[:1] - noise_pred_uncond[:1],
-                                aggregated_noise,
+                                aggregated_noise.unsqueeze(0),
                             ),
                             dim=0,
                         )
@@ -251,15 +259,12 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         else:
             do_denormalize = [not has_nsfw for has_nsfw in has_nsfw_concept]
 
-        image_reconstructed, image_edited = image.chunk(2)
-        image_reconstructed = self.image_processor.postprocess(  # TODO
-            image_reconstructed, output_type=output_type, do_denormalize=do_denormalize
+        images = self.image_processor.postprocess(  # TODO
+            image, output_type=output_type, do_denormalize=do_denormalize
         )
-        image_edited = self.image_processor.postprocess(
-            image_edited, output_type=output_type, do_denormalize=do_denormalize
-        )
+        image_rec, image_edit = images[0], images[1]
 
         # Offload all models
         self.maybe_free_model_hooks()
 
-        return image_reconstructed, image_edited
+        return image_rec, image_edit

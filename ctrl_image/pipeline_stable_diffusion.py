@@ -208,7 +208,6 @@ class StableDiffusionPipeline(
         feature_extractor: CLIPImageProcessor,
         image_encoder: CLIPVisionModelWithProjection = None,
         requires_safety_checker: bool = True,
-        device: Optional[torch.device] = None,
     ):
         super().__init__()
 

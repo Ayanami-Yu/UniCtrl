@@ -45,6 +45,7 @@ class DirectInversion:
 
         return prev_sample, difference_scale
 
+    # TODO should probably use the scheduler's step function
     def next_step(self, model_output, timestep: int, sample):
         timestep, next_timestep = (
             min(
@@ -126,9 +127,7 @@ class DirectInversion:
         all_latent = [latent]
         latent = latent.clone().detach()
         for i in range(self.num_ddim_steps):  # timestep increases
-            t = self.model.scheduler.timesteps[
-                len(self.model.scheduler.timesteps) - i - 1
-            ]
+            t = self.scheduler.timesteps[len(self.scheduler.timesteps) - i - 1]
             noise_pred = self.get_noise_pred_single(latent, t, cond_embeddings)
             latent = self.next_step(noise_pred, t, latent)
             all_latent.append(latent)
@@ -146,16 +145,16 @@ class DirectInversion:
 
     def offset_calculate(self, latents, guidance_scale):
         noise_loss_list = []
-        latent_cur = torch.concat([latents[-1]] * (self.context.shape[0] // 2))
+        latent_cur = torch.cat([latents[-1]] * (self.context.shape[0] // 2))
         # As i increases latents[i] gets noisier
         for i in range(self.num_ddim_steps):
-            latent_prev = torch.concat(
+            latent_prev = torch.cat(
                 [latents[len(latents) - i - 2]] * latent_cur.shape[0]
             )
-            t = self.model.scheduler.timesteps[i]
+            t = self.scheduler.timesteps[i]
             with torch.no_grad():
                 noise_pred = self.get_noise_pred_single(
-                    torch.concat([latent_cur] * 2), t, self.context
+                    torch.cat([latent_cur] * 2), t, self.context
                 )
                 noise_pred_uncond, noise_pred_cond = noise_pred.chunk(2)
                 noise_pred_w_guidance = noise_pred_uncond + guidance_scale * (
