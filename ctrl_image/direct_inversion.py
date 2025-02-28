@@ -29,17 +29,17 @@ class DirectInversion:
         )
         beta_prod_t = 1 - alpha_prod_t
         pred_original_sample = (
-            sample - beta_prod_t**0.5 * model_output
-        ) / alpha_prod_t**0.5
+            sample - beta_prod_t ** 0.5 * model_output
+        ) / alpha_prod_t ** 0.5
         pred_sample_direction = (1 - alpha_prod_t_prev) ** 0.5 * model_output
         prev_sample = (
             alpha_prod_t_prev**0.5 * pred_original_sample + pred_sample_direction
         )
 
-        difference_scale_pred_original_sample = -(beta_prod_t**0.5) / alpha_prod_t**0.5
+        difference_scale_pred_original_sample = -(beta_prod_t ** 0.5) / alpha_prod_t ** 0.5
         difference_scale_pred_sample_direction = (1 - alpha_prod_t_prev) ** 0.5
         difference_scale = (
-            alpha_prod_t_prev**0.5 * difference_scale_pred_original_sample
+            alpha_prod_t_prev ** 0.5 * difference_scale_pred_original_sample
             + difference_scale_pred_sample_direction
         )
 

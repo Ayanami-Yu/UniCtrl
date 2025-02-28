@@ -3,7 +3,7 @@ import torch
 
 from pytorch_lightning import seed_everything
 from PIL import Image
-from ctrl_image.ctrl_sd_inversion_pipeline import CtrlSDInversionPipeline
+from ctrl_image.ctrl_sd_direct_inversion_pipeline import CtrlSDDirectInversionPipeline
 from ctrl_utils.image_utils import image_grid
 
 
@@ -12,11 +12,11 @@ out_dir = "exp/sd/real/dog_soccer"
 
 mode = "add"
 src_start, src_inc, src_n = (1.0, 0.1, 1)
-tgt_start, tgt_inc, tgt_n = (0.9, 0.1, 1)
+tgt_start, tgt_inc, tgt_n = (0.3, 0.2, 12)
 
 prompts = [
     "a cute pomeranian dog is playing",
-    "a soccer ball",
+    "a cute pomeranian dog is playing with a soccer ball",
 ]
 
 torch.cuda.set_device(2)
@@ -30,14 +30,15 @@ sample_count = len(os.listdir(out_dir))
 out_dir = os.path.join(out_dir, f"sample_{sample_count}")
 
 model_path = "stabilityai/stable-diffusion-2-1-base"
-model = CtrlSDInversionPipeline.from_pretrained(model_path).to(device)
+model = CtrlSDDirectInversionPipeline.from_pretrained(model_path).to(device)
 
 src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
 image_src = Image.open(image_path)
 
-for scale in range(3.5, 15.5, 0.5):  # TODO check effect of CFG
+for scale in range(12, 15, 2):  # TODO check effect of CFG
+    scale = scale / 10
     for w_src in src_weights:
         for w_tgt in tgt_weights:
             image_rec, image_edit = model(

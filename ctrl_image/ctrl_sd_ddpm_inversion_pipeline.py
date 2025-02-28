@@ -1,18 +1,19 @@
 import torch
 from typing import Any, Dict, List, Optional, Union
 from diffusers import DDIMScheduler
+from torch import autocast, inference_mode
 
 from ctrl_utils.ctrl_utils import aggregate_noise_pred
-from ctrl_utils.image_utils import *
+from ctrl_utils.image_utils import load_512
+from .ddpm_inversion import inversion_forward_process, inversion_reverse_process
 from .pipeline_stable_diffusion import (
     StableDiffusionPipeline,
     rescale_noise_cfg,
     retrieve_timesteps,
 )
-from .inversion import DirectInversion
 
 
-class CtrlSDInversionPipeline(StableDiffusionPipeline):
+class CtrlSDDDPMInversionPipeline(StableDiffusionPipeline):
 
     @torch.no_grad()
     def __call__(
@@ -20,10 +21,9 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         prompt: Union[str, List[str]] = None,
         height: Optional[int] = None,
         width: Optional[int] = None,
-        num_inference_steps: int = 50,
+        num_inference_steps: int = 100,
         timesteps: List[int] = None,
         sigmas: List[float] = None,
-        guidance_scale: float = 7.5,
         negative_prompt: Optional[Union[str, List[str]]] = None,
         num_images_per_prompt: Optional[int] = 1,
         eta: float = 0.0,
@@ -42,7 +42,10 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         w_tgt_ctrl_type: str = "static",
         ctrl_mode: str = "add",
         image_path: str = None,
-        do_direct_inversion: bool = True,  # TODO
+        do_ddpm_inversion: bool = True,
+        cfg_scale_src: float = 3.5,  # TODO
+        cfg_scale_tgt: float = 15.0,
+        ddpm_inversion_skip: int = 36,
         **kwargs,
     ):
         assert image_path is not None, "Provide the path to the image to be edited"
@@ -51,26 +54,57 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                 isinstance(prompt, list) and len(prompt) == 2
             ), "Two prompts only, one as source and one as target"
 
-        # Load image and perform Direct Inversion
         device = (
             torch.device("cuda") if torch.cuda.is_available() else torch.device("cpu")
         )
-        image_gt = load_512(image_path)
 
+        if do_ddpm_inversion:
+            self.scheduler = DDIMScheduler.from_config(self.scheduler.config)
+        else:
+            self.scheduler = DDIMScheduler(
+                beta_start=0.00085,
+                beta_end=0.012,
+                beta_schedule="scaled_linear",
+                clip_sample=False,
+                set_alpha_to_one=False,
+            )
         # Prepare timesteps
-        # NOTE Direct Inversion only applies to DDIM scheduler
-        self.scheduler = DDIMScheduler.from_config(self.scheduler.config)
         timesteps, num_inference_steps = retrieve_timesteps(
             self.scheduler, num_inference_steps, device, timesteps, sigmas
         )
 
+        x0 = load_512(image_path)
+        with autocast("cuda"), inference_mode():
+            w0 = (self.vae.encode(x0).latent_dist.mode() * 0.18215).float()
+
         # Perform inversion
-        inversion = DirectInversion(model=self, num_ddim_steps=num_inference_steps)
-        x_stars, noise_loss_list = inversion.invert(
-            image_gt=image_gt, prompt=prompt, guidance_scale=guidance_scale
+        # Find Zs and wts - forward process
+        prompt_src, prompt_tgt = prompt[0], prompt[1]
+        if do_ddpm_inversion:
+            wt, zs, wts = inversion_forward_process(
+                self,
+                w0,
+                etas=eta,
+                prompt=prompt_src,
+                cfg_scale=cfg_scale_src,
+                prog_bar=True,
+                num_inference_steps=num_inference_steps,
+            )
+        else:
+            wT = self.ddim_inversion(w0, prompt_src, cfg_scale_src)
+
+        # Reverse process (via Zs and wT)
+        w0, _ = inversion_reverse_process(
+            self,
+            xT=wts[num_inference_steps - ddpm_inversion_skip],
+            etas=eta,
+            prompts=[prompt_tgt],
+            cfg_scales=[cfg_scale_tgt],
+            prog_bar=True,
+            zs=zs[: (num_inference_steps - ddpm_inversion_skip)],
         )
-        x_t = x_stars[-1]
-        latents = x_t.expand(len(prompt), -1, -1, -1)
+        # TODO
+
 
         # Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
@@ -203,16 +237,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                             w_tgt_ctrl_type,
                             ctrl_mode,
                         )
-                        # Keep the first half of noise_pred conditioned on
-                        # source prompt for Direct Inversion
-                        if do_direct_inversion:  # TODO
-                            aggregated_noise = torch.cat(
-                                (
-                                    noise_pred_cond[:1] - noise_pred_uncond[:1],
-                                    aggregated_noise.unsqueeze(0),
-                                ),
-                                dim=0,
-                            )
+
                         noise_pred = (
                             noise_pred_uncond + self.guidance_scale * aggregated_noise
                         )
@@ -229,11 +254,7 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
                 latents = self.scheduler.step(
                     noise_pred, t, latents, **extra_step_kwargs, return_dict=False
                 )[0]
-                # Add loss back to source branch
-                if do_direct_inversion:  # TODO
-                    latents = torch.cat(
-                        (latents[:1] + noise_loss_list[i][:1], latents[1:]), dim=0
-                    )
+
 
                 if i == len(timesteps) - 1 or (
                     (i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0
@@ -258,12 +279,24 @@ class CtrlSDInversionPipeline(StableDiffusionPipeline):
         else:
             do_denormalize = [not has_nsfw for has_nsfw in has_nsfw_concept]
 
-        images = self.image_processor.postprocess(  # TODO
+        image = self.image_processor.postprocess(  # TODO
             image, output_type=output_type, do_denormalize=do_denormalize
         )
-        image_rec, image_edit = images[0], images[1]
 
         # Offload all models
         self.maybe_free_model_hooks()
 
-        return image_rec, image_edit
+        # TODO when do_direct_inversion is False return only one image
+        return image
+    
+    @torch.no_grad()
+    def ddim_inversion(self, w0, prompt, cfg_scale):
+        text_embedding = encode_text(model, prompt)
+        uncond_embedding = encode_text(model, "")
+        context = torch.cat([uncond_embedding, text_embedding])
+        latent = w0.clone().detach()
+        for i in tqdm(range(model.scheduler.num_inference_steps)):
+            t = model.scheduler.timesteps[len(model.scheduler.timesteps) - i - 1]
+            noise_pred = get_noise_pred(model, latent, t, context, cfg_scale)
+            latent = next_step(model, noise_pred, t, latent)
+        return latent
