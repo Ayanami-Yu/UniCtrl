@@ -79,7 +79,9 @@ class CtrlSDDDPMInversionPipeline(StableDiffusionPipeline):
         x0 = torch.from_numpy(x0).float() / 127.5 - 1
         x0 = x0.permute(2, 0, 1).unsqueeze(0).to(device)
         with autocast("cuda"), inference_mode():
-            w0 = (self.vae.encode(x0).latent_dist.mode() * self.vae.config.scaling_factor).float()
+            w0 = (
+                self.vae.encode(x0).latent_dist.mode() * self.vae.config.scaling_factor
+            ).float()
 
         # Perform inversion
         # Find Zs and wts - forward process
@@ -271,7 +273,6 @@ class CtrlSDDDPMInversionPipeline(StableDiffusionPipeline):
                 latents = self.scheduler.step(
                     noise_pred, t, latents, **extra_step_kwargs, return_dict=False
                 )[0]
-
 
                 if i == len(timesteps) - 1 or (
                     (i + 1) > num_warmup_steps and (i + 1) % self.scheduler.order == 0

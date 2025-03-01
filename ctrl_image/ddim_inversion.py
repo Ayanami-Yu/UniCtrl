@@ -51,10 +51,10 @@ def next_step(
     alpha_prod_t_next = model.scheduler.alphas_cumprod[next_timestep]
     beta_prod_t = 1 - alpha_prod_t
     next_original_sample = (
-        sample - beta_prod_t ** 0.5 * model_output
-    ) / alpha_prod_t ** 0.5
+        sample - beta_prod_t**0.5 * model_output
+    ) / alpha_prod_t**0.5
     next_sample_direction = (1 - alpha_prod_t_next) ** 0.5 * model_output
-    next_sample = alpha_prod_t_next ** 0.5 * next_original_sample + next_sample_direction
+    next_sample = alpha_prod_t_next**0.5 * next_original_sample + next_sample_direction
     return next_sample
 
 
@@ -83,9 +83,7 @@ def init_latent(latent, model, height, width, generator, batch_size):
     return latent, latents
 
 
-def diffusion_step(
-    model, latents, context, t, guidance_scale, low_resource=False
-):
+def diffusion_step(model, latents, context, t, guidance_scale, low_resource=False):
     if low_resource:
         noise_pred_uncond = model.unet(latents, t, encoder_hidden_states=context[0])[
             "sample"

@@ -44,8 +44,8 @@ def forward_step(model, model_output, timestep, sample):
     # Compute predicted original sample from predicted noise also called
     # "predicted x_0" of formula (12) from https://arxiv.org/pdf/2010.02502.pdf
     pred_original_sample = (
-        sample - beta_prod_t ** 0.5 * model_output
-    ) / alpha_prod_t ** 0.5
+        sample - beta_prod_t**0.5 * model_output
+    ) / alpha_prod_t**0.5
 
     next_sample = model.scheduler.add_noise(
         pred_original_sample, model_output, torch.LongTensor([next_timestep])
@@ -88,8 +88,8 @@ def reverse_step(model, model_output, timestep, sample, eta=0, variance_noise=No
     # Compute predicted original sample from predicted noise also called
     # "predicted x_0" of formula (12) from https://arxiv.org/pdf/2010.02502.pdf
     pred_original_sample = (
-        sample - beta_prod_t ** 0.5 * model_output
-    ) / alpha_prod_t ** 0.5
+        sample - beta_prod_t**0.5 * model_output
+    ) / alpha_prod_t**0.5
 
     # Compute variance: "sigma_t(η)" -> see formula (16)
     # σ_t = sqrt((1 − α_t−1)/(1 − α_t)) * sqrt(1 − α_t/α_t−1)
@@ -99,17 +99,17 @@ def reverse_step(model, model_output, timestep, sample, eta=0, variance_noise=No
     model_output_direction = model_output
 
     # Direction pointing to x_t
-    pred_sample_direction = (1 - alpha_prod_t_prev - eta * variance) ** 0.5 * model_output_direction
+    pred_sample_direction = (
+        1 - alpha_prod_t_prev - eta * variance
+    ) ** 0.5 * model_output_direction
 
     # x_t without random noise
-    prev_sample = (
-        alpha_prod_t_prev ** 0.5 * pred_original_sample + pred_sample_direction
-    )
+    prev_sample = alpha_prod_t_prev**0.5 * pred_original_sample + pred_sample_direction
     # Add noise if eta > 0
     if eta > 0:
         if variance_noise is None:
             variance_noise = torch.randn(model_output.shape, device=model.device)
-        sigma_z = eta * variance ** 0.5 * variance_noise
+        sigma_z = eta * variance**0.5 * variance_noise
         prev_sample = prev_sample + sigma_z
 
     return prev_sample
@@ -151,7 +151,7 @@ def inversion_forward_process(
     op = tqdm(timesteps) if prog_bar else timesteps
     for t in op:
         idx = num_inference_steps - t_to_idx[int(t)] - 1
-        
+
         if not eta_is_zero:  # TODO unused
             xt = xts[idx + 1].unsqueeze(0)
         # Predict noise residual
@@ -195,15 +195,14 @@ def inversion_forward_process(
             ) * noise_pred
 
             mu_xt = (
-                alpha_prod_t_prev ** 0.5 * pred_original_sample
-                + pred_sample_direction
+                alpha_prod_t_prev**0.5 * pred_original_sample + pred_sample_direction
             )
 
-            z = (xtm1 - mu_xt) / (etas[idx] * variance ** 0.5)
+            z = (xtm1 - mu_xt) / (etas[idx] * variance**0.5)
             zs[idx] = z
 
             # Correction to avoid error accumulation
-            xtm1 = mu_xt + (etas[idx] * variance ** 0.5) * z
+            xtm1 = mu_xt + (etas[idx] * variance**0.5) * z
             xts[idx] = xtm1
 
     if not zs is None:
