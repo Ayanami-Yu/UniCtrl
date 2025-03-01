@@ -1,0 +1,886 @@
+add:
+  0:
+    src_prompt: a dog wearing space suit
+    tgt_prompt: a dog wearing space suit with flowers in mouth
+  1:
+    src_prompt: a cat
+    tgt_prompt: a cat with a gold chain and a star on its head
+  2:
+    src_prompt: a bee illustration on a paper
+    tgt_prompt: a bee illustration on a paper with leaves
+  3:
+    src_prompt: a small dog dressed in armor
+    tgt_prompt: a small dog dressed in armor with a hurbat
+  4:
+    src_prompt: a pink zebra painted on a wall
+    tgt_prompt: a pink zebra and a cat painted on a wall
+  5:
+    src_prompt: a rabbit sitting in front of colorful eggs
+    tgt_prompt: a rabbit with a dress sitting in front of colorful eggs
+  6:
+    src_prompt: a sheep with pink and blue hair standing on a colorful background
+    tgt_prompt: a sheep with pink and blue hair standing on a colorful background with flowers around
+  7:
+    src_prompt: a digital art of charcoal grey little squirrel sitting on top of books
+    tgt_prompt: a digital art of charcoal grey little squirrel sitting on top of books holding pens
+  8:
+    src_prompt: a cartoon painting of rabbit sitting on the ground in a field
+    tgt_prompt: a cartoon painting of rabbit sitting on the ground in a field with small eyes
+  9:
+    src_prompt: a man in a red suit holding a rabbit
+    tgt_prompt: a man in a red suit holding a rabbit and a cat
+  10:
+    src_prompt: mozart portrait
+    tgt_prompt: mozart with hat portrait
+  11:
+    src_prompt: a man with blue eyes and black hair
+    tgt_prompt: a man with blue eyes and black hair and tattoo
+  12:
+    src_prompt: a pink cartoon girl surrounded by flowers
+    tgt_prompt: a pink cartoon girl with a graffiti on her face surrounded by flowers
+  13:
+    src_prompt: an Asian woman with blue thick-lashed eyes and black hair
+    tgt_prompt: an Asian woman with blue thick-lashed eyes and flowers on her black hair
+  14:
+    src_prompt: a female character in a blue outfit
+    tgt_prompt: a female character in a blue outfit with a tiger
+  15:
+    src_prompt: a woman with dark hair
+    tgt_prompt: a woman with dark hair wearing earrings
+  16:
+    src_prompt: a digital art of a brown hair woman
+    tgt_prompt: a digital art of a brown hair woman with flying butterfly
+  17:
+    src_prompt: a digital art of a woman in a dress surrounded by dark roses
+    tgt_prompt: a digital art of a woman in a dress surrounded by dark roses and snakes
+  18:
+    src_prompt: a cartoon man
+    tgt_prompt: a cartoon man and a bird
+  19:
+    src_prompt: a black skin man with a tree head and branches on his face
+    tgt_prompt: a black skin man with a tree head and branches on his face and eyes closed
+  20:
+    src_prompt: two red flowers on a pink background
+    tgt_prompt: two red flowers on a pink hearts background
+  21:
+    src_prompt: a cup of coffee and a notebook on a checkered tablecloth
+    tgt_prompt: a cup of coffee and a notebook on a checkered tablecloth with a pen
+  22:
+    src_prompt: paper art
+    tgt_prompt: paper art and kids
+  23:
+    src_prompt: notebook, pencil, glasses, camera on a map
+    tgt_prompt: notebook, pencil, glasses, camera and coffee on a map
+  24:
+    src_prompt: a desk with a globe, ink, candles
+    tgt_prompt: a desk with a globe, ink, candles and jewellery
+  25:
+    src_prompt: a large brown teddy bear sitting on a white couch
+    tgt_prompt: a large brown teddy bear and a girl sitting on a white couch
+  26:
+    src_prompt: a bottle of champagne and a hat on a wooden table
+    tgt_prompt: a bottle of champagne and a hat with flowers on a wooden table
+  27:
+    src_prompt: a person using a laptop on a table
+    tgt_prompt: a person using a laptop on a table with books
+  28:
+    src_prompt: a table with flowers on it
+    tgt_prompt: a table with flowers and hat on it
+  29:
+    src_prompt: a teapot with smoke coming out of it
+    tgt_prompt: a teapot surrounded with ghosts with smoke coming out of it
+  30:
+    src_prompt: a painting of a waterfall in the mountains
+    tgt_prompt: a painting of a waterfall and angels in the mountains
+  31:
+    src_prompt: a round painting of a forest with flowers, trees
+    tgt_prompt: a round painting of a forest with deer, flowers, trees
+  32:
+    src_prompt: a family playing with their dog at sunset
+    tgt_prompt: a family playing with their dog at sunset with clouds in the sky
+  33:
+    src_prompt: a wathet large statue of a man as huge as a mountain
+    tgt_prompt: a wathet large statue of a man as huge as a mountain with horses under it
+  34:
+    src_prompt: a painting of two people walking down a path in a field
+    tgt_prompt: a painting of two people walking down a path following a car in a field
+  35:
+    src_prompt: the witcher 3, fantasy art
+    tgt_prompt: the witcher 3 with a small wizard, fantasy art
+  36:
+    src_prompt: elephant in the forest
+    tgt_prompt: elephant in the forest and a man riding it
+  37:
+    src_prompt: a small island with a tree
+    tgt_prompt: a small island with a tree and a girl
+  38:
+    src_prompt: a man standing on a rock looking at the sky
+    tgt_prompt: a man standing on a rock looking at the sky with robot boat
+  39:
+    src_prompt: a man standing on top of a mountain with purple background
+    tgt_prompt: a bird standing on top of a mountain with purple background
+  40:
+    src_prompt: a dog looking at the camera
+    tgt_prompt: a dog with a red dog collar looking at the camera
+  41:
+    src_prompt: a white dog and a brown dog on the withered grass
+    tgt_prompt: dog bone, a white dog and a brown dog on the withered grass
+  42:
+    src_prompt: a cat standing on fence
+    tgt_prompt: a cat wearing hat standing on fence
+  43:
+    src_prompt: a small brown bird sitting on top of a pine tree
+    tgt_prompt: two small brown bird sitting on top of a pine tree
+  44:
+    src_prompt: a cat staring in the grass
+    tgt_prompt: a cat staring at a mouse in the grass
+  45:
+    src_prompt: a duck flaps its wings while swimming in the water
+    tgt_prompt: a duck flaps its wings while swimming in the water fishes jumping out
+  46:
+    src_prompt: a koala is sitting on a tree
+    tgt_prompt: a koala and a bird is sitting on a tree
+  47:
+    src_prompt: a photo of a grey swan swimming
+    tgt_prompt: a photo of a grey swan swimming with her babies
+  48:
+    src_prompt: a squirrel sitting on top of a wooden platform
+    tgt_prompt: a squirrel sitting on top of a wooden platform reading a book
+  49:
+    src_prompt: moose in the forest
+    tgt_prompt: moose in rain in the forest
+  50:
+    src_prompt: MonaLisa with mysterious smile
+    tgt_prompt: a golden painting of MonaLisa with mysterious smile
+  51:
+    src_prompt: a woman in a coat is dancing
+    tgt_prompt: a woman in a coat and dress is dancing
+  52:
+    src_prompt: a man in a suit and watch standing
+    tgt_prompt: a man in a suit and watch standing with Aliens everywhere
+  53:
+    src_prompt: a woman in sunglasses sitting on a bench
+    tgt_prompt: a woman in sunglasses and backpack sitting on a bench
+  54:
+    src_prompt: a woman in a white dress holding a straw hat
+    tgt_prompt: a woman in a white dress holding a straw hat and a tennis racket
+  55:
+    src_prompt: man standing on top of a hill with black hair
+    tgt_prompt: man standing on top of a hill with black turban
+  56:
+    src_prompt: a woman in a brown jacket and jeans
+    tgt_prompt: a woman in a black jacket and jeans
+  57:
+    src_prompt: a woman in dress and stockings leaning against a wall
+    tgt_prompt: a woman in dress and stockings leaning against a wall hanging paintings
+  58:
+    src_prompt: a woman with her hands on her face
+    tgt_prompt: a woman with her hands on her face wearing exaggerated hair band
+  59:
+    src_prompt: portrait of a farmer in black and white
+    tgt_prompt: portrait of a farmer in black and white with hinge hangs around his neck
+  60:
+    src_prompt: a man reading books in front of a wall
+    tgt_prompt: a man reading books in front of a wall with a painting of a heart
+  61:
+    src_prompt: a figurine on a white table
+    tgt_prompt: a figurine and a cucumber on a white table
+  62:
+    src_prompt: blueberries
+    tgt_prompt: blueberries and strawberries
+  63:
+    src_prompt: a white vase with purple tulips on a pink background
+    tgt_prompt: a cat and a white vase with purple tulips on a pink background
+  64:
+    src_prompt: two wooden chess pieces on a white background
+    tgt_prompt: two wooden chess pieces on a white background with chessboard
+  65:
+    src_prompt: orange and daisy
+    tgt_prompt: orange and daisy and glass of water
+  66:
+    src_prompt: a notebook, plants, pen, and phone on a desk
+    tgt_prompt: a notebook, plants, pen, and phone and glasses on a desk
+  67:
+    src_prompt: a red apple sitting on top of a wooden table
+    tgt_prompt: a red apple and a bird sitting on top of a wooden table
+  68:
+    src_prompt: a bowl of strawberries and blueberries on a striped tablecloth
+    tgt_prompt: a bowl of strawberries and blueberries and a lemon on a striped tablecloth
+  69:
+    src_prompt: a conference room
+    tgt_prompt: a conference room with crowded people
+  70:
+    src_prompt: a dry tree in the wild
+    tgt_prompt: a blooming tree in the wild
+  71:
+    src_prompt: a leopard walking on unsurfaced road
+    tgt_prompt: a leopard walking on unsurfaced road with a rock on the ground
+  72:
+    src_prompt: a dog lying on the grass
+    tgt_prompt: a dog lying on the grass with flowers
+  73:
+    src_prompt: a man sitting in the grass
+    tgt_prompt: a man sitting in the grass with rocks
+  74:
+    src_prompt: a beautiful garden
+    tgt_prompt: a beautiful garden with balloons
+  75:
+    src_prompt: Two tents in the desert
+    tgt_prompt: Two tents and a cockroach in the desert
+  76:
+    src_prompt: a beach with waves and a blue sky
+    tgt_prompt: a beach with waves and a blue sky and surfer and sharks
+  77:
+    src_prompt: clouds in the sky
+    tgt_prompt: clouds in the sky with stars
+  78:
+    src_prompt: the bridge is lit up at night with fog
+    tgt_prompt: the bridge is lit up at night with fog and a boy is sitting on the
+      bridge
+  79:
+    src_prompt: a dark grassy hillside with snow covered mountains in the background
+    tgt_prompt: a dark grassy hillside with snow covered mountains in the background
+      and a goat eating grass
+rm:
+  0:
+    src_prompt: a wathet bird sitting on a branch of yellow flowers
+    tgt_prompt:
+      default: a wathet bird sitting on a branch
+      sd: yellow flowers
+  1:
+    src_prompt: a cat wearing headphones on a gray background
+    tgt_prompt:
+      default: a cat on a gray background
+      sd: headphones
+  2:
+    src_prompt: a lion in a suit sitting at a table with a laptop
+    tgt_prompt:
+      default: a lion in a suit sitting at a table
+      sd: a laptop
+  3:
+    src_prompt: a brownish grey knitted bunny with three painted eggs
+    tgt_prompt:
+      default: a brownish grey knitted bunny
+      sd: three painted eggs
+  4:
+    src_prompt: cartoon of a gray polar bear is standing on an iceberg with a plane flying overhead
+    tgt_prompt:
+      default: cartoon of a gray polar bear is standing on an iceberg
+      sd: a plane flying overhead
+  5:
+    src_prompt: a cute cartoon cat with a chef hat and a pie
+    tgt_prompt:
+      default: a cute cartoon cat with a chef hat
+      sd: a pie
+  6:
+    src_prompt: a Ukiyo-e of seagull flying over the ocean waves with sun rise
+    tgt_prompt:
+      default: a Ukiyo-e of seagull flying over the ocean waves
+      sd: sun rise
+  7:
+    src_prompt: a rabbit sitting on a hill with trees
+    tgt_prompt:
+      default: a rabbit sitting on a hill
+      sd: trees
+  8:
+    src_prompt: a puppy is sitting in a field of dandelions
+    tgt_prompt:
+      default: a puppy is sitting in a field
+      sd: dandelions
+  9:
+    src_prompt: two white bears holding a rose
+    tgt_prompt:
+      default: one white bears holding a rose
+      sd: a white bear
+  10:
+    src_prompt: a girl in red dress standing in a field surrounded by balloons
+    tgt_prompt:
+      default: a girl in red dress standing in a field
+      sd: balloons
+  11:
+    src_prompt: a girl with a backpack and a red coat is standing in front of castles
+    tgt_prompt:
+      default: a girl with a backpack and a red coat is standing
+      sd: castles
+  12:
+    src_prompt: a cartoon character with a backpack
+    tgt_prompt:
+      default: a cartoon character
+      sd: a backpack
+  13:
+    src_prompt: a cartoon woman in a red cloak walking through the woods with bats
+    tgt_prompt:
+      default: a cartoon woman in a red cloak walking through the woods
+      sd: bats
+  14:
+    src_prompt: a cartoon girl sitting by a campfire
+    tgt_prompt:
+      default: a cartoon girl sitting
+      sd: a campfire
+  15:
+    src_prompt: a cartoon of woman is painting a pumpkin with a cat
+    tgt_prompt:
+      default: a cartoon of woman is painting a pumpkin
+      sd: a cat
+  16:
+    src_prompt: an angel with wings standing on the beach at sunset
+    tgt_prompt:
+      default: an angel without wings standing on the beach at sunset
+      sd: wings
+  17:
+    src_prompt: a cartoon boy standing on the edge of a cliff with his arms outstretched with sun in the background
+    tgt_prompt:
+      default: a cartoon boy standing on the edge of a cliff with his arms outstretched
+      sd: sun in the background
+  18:
+    src_prompt: a young woman in sunglasses driving an old car
+    tgt_prompt:
+      default: a young woman driving an old car
+      sd: sunglasses
+  19:
+    src_prompt: a digital art boy with glasses and tie sitting on a laptop
+    tgt_prompt:
+      default: a digital art boy with glasses sitting on a laptop
+      sd: tie
+  20:
+    src_prompt: a cartoon illustration of two plants with faces
+    tgt_prompt:
+      default: a cartoon illustration of two plants
+      sd: faces
+  21:
+    src_prompt: a woman is standing on a ladder and fishing in a bulb in gray dark blue background
+    tgt_prompt:
+      default: a woman is standing on a ladder in gray dark blue background
+      sd: fishing in a bulb
+  22:
+    src_prompt: a birthday cupcake with a lit candle on top
+    tgt_prompt:
+      default: a birthday cupcake
+      sd: a lit candle on top
+  23:
+    src_prompt: a row of colorful chairs and tables outside a restaurant
+    tgt_prompt:
+      default: a row of colorful chairs outside a restaurant
+      sd: tables
+  24:
+    src_prompt: a cat and a plant
+    tgt_prompt:
+      default: a plant
+      sd: a cat
+  25:
+    src_prompt: a blue living room with a blue couch and a blue painting
+    tgt_prompt:
+      default: a blue living room with a blue couch
+      sd: a blue painting
+  26:
+    src_prompt: a painting of an orange chair and a lamp in a living room
+    tgt_prompt:
+      default: a painting of a lamp in a living room
+      sd: an orange chair
+  27:
+    src_prompt: a bird in a cage with a flower on top
+    tgt_prompt:
+      default: a bird in a cage
+      sd: a flower on top
+  28:
+    src_prompt: a smoothie with fruits including strawberries, blueberries and kiwi
+    tgt_prompt:
+      default: a smoothie with fruits including strawberries, blueberries
+      sd: kiwi
+  29:
+    src_prompt: a teddy bear sitting on a box with a rose
+    tgt_prompt:
+      default: a teddy bear sitting on a box
+      sd: a rose
+  30:
+    src_prompt: a house with lightning and rain on it
+    tgt_prompt:
+      default: a house with rain on it
+      sd: lightning
+  31:
+    src_prompt: a girl standing on the withered grass with a red tree
+    tgt_prompt:
+      default: a girl standing on the withered grass
+      sd: a red tree
+  32:
+    src_prompt: an astronaut standing on the water with the moon in the background
+    tgt_prompt:
+      default: an astronaut standing on the water
+      sd: the moon in the background
+  33:
+    src_prompt: two people walking in the rain with umbrellas
+    tgt_prompt:
+      default: two people walking in the rain
+      sd: umbrellas
+  34:
+    src_prompt: a castle in the night with a beautiful sunset
+    tgt_prompt:
+      default: a castle in the night
+      sd: a beautiful sunset
+  35:
+    src_prompt: a painting of a house by the water
+    tgt_prompt:
+      default: a painting of a house
+      sd: by the water
+  36:
+    src_prompt: a lone wolf howling at the moon in the night sky
+    tgt_prompt:
+      default: a lone wolf howling in the night sky
+      sd: the moon
+  37:
+    src_prompt: a painting of a dog in the forest
+    tgt_prompt:
+      default: a painting of the forest
+      sd: a dog
+  38:
+    src_prompt: a big ship in a bottle on the dark ocean
+    tgt_prompt:
+      default: a big ship on the dark ocean
+      sd: in a bottle
+  39:
+    src_prompt: a poster of a bus driving down a road with mountains in the background
+    tgt_prompt:
+      default: a poster of a road with mountains in the background
+      sd: a bus driving down
+  40:
+    src_prompt: a bee flies over a flowering tree branch
+    tgt_prompt:
+      default: a flowering tree branch
+      sd: a bee
+  41:
+    src_prompt: a butterfly and flowers
+    tgt_prompt:
+      default: flowers
+      sd: a butterfly
+  42:
+    src_prompt: a cheetah walking across a grassy field
+    tgt_prompt:
+      default: a cheetah walking across a field
+      sd: grassy
+  43:
+    src_prompt: a kitten playing with balls
+    tgt_prompt:
+      default: a kitten
+      sd: playing with balls
+  44:
+    src_prompt: an older man sitting on a bench with a dog
+    tgt_prompt:
+      default: an older man sitting on a bench
+      sd: a dog
+  45:
+    src_prompt: an elephant walking on the beach with a dark sky
+    tgt_prompt:
+      default: a beach under a dark sky
+      sd: an elephant
+  46:
+    src_prompt: a seal pup on the beach
+    tgt_prompt:
+      default: the beach
+      sd: a seal pup
+  47:
+    src_prompt: a husky dog running on a path in the woods
+    tgt_prompt:
+      default: a path in the woods
+      sd: a husky dog
+  48:
+    src_prompt: a girl and a dog sitting in the forest
+    tgt_prompt:
+      default: a girl sitting in the forest
+      sd: a dog
+  49:
+    src_prompt: a mouse and a leaf on the ground
+    tgt_prompt:
+      default: a mouse on the ground
+      sd: a leaf
+  50:
+    src_prompt: a woman in a trench coat sitting at a table with a cell phone
+    tgt_prompt:
+      default: a woman in a trench coat sitting at a table
+      sd: a cell phone
+  51:
+    src_prompt: a beautiful young woman in a blue dress holding pink flowers
+    tgt_prompt:
+      default: a beautiful young woman in a blue dress
+      sd: pink flowers
+  52:
+    src_prompt: a woman in a purple dress sitting on a swing holding a coconut
+    tgt_prompt:
+      default: a woman in a purple dress sitting on a swing
+      sd: a coconut
+  53:
+    src_prompt: a woman with flowers on head in a pink dress and red skirt is walking on the beach
+    tgt_prompt:
+      default: a woman in a pink dress and red skirt is walking on the beach
+      sd: flowers on head
+  54:
+    src_prompt: a woman with glasses sitting on a stone wall
+    tgt_prompt:
+      default: a woman sitting on a stone wall
+      sd: a pair of glasses
+  55:
+    src_prompt: a woman in sunglasses sitting at a table with a bottles of water
+    tgt_prompt:
+      default: a woman in sunglasses sitting at a table
+      sd: a bottles of water
+  56:
+    src_prompt: a woman holding a rainbow flag
+    tgt_prompt:
+      default: a woman
+      sd: a rainbow flag
+  57:
+    src_prompt: a woman in a wedding dress sitting on a chair with lamp and flowers on the table
+    tgt_prompt:
+      default: a woman in a wedding dress sitting on a chair with flowers on the table
+      sd: a lamp
+  58:
+    src_prompt: a woman with a backpack playing an acoustic guitar on the grass
+    tgt_prompt:
+      default: a woman playing an acoustic guitar on the grass
+      sd: a backpack
+  59:
+    src_prompt: a woman in a traditional chinese dress holding flowers
+    tgt_prompt:
+      default: a woman in a traditional chinese dress
+      sd: flowers
+  60:
+    src_prompt: a cup of coffee on a table with coffee beans and a coffee grinder
+    tgt_prompt:
+      default: a cup of coffee on a table with a coffee grinder
+      sd: coffee beans
+  61:
+    src_prompt: raspberry macarons with mint leaves
+    tgt_prompt:
+      default: raspberry macarons
+      sd: mint leaves
+  62:
+    src_prompt: olive oil being poured into a bowl with olive on table
+    tgt_prompt:
+      default: olive oil being poured into a bowl on table
+      sd: olive
+  63:
+    src_prompt: a pear sitting on a wooden table
+    tgt_prompt:
+      default: a wooden table
+      sd: a pear
+  64:
+    src_prompt: a hand holding a stopwatch with the words 2023 and a graph in the
+      background
+    tgt_prompt:
+      default: a hand holding a stopwatch in the background
+      sd: the words 2023 and a graph
+  65:
+    src_prompt: four eggs with drawings on them are in a nest
+    tgt_prompt:
+      default: three eggs with drawings on them are in a nest
+      sd: an egg
+  66:
+    src_prompt: two purple flowers are on a sheet of music
+    tgt_prompt:
+      default: a sheet of music
+      sd: two purple flowers
+  67:
+    src_prompt: a plate of chicken and broccoli on a black table
+    tgt_prompt:
+      default: a plate of chicken on a black table
+      sd: broccoli
+  68:
+    src_prompt: two cups of coffee with a leaf design on the top, coffee beans
+    tgt_prompt:
+      default: two cups of coffee, coffee beans
+      sd: with a leaf design on the top
+  69:
+    src_prompt: a basket of books and a cup on the table
+    tgt_prompt:
+      default: a basket of books on the table
+      sd: a cup
+  70:
+    src_prompt: a single pink lotus flower is growing in the middle of a large green leaf
+    tgt_prompt:
+      default: a large green leaf
+      sd: a single pink lotus flower
+  71:
+    src_prompt: a large brown sand area with clouds on the sky
+    tgt_prompt:
+      default: a large brown sand area with the sky
+      sd: clouds
+  72:
+    src_prompt: a paraglider is flying over a mountain with snow capped peaks
+    tgt_prompt:
+      default: a mountain with snow capped peaks
+      sd: a paraglider is flying over
+  73:
+    src_prompt: a small mushroom is sitting on top of a pine branch
+    tgt_prompt:
+      default: a pine branch
+      sd: a small mushroom
+  74:
+    src_prompt: rainbow over the ocean
+    tgt_prompt:
+      default: the ocean
+      sd: rainbow
+  75:
+    src_prompt: a lone tree is reflected in the water at night with a bright moon
+    tgt_prompt:
+      default: a lone tree is reflected in the water at night
+      sd: a bright moon
+  76:
+    src_prompt: seagull sits on a wooden dock at sunset
+    tgt_prompt:
+      default: a wooden dock at sunset
+      sd: seagull
+  77:
+    src_prompt: a barn sits in the snow next to trees with gray sky
+    tgt_prompt:
+      default: a barn sits in the snow with gray sky
+      sd: trees
+  78:
+    src_prompt: two boats are docked on the shore of a lake
+    tgt_prompt:
+      default: a lake
+      sd: two boats are docked on the shore
+  79:
+    src_prompt: a church in the countryside with a fence and trees
+    tgt_prompt:
+      default: the countryside with a fence and trees
+      sd: a church
+style:
+  0:
+    src_prompt: a cat and a bunny
+    tgt_prompt: a photo of a cat and a bunny
+  1:
+    src_prompt: a bird standing on tree branch
+    tgt_prompt: a real photo of a bird standing on tree branch
+  2:
+    src_prompt: a colorful cat with bubbles and stars on it
+    tgt_prompt: kids crayon drawing of a colorful cat with bubbles and stars on it
+  3:
+    src_prompt: the wolf is wearing armor and has a crown on his head
+    tgt_prompt: a wall mural of the wolf is wearing armor and has a crown on his head
+  4:
+    src_prompt: an arctic fox in the night sky
+    tgt_prompt: an oil painting of an arctic fox in the night sky
+  5:
+    src_prompt: a painting of a tiger
+    tgt_prompt: a digital art of a tiger
+  6:
+    src_prompt: an illustration of a chicken on a white background
+    tgt_prompt: an anime illustration of a chicken on a white background
+  7:
+    src_prompt: a giraffe sitting down on a white background
+    tgt_prompt: a watercolor giraffe sitting down on a white background
+  8:
+    src_prompt: a teddy bear wearing glasses and a shirt with flowers
+    tgt_prompt: a brush painting of a teddy bear wearing glasses and a shirt with flowers
+  9:
+    src_prompt: a cute little bunny wearing a coat and hat
+    tgt_prompt: a photo of a cute little bunny wearing a coat and hat
+  10:
+    src_prompt: a woman with red paint splatters on her face
+    tgt_prompt: a cartoon woman with red paint splatters on her face
+  11:
+    src_prompt: a clown with colorful hair
+    tgt_prompt: a clown in pixel art style with colorful hair
+  12:
+    src_prompt: a woman in a hood holding a fire
+    tgt_prompt: Chinese watercolor of a woman in a hood holding a fire
+  13:
+    src_prompt: a man with a long beard and a long sword in the forest
+    tgt_prompt: kids crayon drawing of a man with a long beard and a long sword in the forest
+  14:
+    src_prompt: a woman in a green dress walking through an archway
+    tgt_prompt: a wall mural of a woman in a green dress walking through an archway
+  15:
+    src_prompt: a man in a hooded robe stands in the desert
+    tgt_prompt: an oil painting of a man in a hooded robe stands in the desert
+  16:
+    src_prompt: a girl with pink hair and bubbles floating around her
+    tgt_prompt: a black and white sketch of a girl with pink hair and bubbles floating around her
+  17:
+    src_prompt: a woman sitting in the cave with light coming from the light
+    tgt_prompt: a pen and ink sketch of a woman sitting in the cave with light coming from the light
+  18:
+    src_prompt: a woman with flowers in her hair
+    tgt_prompt: a stained glass window of a woman with flowers in her hair
+  19:
+    src_prompt: a woman with red hair and a red dress
+    tgt_prompt: a cartoon woman with red hair and a red dress
+  20:
+    src_prompt: a bird is perched on a branch with blue flowers
+    tgt_prompt: an anime bird is perched on a branch with blue flowers
+  21:
+    src_prompt: retro living room with chair, lamp, bookshelf and table
+    tgt_prompt: a digital art of retro living room with chair, lamp, bookshelf and table
+  22:
+    src_prompt: christmas living room with fireplace, chair, wreath and tree
+    tgt_prompt: a pixel art of christmas living room with fireplace, chair, wreath and tree
+  23:
+    src_prompt: a living room with a couch and a table
+    tgt_prompt: a watercolor of a living room with a couch and a table
+  24:
+    src_prompt: an empty room with wooden floors and a window
+    tgt_prompt: Chinese watercolor of an empty room with wooden floors and a window
+  25:
+    src_prompt: an empty room with a view of the beach
+    tgt_prompt: black and white ink painting of an empty room with a view of the beach
+  26:
+    src_prompt: a desk with a laptop, a plant, and a mouse
+    tgt_prompt: a brush painting of a desk with a laptop, a plant, and a mouse
+  27:
+    src_prompt: a room with a couch and a window looking out to the mountains
+    tgt_prompt: a photo of a room with a couch and a window looking out to the mountains
+  28:
+    src_prompt: a room with windows and potted plants
+    tgt_prompt: an oil painting of a room with windows and potted plants
+  29:
+    src_prompt: a living room with blue walls and a fireplace
+    tgt_prompt: watercolor of a living room with blue walls and a fireplace
+  30:
+    src_prompt: a house floating in the sky over a lake
+    tgt_prompt: a digital art of a house floating in the sky over a lake
+  31:
+    src_prompt: the village in the game, the witcher 3
+    tgt_prompt: watercolor of the village in the game, the witcher 3
+  32:
+    src_prompt: halloween night in the city
+    tgt_prompt: realistic photo of halloween night in the city
+  33:
+    src_prompt: the castle is in the middle of a river at sunset
+    tgt_prompt: a digital art of the castle is in the middle of a river at sunset
+  34:
+    src_prompt: a house by the water with flowers and trees
+    tgt_prompt: watercolor of a house by the water with flowers and trees
+  35:
+    src_prompt: sunset at the rock by james mccormick
+    tgt_prompt: black and white ink painting of sunset at the rock by james mccormick
+  36:
+    src_prompt: an anime painting of a house on a hill
+    tgt_prompt: kids crayon drawing of an anime painting of a house on a hill
+  37:
+    src_prompt: a man is walking down a street in the rain
+    tgt_prompt: a black and white sketch of a man is walking down a street in the rain
+  38:
+    src_prompt: the planet earth is seen in the distance with mountains and desert
+    tgt_prompt: an oil painting of the planet earth is seen in the distance with mountains and desert
+  39:
+    src_prompt: halloween witch flying over a witch house in the night
+    tgt_prompt: a digital art of halloween witch flying over a witch house in the night
+  40:
+    src_prompt: a cat is sitting on a table with a green eyes
+    tgt_prompt: a sketch of a cat is sitting on a table with a green eyes
+  41:
+    src_prompt: a rat is peeking out from behind a pink wall
+    tgt_prompt: a digital art of a rat is peeking out from behind a pink wall
+  42:
+    src_prompt: a kitten wearing armor sits on the ground
+    tgt_prompt: a cartoon kitten wearing armor sits on the ground
+  43:
+    src_prompt: a bernese mountain dog is sitting in the grass
+    tgt_prompt: stained glass window of a bernese mountain dog is sitting in the grass
+  44:
+    src_prompt: a white wolf with black eyes and a black nose
+    tgt_prompt: pen and ink sketch of a white wolf with black eyes and a black nose
+  45:
+    src_prompt: a cat with green eyes looking to the side
+    tgt_prompt: an oil painting of a cat with green eyes looking to the side
+  46:
+    src_prompt: a small bird is standing on the ground
+    tgt_prompt: a wall mural of a small bird is standing on the ground
+  47:
+    src_prompt: a gray cat is sitting on a black basket
+    tgt_prompt: kids crayon drawing of a gray cat is sitting on a black basket
+  48:
+    src_prompt: a white horse running in the field
+    tgt_prompt: watercolor of a white horse running in the field
+  49:
+    src_prompt: a cat is sitting in the grass with flowers
+    tgt_prompt: a digital art of a cat is sitting in the grass with flowers
+  50:
+    src_prompt: a woman in a blue dress leaning against a wall
+    tgt_prompt: a pixel art of a woman in a blue dress leaning against a wall
+  51:
+    src_prompt: two young children holding hands and standing in front of a wooden door
+    tgt_prompt: stained glass window of two young children holding hands and standing in front of a wooden door
+  52:
+    src_prompt: a little girl playing a musical instrument
+    tgt_prompt: an oil painting of a little girl playing a musical instrument
+  53:
+    src_prompt: a young boy with curly hair and blue shirt
+    tgt_prompt: kids crayon drawing of a young boy with curly hair and blue shirt
+  54:
+    src_prompt: a woman in white shorts and a white shirt is jumping in front of a pool
+    tgt_prompt: kids drawing of a woman in white shorts and a white shirt is jumping in front of a pool
+  55:
+    src_prompt: a woman dressed in a golden dress and holding an apple
+    tgt_prompt: digital art of a woman dressed in a golden dress and holding an apple
+  56:
+    src_prompt: a woman in white sitting on a bench with a hat
+    tgt_prompt: cartoon of a woman in white sitting on a bench with a hat
+  57:
+    src_prompt: a little girl sleeping in bed with a stuffed animal
+    tgt_prompt: an oil painting of a little girl sleeping in bed with a stuffed animal
+  58:
+    src_prompt: a woman in sunglasses and leather pants sitting on a bench
+    tgt_prompt: watercolor of a woman in sunglasses and leather pants sitting on a bench
+  59:
+    src_prompt: a young girl with painted hands and face
+    tgt_prompt: black and white sketch of a young girl with painted hands and face
+  60:
+    src_prompt: a white shelf with books and a wooden bookcase
+    tgt_prompt: pixel art of a white shelf with books and a wooden bookcase
+  61:
+    src_prompt: a bed with a quilt on it and a chair
+    tgt_prompt: brush painting of a bed with a quilt on it and a chair
+  62:
+    src_prompt: a dining room with red walls and hardwood floors
+    tgt_prompt: oil painting of a dining room with red walls and hardwood floors
+  63:
+    src_prompt: a modern chair and table in a lobby area
+    tgt_prompt: wall mural of a modern chair and table in a lobby area
+  64:
+    src_prompt: a chair and table in front of a window overlooking a castle
+    tgt_prompt: anime of a chair and table in front of a window overlooking a castle
+  65:
+    src_prompt: a modern bedroom with a bed and a painting on the wall
+    tgt_prompt: pen and ink sketch of a modern bedroom with a bed and a painting on the wall
+  66:
+    src_prompt: a table with two chairs and a bonsai tree
+    tgt_prompt: stained glass window of a table with two chairs and a bonsai tree
+  67:
+    src_prompt: a white desk with a laptop and chair
+    tgt_prompt: chinese painting of a white desk with a laptop and chair
+  68:
+    src_prompt: a gray couch and a lamp sitting on a wooden floor
+    tgt_prompt: digital art of a gray couch and a lamp sitting on a wooden floor
+  69:
+    src_prompt: a chair and a clock on a white wall
+    tgt_prompt: watercolor of a chair and a clock on a white wall
+  70:
+    src_prompt: a large wave crashing on the beach with a cloudy sky
+    tgt_prompt: Chinese watercolor of a large wave crashing on the beach with a cloudy sky
+  71:
+    src_prompt: a lake with mountains in the background
+    tgt_prompt: oil painting of a lake with mountains in the background
+  72:
+    src_prompt: a lake with mountains in the background
+    tgt_prompt: cartoon of a lake with mountains in the background
+  73:
+    src_prompt: wind turbine in the sunset
+    tgt_prompt: pen and ink sketch of wind turbine in the sunset
+  74:
+    src_prompt: a white church sits on a hill in a field
+    tgt_prompt: stained glass window of a white church sits on a hill in a field
+  75:
+    src_prompt: dolomites
+    tgt_prompt: digital art of dolomites
+  76:
+    src_prompt: a picnic table with a bottle of wine and fruit on it
+    tgt_prompt: watercolor of a picnic table with a bottle of wine and fruit on it
+  77:
+    src_prompt: winter in lofoten by johan hansen
+    tgt_prompt: digital art of winter in lofoten by johan hansen
+  78:
+    src_prompt: boats in the water on a sunny day
+    tgt_prompt: wall mural of boats in the water on a sunny day
+  79:
+    src_prompt: a sports car driving down the street
+    tgt_prompt: stained glass window of a sports car driving down the street

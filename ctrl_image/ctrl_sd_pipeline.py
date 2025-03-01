@@ -56,10 +56,10 @@ class CtrlSDPipeline(StableDiffusionPipeline):
         w_src=1.0,
         w_tgt=1.0,
         w_src_ctrl_type: str = "static",
-        w_tgt_ctrl_type: str = "static",
+        w_tgt_ctrl_type: str = "cosine",
         t_ctrl_start: Optional[int] = None,
         ctrl_mode: str = "add",
-        removal_version: int = 1,
+        removal_version: int = 2,
         **kwargs,
     ):
         r"""
