@@ -4,10 +4,10 @@ add:
     tgt_prompt: a dog wearing space suit with flowers in mouth
   1:
     src_prompt: a cat
-    tgt_prompt: a cat with a gold chain and a star on its head
+    tgt_prompt: a cat with a gold chain
   2:
     src_prompt: a bee illustration on a paper
-    tgt_prompt: a bee illustration on a paper with leaves
+    tgt_prompt: a bee illustration on a paper with leaves scattered on it
   3:
     src_prompt: a small dog dressed in armor
     tgt_prompt: a small dog dressed in armor with a hurbat
@@ -248,9 +248,9 @@ rm:
       default: a wathet bird sitting on a branch
       sd: yellow flowers
   1:
-    src_prompt: a cat wearing headphones on a gray background
+    src_prompt: a cat wearing headphones on a couch
     tgt_prompt:
-      default: a cat on a gray background
+      default: a cat on a couch
       sd: headphones
   2:
     src_prompt: a lion in a suit sitting at a table with a laptop
@@ -258,14 +258,14 @@ rm:
       default: a lion in a suit sitting at a table
       sd: a laptop
   3:
-    src_prompt: a brownish grey knitted bunny with three painted eggs
+    src_prompt: a brownish grey knitted bunny with painted eggs
     tgt_prompt:
       default: a brownish grey knitted bunny
-      sd: three painted eggs
+      sd: painted eggs
   4:
-    src_prompt: cartoon of a gray polar bear is standing on an iceberg with a plane flying overhead
+    src_prompt: a gray polar bear is standing on an iceberg with a plane flying overhead
     tgt_prompt:
-      default: cartoon of a gray polar bear is standing on an iceberg
+      default: a gray polar bear is standing on an iceberg
       sd: a plane flying overhead
   5:
     src_prompt: a cute cartoon cat with a chef hat and a pie
@@ -273,10 +273,10 @@ rm:
       default: a cute cartoon cat with a chef hat
       sd: a pie
   6:
-    src_prompt: a Ukiyo-e of seagull flying over the ocean waves with sun rise
+    src_prompt: a Ukiyo-e of seagull flying over the ocean waves with sun rising in background
     tgt_prompt:
       default: a Ukiyo-e of seagull flying over the ocean waves
-      sd: sun rise
+      sd: sun rising in background
   7:
     src_prompt: a rabbit sitting on a hill with trees
     tgt_prompt:
@@ -288,10 +288,10 @@ rm:
       default: a puppy is sitting in a field
       sd: dandelions
   9:
-    src_prompt: two white bears holding a rose
+    src_prompt: a white bear holding a rose
     tgt_prompt:
-      default: one white bears holding a rose
-      sd: a white bear
+      default: a white bear
+      sd: a rose
   10:
     src_prompt: a girl in red dress standing in a field surrounded by balloons
     tgt_prompt:
@@ -338,10 +338,10 @@ rm:
       default: a young woman driving an old car
       sd: sunglasses
   19:
-    src_prompt: a digital art boy with glasses and tie sitting on a laptop
+    src_prompt: a digital art boy with glasses wearing a tie and sitting on a laptop
     tgt_prompt:
-      default: a digital art boy with glasses sitting on a laptop
-      sd: tie
+      default: a digital art boy wearing a tie and sitting on a laptop
+      sd: a pair of glasses
   20:
     src_prompt: a cartoon illustration of two plants with faces
     tgt_prompt:
@@ -408,10 +408,10 @@ rm:
       default: an astronaut standing on the water
       sd: the moon in the background
   33:
-    src_prompt: two people walking in the rain with umbrellas
+    src_prompt: a young girl walking in the rain with an umbrella
     tgt_prompt:
-      default: two people walking in the rain
-      sd: umbrellas
+      default: a young girl walking in the rain
+      sd: an umbrella
   34:
     src_prompt: a castle in the night with a beautiful sunset
     tgt_prompt:
@@ -574,10 +574,10 @@ rm:
       default: three eggs with drawings on them are in a nest
       sd: an egg
   66:
-    src_prompt: two purple flowers are on a sheet of music
+    src_prompt: purple flowers are on a sheet of music
     tgt_prompt:
       default: a sheet of music
-      sd: two purple flowers
+      sd: purple flowers
   67:
     src_prompt: a plate of chicken and broccoli on a black table
     tgt_prompt:
@@ -587,7 +587,7 @@ rm:
     src_prompt: two cups of coffee with a leaf design on the top, coffee beans
     tgt_prompt:
       default: two cups of coffee, coffee beans
-      sd: with a leaf design on the top
+      sd: a leaf design on the top
   69:
     src_prompt: a basket of books and a cup on the table
     tgt_prompt:
