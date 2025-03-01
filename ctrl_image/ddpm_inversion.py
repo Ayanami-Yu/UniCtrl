@@ -1,18 +1,6 @@
 import torch
 from tqdm import tqdm
-
-
-def encode_text(model, prompts):
-    text_input = model.tokenizer(
-        prompts,
-        padding="max_length",
-        max_length=model.tokenizer.model_max_length,
-        truncation=True,
-        return_tensors="pt",
-    )
-    with torch.no_grad():
-        text_encoding = model.text_encoder(text_input.input_ids.to(model.device))[0]
-    return text_encoding
+from ctrl_image.ddim_inversion import encode_text
 
 
 def sample_xts_from_x0(model, x0, num_inference_steps=50):
@@ -100,8 +88,8 @@ def reverse_step(model, model_output, timestep, sample, eta=0, variance_noise=No
     # Compute predicted original sample from predicted noise also called
     # "predicted x_0" of formula (12) from https://arxiv.org/pdf/2010.02502.pdf
     pred_original_sample = (
-        sample - beta_prod_t ** (0.5) * model_output
-    ) / alpha_prod_t ** (0.5)
+        sample - beta_prod_t ** 0.5 * model_output
+    ) / alpha_prod_t ** 0.5
 
     # Compute variance: "sigma_t(η)" -> see formula (16)
     # σ_t = sqrt((1 − α_t−1)/(1 − α_t)) * sqrt(1 − α_t/α_t−1)
@@ -110,16 +98,14 @@ def reverse_step(model, model_output, timestep, sample, eta=0, variance_noise=No
     # Take care of asymetric reverse process (asyrp)
     model_output_direction = model_output
 
-    # Compute "direction pointing to x_t" of formula (12) from https://arxiv.org/pdf/2010.02502.pdf
-
+    # Direction pointing to x_t
     pred_sample_direction = (1 - alpha_prod_t_prev - eta * variance) ** 0.5 * model_output_direction
 
-    # Compute x_t without "random noise" of formula (12) from https://arxiv.org/pdf/2010.02502.pdf
+    # x_t without random noise
     prev_sample = (
         alpha_prod_t_prev ** 0.5 * pred_original_sample + pred_sample_direction
     )
-
-    # Add noice if eta > 0
+    # Add noise if eta > 0
     if eta > 0:
         if variance_noise is None:
             variance_noise = torch.randn(model_output.shape, device=model.device)
@@ -183,18 +169,16 @@ def inversion_forward_process(
         else:
             noise_pred = out.sample
 
+        # Compute noisier image and set x_t -> x_t+1
         if eta_is_zero:
-            # Compute noisier image and set x_t -> x_t+1
             xt = forward_step(model, noise_pred, t, xt)
         else:
             xtm1 = xts[idx].unsqueeze(0)
-            # Predicted x0
-            pred_original_sample = (
+            pred_original_sample = (  # Predicted x0
                 xt - (1 - alpha_bar[t]) ** 0.5 * noise_pred
             ) / alpha_bar[t] ** 0.5
 
-            # Direction to xt
-            prev_timestep = (
+            prev_timestep = (  # Direction to xt
                 t
                 - model.scheduler.config.num_train_timesteps
                 // model.scheduler.num_inference_steps

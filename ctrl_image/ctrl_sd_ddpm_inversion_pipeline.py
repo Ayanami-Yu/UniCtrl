@@ -6,6 +6,7 @@ from torch import autocast, inference_mode
 from ctrl_utils.ctrl_utils import aggregate_noise_pred
 from ctrl_utils.image_utils import load_512
 from .ddpm_inversion import inversion_forward_process, inversion_reverse_process
+from .ddim_inversion import text2image_ldm_stable
 from .pipeline_stable_diffusion import (
     StableDiffusionPipeline,
     rescale_noise_cfg,
@@ -73,6 +74,7 @@ class CtrlSDDDPMInversionPipeline(StableDiffusionPipeline):
             self.scheduler, num_inference_steps, device, timesteps, sigmas
         )
 
+        # Encode image with VAE  # TODO check self.vae.config.scaling_factor
         x0 = load_512(image_path)
         with autocast("cuda"), inference_mode():
             w0 = (self.vae.encode(x0).latent_dist.mode() * 0.18215).float()
@@ -93,18 +95,31 @@ class CtrlSDDDPMInversionPipeline(StableDiffusionPipeline):
         else:
             wT = self.ddim_inversion(w0, prompt_src, cfg_scale_src)
 
-        # Reverse process (via Zs and wT)
-        w0, _ = inversion_reverse_process(
-            self,
-            xT=wts[num_inference_steps - ddpm_inversion_skip],
-            etas=eta,
-            prompts=[prompt_tgt],
-            cfg_scales=[cfg_scale_tgt],
-            prog_bar=True,
-            zs=zs[: (num_inference_steps - ddpm_inversion_skip)],
-        )
-        # TODO
+        if do_ddpm_inversion:  # Reverse process (via Zs and wT)
+            w0, _ = inversion_reverse_process(
+                self,
+                xT=wts[num_inference_steps - ddpm_inversion_skip],
+                etas=eta,
+                prompts=[prompt_tgt],
+                cfg_scales=[cfg_scale_tgt],
+                prog_bar=True,
+                zs=zs[: (num_inference_steps - ddpm_inversion_skip)],
+            )
+        else:  # Perform DDIM Inversion
+            prompts = [prompt_src, prompt_tgt]
+            cfg_scale_list = [cfg_scale_src, cfg_scale_tgt]
+            w0, latent = text2image_ldm_stable(
+                self,
+                prompts,
+                num_inference_steps,
+                cfg_scale_list,  # FIXME list or just one float
+                latent=wT,
+            )
+            w0 = w0[1:2]
 
+        # Decode image with VAE
+        with autocast("cuda"), inference_mode():
+            x0_dec = self.vae.decode(1 / 0.18215 * w0).sample
 
         # Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
@@ -122,7 +137,7 @@ class CtrlSDDDPMInversionPipeline(StableDiffusionPipeline):
             negative_prompt_embeds,
         )
 
-        self._guidance_scale = guidance_scale
+        # self._guidance_scale = guidance_scale
         self._guidance_rescale = guidance_rescale
         self._clip_skip = clip_skip
         self._cross_attention_kwargs = cross_attention_kwargs
@@ -288,15 +303,3 @@ class CtrlSDDDPMInversionPipeline(StableDiffusionPipeline):
 
         # TODO when do_direct_inversion is False return only one image
         return image
-    
-    @torch.no_grad()
-    def ddim_inversion(self, w0, prompt, cfg_scale):
-        text_embedding = encode_text(model, prompt)
-        uncond_embedding = encode_text(model, "")
-        context = torch.cat([uncond_embedding, text_embedding])
-        latent = w0.clone().detach()
-        for i in tqdm(range(model.scheduler.num_inference_steps)):
-            t = model.scheduler.timesteps[len(model.scheduler.timesteps) - i - 1]
-            noise_pred = get_noise_pred(model, latent, t, context, cfg_scale)
-            latent = next_step(model, noise_pred, t, latent)
-        return latent

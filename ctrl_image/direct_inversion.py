@@ -104,10 +104,10 @@ class DirectInversion:
     @torch.no_grad()
     def ddim_loop(self, latent):
         _, cond_embeddings = self.context.chunk(2)
-        cond_embeddings = cond_embeddings[[0]]  # source prompt
+        cond_embeddings = cond_embeddings[[0]]  # Source prompt
         all_latent = [latent]
         latent = latent.clone().detach()
-        for i in range(self.num_ddim_steps):  # timestep increases
+        for i in range(self.num_ddim_steps):  # Timestep increases
             t = self.scheduler.timesteps[len(self.scheduler.timesteps) - i - 1]
             noise_pred = self.get_noise_pred_single(latent, t, cond_embeddings)
             latent = self.next_step(noise_pred, t, latent)

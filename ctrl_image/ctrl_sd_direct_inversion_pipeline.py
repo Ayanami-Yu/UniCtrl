@@ -214,7 +214,6 @@ class CtrlSDDirectInversionPipeline(StableDiffusionPipeline):
                                 ),
                                 dim=0,
                             )
-                        # FIXME when scale is 1.0 results don't change when w2 changes
                         noise_pred = (
                             noise_pred_uncond + self.guidance_scale * aggregated_noise
                         )

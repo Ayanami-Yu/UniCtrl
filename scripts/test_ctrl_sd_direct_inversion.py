@@ -8,7 +8,7 @@ from ctrl_utils.image_utils import image_grid
 
 
 image_path = "metrics/images/src/default/add/dog_soccer_1.0_0.0.png"
-out_dir = "exp/sd/real/dog_soccer"
+out_dir = "exp/sd/direct_inv/dog_soccer"
 
 mode = "add"
 src_start, src_inc, src_n = (1.0, 0.1, 1)
