@@ -138,7 +138,7 @@ def inversion_forward_process(
     if etas is None or (type(etas) in [int, float] and etas == 0):
         eta_is_zero = True
         zs = None
-    else:
+    else:  # TODO unused
         eta_is_zero = False
         if type(etas) in [int, float]:
             etas = [etas] * model.scheduler.num_inference_steps
@@ -151,15 +151,15 @@ def inversion_forward_process(
     op = tqdm(timesteps) if prog_bar else timesteps
     for t in op:
         idx = num_inference_steps - t_to_idx[int(t)] - 1
-        # Predict noise residual
-        if not eta_is_zero:
+        
+        if not eta_is_zero:  # TODO unused
             xt = xts[idx + 1].unsqueeze(0)
-
+        # Predict noise residual
         with torch.no_grad():
             out = model.unet.forward(
                 xt, timestep=t, encoder_hidden_states=uncond_embedding
             )
-            if not prompt == "":
+            if not prompt == "":  # TODO combine into one forward pass
                 cond_out = model.unet.forward(
                     xt, timestep=t, encoder_hidden_states=text_embeddings
                 )

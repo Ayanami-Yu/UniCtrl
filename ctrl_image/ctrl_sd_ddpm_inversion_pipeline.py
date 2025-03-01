@@ -74,16 +74,18 @@ class CtrlSDDDPMInversionPipeline(StableDiffusionPipeline):
             self.scheduler, num_inference_steps, device, timesteps, sigmas
         )
 
-        # Encode image with VAE  # TODO check self.vae.config.scaling_factor
+        # Encode image with VAE
         x0 = load_512(image_path)
+        x0 = torch.from_numpy(x0).float() / 127.5 - 1
+        x0 = x0.permute(2, 0, 1).unsqueeze(0).to(device)
         with autocast("cuda"), inference_mode():
-            w0 = (self.vae.encode(x0).latent_dist.mode() * 0.18215).float()
+            w0 = (self.vae.encode(x0).latent_dist.mode() * self.vae.config.scaling_factor).float()
 
         # Perform inversion
         # Find Zs and wts - forward process
         prompt_src, prompt_tgt = prompt[0], prompt[1]
         if do_ddpm_inversion:
-            wt, zs, wts = inversion_forward_process(
+            _, zs, wts = inversion_forward_process(
                 self,
                 w0,
                 etas=eta,
@@ -119,7 +121,7 @@ class CtrlSDDDPMInversionPipeline(StableDiffusionPipeline):
 
         # Decode image with VAE
         with autocast("cuda"), inference_mode():
-            x0_dec = self.vae.decode(1 / 0.18215 * w0).sample
+            x0_dec = self.vae.decode(1 / self.vae.config.scaling_factor * w0).sample
 
         # Default height and width to unet
         height = height or self.unet.config.sample_size * self.vae_scale_factor
