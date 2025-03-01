@@ -646,10 +646,10 @@ rm:
 style:
   0:
     src_prompt: a cat and a bunny
-    tgt_prompt: a photo of a cat and a bunny
+    tgt_prompt: a cat and a bunny in Pablo Picasso's style
   1:
     src_prompt: a bird standing on tree branch
-    tgt_prompt: a real photo of a bird standing on tree branch
+    tgt_prompt: a bird standing on tree branch, pop art
   2:
     src_prompt: a colorful cat with bubbles and stars on it
     tgt_prompt: kids crayon drawing of a colorful cat with bubbles and stars on it
@@ -661,7 +661,7 @@ style:
     tgt_prompt: an oil painting of an arctic fox in the night sky
   5:
     src_prompt: a painting of a tiger
-    tgt_prompt: a digital art of a tiger
+    tgt_prompt: a painting of a tiger, cyberpunk style
   6:
     src_prompt: an illustration of a chicken on a white background
     tgt_prompt: an anime illustration of a chicken on a white background
@@ -673,7 +673,7 @@ style:
     tgt_prompt: a brush painting of a teddy bear wearing glasses and a shirt with flowers
   9:
     src_prompt: a cute little bunny wearing a coat and hat
-    tgt_prompt: a photo of a cute little bunny wearing a coat and hat
+    tgt_prompt: a cute little bunny wearing a coat and hat, Baroque style
   10:
     src_prompt: a woman with red paint splatters on her face
     tgt_prompt: a cartoon woman with red paint splatters on her face
@@ -703,13 +703,13 @@ style:
     tgt_prompt: a stained glass window of a woman with flowers in her hair
   19:
     src_prompt: a woman with red hair and a red dress
-    tgt_prompt: a cartoon woman with red hair and a red dress
+    tgt_prompt: a woman with red hair and a red dress, post-impressionism style
   20:
     src_prompt: a bird is perched on a branch with blue flowers
-    tgt_prompt: an anime bird is perched on a branch with blue flowers
+    tgt_prompt: a bird is perched on a branch with blue flowers, animated style
   21:
     src_prompt: retro living room with chair, lamp, bookshelf and table
-    tgt_prompt: a digital art of retro living room with chair, lamp, bookshelf and table
+    tgt_prompt: retro living room with chair, lamp, bookshelf and table, surrealism style
   22:
     src_prompt: christmas living room with fireplace, chair, wreath and tree
     tgt_prompt: a pixel art of christmas living room with fireplace, chair, wreath and tree
@@ -721,13 +721,13 @@ style:
     tgt_prompt: Chinese watercolor of an empty room with wooden floors and a window
   25:
     src_prompt: an empty room with a view of the beach
-    tgt_prompt: black and white ink painting of an empty room with a view of the beach
+    tgt_prompt: an empty room with a view of the beach, abstract expressionism style
   26:
     src_prompt: a desk with a laptop, a plant, and a mouse
     tgt_prompt: a brush painting of a desk with a laptop, a plant, and a mouse
   27:
     src_prompt: a room with a couch and a window looking out to the mountains
-    tgt_prompt: a photo of a room with a couch and a window looking out to the mountains
+    tgt_prompt: a room with a couch and a window looking out to the mountains, Van Gogh style
   28:
     src_prompt: a room with windows and potted plants
     tgt_prompt: an oil painting of a room with windows and potted plants

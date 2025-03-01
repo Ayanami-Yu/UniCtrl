@@ -20,11 +20,11 @@ out_dir = "exp/sd/pie"
 yaml_path = "docs/pie_prompts.yaml"
 
 # set parameters
-seed = 0
-device_idx = 4
+seed = 498119205
+device_idx = 7
 
 modes = ["rm"]  # available modes: add, rm, style
-w_tgt_ctrl_type = "static"
+w_tgt_ctrl_type = "cosine"
 
 # prepare for generation
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
