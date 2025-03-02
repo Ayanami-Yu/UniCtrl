@@ -22,7 +22,7 @@ add:
     tgt_prompt: a sheep with pink hair standing on a blue background with flowers around
   7:
     src_prompt: a digital art of charcoal grey little squirrel sitting on top of books
-    tgt_prompt: a digital art of charcoal grey little squirrel sitting on top of books holding pens
+    tgt_prompt: a digital art of charcoal grey little squirrel sitting on top of books and holding a pen
   8:
     src_prompt: a cartoon painting of rabbit sitting on the ground in a field
     tgt_prompt: a cartoon painting of rabbit sitting on the ground in a field with flowers
@@ -462,9 +462,9 @@ rm:
       default: a kitten
       sd: balls
   44:
-    src_prompt: an olde man sitting on a bench with a dog
+    src_prompt: an old man sitting on a bench with a dog
     tgt_prompt:
-      default: an olde man sitting on a bench
+      default: an old man sitting on a bench
       sd: a dog
   45:
     src_prompt: an elephant walking on the beach with a dark sky
@@ -737,10 +737,10 @@ style:
     tgt_prompt: a digital art of a house floating in the sky over a lake
   31:
     src_prompt: the village in the game, the witcher 3
-    tgt_prompt: watercolor of the village in the game, the witcher 3
+    tgt_prompt: watercolor painting of the village in the game, the witcher 3
   32:
     src_prompt: halloween night in the city
-    tgt_prompt: realistic photo of halloween night in the city
+    tgt_prompt: halloween night in the city, cyberpunk style
   33:
     src_prompt: the castle is in the middle of a river at sunset
     tgt_prompt: a digital art of the castle is in the middle of a river at sunset
@@ -784,8 +784,8 @@ style:
     src_prompt: a small bird is standing on the ground
     tgt_prompt: a wall mural of a small bird is standing on the ground
   47:
-    src_prompt: a gray cat is sitting on a black basket
-    tgt_prompt: kids crayon drawing of a gray cat is sitting on a black basket
+    src_prompt: a gray cat sitting on a black basket
+    tgt_prompt: kids crayon drawing of a gray cat sitting on a black basket
   48:
     src_prompt: a white horse running in the field
     tgt_prompt: watercolor of a white horse running in the field

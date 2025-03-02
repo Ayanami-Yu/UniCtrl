@@ -20,10 +20,10 @@ out_dir = "exp/sd/pie"
 yaml_path = "pie_prompts_modified.yaml"
 
 # set parameters
-seed = 939471538
-device_idx = 3
+seed = 206096096
+device_idx = 7
 
-modes = ["rm"]  # available modes: add, rm, style
+modes = ["style"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "cosine"
 
 # prepare for generation
