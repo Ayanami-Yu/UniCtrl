@@ -63,6 +63,8 @@ for mode in modes:
             tgt_start, tgt_inc, tgt_n = (
                 (-1.0, 0.05, 44) if w_tgt_ctrl_type == "static" else (-1.0, 0.1, 36)
             )
+        elif mode == "add" and w_tgt_ctrl_type == "static":
+            tgt_start, tgt_inc, tgt_n = (0.0, 0.05, 44)
         else:
             tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 33)
 
