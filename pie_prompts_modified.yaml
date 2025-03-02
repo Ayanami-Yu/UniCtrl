@@ -252,9 +252,9 @@ rm:
       default: a cat on a couch
       sd: headphones
   2:
-    src_prompt: a lion in a suit sitting at a table with a laptop
+    src_prompt: a lion in a suit sitting at a table with a laptop, animated style
     tgt_prompt:
-      default: a lion in a suit sitting at a table
+      default: a lion in a suit sitting at a table, animted style
       sd: a laptop
   3:
     src_prompt: a brownish grey knitted bunny with painted eggs
@@ -265,7 +265,7 @@ rm:
     src_prompt: a gray polar bear is standing on an iceberg with a plane flying overhead
     tgt_prompt:
       default: a gray polar bear is standing on an iceberg
-      sd: a plane flying overhead
+      sd: a plane
   5:
     src_prompt: a cute cartoon cat with a chef hat and a pie
     tgt_prompt:
@@ -292,15 +292,15 @@ rm:
       default: a white bear
       sd: a rose
   10:
-    src_prompt: a girl in red dress standing in a field surrounded by balloons
+    src_prompt: a cinematic photo of a girl in red dress standing in a field surrounded by balloons
     tgt_prompt:
-      default: a girl in red dress standing in a field
+      default: a cinematic photo of a girl in red dress standing in a field
       sd: balloons
   11:
     src_prompt: a girl with a backpack and a red coat is standing in front of castles
     tgt_prompt:
-      default: a girl with a backpack and a red coat is standing
-      sd: castles
+      default: a girl with a red coat is standing in front of castles
+      sd: a backpack
   12:
     src_prompt: a cartoon character with a backpack
     tgt_prompt:
@@ -317,9 +317,9 @@ rm:
       default: a cartoon girl sitting
       sd: a campfire
   15:
-    src_prompt: a cartoon of woman is painting a pumpkin with a cat
+    src_prompt: a cartoon of a woman painting a pumpkin, with a cat sitting next to her
     tgt_prompt:
-      default: a cartoon of woman is painting a pumpkin
+      default: a cartoon of a woman painting a pumpkin
       sd: a cat
   16:
     src_prompt: an angel with wings standing on the beach at sunset
@@ -332,25 +332,25 @@ rm:
       default: a cartoon boy standing on the edge of a cliff with his arms outstretched
       sd: sun in the background
   18:
-    src_prompt: a young woman in sunglasses driving an old car
+    src_prompt: a young woman in sunglasses driving an old car, facing the camera
     tgt_prompt:
-      default: a young woman driving an old car
-      sd: sunglasses
+      default: a young woman driving an old car, facing the camera
+      sd: a pair of sunglasses
   19:
-    src_prompt: a digital art boy with glasses wearing a tie and sitting on a laptop
+    src_prompt: a boy with glasses wearing a tie and looking at a computer, digital art
     tgt_prompt:
-      default: a digital art boy wearing a tie and sitting on a laptop
-      sd: a pair of glasses
+      default: a boy with glasses looking at a computer, digital art
+      sd: a tie
   20:
     src_prompt: a cartoon illustration of two plants with faces
     tgt_prompt:
       default: a cartoon illustration of two plants
       sd: faces
   21:
-    src_prompt: a woman is standing on a ladder and fishing in a bulb in gray dark blue background
+    src_prompt: a woman is standing on a ladder and fishing in gray dark blue background
     tgt_prompt:
       default: a woman is standing on a ladder in gray dark blue background
-      sd: fishing in a bulb
+      sd: fishing
   22:
     src_prompt: a birthday cupcake with a lit candle on top
     tgt_prompt:
@@ -372,19 +372,19 @@ rm:
       default: a blue living room with a blue couch
       sd: a blue painting
   26:
-    src_prompt: a painting of an orange chair and a lamp in a living room
+    src_prompt: a photo of an orange chair and a lamp in a living room
     tgt_prompt:
-      default: a painting of a lamp in a living room
-      sd: an orange chair
+      default: a photo of an orange chair in a living room
+      sd: a lamp
   27:
     src_prompt: a bird in a cage with a flower on top
     tgt_prompt:
       default: a bird in a cage
       sd: a flower on top
   28:
-    src_prompt: a smoothie with fruits including strawberries, blueberries and kiwi
+    src_prompt: a photo of a smoothie with fruits including strawberries, blueberries and kiwi
     tgt_prompt:
-      default: a smoothie with fruits including strawberries, blueberries
+      default: a photo of a smoothie with fruits including strawberries, blueberries
       sd: kiwi
   29:
     src_prompt: a teddy bear sitting on a box with a rose
@@ -394,13 +394,13 @@ rm:
   30:
     src_prompt: a house with lightning and rain on it
     tgt_prompt:
-      default: a house with rain on it
-      sd: lightning
+      default: a house
+      sd: lightning and rain
   31:
-    src_prompt: a girl standing on the withered grass with a red tree
+    src_prompt: photography work of a girl standing on the withered grass with mountains in background
     tgt_prompt:
-      default: a girl standing on the withered grass
-      sd: a red tree
+      default: photography work of a girl standing on the withered grass
+      sd: mountains in background
   32:
     src_prompt: an astronaut standing on the water with the moon in the background
     tgt_prompt:
@@ -417,10 +417,10 @@ rm:
       default: a castle in the night
       sd: a beautiful sunset
   35:
-    src_prompt: a painting of a house by the water
+    src_prompt: cinematic photo of a house by lake
     tgt_prompt:
-      default: a painting of a house
-      sd: by the water
+      default: cinematic photo of a house
+      sd: lake
   36:
     src_prompt: a lone wolf howling at the moon in the night sky
     tgt_prompt:
@@ -432,15 +432,15 @@ rm:
       default: a painting of the forest
       sd: a dog
   38:
-    src_prompt: a big ship in a bottle on the dark ocean
+    src_prompt: a big ship with a flag fluttering on its mast on the dark ocean
     tgt_prompt:
-      default: a big ship on the dark ocean
-      sd: in a bottle
+      default: a big ship with mast on the dark ocean
+      sd: a flag
   39:
     src_prompt: a poster of a bus driving down a road with mountains in the background
     tgt_prompt:
       default: a poster of a road with mountains in the background
-      sd: a bus driving down
+      sd: a bus
   40:
     src_prompt: a bee flies over a flowering tree branch
     tgt_prompt:
@@ -460,11 +460,11 @@ rm:
     src_prompt: a kitten playing with balls
     tgt_prompt:
       default: a kitten
-      sd: playing with balls
+      sd: balls
   44:
-    src_prompt: an older man sitting on a bench with a dog
+    src_prompt: an olde man sitting on a bench with a dog
     tgt_prompt:
-      default: an older man sitting on a bench
+      default: an olde man sitting on a bench
       sd: a dog
   45:
     src_prompt: an elephant walking on the beach with a dark sky
@@ -475,16 +475,16 @@ rm:
     src_prompt: a seal pup on the beach
     tgt_prompt:
       default: the beach
-      sd: a seal pup
+      sd: a seal
   47:
     src_prompt: a husky dog running on a path in the woods
     tgt_prompt:
       default: a path in the woods
       sd: a husky dog
   48:
-    src_prompt: a girl and a dog sitting in the forest
+    src_prompt: a girl and a dog sitting in the forest, anime
     tgt_prompt:
-      default: a girl sitting in the forest
+      default: a girl sitting in the forest, anime
       sd: a dog
   49:
     src_prompt: a mouse and a leaf on the ground
@@ -507,14 +507,14 @@ rm:
       default: a woman in a purple dress sitting on a swing
       sd: a coconut
   53:
-    src_prompt: a woman with flowers on head in a pink dress and red skirt is walking on the beach
+    src_prompt: a woman with flowers on head in a pink dress is walking on the beach
     tgt_prompt:
-      default: a woman in a pink dress and red skirt is walking on the beach
-      sd: flowers on head
+      default: a woman in a pink dress is walking on the beach
+      sd: flowers
   54:
-    src_prompt: a woman with glasses sitting on a stone wall
+    src_prompt: cinematic photo of a woman with glasses sitting on a stone wall
     tgt_prompt:
-      default: a woman sitting on a stone wall
+      default: cinematic photo of a woman sitting on a stone wall
       sd: a pair of glasses
   55:
     src_prompt: a woman in sunglasses sitting at a table with a bottles of water
@@ -527,29 +527,29 @@ rm:
       default: a woman
       sd: a rainbow flag
   57:
-    src_prompt: a woman in a wedding dress sitting on a chair with lamp and flowers on the table
+    src_prompt: photography work of a woman in a wedding dress sitting on a chair with flowers on the table
     tgt_prompt:
-      default: a woman in a wedding dress sitting on a chair with flowers on the table
-      sd: a lamp
+      default: photography work of a woman in a wedding dress sitting on a chair with flowers on the table
+      sd: flowers
   58:
     src_prompt: a woman with a backpack playing an acoustic guitar on the grass
     tgt_prompt:
       default: a woman playing an acoustic guitar on the grass
       sd: a backpack
   59:
-    src_prompt: a woman in a traditional chinese dress holding flowers
+    src_prompt: a woman in a traditional dress holding flowers
     tgt_prompt:
-      default: a woman in a traditional chinese dress
+      default: a woman in a traditional dress
       sd: flowers
   60:
-    src_prompt: a cup of coffee on a table with coffee beans and a coffee grinder
+    src_prompt: a cup of coffee and a coffee grinder on table, side view
     tgt_prompt:
-      default: a cup of coffee on a table with a coffee grinder
-      sd: coffee beans
+      default: a coffee grinder on table, side view
+      sd: a cup of coffee
   61:
-    src_prompt: raspberry macarons with mint leaves
+    src_prompt: a plate of raspberry macarons decorated with mint leaves
     tgt_prompt:
-      default: raspberry macarons
+      default: a plate of raspberry macarons
       sd: mint leaves
   62:
     src_prompt: olive oil being poured into a bowl with olive on table
@@ -562,16 +562,15 @@ rm:
       default: a wooden table
       sd: a pear
   64:
-    src_prompt: a hand holding a stopwatch with the words 2023 and a graph in the
-      background
+    src_prompt: close-up of a girl holding a stopwatch
     tgt_prompt:
-      default: a hand holding a stopwatch in the background
-      sd: the words 2023 and a graph
+      default: close-up of a girl
+      sd: a stopwatch
   65:
-    src_prompt: four eggs with drawings on them are in a nest
+    src_prompt: eggs with drawings on them are in a nest
     tgt_prompt:
-      default: three eggs with drawings on them are in a nest
-      sd: an egg
+      default: a nest
+      sd: eggs
   66:
     src_prompt: purple flowers are on a sheet of music
     tgt_prompt:
@@ -596,17 +595,17 @@ rm:
     src_prompt: a single pink lotus flower is growing in the middle of a large green leaf
     tgt_prompt:
       default: a large green leaf
-      sd: a single pink lotus flower
+      sd: a lotus flower
   71:
-    src_prompt: a large brown sand area with clouds on the sky
+    src_prompt: a large brown sand area with clouds in the sky
     tgt_prompt:
-      default: a large brown sand area with the sky
+      default: a large brown sand area
       sd: clouds
   72:
     src_prompt: a paraglider is flying over a mountain with snow capped peaks
     tgt_prompt:
       default: a mountain with snow capped peaks
-      sd: a paraglider is flying over
+      sd: a paraglider
   73:
     src_prompt: a small mushroom is sitting on top of a pine branch
     tgt_prompt:
@@ -618,10 +617,10 @@ rm:
       default: the ocean
       sd: rainbow
   75:
-    src_prompt: a lone tree is reflected in the water at night with a bright moon
+    src_prompt: a lone tree is reflected in the water with a bright moon in background
     tgt_prompt:
-      default: a lone tree is reflected in the water at night
-      sd: a bright moon
+      default: a lone tree is reflected in the water
+      sd: a bright moon in background
   76:
     src_prompt: seagull sits on a wooden dock at sunset
     tgt_prompt:
@@ -635,13 +634,13 @@ rm:
   78:
     src_prompt: two boats are docked on the shore of a lake
     tgt_prompt:
-      default: a lake
-      sd: two boats are docked on the shore
+      default: the shore of a lake
+      sd: boats
   79:
-    src_prompt: a church in the countryside with a fence and trees
+    src_prompt: a church in the countryside surrounded by fences
     tgt_prompt:
-      default: the countryside with a fence and trees
-      sd: a church
+      default: a church in the countryside
+      sd: fences
 style:
   0:
     src_prompt: a cat and a bunny
