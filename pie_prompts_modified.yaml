@@ -37,7 +37,7 @@ add:
     tgt_prompt: a man with blue eyes and black hair and tattoo
   12:
     src_prompt: a pink cartoon girl surrounded by flowers
-    tgt_prompt: a pink cartoon girl with a graffiti on her face surrounded by flowers
+    tgt_prompt: a pink cartoon girl wearing a hat and surrounded by flowers
   13:
     src_prompt: an Asian woman with blue thick-lashed eyes and black hair
     tgt_prompt: an Asian woman with blue thick-lashed eyes and flowers on her black hair
@@ -66,8 +66,8 @@ add:
     src_prompt: a cup of coffee and a notebook on a checkered tablecloth
     tgt_prompt: a cup of coffee and a notebook on a checkered tablecloth with a pen
   22:
-    src_prompt: paper art
-    tgt_prompt: paper art and kids
+    src_prompt: paper plane on table
+    tgt_prompt: paper art and real flowers on table
   23:
     src_prompt: notebook, pencil, glasses, camera on a map
     tgt_prompt: notebook, pencil, glasses, camera and coffee on a map
@@ -106,7 +106,7 @@ add:
     tgt_prompt: a painting of two people walking down a path following a car in a field
   35:
     src_prompt: the witcher 3, fantasy art
-    tgt_prompt: the witcher 3 with a small wizard, fantasy art
+    tgt_prompt: the witcher 3 with a dragon flying above, fantasy art
   36:
     src_prompt: elephant in the forest
     tgt_prompt: elephant in the forest and a man riding it
@@ -169,7 +169,7 @@ add:
     tgt_prompt: man standing on top of a hill with black turban
   56:
     src_prompt: a woman in a brown jacket and jeans
-    tgt_prompt: a woman in a black jacket and jeans
+    tgt_prompt: a woman in a brown jacket and jeans holding a handbag
   57:
     src_prompt: a woman in dress and stockings leaning against a wall
     tgt_prompt: a woman in dress and stockings leaning against a wall hanging paintings
@@ -177,8 +177,8 @@ add:
     src_prompt: a woman with her hands on her face
     tgt_prompt: a woman with her hands on her face wearing exaggerated hair band
   59:
-    src_prompt: portrait of a farmer in black and white
-    tgt_prompt: portrait of a farmer in black and white with hinge hangs around his neck
+    src_prompt: portrait of a girl on stage, anime
+    tgt_prompt: portrait of a girl singing into the microphone on stage, anime
   60:
     src_prompt: a man reading books in front of a wall
     tgt_prompt: a man reading books in front of a wall with a painting of a heart
@@ -192,8 +192,8 @@ add:
     src_prompt: a white vase with purple tulips on a pink background
     tgt_prompt: a cat and a white vase with purple tulips on a pink background
   64:
-    src_prompt: two wooden chess pieces on a white background
-    tgt_prompt: two wooden chess pieces on a white background with chessboard
+    src_prompt: wooden chess pieces on a white background
+    tgt_prompt: wooden chess pieces on a chessboard on a white background
   65:
     src_prompt: orange and daisy
     tgt_prompt: orange and daisy and glass of water
@@ -225,11 +225,11 @@ add:
     src_prompt: a beautiful garden
     tgt_prompt: a beautiful garden with balloons
   75:
-    src_prompt: Two tents in the desert
-    tgt_prompt: Two tents and a cockroach in the desert
+    src_prompt: a tent in the desert
+    tgt_prompt: a tent in the desert, with a camel standing next to it
   76:
     src_prompt: a beach with waves and a blue sky
-    tgt_prompt: a beach with waves and a blue sky and surfer and sharks
+    tgt_prompt: a crowded beach with waves and a blue sky
   77:
     src_prompt: clouds in the sky
     tgt_prompt: clouds in the sky with stars

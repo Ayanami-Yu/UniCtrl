@@ -17,11 +17,11 @@ from metrics.clip_utils import DirectionalSimilarity
 
 # set input and output paths
 out_dir = "exp/sd/pie"
-yaml_path = "docs/pie_prompts.yaml"
+yaml_path = "pie_prompts_modified.yaml"
 
 # set parameters
-seed = 498119205
-device_idx = 7
+seed = 939471538
+device_idx = 3
 
 modes = ["rm"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "cosine"
@@ -61,7 +61,7 @@ for mode in modes:
         src_start, src_inc, src_n = (1.0, 0.1, 1)
         if mode == "rm":
             tgt_start, tgt_inc, tgt_n = (
-                (-1.0, 0.05, 44) if w_tgt_ctrl_type == "static" else (-1.0, 0.1, 33)
+                (-1.0, 0.05, 44) if w_tgt_ctrl_type == "static" else (-1.0, 0.1, 36)
             )
         else:
             tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 33)
