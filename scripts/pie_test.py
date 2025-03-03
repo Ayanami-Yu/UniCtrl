@@ -76,7 +76,9 @@ for mode in modes:
             case["tgt_prompt"]["sd"] if mode == "rm" else case["tgt_prompt"],
         ]
         cur_dir = os.path.join(
-            out_dir, f"{mode}_{w_tgt_ctrl_type}_seed_{seed}", prompts[0] + " | " + prompts[1]
+            out_dir,
+            f"{mode}_{w_tgt_ctrl_type}_seed_{seed}",
+            prompts[0] + " | " + prompts[1],
         )
         os.makedirs(cur_dir, exist_ok=True)
 
