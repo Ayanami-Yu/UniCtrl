@@ -48,7 +48,7 @@ if modality == "image":
     ]
     src_prompts = [data["src_prompt"] for data in dataset[mode].values()]
     if mode == "add":
-        tgt_prompts = [data["tgt_prompt"] for data in dataset[mode].values()]
+        tgt_prompts = [data["tgt_prompt"]["default"] for data in dataset[mode].values()]
     else:
         tgt_prompts = [data["tgt_prompt"]["default"] for data in dataset[mode].values()]
 elif modality == "video":

@@ -47,7 +47,7 @@ for img_name in os.listdir(res_path):
     ]
 
     # save the images to target directory
-    mid_dirs = ["default", "sd"]
+    mid_dirs = ["default", "change"]
     img_save_paths = [
         f"metrics/images/{fields[i]}/{mid_dirs[i]}/{conf['ctrl_mode']}/{img_name}_{extracted[i]}.png"
         for i in range(2)
@@ -59,14 +59,10 @@ for img_name in os.listdir(res_path):
     content[conf['ctrl_mode']][img_name] = {
         "seed": conf['seed'],
         "src_prompt": conf['prompts'][0],
-        "tgt_prompt": (
-            {
-                "default": "",
-                "sd": conf['prompts'][1],
-            }
-            if conf['ctrl_mode'] == "rm"
-            else conf['prompts'][1]
-        ),
+        "tgt_prompt": {
+            "default": "",
+            "change": conf['prompts'][1],
+        },
         "src_image": {
             "default": img_save_paths[0],
             "sega": "",

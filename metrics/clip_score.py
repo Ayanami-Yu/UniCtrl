@@ -27,10 +27,10 @@ with open(config_file) as f:
 if modality == "image":
     images = [read_image(data["tgt_image"][model]) for data in dataset[mode].values()]
     if mode == "add":
-        prompts = [data["tgt_prompt"] for data in dataset[mode].values()]
+        prompts = [data["tgt_prompt"]["default"] for data in dataset[mode].values()]
     else:
         # NOTE CLIPinv measures similarity between removed concepts and edited images
-        prompts = [data["tgt_prompt"]["sd"] for data in dataset[mode].values()]
+        prompts = [data["tgt_prompt"]["change"] for data in dataset[mode].values()]
 elif modality == "video":
     # NOTE We haven't measured temporal consistency as it's not strongly
     # related to the scope of our research.
