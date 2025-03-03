@@ -7,7 +7,7 @@ add:
     src_prompt: a small brown bird sitting on top of a pine tree
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/birds_pine.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -100,7 +100,7 @@ add:
     src_prompt: a dog looking at the camera
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/dog_collar.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -130,7 +130,7 @@ add:
     src_prompt: a round painting of a forest with trees
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/forest_deer.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -145,7 +145,7 @@ add:
     src_prompt: a grassy hillside with mountains in the background
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/hillside_goat.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -177,7 +177,7 @@ add:
     src_prompt: a black skin man with a tree head and branches on his face
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/man_eyes_closed.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -208,7 +208,7 @@ add:
     src_prompt: a man reading books in front of a wall
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/man_read_heart.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -270,7 +270,7 @@ add:
     src_prompt: a digital art of charcoal grey little squirrel sitting on top of books
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/squirrel_pen.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -317,7 +317,7 @@ add:
     src_prompt: a digital art of a brown hair woman
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/woman_butterfly.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -332,7 +332,7 @@ add:
     src_prompt: a woman with dark hair
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/woman_earrings.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -347,7 +347,7 @@ add:
     src_prompt: a photo of a beautiful woman
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/add/woman_eyes_closed.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -376,12 +376,12 @@ rm:
   bird_flower:
     seed: 42
     src_image:
-      default: metrics/images/src/default/rm/bird_flower_None.png
+      default: metrics/images/src/default/rm/bird_flower_1.0_-0.3.png
       sega: ''
     src_prompt: a bird in a cage with a flower on top
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/bird_flower.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -393,12 +393,12 @@ rm:
   cheetah_grassy:
     seed: 0
     src_image:
-      default: metrics/images/src/default/rm/cheetah_grassy_None.png
+      default: metrics/images/src/default/rm/cheetah_grassy_1.0_-0.9.png
       sega: ''
     src_prompt: a cheetah walking across a grassy field
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/cheetah_grassy.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -410,12 +410,12 @@ rm:
   church_fences:
     seed: 206096096
     src_image:
-      default: metrics/images/src/default/rm/church_fences_None.png
+      default: metrics/images/src/default/rm/church_fences_1.0_-0.1.png
       sega: ''
     src_prompt: a church in the countryside surrounded by fences
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/church_fences.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -444,12 +444,12 @@ rm:
   dog_forest_painting:
     seed: 42
     src_image:
-      default: metrics/images/src/default/rm/dog_forest_painting_None.png
+      default: metrics/images/src/default/rm/dog_forest_painting_1.0_-1.0.png
       sega: ''
     src_prompt: a painting of a dog in the forest
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/dog_forest_painting.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -461,16 +461,16 @@ rm:
   house_lightning:
     seed: 939471538
     src_image:
-      default: metrics/images/src/default/rm/house_lightning_None.png
+      default: metrics/images/src/default/rm/house_lightning_1.0_-0.3.png
       sega: ''
     src_prompt: a house with lightning and rain on it
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/house_lightning.png
       masactrl: ''
       mdp: ''
       p2p: ''
-      sd: metrics/images/tgt/sd/rm/house_lightning_None.png
+      sd: metrics/images/tgt/sd/rm/house_lightning_1.0_-0.1.png
       sega: ''
     tgt_prompt:
       default: ''
@@ -493,21 +493,19 @@ rm:
     tgt_prompt:
       default: A lady with a warm smile.
       sd: white hair, deep wrinkles
-  olive oil being poured into a bowl with olive on table | olive:
+  oil_bowl_olive:
     seed: 42
     src_image:
-      default: metrics/images/src/default/rm/olive oil being poured into a bowl with
-        olive on table | olive_None.png
+      default: metrics/images/src/default/rm/oil_bowl_olive_1.0_-0.3.png
       sega: ''
     src_prompt: olive oil being poured into a bowl with olive on table
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/oil_bowl_olive.png
       masactrl: ''
       mdp: ''
       p2p: ''
-      sd: metrics/images/tgt/sd/rm/olive oil being poured into a bowl with olive on
-        table | olive_1.0_1.6.png
+      sd: metrics/images/tgt/sd/rm/oil_bowl_olive_1.0_1.6.png
       sega: ''
     tgt_prompt:
       default: ''
@@ -515,12 +513,12 @@ rm:
   pine_mushroom:
     seed: 206096096
     src_image:
-      default: metrics/images/src/default/rm/pine_mushroom_None.png
+      default: metrics/images/src/default/rm/pine_mushroom_1.0_-0.4.png
       sega: ''
     src_prompt: a small mushroom is sitting on top of a pine branch
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/pine_mushroom.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -549,12 +547,12 @@ rm:
   tree_moon:
     seed: 810000000
     src_image:
-      default: metrics/images/src/default/rm/tree_moon_None.png
+      default: metrics/images/src/default/rm/tree_moon_1.0_-0.3.png
       sega: ''
     src_prompt: a lone tree is reflected in the water with a bright moon in background
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/tree_moon.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -583,12 +581,12 @@ rm:
   wolf_moon:
     seed: 42
     src_image:
-      default: metrics/images/src/default/rm/wolf_moon_None.png
+      default: metrics/images/src/default/rm/wolf_moon_1.0_-0.45.png
       sega: ''
     src_prompt: a lone wolf howling at the moon in the night sky
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/wolf_moon.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -600,12 +598,12 @@ rm:
   woman_traditional_flowers:
     seed: 42
     src_image:
-      default: metrics/images/src/default/rm/woman_traditional_flowers_None.png
+      default: metrics/images/src/default/rm/woman_traditional_flowers_1.0_-0.4.png
       sega: ''
     src_prompt: a woman in a traditional chinese dress holding flowers
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/woman_traditional_flowers.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -623,7 +621,7 @@ style:
     src_prompt: a sports car driving down the street
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/car_stained_glass.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -638,7 +636,7 @@ style:
     src_prompt: a cat and a bunny
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/cat_bunny_picasso.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -653,7 +651,7 @@ style:
     src_prompt: a cat is sitting on a table with a green eyes
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/cat_sketch.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -668,7 +666,7 @@ style:
     src_prompt: christmas living room with fireplace, chair, wreath and tree
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/christmas_room_pixel.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -684,7 +682,7 @@ style:
     src_prompt: a clown with colorful hair
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/clown_pixel.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -744,7 +742,7 @@ style:
     src_prompt: a bernese mountain dog is sitting in the grass
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/dog_stained_glass.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -759,7 +757,7 @@ style:
     src_prompt: a white horse running in the field
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/horse_watercolor.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -774,7 +772,7 @@ style:
     src_prompt: a house by the water with flowers and trees
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/house_watercolor.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -789,7 +787,7 @@ style:
     src_prompt: a man with a long beard and a long sword in the forest
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/man_kids_crayon.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -805,7 +803,7 @@ style:
     src_prompt: a man is walking down a street in the rain
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/man_street_sketch.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -813,24 +811,19 @@ style:
       sega: ''
     tgt_prompt: a black and white sketch of a man is walking down a street in the
       rain
-  ? retro living room with chair, lamp, bookshelf and table | a digital art of retro
-    living room with chair, lamp, bookshelf and table
-  : seed: 42
+  room_digital_art:
+    seed: 42
     src_image:
-      default: metrics/images/src/default/style/retro living room with chair, lamp,
-        bookshelf and table | a digital art of retro living room with chair, lamp,
-        bookshelf and table_1.0_0.1.png
+      default: metrics/images/src/default/style/room_digital_art_1.0_0.1.png
       sega: ''
     src_prompt: retro living room with chair, lamp, bookshelf and table
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/room_digital_art.png
       masactrl: ''
       mdp: ''
       p2p: ''
-      sd: metrics/images/tgt/sd/style/retro living room with chair, lamp, bookshelf
-        and table | a digital art of retro living room with chair, lamp, bookshelf
-        and table_1.0_1.4.png
+      sd: metrics/images/tgt/sd/style/room_digital_art_1.0_1.4.png
       sega: ''
     tgt_prompt: a digital art of retro living room with chair, lamp, bookshelf and
       table
@@ -842,7 +835,7 @@ style:
     src_prompt: a large wave crashing on the beach with a cloudy sky
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/wave_chinese_watercolor.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -858,7 +851,7 @@ style:
     src_prompt: a woman with flowers in her hair
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/woman_flowers_stained_glass.png
       masactrl: ''
       mdp: ''
       p2p: ''
@@ -873,7 +866,7 @@ style:
     src_prompt: a woman with red hair and a red dress
     tgt_image:
       cg: ''
-      ledits_pp: ''
+      ledits_pp: metrics/images/tgt/ledits_pp/style/woman_post_impressionism.png
       masactrl: ''
       mdp: ''
       p2p: ''
