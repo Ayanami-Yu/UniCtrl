@@ -1,0 +1,882 @@
+add:
+  birds_pine:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/birds_pine_1.0_1.4.png
+      sega: ''
+    src_prompt: a small brown bird sitting on top of a pine tree
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/birds_pine_1.0_1.9.png
+      sega: ''
+    tgt_prompt: two small brown bird sitting on top of a pine tree
+  boat_tower:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/boat_tower_1.0_0.1.png
+      sega: metrics/images/src/sega/add/boat_tower_sega_src.png
+    src_prompt: A boat sailing leisurely along River
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/boat_tower_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/boat_tower.png
+      masactrl: metrics/images/tgt/masactrl/add/boat_tower_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/boat_tower_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/boat_tower_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/boat_tower_1.0_1.0.png
+      sega: metrics/images/tgt/sega/add/boat_tower_sega_tgt.png
+    tgt_prompt: A boat sailing leisurely along the River with the Eiffel Tower in
+      background
+  campfire_kids:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/campfire_kids_1.0_0.1.png
+      sega: metrics/images/src/sega/add/campfire_kids_sega_src.png
+    src_prompt: Campfire at night in a snowy forest.
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/campfire_kids_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/campfire_kids.png
+      masactrl: metrics/images/tgt/masactrl/add/campfire_kids_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/campfire_kids_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/campfire_kids_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/campfire_kids_1.0_1.8.png
+      sega: metrics/images/tgt/sega/add/campfire_kids_sega_tgt.png
+    tgt_prompt: Campfire at night in a snowy forest with some kids playing around
+      it.
+  car_helicopter:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/car_helicopter_1.0_0.0.png
+      sega: metrics/images/src/sega/add/car_helicopter_sega_src.png
+    src_prompt: A porsche car turning a corner in the countryside.
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/car_helicopter_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/car_helicopter.png
+      masactrl: metrics/images/tgt/masactrl/add/car_helicopter_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/car_helicopter_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/car_helicopter_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/car_helicopter_1.0_1.0.png
+      sega: metrics/images/tgt/sega/add/car_helicopter_sega_tgt.png
+    tgt_prompt: A porsche car turning a corner in the countryside, with a helicopter
+      following it.
+  cat_sunglasses:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/cat_sunglasses_1.0_0.0.png
+      sega: metrics/images/src/sega/add/cat_sunglasses_sega_src.png
+    src_prompt: A cat working as a lifeguard at a pool
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/cat_sunglasses_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/cat_sunglasses.png
+      masactrl: metrics/images/tgt/masactrl/add/cat_sunglasses_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/cat_sunglasses_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/cat_sunglasses_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/cat_sunglasses_1.0_2.0.png
+      sega: metrics/images/tgt/sega/add/cat_sunglasses_sega_tgt.png
+    tgt_prompt: A cat wearing sunglasses and working as a lifeguard at a pool
+  corgi_sunglasses:
+    seed: 0
+    src_image:
+      default: metrics/images/src/default/add/corgi_sunglasses_1.0_0.4.png
+      sega: metrics/images/src/sega/add/corgi_sunglasses_sega_src.png
+    src_prompt: A photo of a Corgi dog running in Times Square.
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/corgi_sunglasses_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/corgi_sunglasses.png
+      masactrl: metrics/images/tgt/masactrl/add/corgi_sunglasses_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/corgi_sunglasses_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/cat_sunglasses_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/corgi_sunglasses_1.0_1.6.png
+      sega: metrics/images/tgt/sega/add/corgi_sunglasses_sega_tgt.png
+    tgt_prompt: A photo of a Corgi dog running in Times Square wearing sunglasses.
+  dog_collar:
+    seed: 810000000
+    src_image:
+      default: metrics/images/src/default/add/dog_collar_1.0_0.0.png
+      sega: ''
+    src_prompt: a dog looking at the camera
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/dog_collar_1.0_1.0.png
+      sega: ''
+    tgt_prompt: a dog with a red dog collar looking at the camera
+  dog_soccer:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/dog_soccer_1.0_0.0.png
+      sega: metrics/images/src/sega/add/dog_soccer_sega_src.png
+    src_prompt: a cute pomeranian dog is playing
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/dog_soccer_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/dog_soccer.png
+      masactrl: metrics/images/tgt/masactrl/add/dog_soccer_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/corgi_sunglasses_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/dog_soccer_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/dog_soccer_1.0_1.6.png
+      sega: metrics/images/tgt/sega/add/dog_soccer_sega_tgt.png
+    tgt_prompt: a cute pomeranian dog is playing with a soccer ball
+  forest_deer:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/add/forest_deer_1.0_0.6.png
+      sega: ''
+    src_prompt: a round painting of a forest with trees
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/forest_deer_1.0_0.8.png
+      sega: ''
+    tgt_prompt: a round painting of a forest with deer and trees
+  hillside_goat:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/add/hillside_goat_1.0_0.1.png
+      sega: ''
+    src_prompt: a grassy hillside with mountains in the background
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/hillside_goat_1.0_0.8.png
+      sega: ''
+    tgt_prompt: a grassy hillside with mountains in the background and a goat eating
+      grass
+  iron_man_fog:
+    seed: 0
+    src_image:
+      default: metrics/images/src/default/add/iron_man_fog_1.0_0.0.png
+      sega: metrics/images/src/sega/add/iron_man_fog_sega_src.png
+    src_prompt: Iron Man is walking towards the camera at night
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/iron_man_fog_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/iron_man_fog.png
+      masactrl: metrics/images/tgt/masactrl/add/iron_man_fog_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/iron_man_fog_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/iron_man_fog_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/iron_man_fog_1.0_1.9.png
+      sega: metrics/images/tgt/sega/add/iron_man_fog_sega_tgt.png
+    tgt_prompt: Iron Man is walking towards the camera in the rain at night with a
+      lot of fog behind him
+  man_eyes_closed:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/man_eyes_closed_1.0_0.0.png
+      sega: ''
+    src_prompt: a black skin man with a tree head and branches on his face
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/man_eyes_closed_1.0_0.2.png
+      sega: ''
+    tgt_prompt: a black skin man with a tree head and branches on his face and eyes
+      closed
+  man_mustache:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/man_mustache_1.0_0.0.png
+      sega: metrics/images/src/sega/add/man_mustache_sega_src.png
+    src_prompt: A gentleman with a bowler hat, front view.
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/man_mustache_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/man_mustache.png
+      masactrl: metrics/images/tgt/masactrl/add/man_mustache_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/man_mustache_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/man_mustache_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/man_mustache_1.0_2.1.png
+      sega: metrics/images/tgt/sega/add/man_mustache_sega_tgt.png
+    tgt_prompt: A gentleman with a handlebar mustache and a bowler hat, front view.
+  man_read_heart:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/man_read_heart_1.0_0.1.png
+      sega: ''
+    src_prompt: a man reading books in front of a wall
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/man_read_heart_1.0_1.0.png
+      sega: ''
+    tgt_prompt: a man reading books in front of a wall with a painting of a heart
+  man_scarf:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/man_scarf_1.0_0.3.png
+      sega: metrics/images/src/sega/add/man_scarf_sega_src.png
+    src_prompt: a man is reading a book at bus stop
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/man_scarf_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/man_scarf.png
+      masactrl: metrics/images/tgt/masactrl/add/man_scarf_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/man_scarf_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/man_scarf_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/man_scarf_1.0_0.9.png
+      sega: metrics/images/tgt/sega/add/man_scarf_sega_tgt.png
+    tgt_prompt: a man wearing a pink scarf is reading a book at bus stop
+  robot_rain:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/robot_rain_1.0_0.4.png
+      sega: metrics/images/src/sega/add/robot_rain_sega_src.png
+    src_prompt: A robot DJ is playing the turntable.
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/robot_rain_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/robot_rain.png
+      masactrl: metrics/images/tgt/masactrl/add/robot_rain_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/robot_rain_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/robot_rain_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/robot_rain_1.0_2.4.png
+      sega: metrics/images/tgt/sega/add/robot_rain_sega_tgt.png
+    tgt_prompt: A robot DJ is playing the turntable, in heavy raining futuristic tokyo
+      rooftop cyberpunk night, sci-fi, fantasy.
+  sakura_robot:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/sakura_robot_1.0_0.0.png
+      sega: metrics/images/src/sega/add/sakura_robot_sega_src.png
+    src_prompt: A sea of cherry blossom trees on Sakura Street in Japan.
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/sakura_robot_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/sakura_robot.png
+      masactrl: metrics/images/tgt/masactrl/add/sakura_robot_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/sakura_robot_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/sakura_robot_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/sakura_robot_1.0_1.0.png
+      sega: metrics/images/tgt/sega/add/sakura_robot_sega_tgt.png
+    tgt_prompt: Amidst the sea of cherry blossom trees on Sakura Street in Japan,
+      stands a delightful and little Tachikoma robot.
+  squirrel_pen:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/add/squirrel_pen_1.0_1.0.png
+      sega: ''
+    src_prompt: a digital art of charcoal grey little squirrel sitting on top of books
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/squirrel_pen_1.0_1.4.png
+      sega: ''
+    tgt_prompt: a digital art of charcoal grey little squirrel sitting on top of books
+      holding pens
+  street_traffic:
+    seed: 0
+    src_image:
+      default: metrics/images/src/default/add/street_traffic_1.0_0.4.png
+      sega: metrics/images/src/sega/add/street_traffic_sega_src.png
+    src_prompt: City street at night
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/street_traffic_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/street_traffic.png
+      masactrl: metrics/images/tgt/masactrl/add/street_traffic_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/street_traffic_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/street_traffic_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/street_traffic_1.0_2.0.png
+      sega: metrics/images/tgt/sega/add/street_traffic_sega_tgt.png
+    tgt_prompt: City street at night with bright lights and busy traffic
+  train_stripes:
+    seed: 0
+    src_image:
+      default: metrics/images/src/default/add/train_stripes_1.0_0.0.png
+      sega: metrics/images/src/sega/add/train_stripes_sega_src.png
+    src_prompt: A silver metal train speeding through a mountainous landscape
+    tgt_image:
+      cg: metrics/images/tgt/cg/add/train_stripes_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/train_stripes.png
+      masactrl: metrics/images/tgt/masactrl/add/train_stripes_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/add/train_stripes_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/add/train_stripes_p2p_tgt.png
+      sd: metrics/images/tgt/sd/add/train_stripes_1.0_3.1.png
+      sega: metrics/images/tgt/sega/add/train_stripes_sega_tgt.png
+    tgt_prompt: A silver metal train with blue and red stripes speeding through a
+      mountainous landscape
+  woman_butterfly:
+    seed: 644051455
+    src_image:
+      default: metrics/images/src/default/add/woman_butterfly_1.0_0.0.png
+      sega: ''
+    src_prompt: a digital art of a brown hair woman
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/woman_butterfly_1.0_0.6.png
+      sega: ''
+    tgt_prompt: a digital art of a brown hair woman with flying butterfly
+  woman_earrings:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/add/woman_earrings_1.0_0.5.png
+      sega: ''
+    src_prompt: a woman with dark hair
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/woman_earrings_1.0_1.1.png
+      sega: ''
+    tgt_prompt: a woman with dark hair wearing earrings
+  woman_eyes_closed:
+    seed: 810000000
+    src_image:
+      default: metrics/images/src/default/add/woman_eyes_closed_1.0_0.4.png
+      sega: ''
+    src_prompt: a photo of a beautiful woman
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/add/woman_eyes_closed_1.0_1.0.png
+      sega: ''
+    tgt_prompt: a photo of a beautiful woman with her eyes closed
+rm:
+  badger_painting:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/badger_painting_1.0_-1.0.png
+      sega: metrics/images/src/sega/rm/badger_painting_sega_src.png
+    src_prompt: A richly textured oil painting of a young badger delicately sniffing
+      a yellow rose next to a tree trunk.
+    tgt_image:
+      cg: metrics/images/tgt/cg/rm/badger_painting_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/badger_painting.png
+      masactrl: metrics/images/tgt/masactrl/rm/badger_painting_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/rm/badger_painting_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/rm/badger_painting_p2p_tgt.png
+      sd: metrics/images/tgt/sd/rm/badger_painting_1.0_1.0.png
+      sega: metrics/images/tgt/sega/rm/badger_painting_sega_tgt.png
+    tgt_prompt:
+      default: A young badger delicately sniffing a yellow rose next to a tree trunk.
+      sd: A richly textured oil painting.
+  bird_flower:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/bird_flower_None.png
+      sega: ''
+    src_prompt: a bird in a cage with a flower on top
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/bird_flower_1.0_0.2.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: a flower on top
+  cheetah_grassy:
+    seed: 0
+    src_image:
+      default: metrics/images/src/default/rm/cheetah_grassy_None.png
+      sega: ''
+    src_prompt: a cheetah walking across a grassy field
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/cheetah_grassy_1.0_0.8.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: grassy
+  church_fences:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/rm/church_fences_None.png
+      sega: ''
+    src_prompt: a church in the countryside surrounded by fences
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/church_fences_1.0_0.2.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: fences
+  cow_flowers:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/cow_flowers_1.0_-1.0.png
+      sega: metrics/images/src/sega/rm/cow_flowers_sega_src.png
+    src_prompt: A cow is standing in a field with white flowers.
+    tgt_image:
+      cg: metrics/images/tgt/cg/rm/cow_flowers_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/cow_flowers.png
+      masactrl: metrics/images/tgt/masactrl/rm/cow_flowers_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/rm/cow_flowers_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/rm/cow_flowers_p2p_tgt.png
+      sd: metrics/images/tgt/sd/rm/cow_flowers_1.0_0.8.png
+      sega: metrics/images/tgt/sega/rm/cow_flowers_sega_tgt.png
+    tgt_prompt:
+      default: A cow is standing in a field.
+      sd: White flowers.
+  dog_forest_painting:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/dog_forest_painting_None.png
+      sega: ''
+    src_prompt: a painting of a dog in the forest
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/dog_forest_painting_1.0_0.5.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: a dog
+  house_lightning:
+    seed: 939471538
+    src_image:
+      default: metrics/images/src/default/rm/house_lightning_None.png
+      sega: ''
+    src_prompt: a house with lightning and rain on it
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/house_lightning_None.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: lightning
+  lady_hair_wrinkles:
+    scheduler: static
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/lady_hair_wrinkles_1.0_-1.0.png
+      sega: metrics/images/src/sega/rm/lady_hair_wrinkles_sega_src.png
+    src_prompt: An elderly lady with a warm smile, white hair, and deep wrinkles.
+    tgt_image:
+      cg: metrics/images/tgt/cg/rm/lady_hair_wrinkles_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/lady_hair_wrinkles.png
+      masactrl: metrics/images/tgt/masactrl/rm/lady_hair_wrinkles_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/rm/lady_hair_wrinkles_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/rm/lady_hair_wrinkles_p2p_tgt.png
+      sd: metrics/images/tgt/sd/rm/lady_hair_wrinkles_1.0_0.5.png
+      sega: metrics/images/tgt/sega/rm/lady_hair_wrinkles_sega_tgt.png
+    tgt_prompt:
+      default: A lady with a warm smile.
+      sd: white hair, deep wrinkles
+  olive oil being poured into a bowl with olive on table | olive:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/olive oil being poured into a bowl with
+        olive on table | olive_None.png
+      sega: ''
+    src_prompt: olive oil being poured into a bowl with olive on table
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/olive oil being poured into a bowl with olive on
+        table | olive_1.0_1.6.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: olive
+  pine_mushroom:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/rm/pine_mushroom_None.png
+      sega: ''
+    src_prompt: a small mushroom is sitting on top of a pine branch
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/pine_mushroom_1.0_0.0.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: a small mushroom
+  rabbit_low_poly:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/rabbit_low_poly_1.0_-1.0.png
+      sega: metrics/images/src/sega/rm/rabbit_low_poly_sega_src.png
+    src_prompt: a rabbit, low-poly game art style
+    tgt_image:
+      cg: metrics/images/tgt/cg/rm/rabbit_low_poly_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/rabbit_low_poly.png
+      masactrl: metrics/images/tgt/masactrl/rm/rabbit_low_poly_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/rm/rabbit_low_poly_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/rm/rabbit_low_poly_p2p_tgt.png
+      sd: metrics/images/tgt/sd/rm/rabbit_low_poly_1.0_0.7.png
+      sega: metrics/images/tgt/sega/rm/rabbit_low_poly_sega_tgt.png
+    tgt_prompt:
+      default: a rabbit
+      sd: low-poly game art style
+  tree_moon:
+    seed: 810000000
+    src_image:
+      default: metrics/images/src/default/rm/tree_moon_None.png
+      sega: ''
+    src_prompt: a lone tree is reflected in the water with a bright moon in background
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/tree_moon_1.0_0.1.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: a bright moon in background
+  witch_book:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/witch_book_1.0_-0.22.png
+      sega: metrics/images/src/sega/rm/witch_book_sega_src.png
+    src_prompt: a witch reading a large open book, fantasy, anime
+    tgt_image:
+      cg: metrics/images/tgt/cg/rm/witch_book_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/rm/witch_book.png
+      masactrl: metrics/images/tgt/masactrl/rm/witch_book_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/rm/witch_book_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/rm/witch_book_p2p_tgt.png
+      sd: metrics/images/tgt/sd/rm/witch_book_1.0_0.08.png
+      sega: metrics/images/tgt/sega/rm/witch_book_sega_tgt.png
+    tgt_prompt:
+      default: a witch, fantasy, anime
+      sd: a large open book
+  wolf_moon:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/wolf_moon_None.png
+      sega: ''
+    src_prompt: a lone wolf howling at the moon in the night sky
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/wolf_moon_1.0_0.15.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: the moon
+  woman_traditional_flowers:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/rm/woman_traditional_flowers_None.png
+      sega: ''
+    src_prompt: a woman in a traditional chinese dress holding flowers
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/rm/woman_traditional_flowers_1.0_0.3.png
+      sega: ''
+    tgt_prompt:
+      default: ''
+      sd: flowers
+style:
+  car_stained_glass:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/car_stained_glass_1.0_0.0.png
+      sega: ''
+    src_prompt: a sports car driving down the street
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/car_stained_glass_1.0_2.6.png
+      sega: ''
+    tgt_prompt: stained glass window of a sports car driving down the street
+  cat_bunny_picasso:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/style/cat_bunny_picasso_1.0_0.0.png
+      sega: ''
+    src_prompt: a cat and a bunny
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/cat_bunny_picasso_1.0_1.8.png
+      sega: ''
+    tgt_prompt: a cat and a bunny in Pablo Picasso's style
+  cat_sketch:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/cat_sketch_1.0_0.1.png
+      sega: ''
+    src_prompt: a cat is sitting on a table with a green eyes
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/cat_sketch_1.0_3.2.png
+      sega: ''
+    tgt_prompt: a sketch of a cat is sitting on a table with a green eyes
+  christmas_room_pixel:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/style/christmas_room_pixel_1.0_0.0.png
+      sega: ''
+    src_prompt: christmas living room with fireplace, chair, wreath and tree
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/christmas_room_pixel_1.0_0.7.png
+      sega: ''
+    tgt_prompt: a pixel art of christmas living room with fireplace, chair, wreath
+      and tree
+  clown_pixel:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/style/clown_pixel_1.0_0.6.png
+      sega: ''
+    src_prompt: a clown with colorful hair
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/clown_pixel_1.0_2.1.png
+      sega: ''
+    tgt_prompt: a clown in pixel art style with colorful hair
+  corgi_animated:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/corgi_animated_1.0_0.0.png
+      sega: metrics/images/src/sega/style/corgi_animated_sega_src.png
+    src_prompt: A cute happy Corgi playing in park
+    tgt_image:
+      cg: metrics/images/tgt/cg/style/corgi_animated_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/style/corgi_animated.png
+      masactrl: metrics/images/tgt/masactrl/style/corgi_animated_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/style/corgi_animated_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/style/corgi_animated_p2p_tgt.png
+      sd: metrics/images/tgt/sd/style/corgi_animated_1.0_3.0.png
+      sega: metrics/images/tgt/sega/style/corgi_animated_sega_tgt.png
+    tgt_prompt: A cute happy Corgi playing in park, sunset, animated style
+  corgi_painting:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/corgi_painting_1.0_0.0.png
+      sega: metrics/images/src/sega/style/corgi_painting_sega_src.png
+    src_prompt: A cute happy Corgi playing in park
+    tgt_image:
+      cg: metrics/images/tgt/cg/style/corgi_painting_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/style/corgi_painting.png
+      masactrl: metrics/images/tgt/masactrl/style/corgi_painting_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/style/corgi_painting_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/style/corgi_painting_p2p_tgt.png
+      sd: metrics/images/tgt/sd/style/corgi_painting_1.0_3.0.png
+      sega: metrics/images/tgt/sega/style/corgi_painting_sega_tgt.png
+    tgt_prompt: A cute happy Corgi playing in park, sunset, oil painting
+  corgi_pixel:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/corgi_pixel_1.0_0.0.png
+      sega: metrics/images/src/sega/style/corgi_pixel_sega_src.png
+    src_prompt: A cute happy Corgi playing in park
+    tgt_image:
+      cg: metrics/images/tgt/cg/style/corgi_pixel_cg_tgt.png
+      ledits_pp: metrics/images/tgt/ledits_pp/style/corgi_pixel.png
+      masactrl: metrics/images/tgt/masactrl/style/corgi_pixel_masactrl_step4_layer10.png
+      mdp: metrics/images/tgt/mdp/style/corgi_pixel_mdp_tgt.png
+      p2p: metrics/images/tgt/p2p/style/corgi_pixel_p2p_tgt.png
+      sd: metrics/images/tgt/sd/style/corgi_pixel_1.0_2.0.png
+      sega: metrics/images/tgt/sega/style/corgi_pixel_sega_tgt.png
+    tgt_prompt: A cute happy Corgi playing in park, sunset, pixel art
+  dog_stained_glass:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/dog_stained_glass_1.0_0.1.png
+      sega: ''
+    src_prompt: a bernese mountain dog is sitting in the grass
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/dog_stained_glass_1.0_2.6.png
+      sega: ''
+    tgt_prompt: stained glass window of a bernese mountain dog is sitting in the grass
+  horse_watercolor:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/style/horse_watercolor_1.0_0.0.png
+      sega: ''
+    src_prompt: a white horse running in the field
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/horse_watercolor_1.0_2.1.png
+      sega: ''
+    tgt_prompt: watercolor of a white horse running in the field
+  house_watercolor:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/house_watercolor_1.0_0.0.png
+      sega: ''
+    src_prompt: a house by the water with flowers and trees
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/house_watercolor_1.0_1.1.png
+      sega: ''
+    tgt_prompt: watercolor of a house by the water with flowers and trees
+  man_kids_crayon:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/man_kids_crayon_1.0_0.2.png
+      sega: ''
+    src_prompt: a man with a long beard and a long sword in the forest
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/man_kids_crayon_1.0_1.0.png
+      sega: ''
+    tgt_prompt: kids crayon drawing of a man with a long beard and a long sword in
+      the forest
+  man_street_sketch:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/man_street_sketch_1.0_0.6.png
+      sega: ''
+    src_prompt: a man is walking down a street in the rain
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/man_street_sketch_1.0_1.5.png
+      sega: ''
+    tgt_prompt: a black and white sketch of a man is walking down a street in the
+      rain
+  ? retro living room with chair, lamp, bookshelf and table | a digital art of retro
+    living room with chair, lamp, bookshelf and table
+  : seed: 42
+    src_image:
+      default: metrics/images/src/default/style/retro living room with chair, lamp,
+        bookshelf and table | a digital art of retro living room with chair, lamp,
+        bookshelf and table_1.0_0.1.png
+      sega: ''
+    src_prompt: retro living room with chair, lamp, bookshelf and table
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/retro living room with chair, lamp, bookshelf
+        and table | a digital art of retro living room with chair, lamp, bookshelf
+        and table_1.0_1.4.png
+      sega: ''
+    tgt_prompt: a digital art of retro living room with chair, lamp, bookshelf and
+      table
+  wave_chinese_watercolor:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/wave_chinese_watercolor_1.0_0.0.png
+      sega: ''
+    src_prompt: a large wave crashing on the beach with a cloudy sky
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/wave_chinese_watercolor_1.0_1.5.png
+      sega: ''
+    tgt_prompt: Chinese watercolor of a large wave crashing on the beach with a cloudy
+      sky
+  woman_flowers_stained_glass:
+    seed: 42
+    src_image:
+      default: metrics/images/src/default/style/woman_flowers_stained_glass_1.0_0.2.png
+      sega: ''
+    src_prompt: a woman with flowers in her hair
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/woman_flowers_stained_glass_1.0_1.3.png
+      sega: ''
+    tgt_prompt: a stained glass window of a woman with flowers in her hair
+  woman_post_impressionism:
+    seed: 206096096
+    src_image:
+      default: metrics/images/src/default/style/woman_post_impressionism_1.0_0.0.png
+      sega: ''
+    src_prompt: a woman with red hair and a red dress
+    tgt_image:
+      cg: ''
+      ledits_pp: ''
+      masactrl: ''
+      mdp: ''
+      p2p: ''
+      sd: metrics/images/tgt/sd/style/woman_post_impressionism_1.0_3.2.png
+      sega: ''
+    tgt_prompt: a woman with red hair and a red dress, post-impressionism style
