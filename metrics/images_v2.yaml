@@ -9,7 +9,7 @@ add:
       cg: metrics/images/tgt/cg/add/birds_pine.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/birds_pine.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/birds_pine.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/birds_pine_1.0_1.9.png
       sega: ''
@@ -26,7 +26,7 @@ add:
       cg: metrics/images/tgt/cg/add/boat_tower.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/boat_tower.png
       masactrl: metrics/images/tgt/masactrl/add/boat_tower_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/boat_tower_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/boat_tower.png
       p2p: metrics/images/tgt/p2p/add/boat_tower_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/boat_tower_1.0_1.0.png
       sega: metrics/images/tgt/sega/add/boat_tower_sega_tgt.png
@@ -43,7 +43,7 @@ add:
       cg: metrics/images/tgt/cg/add/campfire_kids.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/campfire_kids.png
       masactrl: metrics/images/tgt/masactrl/add/campfire_kids_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/campfire_kids_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/campfire_kids.png
       p2p: metrics/images/tgt/p2p/add/campfire_kids_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/campfire_kids_1.0_1.8.png
       sega: metrics/images/tgt/sega/add/campfire_kids_sega_tgt.png
@@ -60,7 +60,7 @@ add:
       cg: metrics/images/tgt/cg/add/car_helicopter.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/car_helicopter.png
       masactrl: metrics/images/tgt/masactrl/add/car_helicopter_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/car_helicopter_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/car_helicopter.png
       p2p: metrics/images/tgt/p2p/add/car_helicopter_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/car_helicopter_1.0_1.0.png
       sega: metrics/images/tgt/sega/add/car_helicopter_sega_tgt.png
@@ -78,7 +78,7 @@ add:
       cg: metrics/images/tgt/cg/add/cat_sunglasses.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/cat_sunglasses.png
       masactrl: metrics/images/tgt/masactrl/add/cat_sunglasses_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/cat_sunglasses_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/cat_sunglasses.png
       p2p: metrics/images/tgt/p2p/add/cat_sunglasses_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/cat_sunglasses_1.0_2.0.png
       sega: metrics/images/tgt/sega/add/cat_sunglasses_sega_tgt.png
@@ -95,7 +95,7 @@ add:
       cg: metrics/images/tgt/cg/add/corgi_sunglasses.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/corgi_sunglasses.png
       masactrl: metrics/images/tgt/masactrl/add/corgi_sunglasses_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/corgi_sunglasses_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/corgi_sunglasses.png
       p2p: metrics/images/tgt/p2p/add/cat_sunglasses_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/corgi_sunglasses_1.0_1.6.png
       sega: metrics/images/tgt/sega/add/corgi_sunglasses_sega_tgt.png
@@ -112,7 +112,7 @@ add:
       cg: metrics/images/tgt/cg/add/dog_collar.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/dog_collar.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/dog_collar.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/dog_collar_1.0_1.0.png
       sega: ''
@@ -129,7 +129,7 @@ add:
       cg: metrics/images/tgt/cg/add/dog_soccer.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/dog_soccer.png
       masactrl: metrics/images/tgt/masactrl/add/dog_soccer_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/corgi_sunglasses_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/dog_soccer.png
       p2p: metrics/images/tgt/p2p/add/dog_soccer_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/dog_soccer_1.0_1.6.png
       sega: metrics/images/tgt/sega/add/dog_soccer_sega_tgt.png
@@ -146,7 +146,7 @@ add:
       cg: metrics/images/tgt/cg/add/forest_deer.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/forest_deer.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/forest_deer.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/forest_deer_1.0_0.8.png
       sega: ''
@@ -163,7 +163,7 @@ add:
       cg: metrics/images/tgt/cg/add/hillside_goat.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/hillside_goat.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/hillside_goat.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/hillside_goat_1.0_0.8.png
       sega: ''
@@ -181,7 +181,7 @@ add:
       cg: metrics/images/tgt/cg/add/iron_man_fog.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/iron_man_fog.png
       masactrl: metrics/images/tgt/masactrl/add/iron_man_fog_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/iron_man_fog_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/iron_man_fog.png
       p2p: metrics/images/tgt/p2p/add/iron_man_fog_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/iron_man_fog_1.0_1.9.png
       sega: metrics/images/tgt/sega/add/iron_man_fog_sega_tgt.png
@@ -199,7 +199,7 @@ add:
       cg: metrics/images/tgt/cg/add/man_eyes_closed.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/man_eyes_closed.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/man_eyes_closed.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/man_eyes_closed_1.0_0.2.png
       sega: ''
@@ -217,7 +217,7 @@ add:
       cg: metrics/images/tgt/cg/add/man_mustache.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/man_mustache.png
       masactrl: metrics/images/tgt/masactrl/add/man_mustache_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/man_mustache_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/man_mustache.png
       p2p: metrics/images/tgt/p2p/add/man_mustache_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/man_mustache_1.0_2.1.png
       sega: metrics/images/tgt/sega/add/man_mustache_sega_tgt.png
@@ -234,7 +234,7 @@ add:
       cg: metrics/images/tgt/cg/add/man_read_heart.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/man_read_heart.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/man_read_heart.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/man_read_heart_1.0_1.0.png
       sega: ''
@@ -251,7 +251,7 @@ add:
       cg: metrics/images/tgt/cg/add/man_scarf.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/man_scarf.png
       masactrl: metrics/images/tgt/masactrl/add/man_scarf_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/man_scarf_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/man_scarf.png
       p2p: metrics/images/tgt/p2p/add/man_scarf_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/man_scarf_1.0_0.9.png
       sega: metrics/images/tgt/sega/add/man_scarf_sega_tgt.png
@@ -268,7 +268,7 @@ add:
       cg: metrics/images/tgt/cg/add/robot_rain.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/robot_rain.png
       masactrl: metrics/images/tgt/masactrl/add/robot_rain_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/robot_rain_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/robot_rain.png
       p2p: metrics/images/tgt/p2p/add/robot_rain_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/robot_rain_1.0_2.4.png
       sega: metrics/images/tgt/sega/add/robot_rain_sega_tgt.png
@@ -286,7 +286,7 @@ add:
       cg: metrics/images/tgt/cg/add/sakura_robot.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/sakura_robot.png
       masactrl: metrics/images/tgt/masactrl/add/sakura_robot_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/sakura_robot_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/sakura_robot.png
       p2p: metrics/images/tgt/p2p/add/sakura_robot_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/sakura_robot_1.0_1.0.png
       sega: metrics/images/tgt/sega/add/sakura_robot_sega_tgt.png
@@ -304,7 +304,7 @@ add:
       cg: metrics/images/tgt/cg/add/squirrel_pen.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/squirrel_pen.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/squirrel_pen.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/squirrel_pen_1.0_1.4.png
       sega: ''
@@ -322,7 +322,7 @@ add:
       cg: metrics/images/tgt/cg/add/street_traffic.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/street_traffic.png
       masactrl: metrics/images/tgt/masactrl/add/street_traffic_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/street_traffic_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/street_traffic.png
       p2p: metrics/images/tgt/p2p/add/street_traffic_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/street_traffic_1.0_2.0.png
       sega: metrics/images/tgt/sega/add/street_traffic_sega_tgt.png
@@ -339,7 +339,7 @@ add:
       cg: metrics/images/tgt/cg/add/train_stripes.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/train_stripes.png
       masactrl: metrics/images/tgt/masactrl/add/train_stripes_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/add/train_stripes_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/add/train_stripes.png
       p2p: metrics/images/tgt/p2p/add/train_stripes_p2p_tgt.png
       sd: metrics/images/tgt/sd/add/train_stripes_1.0_3.1.png
       sega: metrics/images/tgt/sega/add/train_stripes_sega_tgt.png
@@ -357,7 +357,7 @@ add:
       cg: metrics/images/tgt/cg/add/woman_butterfly.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/woman_butterfly.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/woman_butterfly.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/woman_butterfly_1.0_0.6.png
       sega: ''
@@ -374,7 +374,7 @@ add:
       cg: metrics/images/tgt/cg/add/woman_earrings.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/woman_earrings.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/woman_earrings.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/woman_earrings_1.0_1.1.png
       sega: ''
@@ -391,7 +391,7 @@ add:
       cg: metrics/images/tgt/cg/add/woman_eyes_closed.png
       ledits_pp: metrics/images/tgt/ledits_pp/add/woman_eyes_closed.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/add/woman_eyes_closed.png
       p2p: ''
       sd: metrics/images/tgt/sd/add/woman_eyes_closed_1.0_1.0.png
       sega: ''
@@ -410,7 +410,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/badger_painting.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/badger_painting.png
       masactrl: metrics/images/tgt/masactrl/rm/badger_painting_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/rm/badger_painting_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/rm/badger_painting.png
       p2p: metrics/images/tgt/p2p/rm/badger_painting_p2p_tgt.png
       sd: metrics/images/tgt/sd/rm/badger_painting_1.0_1.0.png
       sega: metrics/images/tgt/sega/rm/badger_painting_sega_tgt.png
@@ -427,7 +427,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/bird_flower.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/bird_flower.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/bird_flower.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/bird_flower_1.0_0.2.png
       sega: ''
@@ -444,7 +444,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/cheetah_grassy.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/cheetah_grassy.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/cheetah_grassy.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/cheetah_grassy_1.0_0.8.png
       sega: ''
@@ -461,7 +461,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/church_fences.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/church_fences.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/church_fences.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/church_fences_1.0_0.2.png
       sega: ''
@@ -478,7 +478,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/cow_flowers.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/cow_flowers.png
       masactrl: metrics/images/tgt/masactrl/rm/cow_flowers_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/rm/cow_flowers_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/rm/cow_flowers.png
       p2p: metrics/images/tgt/p2p/rm/cow_flowers_p2p_tgt.png
       sd: metrics/images/tgt/sd/rm/cow_flowers_1.0_0.8.png
       sega: metrics/images/tgt/sega/rm/cow_flowers_sega_tgt.png
@@ -495,7 +495,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/dog_forest_painting.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/dog_forest_painting.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/dog_forest_painting.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/dog_forest_painting_1.0_0.5.png
       sega: ''
@@ -512,7 +512,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/house_lightning.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/house_lightning.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/house_lightning.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/house_lightning_1.0_-0.1.png
       sega: ''
@@ -530,7 +530,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/lady_hair_wrinkles.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/lady_hair_wrinkles.png
       masactrl: metrics/images/tgt/masactrl/rm/lady_hair_wrinkles_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/rm/lady_hair_wrinkles_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/rm/lady_hair_wrinkles.png
       p2p: metrics/images/tgt/p2p/rm/lady_hair_wrinkles_p2p_tgt.png
       sd: metrics/images/tgt/sd/rm/lady_hair_wrinkles_1.0_0.5.png
       sega: metrics/images/tgt/sega/rm/lady_hair_wrinkles_sega_tgt.png
@@ -547,7 +547,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/oil_bowl_olive.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/oil_bowl_olive.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/oil_bowl_olive.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/oil_bowl_olive_1.0_1.6.png
       sega: ''
@@ -564,7 +564,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/pine_mushroom.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/pine_mushroom.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/pine_mushroom.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/pine_mushroom_1.0_0.0.png
       sega: ''
@@ -581,7 +581,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/rabbit_low_poly.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/rabbit_low_poly.png
       masactrl: metrics/images/tgt/masactrl/rm/rabbit_low_poly_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/rm/rabbit_low_poly_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/rm/rabbit_low_poly.png
       p2p: metrics/images/tgt/p2p/rm/rabbit_low_poly_p2p_tgt.png
       sd: metrics/images/tgt/sd/rm/rabbit_low_poly_1.0_0.7.png
       sega: metrics/images/tgt/sega/rm/rabbit_low_poly_sega_tgt.png
@@ -598,7 +598,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/tree_moon.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/tree_moon.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/tree_moon.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/tree_moon_1.0_0.1.png
       sega: ''
@@ -615,7 +615,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/witch_book.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/witch_book.png
       masactrl: metrics/images/tgt/masactrl/rm/witch_book_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/rm/witch_book_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/rm/witch_book.png
       p2p: metrics/images/tgt/p2p/rm/witch_book_p2p_tgt.png
       sd: metrics/images/tgt/sd/rm/witch_book_1.0_0.08.png
       sega: metrics/images/tgt/sega/rm/witch_book_sega_tgt.png
@@ -632,7 +632,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/wolf_moon.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/wolf_moon.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/wolf_moon.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/wolf_moon_1.0_0.15.png
       sega: ''
@@ -649,7 +649,7 @@ rm:
       cg: metrics/images/tgt/cg/rm/woman_traditional_flowers.png
       ledits_pp: metrics/images/tgt/ledits_pp/rm/woman_traditional_flowers.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/rm/woman_traditional_flowers.png
       p2p: ''
       sd: metrics/images/tgt/sd/rm/woman_traditional_flowers_1.0_0.3.png
       sega: ''
@@ -667,7 +667,7 @@ style:
       cg: metrics/images/tgt/cg/style/car_stained_glass.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/car_stained_glass.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/car_stained_glass.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/car_stained_glass_1.0_2.6.png
       sega: ''
@@ -684,7 +684,7 @@ style:
       cg: metrics/images/tgt/cg/style/cat_bunny_picasso.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/cat_bunny_picasso.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/cat_bunny_picasso.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/cat_bunny_picasso_1.0_1.8.png
       sega: ''
@@ -701,7 +701,7 @@ style:
       cg: metrics/images/tgt/cg/style/cat_sketch.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/cat_sketch.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/cat_sketch.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/cat_sketch_1.0_3.2.png
       sega: ''
@@ -718,7 +718,7 @@ style:
       cg: metrics/images/tgt/cg/style/christmas_room_pixel.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/christmas_room_pixel.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/christmas_room_pixel.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/christmas_room_pixel_1.0_0.7.png
       sega: ''
@@ -736,7 +736,7 @@ style:
       cg: metrics/images/tgt/cg/style/clown_pixel.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/clown_pixel.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/clown_pixel.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/clown_pixel_1.0_2.1.png
       sega: ''
@@ -753,7 +753,7 @@ style:
       cg: metrics/images/tgt/cg/style/corgi_animated.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/corgi_animated.png
       masactrl: metrics/images/tgt/masactrl/style/corgi_animated_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/style/corgi_animated_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/style/corgi_animated.png
       p2p: metrics/images/tgt/p2p/style/corgi_animated_p2p_tgt.png
       sd: metrics/images/tgt/sd/style/corgi_animated_1.0_3.0.png
       sega: metrics/images/tgt/sega/style/corgi_animated_sega_tgt.png
@@ -770,7 +770,7 @@ style:
       cg: metrics/images/tgt/cg/style/corgi_painting.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/corgi_painting.png
       masactrl: metrics/images/tgt/masactrl/style/corgi_painting_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/style/corgi_painting_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/style/corgi_painting.png
       p2p: metrics/images/tgt/p2p/style/corgi_painting_p2p_tgt.png
       sd: metrics/images/tgt/sd/style/corgi_painting_1.0_3.0.png
       sega: metrics/images/tgt/sega/style/corgi_painting_sega_tgt.png
@@ -787,7 +787,7 @@ style:
       cg: metrics/images/tgt/cg/style/corgi_pixel.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/corgi_pixel.png
       masactrl: metrics/images/tgt/masactrl/style/corgi_pixel_masactrl_step4_layer10.png
-      mdp: metrics/images/tgt/mdp/style/corgi_pixel_mdp_tgt.png
+      mdp: metrics/images/tgt/mdp/style/corgi_pixel.png
       p2p: metrics/images/tgt/p2p/style/corgi_pixel_p2p_tgt.png
       sd: metrics/images/tgt/sd/style/corgi_pixel_1.0_2.0.png
       sega: metrics/images/tgt/sega/style/corgi_pixel_sega_tgt.png
@@ -804,7 +804,7 @@ style:
       cg: metrics/images/tgt/cg/style/dog_stained_glass.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/dog_stained_glass.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/dog_stained_glass.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/dog_stained_glass_1.0_2.6.png
       sega: ''
@@ -821,7 +821,7 @@ style:
       cg: metrics/images/tgt/cg/style/horse_watercolor.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/horse_watercolor.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/horse_watercolor.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/horse_watercolor_1.0_2.1.png
       sega: ''
@@ -838,7 +838,7 @@ style:
       cg: metrics/images/tgt/cg/style/house_watercolor.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/house_watercolor.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/house_watercolor.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/house_watercolor_1.0_1.1.png
       sega: ''
@@ -855,7 +855,7 @@ style:
       cg: metrics/images/tgt/cg/style/man_kids_crayon.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/man_kids_crayon.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/man_kids_crayon.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/man_kids_crayon_1.0_1.0.png
       sega: ''
@@ -873,7 +873,7 @@ style:
       cg: metrics/images/tgt/cg/style/man_street_sketch.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/man_street_sketch.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/man_street_sketch.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/man_street_sketch_1.0_1.5.png
       sega: ''
@@ -890,7 +890,7 @@ style:
       cg: metrics/images/tgt/cg/style/room_digital_art.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/room_digital_art.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/room_digital_art.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/room_digital_art_1.0_1.4.png
       sega: ''
@@ -908,7 +908,7 @@ style:
       cg: metrics/images/tgt/cg/style/wave_chinese_watercolor.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/wave_chinese_watercolor.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/wave_chinese_watercolor.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/wave_chinese_watercolor_1.0_1.5.png
       sega: ''
@@ -926,7 +926,7 @@ style:
       cg: metrics/images/tgt/cg/style/woman_flowers_stained_glass.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/woman_flowers_stained_glass.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/woman_flowers_stained_glass.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/woman_flowers_stained_glass_1.0_1.3.png
       sega: ''
@@ -943,7 +943,7 @@ style:
       cg: metrics/images/tgt/cg/style/woman_post_impressionism.png
       ledits_pp: metrics/images/tgt/ledits_pp/style/woman_post_impressionism.png
       masactrl: ''
-      mdp: ''
+      mdp: metrics/images/tgt/mdp/style/woman_post_impressionism.png
       p2p: ''
       sd: metrics/images/tgt/sd/style/woman_post_impressionism_1.0_3.2.png
       sega: ''
