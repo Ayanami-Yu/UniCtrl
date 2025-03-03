@@ -99,14 +99,19 @@ for mode in modes:
                 ).images[0]
 
                 # document the configs
-                if not os.path.isfile(f"{cur_dir}/configs.txt"):
-                    with open(os.path.join(cur_dir, "configs.txt"), "w") as f:
-                        f.write(f"seed: {seed}\n")
-                        f.write(f"prompts: {prompts}\n")
-                        f.write(f"ctrl_mode: {mode}\n")
-                        f.write(f"w_tgt_ctrl_type: {w_tgt_ctrl_type}\n")
-                        f.write(f"src_weights: {src_weights}\n")
-                        f.write(f"tgt_weights: {tgt_weights}\n")
+                configs = {
+                    "seed": seed,
+                    "prompts": prompts,
+                    "ctrl_mode": mode,
+                    "w_tgt_ctrl_type": w_tgt_ctrl_type,
+                    "src_weights": src_weights,
+                    "tgt_weights": tgt_weights,
+                }
+                yaml_path = os.path.join(cur_dir, "configs.yaml")
+                if not os.path.isfile(yaml_path):
+                    with open(yaml_path, "w") as f:
+                        yaml.dump(configs, f, default_flow_style=False)
+
                 results.append(Result(image, w_src, w_tgt))
 
             results.sort(key=lambda x: x.w_tgt)

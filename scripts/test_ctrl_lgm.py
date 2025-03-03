@@ -1,4 +1,5 @@
 import os
+import yaml
 from typing import Optional
 
 import imageio
@@ -285,14 +286,19 @@ src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
 tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
 # document the configs
-with open(os.path.join(out_dir, "configs.txt"), "w") as f:
-    f.write(f"seed: {seed}\n")
-    f.write(f"prompts: {opt.prompts}\n")
-    f.write(f"ctrl_mode: {opt.ctrl_mode}\n")
-    f.write(f"removal_version: {opt.removal_version}\n")
-    f.write(f"w_tgt_ctrl_type: {opt.w_tgt_ctrl_type}\n")
-    f.write(f"src_weights: {src_weights}\n")
-    f.write(f"tgt_weights: {tgt_weights}\n")
+configs = {
+    "seed": seed,
+    "prompts": opt.prompt,
+    "ctrl_mode": opt.ctrl_mode,
+    "removal_version": opt.removal_version,
+    "w_tgt_ctrl_type": opt.w_tgt_ctrl_type,
+    "src_weights": src_weights,
+    "tgt_weights": tgt_weights,
+}
+yaml_path = os.path.join(out_dir, "configs.yaml")
+if not os.path.isfile(yaml_path):
+    with open(yaml_path, "w") as f:
+        yaml.dump(configs, f, default_flow_style=False)
 
 for w_src in src_weights:
     for w_tgt in tgt_weights:

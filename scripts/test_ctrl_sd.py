@@ -2,6 +2,7 @@
 
 import argparse
 import os
+import yaml
 from math import cos, sin
 
 import torch
@@ -125,15 +126,20 @@ else:
             os.makedirs(out_dir, exist_ok=True)
 
             # document the configs
-            if not os.path.isfile(f"{out_dir}/configs.txt"):
-                with open(os.path.join(out_dir, "configs.txt"), "w") as f:
-                    f.write(f"seed: {seed}\n")
-                    f.write(f"prompts: {args.prompt}\n")
-                    f.write(f"ctrl_mode: {args.ctrl_mode}\n")
-                    f.write(f"removal_version: {args.removal_version}\n")
-                    f.write(f"w_tgt_ctrl_type: {args.w_tgt_ctrl_type}\n")
-                    f.write(f"src_weights: {src_weights}\n")
-                    f.write(f"tgt_weights: {tgt_weights}\n")
+            configs = {
+                "seed": seed,
+                "prompts": args.prompt,
+                "ctrl_mode": args.ctrl_mode,
+                "removal_version": args.removal_version,
+                "w_tgt_ctrl_type": args.w_tgt_ctrl_type,
+                "src_weights": src_weights,
+                "tgt_weights": tgt_weights,
+            }
+            yaml_path = os.path.join(out_dir, "configs.yaml")
+            if not os.path.isfile(yaml_path):
+                with open(yaml_path, "w") as f:
+                    yaml.dump(configs, f, default_flow_style=False)
+
             save_image(
                 image,
                 os.path.join(out_dir, f"{w_src}_{w_tgt}.png"),

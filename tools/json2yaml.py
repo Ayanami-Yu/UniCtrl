@@ -6,7 +6,7 @@ from collections import namedtuple
 
 
 json_path = "data/mapping_file.json"
-yaml_path = "PIE_prompts.yaml"
+yaml_path = "pie_prompts.yaml"
 edit_category_dict = {
     "2": "add",
     "3": "rm",
