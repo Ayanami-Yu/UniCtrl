@@ -7,7 +7,7 @@ from PIL import Image
 
 res_path = "exp/sd/pie_results_selected"
 output_file = "images_v2.yaml"
-prev_file = "images_v1.yaml"
+prev_file = "metrics/images_v1.yaml"
 
 content = {
     "add": {},
@@ -40,7 +40,7 @@ for img_name in os.listdir(res_path):
         raise FileNotFoundError()
 
     # regular expression to capture numbers after 'src_' or 'tgt_'
-    pattern = re.compile(r"_(?:src|tgt)_(\d+\.\d+_\d+\.\d+)\.png$")
+    pattern = re.compile(r"_(?:src|tgt)_(\d+\.\d+_-?\d+\.\d+)\.png$")
     extracted = [
         match.group(1) if (match := pattern.search(img_paths[i].name)) else None
         for i in range(2)
