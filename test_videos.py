@@ -17,18 +17,18 @@ from metrics.clip_utils import DirectionalSimilarity
 
 # set input and output paths
 out_dir = "exp/animatediff/pie"
-yaml_path = "metrics/prompts_videos_v1.yaml"
+yaml_path = "docs/prompts_video_v1.yaml"
 
 # set parameters
-seed = 42
-device_idx = 7
+seed = 1131219402
+# device_idx = 4
 
 modes = ["rm"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "static"
 
 # prepare for generation
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-torch.cuda.set_device(device_idx)
+# torch.cuda.set_device(device_idx)
 
 os.makedirs(out_dir, exist_ok=True)
 
@@ -90,19 +90,19 @@ for mode in modes:
         src_start, src_inc, src_n = (1.0, 0.1, 1)
         if mode == "rm":
             tgt_start, tgt_inc, tgt_n = (
-                (-1.0, 0.05, 44) if w_tgt_ctrl_type == "static" else (-1.0, 0.1, 36)
+                (-1.0, 0.1, 33) if w_tgt_ctrl_type == "static" else (-1.0, 0.1, 36)
             )
-        elif mode == "add" and w_tgt_ctrl_type == "static":
-            tgt_start, tgt_inc, tgt_n = (0.0, 0.05, 44)
-        else:
+        elif w_tgt_ctrl_type == "static":
             tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 33)
+        else:
+            tgt_start, tgt_inc, tgt_n = (0.0, 0.15, 40)  # for cosine
 
         src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
         tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
         prompts = [
             case["src_prompt"],
-            case["tgt_prompt"]["change"],
+            case["tgt_prompt"]["change"] if mode == 'rm' else case['tgt_prompt'],
         ]
         cur_dir = os.path.join(
             out_dir,
@@ -134,13 +134,12 @@ for mode in modes:
                 )
                 frames = output.frames[0]
 
-
-
-
                 # document the configs
+                tgt_prompt_default = case['tgt_prompt']['default'] if mode == 'rm' else case['tgt_prompt']
                 configs = {
                     "seed": seed,
                     "prompts": prompts,
+                    "tgt_prompt_default": tgt_prompt_default,
                     "ctrl_mode": mode,
                     "w_tgt_ctrl_type": w_tgt_ctrl_type,
                     "src_weights": src_weights,
@@ -165,13 +164,9 @@ for mode in modes:
                 for j in range(i + 1, len(results)):
                     clip_dir = dir_similarity(
                         results[i].video[0],
-                        results[j].video,
+                        results[j].video[0],
                         prompts[0],
-                        (
-                            prompts[1]
-                            if ctrl_mode == "add"
-                            else case["tgt_prompt"]["default"]
-                        ),
+                        tgt_prompt_default,
                     )
                     pairs.append(
                         Pair(results[i], results[j], float(clip_dir.detach().cpu()))
@@ -180,11 +175,13 @@ for mode in modes:
             pairs.sort(key=lambda x: x.clip_dir, reverse=True)
             for i in range(6):
                 src, tgt = pairs[i].res_src, pairs[i].res_tgt
-                src.image.save(
-                    os.path.join(cur_dir, f"{i}_src_{src.w_src}_{src.w_tgt}.png")
-                )
-                tgt.image.save(
-                    os.path.join(cur_dir, f"{i}_tgt_{tgt.w_src}_{tgt.w_tgt}.png")
-                )
+                save_dir_src = os.path.join(cur_dir, f"{i}_src_{src.w_src}_{src.w_tgt}")
+                os.makedirs(save_dir_src, exist_ok=True)
+                for j in range(len(src.video)):
+                    src.video[j].save(f'{save_dir_src}/%05d.png' % j)
+                save_dir_tgt = os.path.join(cur_dir, f"{i}_tgt_{tgt.w_src}_{tgt.w_tgt}")
+                os.makedirs(save_dir_tgt, exist_ok=True)
+                for j in range(len(tgt.video)):
+                    tgt.video[j].save(f'{save_dir_tgt}/%05d.png' % j)
 
         print("Synthesized images are saved in", cur_dir)

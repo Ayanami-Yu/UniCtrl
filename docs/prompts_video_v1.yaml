@@ -3,8 +3,8 @@ add:
     src_prompt: a dog wearing space suit and sitting
     tgt_prompt: a dog wearing space suit and sitting on a carpet
   1:
-    src_prompt: a cat
-    tgt_prompt: a cat with a gold chain
+    src_prompt: a cat is eating fish
+    tgt_prompt: a cat with a gold chain is eating fish
   5:
     src_prompt: a rabbit sitting in front of colorful eggs
     tgt_prompt: a rabbit with a dress sitting in front of colorful eggs
@@ -18,17 +18,11 @@ add:
     src_prompt: a cartoon painting of rabbit sitting on the ground in a field
     tgt_prompt: a cartoon painting of rabbit sitting on the ground in a field with flowers
   9:
-    src_prompt: a man in a red suit
-    tgt_prompt: a man in a red suit holding a rabbit
-  10:
-    src_prompt: mozart portrait
-    tgt_prompt: mozart with hat portrait
-  11:
-    src_prompt: a man with blue eyes and black hair
-    tgt_prompt: a man with blue eyes and black hair and tattoo
+    src_prompt: a magician in a red suit
+    tgt_prompt: a magician in a red suit holding a rabbit
   12:
-    src_prompt: a pink cartoon girl surrounded by flowers
-    tgt_prompt: a pink cartoon girl wearing a hat and surrounded by flowers
+    src_prompt: Sakura Matou surrounded by flowers, anime
+    tgt_prompt: Sakura Matou wearing a hat and surrounded by flowers, anime
   13:
     src_prompt: a woman with blue thick-lashed eyes and black hair
     tgt_prompt: a woman with blue thick-lashed eyes and black hair wearing headphones
