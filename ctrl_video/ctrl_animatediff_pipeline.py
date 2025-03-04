@@ -47,7 +47,7 @@ class CtrlAnimateDiffPipeline(AnimateDiffPipeline):
         w_tgt_ctrl_type: str = "static",
         t_ctrl_start: Optional[int] = None,
         ctrl_mode: str = "add",
-        removal_version: int = 1,
+        removal_version: int = 2,
         **kwargs,
     ):
         r"""

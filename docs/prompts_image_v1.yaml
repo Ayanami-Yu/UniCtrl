@@ -246,403 +246,403 @@ rm:
     src_prompt: a wathet bird sitting on a branch of yellow flowers
     tgt_prompt:
       default: a wathet bird sitting on a branch
-      sd: yellow flowers
+      change: yellow flowers
   1:
     src_prompt: a cat wearing headphones on a couch
     tgt_prompt:
       default: a cat on a couch
-      sd: headphones
+      change: headphones
   2:
     src_prompt: a lion in a suit sitting at a table with a laptop
     tgt_prompt:
       default: a lion in a suit sitting at a table
-      sd: a laptop
+      change: a laptop
   3:
     src_prompt: a brownish grey knitted bunny with painted eggs
     tgt_prompt:
       default: a brownish grey knitted bunny
-      sd: painted eggs
+      change: painted eggs
   4:
     src_prompt: a gray polar bear is standing on an iceberg with a plane flying overhead
     tgt_prompt:
       default: a gray polar bear is standing on an iceberg
-      sd: a plane flying overhead
+      change: a plane flying overhead
   5:
     src_prompt: a cute cartoon cat with a chef hat and a pie
     tgt_prompt:
       default: a cute cartoon cat with a chef hat
-      sd: a pie
+      change: a pie
   6:
     src_prompt: a Ukiyo-e of seagull flying over the ocean waves with sun rising in background
     tgt_prompt:
       default: a Ukiyo-e of seagull flying over the ocean waves
-      sd: sun rising in background
+      change: sun rising in background
   7:
     src_prompt: a rabbit sitting on a hill with trees
     tgt_prompt:
       default: a rabbit sitting on a hill
-      sd: trees
+      change: trees
   8:
     src_prompt: a puppy is sitting in a field of dandelions
     tgt_prompt:
       default: a puppy is sitting in a field
-      sd: dandelions
+      change: dandelions
   9:
     src_prompt: a white bear holding a rose
     tgt_prompt:
       default: a white bear
-      sd: a rose
+      change: a rose
   10:
     src_prompt: a girl in red dress standing in a field surrounded by balloons
     tgt_prompt:
       default: a girl in red dress standing in a field
-      sd: balloons
+      change: balloons
   11:
     src_prompt: a girl with a backpack and a red coat is standing in front of castles
     tgt_prompt:
       default: a girl with a backpack and a red coat is standing
-      sd: castles
+      change: castles
   12:
     src_prompt: a cartoon character with a backpack
     tgt_prompt:
       default: a cartoon character
-      sd: a backpack
+      change: a backpack
   13:
     src_prompt: a cartoon woman in a red cloak walking through the woods with bats
     tgt_prompt:
       default: a cartoon woman in a red cloak walking through the woods
-      sd: bats
+      change: bats
   14:
     src_prompt: a cartoon girl sitting by a campfire
     tgt_prompt:
       default: a cartoon girl sitting
-      sd: a campfire
+      change: a campfire
   15:
     src_prompt: a cartoon of woman is painting a pumpkin with a cat
     tgt_prompt:
       default: a cartoon of woman is painting a pumpkin
-      sd: a cat
+      change: a cat
   16:
     src_prompt: an angel with wings standing on the beach at sunset
     tgt_prompt:
       default: an angel without wings standing on the beach at sunset
-      sd: wings
+      change: wings
   17:
     src_prompt: a cartoon boy standing on the edge of a cliff with his arms outstretched with sun in the background
     tgt_prompt:
       default: a cartoon boy standing on the edge of a cliff with his arms outstretched
-      sd: sun in the background
+      change: sun in the background
   18:
     src_prompt: a young woman in sunglasses driving an old car
     tgt_prompt:
       default: a young woman driving an old car
-      sd: sunglasses
+      change: sunglasses
   19:
     src_prompt: a digital art boy with glasses wearing a tie and sitting on a laptop
     tgt_prompt:
       default: a digital art boy wearing a tie and sitting on a laptop
-      sd: a pair of glasses
+      change: a pair of glasses
   20:
     src_prompt: a cartoon illustration of two plants with faces
     tgt_prompt:
       default: a cartoon illustration of two plants
-      sd: faces
+      change: faces
   21:
     src_prompt: a woman is standing on a ladder and fishing in a bulb in gray dark blue background
     tgt_prompt:
       default: a woman is standing on a ladder in gray dark blue background
-      sd: fishing in a bulb
+      change: fishing in a bulb
   22:
     src_prompt: a birthday cupcake with a lit candle on top
     tgt_prompt:
       default: a birthday cupcake
-      sd: a lit candle on top
+      change: a lit candle on top
   23:
     src_prompt: a row of colorful chairs and tables outside a restaurant
     tgt_prompt:
       default: a row of colorful chairs outside a restaurant
-      sd: tables
+      change: tables
   24:
     src_prompt: a cat and a plant
     tgt_prompt:
       default: a plant
-      sd: a cat
+      change: a cat
   25:
     src_prompt: a blue living room with a blue couch and a blue painting
     tgt_prompt:
       default: a blue living room with a blue couch
-      sd: a blue painting
+      change: a blue painting
   26:
     src_prompt: a painting of an orange chair and a lamp in a living room
     tgt_prompt:
       default: a painting of a lamp in a living room
-      sd: an orange chair
+      change: an orange chair
   27:
     src_prompt: a bird in a cage with a flower on top
     tgt_prompt:
       default: a bird in a cage
-      sd: a flower on top
+      change: a flower on top
   28:
     src_prompt: a smoothie with fruits including strawberries, blueberries and kiwi
     tgt_prompt:
       default: a smoothie with fruits including strawberries, blueberries
-      sd: kiwi
+      change: kiwi
   29:
     src_prompt: a teddy bear sitting on a box with a rose
     tgt_prompt:
       default: a teddy bear sitting on a box
-      sd: a rose
+      change: a rose
   30:
     src_prompt: a house with lightning and rain on it
     tgt_prompt:
       default: a house with rain on it
-      sd: lightning
+      change: lightning
   31:
     src_prompt: a girl standing on the withered grass with a red tree
     tgt_prompt:
       default: a girl standing on the withered grass
-      sd: a red tree
+      change: a red tree
   32:
     src_prompt: an astronaut standing on the water with the moon in the background
     tgt_prompt:
       default: an astronaut standing on the water
-      sd: the moon in the background
+      change: the moon in the background
   33:
     src_prompt: a young girl walking in the rain with an umbrella
     tgt_prompt:
       default: a young girl walking in the rain
-      sd: an umbrella
+      change: an umbrella
   34:
     src_prompt: a castle in the night with a beautiful sunset
     tgt_prompt:
       default: a castle in the night
-      sd: a beautiful sunset
+      change: a beautiful sunset
   35:
     src_prompt: a painting of a house by the water
     tgt_prompt:
       default: a painting of a house
-      sd: by the water
+      change: by the water
   36:
     src_prompt: a lone wolf howling at the moon in the night sky
     tgt_prompt:
       default: a lone wolf howling in the night sky
-      sd: the moon
+      change: the moon
   37:
     src_prompt: a painting of a dog in the forest
     tgt_prompt:
       default: a painting of the forest
-      sd: a dog
+      change: a dog
   38:
     src_prompt: a big ship in a bottle on the dark ocean
     tgt_prompt:
       default: a big ship on the dark ocean
-      sd: in a bottle
+      change: in a bottle
   39:
     src_prompt: a poster of a bus driving down a road with mountains in the background
     tgt_prompt:
       default: a poster of a road with mountains in the background
-      sd: a bus driving down
+      change: a bus driving down
   40:
     src_prompt: a bee flies over a flowering tree branch
     tgt_prompt:
       default: a flowering tree branch
-      sd: a bee
+      change: a bee
   41:
     src_prompt: a butterfly and flowers
     tgt_prompt:
       default: flowers
-      sd: a butterfly
+      change: a butterfly
   42:
     src_prompt: a cheetah walking across a grassy field
     tgt_prompt:
       default: a cheetah walking across a field
-      sd: grassy
+      change: grassy
   43:
     src_prompt: a kitten playing with balls
     tgt_prompt:
       default: a kitten
-      sd: playing with balls
+      change: playing with balls
   44:
     src_prompt: an older man sitting on a bench with a dog
     tgt_prompt:
       default: an older man sitting on a bench
-      sd: a dog
+      change: a dog
   45:
     src_prompt: an elephant walking on the beach with a dark sky
     tgt_prompt:
       default: a beach under a dark sky
-      sd: an elephant
+      change: an elephant
   46:
     src_prompt: a seal pup on the beach
     tgt_prompt:
       default: the beach
-      sd: a seal pup
+      change: a seal pup
   47:
     src_prompt: a husky dog running on a path in the woods
     tgt_prompt:
       default: a path in the woods
-      sd: a husky dog
+      change: a husky dog
   48:
     src_prompt: a girl and a dog sitting in the forest
     tgt_prompt:
       default: a girl sitting in the forest
-      sd: a dog
+      change: a dog
   49:
     src_prompt: a mouse and a leaf on the ground
     tgt_prompt:
       default: a mouse on the ground
-      sd: a leaf
+      change: a leaf
   50:
     src_prompt: a woman in a trench coat sitting at a table with a cell phone
     tgt_prompt:
       default: a woman in a trench coat sitting at a table
-      sd: a cell phone
+      change: a cell phone
   51:
     src_prompt: a beautiful young woman in a blue dress holding pink flowers
     tgt_prompt:
       default: a beautiful young woman in a blue dress
-      sd: pink flowers
+      change: pink flowers
   52:
     src_prompt: a woman in a purple dress sitting on a swing holding a coconut
     tgt_prompt:
       default: a woman in a purple dress sitting on a swing
-      sd: a coconut
+      change: a coconut
   53:
     src_prompt: a woman with flowers on head in a pink dress and red skirt is walking on the beach
     tgt_prompt:
       default: a woman in a pink dress and red skirt is walking on the beach
-      sd: flowers on head
+      change: flowers on head
   54:
     src_prompt: a woman with glasses sitting on a stone wall
     tgt_prompt:
       default: a woman sitting on a stone wall
-      sd: a pair of glasses
+      change: a pair of glasses
   55:
     src_prompt: a woman in sunglasses sitting at a table with a bottles of water
     tgt_prompt:
       default: a woman in sunglasses sitting at a table
-      sd: a bottles of water
+      change: a bottles of water
   56:
     src_prompt: a woman holding a rainbow flag
     tgt_prompt:
       default: a woman
-      sd: a rainbow flag
+      change: a rainbow flag
   57:
     src_prompt: a woman in a wedding dress sitting on a chair with lamp and flowers on the table
     tgt_prompt:
       default: a woman in a wedding dress sitting on a chair with flowers on the table
-      sd: a lamp
+      change: a lamp
   58:
     src_prompt: a woman with a backpack playing an acoustic guitar on the grass
     tgt_prompt:
       default: a woman playing an acoustic guitar on the grass
-      sd: a backpack
+      change: a backpack
   59:
     src_prompt: a woman in a traditional chinese dress holding flowers
     tgt_prompt:
       default: a woman in a traditional chinese dress
-      sd: flowers
+      change: flowers
   60:
     src_prompt: a cup of coffee on a table with coffee beans and a coffee grinder
     tgt_prompt:
       default: a cup of coffee on a table with a coffee grinder
-      sd: coffee beans
+      change: coffee beans
   61:
     src_prompt: raspberry macarons with mint leaves
     tgt_prompt:
       default: raspberry macarons
-      sd: mint leaves
+      change: mint leaves
   62:
     src_prompt: olive oil being poured into a bowl with olive on table
     tgt_prompt:
       default: olive oil being poured into a bowl on table
-      sd: olive
+      change: olive
   63:
     src_prompt: a pear sitting on a wooden table
     tgt_prompt:
       default: a wooden table
-      sd: a pear
+      change: a pear
   64:
     src_prompt: a hand holding a stopwatch with the words 2023 and a graph in the
       background
     tgt_prompt:
       default: a hand holding a stopwatch in the background
-      sd: the words 2023 and a graph
+      change: the words 2023 and a graph
   65:
     src_prompt: four eggs with drawings on them are in a nest
     tgt_prompt:
       default: three eggs with drawings on them are in a nest
-      sd: an egg
+      change: an egg
   66:
     src_prompt: purple flowers are on a sheet of music
     tgt_prompt:
       default: a sheet of music
-      sd: purple flowers
+      change: purple flowers
   67:
     src_prompt: a plate of chicken and broccoli on a black table
     tgt_prompt:
       default: a plate of chicken on a black table
-      sd: broccoli
+      change: broccoli
   68:
     src_prompt: two cups of coffee with a leaf design on the top, coffee beans
     tgt_prompt:
       default: two cups of coffee, coffee beans
-      sd: a leaf design on the top
+      change: a leaf design on the top
   69:
     src_prompt: a basket of books and a cup on the table
     tgt_prompt:
       default: a basket of books on the table
-      sd: a cup
+      change: a cup
   70:
     src_prompt: a single pink lotus flower is growing in the middle of a large green leaf
     tgt_prompt:
       default: a large green leaf
-      sd: a single pink lotus flower
+      change: a single pink lotus flower
   71:
     src_prompt: a large brown sand area with clouds on the sky
     tgt_prompt:
       default: a large brown sand area with the sky
-      sd: clouds
+      change: clouds
   72:
     src_prompt: a paraglider is flying over a mountain with snow capped peaks
     tgt_prompt:
       default: a mountain with snow capped peaks
-      sd: a paraglider is flying over
+      change: a paraglider is flying over
   73:
     src_prompt: a small mushroom is sitting on top of a pine branch
     tgt_prompt:
       default: a pine branch
-      sd: a small mushroom
+      change: a small mushroom
   74:
     src_prompt: rainbow over the ocean
     tgt_prompt:
       default: the ocean
-      sd: rainbow
+      change: rainbow
   75:
     src_prompt: a lone tree is reflected in the water at night with a bright moon
     tgt_prompt:
       default: a lone tree is reflected in the water at night
-      sd: a bright moon
+      change: a bright moon
   76:
     src_prompt: seagull sits on a wooden dock at sunset
     tgt_prompt:
       default: a wooden dock at sunset
-      sd: seagull
+      change: seagull
   77:
     src_prompt: a barn sits in the snow next to trees with gray sky
     tgt_prompt:
       default: a barn sits in the snow with gray sky
-      sd: trees
+      change: trees
   78:
     src_prompt: two boats are docked on the shore of a lake
     tgt_prompt:
       default: a lake
-      sd: two boats are docked on the shore
+      change: two boats are docked on the shore
   79:
     src_prompt: a church in the countryside with a fence and trees
     tgt_prompt:
       default: the countryside with a fence and trees
-      sd: a church
+      change: a church
 style:
   0:
     src_prompt: a cat and a bunny

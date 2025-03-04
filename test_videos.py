@@ -3,6 +3,7 @@ import yaml
 import torch
 
 from pytorch_lightning import seed_everything
+from diffusers import DDIMScheduler, MotionAdapter
 from collections import namedtuple
 from transformers import (
     CLIPImageProcessor,
@@ -10,36 +11,64 @@ from transformers import (
     CLIPTokenizer,
     CLIPVisionModelWithProjection,
 )
-
-from ctrl_image.ctrl_sd_pipeline import CtrlSDPipeline
+from ctrl_video.ctrl_animatediff_pipeline import CtrlAnimateDiffPipeline
 from metrics.clip_utils import DirectionalSimilarity
 
 
 # set input and output paths
-out_dir = "exp/sd/pie"
-yaml_path = "pie_prompts_modified.yaml"
+out_dir = "exp/animatediff/pie"
+yaml_path = "metrics/prompts_videos_v1.yaml"
 
 # set parameters
-seed = 206096096
+seed = 42
 device_idx = 7
 
-modes = ["style"]  # available modes: add, rm, style
-w_tgt_ctrl_type = "cosine"
+modes = ["rm"]  # available modes: add, rm, style
+w_tgt_ctrl_type = "static"
 
 # prepare for generation
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 torch.cuda.set_device(device_idx)
 
-seed_everything(seed)
 os.makedirs(out_dir, exist_ok=True)
 
 model_path = "stabilityai/stable-diffusion-2-1-base"
-model = CtrlSDPipeline.from_pretrained(model_path).to(device)
+
+num_frames = 8
+negative_prompts = [
+    "bad quality, worse quality",
+    "bad quality, worse quality",
+]
+
+# load the motion adapter
+adapter = MotionAdapter.from_pretrained(
+    "guoyww/animatediff-motion-adapter-v1-5-2", torch_dtype=torch.float16
+)
+
+# load SD 1.5 based finetuned model
+model_id = "SG161222/Realistic_Vision_V5.1_noVAE"
+pipe = CtrlAnimateDiffPipeline.from_pretrained(
+    model_id, motion_adapter=adapter, torch_dtype=torch.float16
+)
+
+scheduler = DDIMScheduler.from_pretrained(
+    model_id,
+    subfolder="scheduler",
+    clip_sample=False,
+    timestep_spacing="linspace",
+    beta_schedule="linear",
+    steps_offset=1,
+)
+pipe.scheduler = scheduler
+
+# enable memory savings
+pipe.enable_vae_slicing()
+pipe.enable_model_cpu_offload()
 
 with open(yaml_path, "r") as f:
     data = yaml.safe_load(f)
 
-Result = namedtuple("Result", ["image", "w_src", "w_tgt"])
+Result = namedtuple("Result", ["video", "w_src", "w_tgt"])
 Pair = namedtuple("Pair", ["res_src", "res_tgt", "clip_dir"])
 
 clip_id = "openai/clip-vit-large-patch14"
@@ -73,7 +102,7 @@ for mode in modes:
 
         prompts = [
             case["src_prompt"],
-            case["tgt_prompt"]["sd"] if mode == "rm" else case["tgt_prompt"],
+            case["tgt_prompt"]["change"],
         ]
         cur_dir = os.path.join(
             out_dir,
@@ -82,23 +111,31 @@ for mode in modes:
         )
         os.makedirs(cur_dir, exist_ok=True)
 
-        start_code = torch.randn([1, 4, 64, 64], device=device)
-        start_code = start_code.expand(len(prompts), -1, -1, -1)
+        seed_everything(seed)
+        start_code = torch.randn(
+            [1, 4, num_frames, 64, 64], device=device, dtype=torch.float16
+        )
 
         for w_src in src_weights:
             results = []
             pairs = []
             for w_tgt in tgt_weights:
-                image = model(
-                    prompts,
+                output = pipe(
+                    prompt=prompts,
+                    negative_prompt=negative_prompts,
+                    num_frames=num_frames,
                     guidance_scale=7.5,
+                    num_inference_steps=25,
                     latents=start_code,
                     w_src=w_src,
                     w_tgt=w_tgt,
-                    w_src_ctrl_type="static",
                     w_tgt_ctrl_type=w_tgt_ctrl_type,
                     ctrl_mode=ctrl_mode,
-                ).images[0]
+                )
+                frames = output.frames[0]
+
+
+
 
                 # document the configs
                 configs = {
@@ -114,7 +151,7 @@ for mode in modes:
                     with open(yaml_path, "w") as f:
                         yaml.dump(configs, f, default_flow_style=False)
 
-                results.append(Result(image, w_src, w_tgt))
+                results.append(Result(frames, w_src, w_tgt))
 
             results.sort(key=lambda x: x.w_tgt)
             for i in range(len(results)):
@@ -123,10 +160,12 @@ for mode in modes:
                 ):
                     break
 
+                # to save computation we only calculate CLIP directional similarity
+                # for the first frames to select the best
                 for j in range(i + 1, len(results)):
                     clip_dir = dir_similarity(
-                        results[i].image,
-                        results[j].image,
+                        results[i].video[0],
+                        results[j].video,
                         prompts[0],
                         (
                             prompts[1]

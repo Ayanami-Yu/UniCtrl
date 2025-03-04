@@ -2,76 +2,6 @@
 # that of FateZero, we simply use the first 8 frames.
 
 add:
-  gwen_ukiyo:
-    seed: 42
-    src_prompt: 'Gwen Stacy reading a book'
-    tgt_prompt: 'Gwen Stacy reading a book by Hokusai, in the style of Ukiyo'
-    src_images: 'metrics/videos/src/add/gwen_book'
-    tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/gwen_ukiyo/1.0_6.6'
-      fatezero: 'metrics/videos/tgt/fatezero/add/gwen_ukiyo'
-      tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_ukiyo'
-      vidtome: 'metrics/videos/tgt/vidtome/add/gwen_ukiyo'
-      flatten: 'metrics/videos/tgt/flatten/add/gwen_ukiyo'
-      v2v_zero: 'metrics/videos/tgt/v2v_zero/add/gwen_ukiyo'
-      rav: 'metrics/videos/tgt/rav/add/gwen_ukiyo'
-
-  gwen_van_gogh:
-    seed: 42
-    src_prompt: 'Gwen Stacy reading a book'
-    tgt_prompt: 'Gwen Stacy reading a book, Van Gogh style'
-    src_images: 'metrics/videos/src/add/gwen_book'
-    tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/gwen_van_gogh/1.0_5.4'
-      fatezero: 'metrics/videos/tgt/fatezero/add/gwen_van_gogh'
-      tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_van_gogh'
-      vidtome: 'metrics/videos/tgt/vidtome/add/gwen_van_gogh'
-      flatten: 'metrics/videos/tgt/flatten/add/gwen_van_gogh'
-      v2v_zero: 'metrics/videos/tgt/v2v_zero/add/gwen_van_gogh'
-      rav: 'metrics/videos/tgt/rav/add/gwen_van_gogh'
-
-  gwen_painting:
-    seed: 42
-    src_prompt: 'Gwen Stacy reading a book'
-    tgt_prompt: 'Gwen Stacy reading a book, oil painting'
-    src_images: 'metrics/videos/src/add/gwen_book'
-    tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/gwen_painting/1.0_5.7'
-      fatezero: 'metrics/videos/tgt/fatezero/add/gwen_painting'
-      tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_painting'
-      vidtome: 'metrics/videos/tgt/vidtome/add/gwen_painting'
-      flatten: 'metrics/videos/tgt/flatten/add/gwen_painting'
-      v2v_zero: 'metrics/videos/tgt/v2v_zero/add/gwen_painting'
-      rav: 'metrics/videos/tgt/rav/add/gwen_painting'
-
-  gwen_cyberpunk:
-    seed: 42
-    src_prompt: 'Gwen Stacy reading a book'
-    tgt_prompt: 'Gwen Stacy reading a book, in cyberpunk style'
-    src_images: 'metrics/videos/src/add/gwen_book'
-    tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/gwen_cyberpunk/1.0_5.1'
-      fatezero: 'metrics/videos/tgt/fatezero/add/gwen_cyberpunk'
-      tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_cyberpunk'
-      vidtome: 'metrics/videos/tgt/vidtome/add/gwen_cyberpunk'
-      flatten: 'metrics/videos/tgt/flatten/add/gwen_cyberpunk'
-      v2v_zero: 'metrics/videos/tgt/v2v_zero/add/gwen_cyberpunk'
-      rav: 'metrics/videos/tgt/rav/add/gwen_cyberpunk'
-
-  gwen_watercolor:
-    seed: 42
-    src_prompt: 'Gwen Stacy reading a book'
-    tgt_prompt: 'Gwen Stacy reading a book, watercolor painting'
-    src_images: 'metrics/videos/src/add/gwen_book'
-    tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/gwen_watercolor/1.0_3.6'
-      fatezero: 'metrics/videos/tgt/fatezero/add/gwen_watercolor'
-      tokenflow: 'metrics/videos/tgt/tokenflow/add/gwen_watercolor'
-      vidtome: 'metrics/videos/tgt/vidtome/add/gwen_watercolor'
-      flatten: 'metrics/videos/tgt/flatten/add/gwen_watercolor'
-      v2v_zero: 'metrics/videos/tgt/v2v_zero/add/gwen_watercolor'
-      rav: 'metrics/videos/tgt/rav/add/gwen_watercolor'
-
   boat_tower:
     src_prompt: 'A boat sailing leisurely along River'
     tgt_prompt: 'A boat sailing leisurely along the River with the Eiffel Tower in background'
@@ -178,12 +108,83 @@ add:
       v2v_zero: 'metrics/videos/tgt/v2v_zero/add/car_helicopters'
       rav: 'metrics/videos/tgt/rav/add/car_helicopters'
 
+style:
+  gwen_ukiyo:
+    seed: 42
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book by Hokusai, in the style of Ukiyo'
+    src_images: 'metrics/videos/src/style/gwen_book'
+    tgt_images:
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_ukiyo/1.0_6.6'
+      fatezero: 'metrics/videos/tgt/fatezero/style/gwen_ukiyo'
+      tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_ukiyo'
+      vidtome: 'metrics/videos/tgt/vidtome/style/gwen_ukiyo'
+      flatten: 'metrics/videos/tgt/flatten/style/gwen_ukiyo'
+      v2v_zero: 'metrics/videos/tgt/v2v_zero/style/gwen_ukiyo'
+      rav: 'metrics/videos/tgt/rav/style/gwen_ukiyo'
+
+  gwen_van_gogh:
+    seed: 42
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book, Van Gogh style'
+    src_images: 'metrics/videos/src/style/gwen_book'
+    tgt_images:
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_van_gogh/1.0_5.4'
+      fatezero: 'metrics/videos/tgt/fatezero/style/gwen_van_gogh'
+      tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_van_gogh'
+      vidtome: 'metrics/videos/tgt/vidtome/style/gwen_van_gogh'
+      flatten: 'metrics/videos/tgt/flatten/style/gwen_van_gogh'
+      v2v_zero: 'metrics/videos/tgt/v2v_zero/style/gwen_van_gogh'
+      rav: 'metrics/videos/tgt/rav/style/gwen_van_gogh'
+
+  gwen_painting:
+    seed: 42
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book, oil painting'
+    src_images: 'metrics/videos/src/style/gwen_book'
+    tgt_images:
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_painting/1.0_5.7'
+      fatezero: 'metrics/videos/tgt/fatezero/style/gwen_painting'
+      tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_painting'
+      vidtome: 'metrics/videos/tgt/vidtome/style/gwen_painting'
+      flatten: 'metrics/videos/tgt/flatten/style/gwen_painting'
+      v2v_zero: 'metrics/videos/tgt/v2v_zero/style/gwen_painting'
+      rav: 'metrics/videos/tgt/rav/style/gwen_painting'
+
+  gwen_cyberpunk:
+    seed: 42
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book, in cyberpunk style'
+    src_images: 'metrics/videos/src/style/gwen_book'
+    tgt_images:
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_cyberpunk/1.0_5.1'
+      fatezero: 'metrics/videos/tgt/fatezero/style/gwen_cyberpunk'
+      tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_cyberpunk'
+      vidtome: 'metrics/videos/tgt/vidtome/style/gwen_cyberpunk'
+      flatten: 'metrics/videos/tgt/flatten/style/gwen_cyberpunk'
+      v2v_zero: 'metrics/videos/tgt/v2v_zero/style/gwen_cyberpunk'
+      rav: 'metrics/videos/tgt/rav/style/gwen_cyberpunk'
+
+  gwen_watercolor:
+    seed: 42
+    src_prompt: 'Gwen Stacy reading a book'
+    tgt_prompt: 'Gwen Stacy reading a book, watercolor painting'
+    src_images: 'metrics/videos/src/style/gwen_book'
+    tgt_images:
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_watercolor/1.0_3.6'
+      fatezero: 'metrics/videos/tgt/fatezero/style/gwen_watercolor'
+      tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_watercolor'
+      vidtome: 'metrics/videos/tgt/vidtome/style/gwen_watercolor'
+      flatten: 'metrics/videos/tgt/flatten/style/gwen_watercolor'
+      v2v_zero: 'metrics/videos/tgt/v2v_zero/style/gwen_watercolor'
+      rav: 'metrics/videos/tgt/rav/style/gwen_watercolor'
+
 rm:
   captain_coffee:
     src_prompt: 'Captain America drinking coffee in a cafe in Paris'
     tgt_prompt:
       default: 'Captain America in a cafe in Paris'
-      animatediff: 'a cup of coffee'
+      change: 'a cup of coffee'
     src_images: 'metrics/videos/src/rm/captain_coffee'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/rm/captain_coffee'
@@ -199,7 +200,7 @@ rm:
     src_prompt: 'a panda is playing guitar on times square'
     tgt_prompt:
       default: 'a panda on times square'
-      animatediff: 'a guitar'
+      change: 'a guitar'
     src_images: 'metrics/videos/src/rm/panda_guitar'
     tgt_images:
       animatediff: 'metrics/videos/tgt/animatediff/rm/panda_guitar'
