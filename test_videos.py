@@ -24,7 +24,7 @@ out_dir = "exp/animatediff/pie"
 yaml_path = "docs/prompts_video_v1.yaml"
 
 # set parameters
-seed = 1376785931
+seed = 699321467  # 1423986194 # 778029590
 
 modes = ["rm"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "static"
