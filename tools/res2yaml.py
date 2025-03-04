@@ -17,7 +17,7 @@ content = {
 
 # load the previous yaml file if provided
 if prev_file:
-    with open(prev_file, 'r') as f:
+    with open(prev_file, "r") as f:
         data_prev = yaml.safe_load(f)
     for mode in data_prev.keys():
         content[mode] = {k: v for k, v in data_prev[mode].items()}
@@ -56,12 +56,12 @@ for img_name in os.listdir(res_path):
         imgs[i].save(img_save_paths[i])
 
     # add a new case into content
-    content[conf['ctrl_mode']][img_name] = {
-        "seed": conf['seed'],
-        "src_prompt": conf['prompts'][0],
+    content[conf["ctrl_mode"]][img_name] = {
+        "seed": conf["seed"],
+        "src_prompt": conf["prompts"][0],
         "tgt_prompt": {
             "default": "",
-            "change": conf['prompts'][1],
+            "change": conf["prompts"][1],
         },
         "src_image": {
             "default": img_save_paths[0],

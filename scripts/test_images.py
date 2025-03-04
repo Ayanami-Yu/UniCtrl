@@ -73,7 +73,7 @@ for mode in modes:
 
         prompts = [
             case["src_prompt"],
-            case["tgt_prompt"]["change"] if mode == 'rm' else case['tgt_prompt'],
+            case["tgt_prompt"]["change"] if mode == "rm" else case["tgt_prompt"],
         ]
         cur_dir = os.path.join(
             out_dir,

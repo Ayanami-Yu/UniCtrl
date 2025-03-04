@@ -15,20 +15,23 @@ from ctrl_video.ctrl_animatediff_pipeline import CtrlAnimateDiffPipeline
 from metrics.clip_utils import DirectionalSimilarity
 
 
+# for calculating metrics and select the best
+Result = namedtuple("Result", ["video", "w_src", "w_tgt"])
+Pair = namedtuple("Pair", ["res_src", "res_tgt", "clip_dir"])
+
 # set input and output paths
 out_dir = "exp/animatediff/pie"
 yaml_path = "docs/prompts_video_v1.yaml"
 
 # set parameters
-seed = 1131219402
-# device_idx = 4
+seed = 353383166
 
 modes = ["rm"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "static"
 
 # prepare for generation
+# NOTE AnimteDiff will use multiple GPUs, so better set CUDA_VISIBLE_DEVICES
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# torch.cuda.set_device(device_idx)
 
 os.makedirs(out_dir, exist_ok=True)
 
@@ -65,12 +68,6 @@ pipe.scheduler = scheduler
 pipe.enable_vae_slicing()
 pipe.enable_model_cpu_offload()
 
-with open(yaml_path, "r") as f:
-    data = yaml.safe_load(f)
-
-Result = namedtuple("Result", ["video", "w_src", "w_tgt"])
-Pair = namedtuple("Pair", ["res_src", "res_tgt", "clip_dir"])
-
 clip_id = "openai/clip-vit-large-patch14"
 tokenizer = CLIPTokenizer.from_pretrained(clip_id)
 text_encoder = CLIPTextModelWithProjection.from_pretrained(clip_id).to(device)
@@ -80,7 +77,11 @@ dir_similarity = DirectionalSimilarity(
     tokenizer, text_encoder, image_processor, image_encoder, device
 )
 
+with open(yaml_path, "r") as f:
+    data = yaml.safe_load(f)
+
 for mode in modes:
+    # NOTE ctrl_mode corresponds to the methods in our pipeline
     if mode == "add" or mode == "style":
         ctrl_mode = "add"
     else:
@@ -95,14 +96,14 @@ for mode in modes:
         elif w_tgt_ctrl_type == "static":
             tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 33)
         else:
-            tgt_start, tgt_inc, tgt_n = (0.0, 0.15, 40)  # for cosine
+            tgt_start, tgt_inc, tgt_n = (0.0, 0.15, 40)  # for cosine addition
 
         src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
         tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
 
         prompts = [
             case["src_prompt"],
-            case["tgt_prompt"]["change"] if mode == 'rm' else case['tgt_prompt'],
+            case["tgt_prompt"]["change"] if mode == "rm" else case["tgt_prompt"],
         ]
         cur_dir = os.path.join(
             out_dir,
@@ -135,7 +136,11 @@ for mode in modes:
                 frames = output.frames[0]
 
                 # document the configs
-                tgt_prompt_default = case['tgt_prompt']['default'] if mode == 'rm' else case['tgt_prompt']
+                tgt_prompt_default = (
+                    case["tgt_prompt"]["default"]
+                    if mode == "rm"
+                    else case["tgt_prompt"]
+                )
                 configs = {
                     "seed": seed,
                     "prompts": prompts,
@@ -175,13 +180,25 @@ for mode in modes:
             pairs.sort(key=lambda x: x.clip_dir, reverse=True)
             for i in range(6):
                 src, tgt = pairs[i].res_src, pairs[i].res_tgt
+
+                # save source video
                 save_dir_src = os.path.join(cur_dir, f"{i}_src_{src.w_src}_{src.w_tgt}")
                 os.makedirs(save_dir_src, exist_ok=True)
                 for j in range(len(src.video)):
-                    src.video[j].save(f'{save_dir_src}/%05d.png' % j)
+                    src.video[j].save(f"{save_dir_src}/%05d.png" % j)
+
+                # save traget video
                 save_dir_tgt = os.path.join(cur_dir, f"{i}_tgt_{tgt.w_src}_{tgt.w_tgt}")
                 os.makedirs(save_dir_tgt, exist_ok=True)
                 for j in range(len(tgt.video)):
-                    tgt.video[j].save(f'{save_dir_tgt}/%05d.png' % j)
+                    tgt.video[j].save(f"{save_dir_tgt}/%05d.png" % j)
+
+                # separately save the first frames for quick comparison
+                src.video[0].save(
+                    os.path.join(cur_dir, f"{i}_src_{src.w_src}_{src.w_tgt}.png")
+                )
+                tgt.video[0].save(
+                    os.path.join(cur_dir, f"{i}_tgt_{tgt.w_src}_{tgt.w_tgt}.png")
+                )
 
         print("Synthesized images are saved in", cur_dir)
