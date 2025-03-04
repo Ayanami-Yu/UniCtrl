@@ -348,128 +348,47 @@ rm:
       change: seagulls
 style:
   0:
-    src_prompt: a cat and a bunny
-    tgt_prompt: a cat and a bunny in Pablo Picasso's style
+    src_prompt: a cat playing with a bunny
+    tgt_prompt: a cat playing with a bunny in Pablo Picasso's style
   1:
     src_prompt: a bird standing on tree branch
     tgt_prompt: a bird standing on tree branch, pop art
   2:
     src_prompt: a colorful cat with bubbles and stars on it
     tgt_prompt: kids crayon drawing of a colorful cat with bubbles and stars on it
-  3:
-    src_prompt: the wolf is wearing armor and has a crown on his head
-    tgt_prompt: a wall mural of the wolf is wearing armor and has a crown on his head
-  4:
-    src_prompt: an arctic fox in the night sky
-    tgt_prompt: an oil painting of an arctic fox in the night sky
-  5:
-    src_prompt: a painting of a tiger
-    tgt_prompt: a painting of a tiger, cyberpunk style
-  6:
-    src_prompt: an illustration of a chicken on a white background
-    tgt_prompt: an anime illustration of a chicken on a white background
   7:
     src_prompt: a giraffe sitting down on a white background
     tgt_prompt: a watercolor giraffe sitting down on a white background
   8:
     src_prompt: a teddy bear wearing glasses and a shirt with flowers
     tgt_prompt: a brush painting of a teddy bear wearing glasses and a shirt with flowers
-  9:
-    src_prompt: a cute little bunny wearing a coat and hat
-    tgt_prompt: a cute little bunny wearing a coat and hat, Baroque style
-  10:
-    src_prompt: a woman with red paint splatters on her face
-    tgt_prompt: a cartoon woman with red paint splatters on her face
-  11:
-    src_prompt: a clown with colorful hair
-    tgt_prompt: a clown in pixel art style with colorful hair
   12:
     src_prompt: a woman in a hood holding a fire
     tgt_prompt: Chinese watercolor of a woman in a hood holding a fire
-  13:
-    src_prompt: a man with a long beard and a long sword in the forest
-    tgt_prompt: kids crayon drawing of a man with a long beard and a long sword in the forest
-  14:
-    src_prompt: a woman in a green dress walking through an archway
-    tgt_prompt: a wall mural of a woman in a green dress walking through an archway
-  15:
-    src_prompt: a man in a hooded robe stands in the desert
-    tgt_prompt: an oil painting of a man in a hooded robe stands in the desert
   16:
-    src_prompt: a girl with pink hair and bubbles floating around her
-    tgt_prompt: a black and white sketch of a girl with pink hair and bubbles floating around her
+    src_prompt: a beautiful girl with bubbles floating around her
+    tgt_prompt: a black and white sketch of a beautiful girl with bubbles floating around her
   17:
     src_prompt: a woman sitting in the cave with light coming from the light
     tgt_prompt: a pen and ink sketch of a woman sitting in the cave with light coming from the light
-  18:
-    src_prompt: a woman with flowers in her hair
-    tgt_prompt: a stained glass window of a woman with flowers in her hair
   19:
-    src_prompt: a woman with red hair and a red dress
-    tgt_prompt: a woman with red hair and a red dress, post-impressionism style
-  20:
-    src_prompt: a bird is perched on a branch with blue flowers
-    tgt_prompt: a bird is perched on a branch with blue flowers, animated style
-  21:
-    src_prompt: retro living room with chair, lamp, bookshelf and table
-    tgt_prompt: retro living room with chair, lamp, bookshelf and table, surrealism style
-  22:
-    src_prompt: christmas living room with fireplace, chair, wreath and tree
-    tgt_prompt: a pixel art of christmas living room with fireplace, chair, wreath and tree
-  23:
-    src_prompt: a living room with a couch and a table
-    tgt_prompt: a watercolor of a living room with a couch and a table
-  24:
-    src_prompt: an empty room with wooden floors and a window
-    tgt_prompt: Chinese watercolor of an empty room with wooden floors and a window
-  25:
-    src_prompt: an empty room with a view of the beach
-    tgt_prompt: an empty room with a view of the beach, abstract expressionism style
-  26:
-    src_prompt: a desk with a laptop, a plant, and a mouse
-    tgt_prompt: a brush painting of a desk with a laptop, a plant, and a mouse
-  27:
-    src_prompt: a room with a couch and a window looking out to the mountains
-    tgt_prompt: a room with a couch and a window looking out to the mountains, Van Gogh style
-  28:
-    src_prompt: a room with windows and potted plants
-    tgt_prompt: an oil painting of a room with windows and potted plants
-  29:
-    src_prompt: a living room with blue walls and a fireplace
-    tgt_prompt: watercolor of a living room with blue walls and a fireplace
+    src_prompt: a woman with red hair and a red dress walking by the lake
+    tgt_prompt: a woman with red hair and a red dress walking by the lake, post-impressionism style
   30:
     src_prompt: a house floating in the sky over a lake
-    tgt_prompt: a digital art of a house floating in the sky over a lake
+    tgt_prompt: a house floating in the sky over a lake, cyberpunk style
   31:
     src_prompt: the village in the game, the witcher 3
     tgt_prompt: watercolor painting of the village in the game, the witcher 3
-  32:
-    src_prompt: halloween night in the city
-    tgt_prompt: halloween night in the city, cyberpunk style
-  33:
-    src_prompt: the castle is in the middle of a river at sunset
-    tgt_prompt: a digital art of the castle is in the middle of a river at sunset
-  34:
-    src_prompt: a house by the water with flowers and trees
-    tgt_prompt: watercolor of a house by the water with flowers and trees
-  35:
-    src_prompt: sunset at the rock by james mccormick
-    tgt_prompt: black and white ink painting of sunset at the rock by james mccormick
-  36:
-    src_prompt: an anime painting of a house on a hill
-    tgt_prompt: kids crayon drawing of an anime painting of a house on a hill
   37:
     src_prompt: a man is walking down a street in the rain
-    tgt_prompt: a black and white sketch of a man is walking down a street in the rain
-  38:
-    src_prompt: the planet earth is seen in the distance with mountains and desert
-    tgt_prompt: an oil painting of the planet earth is seen in the distance with mountains and desert
+    tgt_prompt: a man is walking down a street in the rain, in Junji Ito's style
   39:
     src_prompt: halloween witch flying over a witch house in the night
     tgt_prompt: a digital art of halloween witch flying over a witch house in the night
   40:
-    src_prompt: a cat is sitting on a table with a green eyes
-    tgt_prompt: a sketch of a cat is sitting on a table with a green eyes
+    src_prompt: a cat with green eyes jumping from a table
+    tgt_prompt: a sketch of a cat with green eyes jumping from a table
   41:
     src_prompt: a rat is peeking out from behind a pink wall
     tgt_prompt: a digital art of a rat is peeking out from behind a pink wall
@@ -479,111 +398,36 @@ style:
   43:
     src_prompt: a bernese mountain dog is sitting in the grass
     tgt_prompt: stained glass window of a bernese mountain dog is sitting in the grass
-  44:
-    src_prompt: a white wolf with black eyes and a black nose
-    tgt_prompt: pen and ink sketch of a white wolf with black eyes and a black nose
   45:
     src_prompt: a cat with green eyes looking to the side
     tgt_prompt: an oil painting of a cat with green eyes looking to the side
   46:
-    src_prompt: a small bird is standing on the ground
-    tgt_prompt: a wall mural of a small bird is standing on the ground
+    src_prompt: a small bird standing on the ground
+    tgt_prompt: a wall mural of a small bird standing on the ground
   47:
     src_prompt: a gray cat sitting on a black basket
     tgt_prompt: kids crayon drawing of a gray cat sitting on a black basket
   48:
     src_prompt: a white horse running in the field
     tgt_prompt: watercolor of a white horse running in the field
-  49:
-    src_prompt: a cat is sitting in the grass with flowers
-    tgt_prompt: a digital art of a cat is sitting in the grass with flowers
-  50:
-    src_prompt: a woman in a blue dress leaning against a wall
-    tgt_prompt: a pixel art of a woman in a blue dress leaning against a wall
-  51:
-    src_prompt: two young children holding hands and standing in front of a wooden door
-    tgt_prompt: stained glass window of two young children holding hands and standing in front of a wooden door
   52:
     src_prompt: a little girl playing a musical instrument
     tgt_prompt: an oil painting of a little girl playing a musical instrument
-  53:
-    src_prompt: a young boy with curly hair and blue shirt
-    tgt_prompt: kids crayon drawing of a young boy with curly hair and blue shirt
   54:
     src_prompt: a woman in white shorts and a white shirt is jumping in front of a pool
-    tgt_prompt: kids drawing of a woman in white shorts and a white shirt is jumping in front of a pool
-  55:
-    src_prompt: a woman dressed in a golden dress and holding an apple
-    tgt_prompt: digital art of a woman dressed in a golden dress and holding an apple
-  56:
-    src_prompt: a woman in white sitting on a bench with a hat
-    tgt_prompt: cartoon of a woman in white sitting on a bench with a hat
-  57:
-    src_prompt: a little girl sleeping in bed with a stuffed animal
-    tgt_prompt: an oil painting of a little girl sleeping in bed with a stuffed animal
+    tgt_prompt: a woman in white shorts and a white shirt is jumping in front of a pool, post-impressionism style
   58:
     src_prompt: a woman in sunglasses and leather pants sitting on a bench
     tgt_prompt: watercolor of a woman in sunglasses and leather pants sitting on a bench
-  59:
-    src_prompt: a young girl with painted hands and face
-    tgt_prompt: black and white sketch of a young girl with painted hands and face
-  60:
-    src_prompt: a white shelf with books and a wooden bookcase
-    tgt_prompt: pixel art of a white shelf with books and a wooden bookcase
-  61:
-    src_prompt: a bed with a quilt on it and a chair
-    tgt_prompt: brush painting of a bed with a quilt on it and a chair
-  62:
-    src_prompt: a dining room with red walls and hardwood floors
-    tgt_prompt: oil painting of a dining room with red walls and hardwood floors
-  63:
-    src_prompt: a modern chair and table in a lobby area
-    tgt_prompt: wall mural of a modern chair and table in a lobby area
-  64:
-    src_prompt: a chair and table in front of a window overlooking a castle
-    tgt_prompt: anime of a chair and table in front of a window overlooking a castle
-  65:
-    src_prompt: a modern bedroom with a bed and a painting on the wall
-    tgt_prompt: pen and ink sketch of a modern bedroom with a bed and a painting on the wall
   66:
     src_prompt: a table with two chairs and a bonsai tree
     tgt_prompt: stained glass window of a table with two chairs and a bonsai tree
-  67:
-    src_prompt: a white desk with a laptop and chair
-    tgt_prompt: chinese painting of a white desk with a laptop and chair
-  68:
-    src_prompt: a gray couch and a lamp sitting on a wooden floor
-    tgt_prompt: digital art of a gray couch and a lamp sitting on a wooden floor
-  69:
-    src_prompt: a chair and a clock on a white wall
-    tgt_prompt: watercolor of a chair and a clock on a white wall
   70:
     src_prompt: a large wave crashing on the beach with a cloudy sky
     tgt_prompt: Chinese watercolor of a large wave crashing on the beach with a cloudy sky
-  71:
-    src_prompt: a lake with mountains in the background
-    tgt_prompt: oil painting of a lake with mountains in the background
-  72:
-    src_prompt: a lake with mountains in the background
-    tgt_prompt: cartoon of a lake with mountains in the background
   73:
     src_prompt: wind turbine in the sunset
     tgt_prompt: pen and ink sketch of wind turbine in the sunset
-  74:
-    src_prompt: a white church sits on a hill in a field
-    tgt_prompt: stained glass window of a white church sits on a hill in a field
-  75:
-    src_prompt: dolomites
-    tgt_prompt: digital art of dolomites
-  76:
-    src_prompt: a picnic table with a bottle of wine and fruit on it
-    tgt_prompt: watercolor of a picnic table with a bottle of wine and fruit on it
-  77:
-    src_prompt: winter in lofoten by johan hansen
-    tgt_prompt: digital art of winter in lofoten by johan hansen
-  78:
-    src_prompt: boats in the water on a sunny day
-    tgt_prompt: wall mural of boats in the water on a sunny day
   79:
     src_prompt: a sports car driving down the street
     tgt_prompt: stained glass window of a sports car driving down the street

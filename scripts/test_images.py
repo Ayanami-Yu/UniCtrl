@@ -30,7 +30,6 @@ w_tgt_ctrl_type = "cosine"
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 torch.cuda.set_device(device_idx)
 
-seed_everything(seed)
 os.makedirs(out_dir, exist_ok=True)
 
 model_path = "stabilityai/stable-diffusion-2-1-base"
@@ -82,6 +81,7 @@ for mode in modes:
         )
         os.makedirs(cur_dir, exist_ok=True)
 
+        seed_everything(seed)
         start_code = torch.randn([1, 4, 64, 64], device=device)
         start_code = start_code.expand(len(prompts), -1, -1, -1)
 
