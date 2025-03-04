@@ -24,7 +24,7 @@ out_dir = "exp/animatediff/pie"
 yaml_path = "docs/prompts_video_v1.yaml"
 
 # set parameters
-seed = 353383166
+seed = 1376785931
 
 modes = ["rm"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "static"
@@ -93,10 +93,13 @@ for mode in modes:
             tgt_start, tgt_inc, tgt_n = (
                 (-1.0, 0.1, 33) if w_tgt_ctrl_type == "static" else (-1.0, 0.1, 36)
             )
+        elif mode == "style":
+            tgt_start, tgt_inc, tgt_n = (0.0, 0.15, 40)
         elif w_tgt_ctrl_type == "static":
             tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 33)
-        else:
-            tgt_start, tgt_inc, tgt_n = (0.0, 0.15, 40)  # for cosine addition
+        else:  # for cosine addition
+            # tgt_start, tgt_inc, tgt_n = (0.0, 0.15, 40)
+            tgt_start, tgt_inc, tgt_n = (0.0, 0.1, 36)
 
         src_weights = [round(src_start + src_inc * i, 4) for i in range(int(src_n))]
         tgt_weights = [round(tgt_start + tgt_inc * i, 4) for i in range(int(tgt_n))]
