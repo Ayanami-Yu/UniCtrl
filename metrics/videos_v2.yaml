@@ -75,7 +75,7 @@ add:
       animatediff: metrics/videos/tgt/animatediff/add/digital_woman_butterfly_1.0_0.6
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/add/digital_woman_butterfly
-      rav: ''
+      rav: metrics/videos/tgt/rav/add/digital_woman_butterfly
       tokenflow: metrics/videos/tgt/tokenflow/add/digital_woman_butterfly
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/add/digital_woman_butterfly
@@ -128,7 +128,7 @@ add:
       animatediff: metrics/videos/tgt/animatediff/add/sakura_matou_hat_1.0_0.6
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/add/sakura_matou_hat
-      rav: ''
+      rav: metrics/videos/tgt/rav/add/sakura_matou_hat
       tokenflow: metrics/videos/tgt/tokenflow/add/sakura_matou_hat
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/add/sakura_matou_hat
@@ -141,7 +141,7 @@ add:
       animatediff: metrics/videos/tgt/animatediff/add/squirrel_platform_book_1.0_1.5
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/add/squirrel_platform_book
-      rav: ''
+      rav: metrics/videos/tgt/rav/add/squirrel_platform_book
       tokenflow: metrics/videos/tgt/tokenflow/add/squirrel_platform_book
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/add/squirrel_platform_book
@@ -154,7 +154,7 @@ add:
       animatediff: metrics/videos/tgt/animatediff/add/woman_pink_earrings_1.0_0.5
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/add/woman_pink_earrings
-      rav: ''
+      rav: metrics/videos/tgt/rav/add/woman_pink_earrings
       tokenflow: metrics/videos/tgt/tokenflow/add/woman_pink_earrings
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/add/woman_pink_earrings
@@ -169,7 +169,7 @@ rm:
       animatediff: metrics/videos/tgt/animatediff/rm/boy_glasses_1.0_1.0
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/rm/boy_glasses
-      rav: ''
+      rav: metrics/videos/tgt/rav/rm/boy_glasses
       tokenflow: metrics/videos/tgt/tokenflow/rm/boy_glasses
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/rm/boy_glasses
@@ -199,7 +199,7 @@ rm:
       animatediff: metrics/videos/tgt/animatediff/rm/cat_headphones_1.0_2.4
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/rm/cat_headphones
-      rav: ''
+      rav: metrics/videos/tgt/rav/rm/cat_headphones
       tokenflow: metrics/videos/tgt/tokenflow/rm/cat_headphones
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/rm/cat_headphones
@@ -214,7 +214,7 @@ rm:
       animatediff: metrics/videos/tgt/animatediff/rm/eagle_branch_flowers_1.0_0.6
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/rm/eagle_branch_flowers
-      rav: ''
+      rav: metrics/videos/tgt/rav/rm/eagle_branch_flowers
       tokenflow: metrics/videos/tgt/tokenflow/rm/eagle_branch_flowers
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/rm/eagle_branch_flowers
@@ -229,7 +229,7 @@ rm:
       animatediff: metrics/videos/tgt/animatediff/rm/girl_backpack_castle_1.0_0.1
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/rm/girl_backpack_castle
-      rav: ''
+      rav: metrics/videos/tgt/rav/rm/girl_backpack_castle
       tokenflow: metrics/videos/tgt/tokenflow/rm/girl_backpack_castle
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/rm/girl_backpack_castle
@@ -244,7 +244,7 @@ rm:
       animatediff: metrics/videos/tgt/animatediff/rm/girl_umbrella_1.0_0.1
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/rm/girl_umbrella
-      rav: ''
+      rav: metrics/videos/tgt/rav/rm/girl_umbrella
       tokenflow: metrics/videos/tgt/tokenflow/rm/girl_umbrella
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/rm/girl_umbrella
@@ -259,7 +259,7 @@ rm:
       animatediff: metrics/videos/tgt/animatediff/rm/husky_woods_1.0_0.4
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/rm/husky_woods
-      rav: ''
+      rav: metrics/videos/tgt/rav/rm/husky_woods
       tokenflow: metrics/videos/tgt/tokenflow/rm/husky_woods
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/rm/husky_woods
@@ -289,7 +289,7 @@ rm:
       animatediff: metrics/videos/tgt/animatediff/rm/puppy_dandelions_1.0_0.5
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/rm/puppy_dandelions
-      rav: ''
+      rav: metrics/videos/tgt/rav/rm/puppy_dandelions
       tokenflow: metrics/videos/tgt/tokenflow/rm/puppy_dandelions
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/rm/puppy_dandelions
@@ -305,7 +305,7 @@ rm:
       animatediff: metrics/videos/tgt/animatediff/rm/witch_cloak_bats_1.0_-0.2
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/rm/witch_cloak_bats
-      rav: ''
+      rav: metrics/videos/tgt/rav/rm/witch_cloak_bats
       tokenflow: metrics/videos/tgt/tokenflow/rm/witch_cloak_bats
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/rm/witch_cloak_bats
@@ -320,7 +320,7 @@ rm:
       animatediff: metrics/videos/tgt/animatediff/rm/woman_car_sunglasses_1.0_0.1
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/rm/woman_car_sunglasses
-      rav: ''
+      rav: metrics/videos/tgt/rav/rm/woman_car_sunglasses
       tokenflow: metrics/videos/tgt/tokenflow/rm/woman_car_sunglasses
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/rm/woman_car_sunglasses
@@ -336,7 +336,7 @@ style:
       animatediff: metrics/videos/tgt/animatediff/style/bernese_stained_glass_1.0_1.05
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/style/bernese_stained_glass
-      rav: ''
+      rav: metrics/videos/tgt/rav/style/bernese_stained_glass
       tokenflow: metrics/videos/tgt/tokenflow/style/bernese_stained_glass
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/style/bernese_stained_glass
@@ -349,7 +349,7 @@ style:
       animatediff: metrics/videos/tgt/animatediff/style/bird_pop_art_1.0_5.4
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/style/bird_pop_art
-      rav: ''
+      rav: metrics/videos/tgt/rav/style/bird_pop_art
       tokenflow: metrics/videos/tgt/tokenflow/style/bird_pop_art
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/style/bird_pop_art
@@ -362,7 +362,7 @@ style:
       animatediff: metrics/videos/tgt/animatediff/style/bird_wall_mural_1.0_5.85
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/style/bird_wall_mural
-      rav: ''
+      rav: metrics/videos/tgt/rav/style/bird_wall_mural
       tokenflow: metrics/videos/tgt/tokenflow/style/bird_wall_mural
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/style/bird_wall_mural
@@ -375,7 +375,7 @@ style:
       animatediff: metrics/videos/tgt/animatediff/style/cat_kids_crayon_1.0_5.55
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/style/cat_kids_crayon
-      rav: ''
+      rav: metrics/videos/tgt/rav/style/cat_kids_crayon
       tokenflow: metrics/videos/tgt/tokenflow/style/cat_kids_crayon
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/style/cat_kids_crayon
@@ -453,7 +453,7 @@ style:
       animatediff: metrics/videos/tgt/animatediff/style/horse_watercolor_1.0_3.3
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/style/horse_watercolor
-      rav: ''
+      rav: metrics/videos/tgt/rav/style/horse_watercolor
       tokenflow: metrics/videos/tgt/tokenflow/style/horse_watercolor
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/style/horse_watercolor
@@ -466,7 +466,7 @@ style:
       animatediff: metrics/videos/tgt/animatediff/style/kitten_armor_cartoon_1.0_5.55
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/style/kitten_armor_cartoon
-      rav: ''
+      rav: metrics/videos/tgt/rav/style/kitten_armor_cartoon
       tokenflow: metrics/videos/tgt/tokenflow/style/kitten_armor_cartoon
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/style/kitten_armor_cartoon
@@ -479,7 +479,7 @@ style:
       animatediff: metrics/videos/tgt/animatediff/style/woman_red_post_impressionism_1.0_5.85
       fatezero: ''
       flatten: metrics/videos/tgt/flatten/style/woman_red_post_impressionism
-      rav: ''
+      rav: metrics/videos/tgt/rav/style/woman_red_post_impressionism
       tokenflow: metrics/videos/tgt/tokenflow/style/woman_red_post_impressionism
       v2v_zero: ''
       vidtome: metrics/videos/tgt/vidtome/style/woman_red_post_impressionism

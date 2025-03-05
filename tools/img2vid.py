@@ -1,4 +1,5 @@
 import os
+import argparse
 import imageio
 import numpy as np
 import torch
@@ -24,19 +25,23 @@ def save_videos_grid(videos: torch.Tensor, path: str, rescale=False, n_rows=4, f
     imageio.mimsave(path, outputs, fps=fps)
 
 
-image_dir = "../metrics/videos/src/add/peter_guitar"
-output_dir = "../videos"
-
 if __name__ == "__main__":
-    images = [img for img in sorted(os.listdir(image_dir)) if img.endswith(".png")]
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--image_dir", type=str, default="metrics/videos/src/add/peter_guitar"
+    )
+    parser.add_argument("--output_dir", type=str, default="videos")
+    args = parser.parse_args()
+
+    images = [img for img in sorted(os.listdir(args.image_dir)) if img.endswith(".png")]
     video = torch.stack(
-        [read_image(os.path.join(image_dir, img)) for img in images], dim=0
+        [read_image(os.path.join(args.image_dir, img)) for img in images], dim=0
     )  # (F, C, H, W)
     video = video / 127.5 - 1.0  # normalize to [-1, 1]
     videos = rearrange(video, "(b f) c h w -> b c f h w", b=1)
 
     save_videos_grid(
         videos,
-        os.path.join(output_dir, f"{os.path.basename(image_dir)}.mp4"),
+        os.path.join(args.output_dir, f"{os.path.basename(args.image_dir)}.mp4"),
         rescale=True,
     )

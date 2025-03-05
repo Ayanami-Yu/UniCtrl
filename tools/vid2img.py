@@ -1,4 +1,5 @@
 import os
+import argparse
 import torch
 import numpy as np
 import torchvision
@@ -39,21 +40,22 @@ def save_videos_grid(videos: torch.Tensor, path: str, rescale=False, n_rows=4, f
         img.save(f"{path}/%04d.png" % i)
 
 
-name = "panda_surf"
-video_path = f"../videos/{name}.mp4"
-output_dir = "../images"
-
 if __name__ == "__main__":
     video_length = 8  # the number of frames
     width, height = 512, 512
-    frame_rate = 1
+    # frame_rate = 1
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--video_path", type=str, default="videos/panda_surf.mp4")
+    parser.add_argument("--output_dir", type=str, default="videos")
+    args = parser.parse_args()
 
     video = read_video(
-        video_path=video_path,
+        video_path=args.video_path,
         video_length=video_length,
         width=width,
         height=height,
-        frame_rate=frame_rate,
+        # frame_rate=frame_rate,
     )
     original_pixels = rearrange(video, "(b f) c h w -> b c f h w", b=1)
-    save_videos_grid(original_pixels, os.path.join(output_dir, name), rescale=True)
+    save_videos_grid(original_pixels, args.output_dir, rescale=True)
