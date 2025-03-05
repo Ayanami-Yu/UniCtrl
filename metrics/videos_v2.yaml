@@ -76,7 +76,7 @@ add:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/add/digital_woman_butterfly
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: a digital art of a brown hair woman with flying butterfly
@@ -129,7 +129,7 @@ add:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/add/sakura_matou_hat
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: Sakura Matou wearing a hat and surrounded by flowers, anime
@@ -142,7 +142,7 @@ add:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/add/squirrel_platform_book
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: a squirrel sitting on top of a wooden platform reading a book
@@ -155,7 +155,7 @@ add:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/add/woman_pink_earrings
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: a woman with pink hair wearing earrings
@@ -170,7 +170,7 @@ rm:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/rm/boy_glasses
       v2v_zero: ''
       vidtome: ''
     tgt_prompt:
@@ -200,7 +200,7 @@ rm:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/rm/cat_headphones
       v2v_zero: ''
       vidtome: ''
     tgt_prompt:
@@ -215,7 +215,7 @@ rm:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/rm/eagle_branch_flowers
       v2v_zero: ''
       vidtome: ''
     tgt_prompt:
@@ -230,7 +230,7 @@ rm:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/rm/girl_backpack_castle
       v2v_zero: ''
       vidtome: ''
     tgt_prompt:
@@ -245,7 +245,7 @@ rm:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/rm/girl_umbrella
       v2v_zero: ''
       vidtome: ''
     tgt_prompt:
@@ -260,7 +260,7 @@ rm:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/rm/husky_woods
       v2v_zero: ''
       vidtome: ''
     tgt_prompt:
@@ -290,7 +290,7 @@ rm:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/rm/puppy_dandelions
       v2v_zero: ''
       vidtome: ''
     tgt_prompt:
@@ -306,7 +306,7 @@ rm:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/rm/witch_cloak_bats
       v2v_zero: ''
       vidtome: ''
     tgt_prompt:
@@ -321,7 +321,7 @@ rm:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/rm/woman_car_sunglasses
       v2v_zero: ''
       vidtome: ''
     tgt_prompt:
@@ -337,7 +337,7 @@ style:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/style/bernese_stained_glass
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: stained glass window of a bernese mountain dog is sitting in the grass
@@ -350,7 +350,7 @@ style:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/style/bird_pop_art
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: a bird standing on tree branch, pop art
@@ -363,7 +363,7 @@ style:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/style/bird_wall_mural
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: a wall mural of a small bird standing on the ground
@@ -376,7 +376,7 @@ style:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/style/cat_kids_crayon
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: kids crayon drawing of a colorful cat with bubbles and stars on it
@@ -454,7 +454,7 @@ style:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/style/horse_watercolor
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: watercolor of a white horse running in the field
@@ -467,7 +467,7 @@ style:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/style/kitten_armor_cartoon
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: a cartoon kitten wearing armor sits on the ground
@@ -480,7 +480,7 @@ style:
       fatezero: ''
       flatten: ''
       rav: ''
-      tokenflow: ''
+      tokenflow: metrics/videos/tgt/tokenflow/style/woman_red_post_impressionism
       v2v_zero: ''
       vidtome: ''
     tgt_prompt: a woman with red hair and a red dress walking by the lake, post-impressionism
