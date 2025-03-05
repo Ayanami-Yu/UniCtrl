@@ -47,7 +47,7 @@ for img_name in os.listdir(res_path):
     ]
 
     # save the images to target directory
-    mid_dirs = ["default", "change"]
+    mid_dirs = ["default", "sd"]
     img_save_paths = [
         f"metrics/images/{fields[i]}/{mid_dirs[i]}/{conf['ctrl_mode']}/{img_name}_{extracted[i]}.png"
         for i in range(2)

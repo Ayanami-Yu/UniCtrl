@@ -3,11 +3,12 @@
 
 add:
   boat_tower:
+    seed: 42
     src_prompt: 'A boat sailing leisurely along River'
     tgt_prompt: 'A boat sailing leisurely along the River with the Eiffel Tower in background'
     src_images: 'metrics/videos/src/add/boat_river'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/boat_tower/1.0_1.8'
+      animatediff: 'metrics/videos/tgt/animatediff/add/boat_tower_1.0_1.8'
       fatezero: 'metrics/videos/tgt/fatezero/add/boat_tower'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/boat_tower'
       vidtome: 'metrics/videos/tgt/vidtome/add/boat_tower'
@@ -21,7 +22,7 @@ add:
     tgt_prompt: 'Campfire at night in a snowy forest with starry sky in the background.'
     src_images: 'metrics/videos/src/add/campfire_forest'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/campfire_sky/1.0_6.0'
+      animatediff: 'metrics/videos/tgt/animatediff/add/campfire_sky_1.0_6.0'
       fatezero: 'metrics/videos/tgt/fatezero/add/campfire_sky'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/campfire_sky'
       vidtome: 'metrics/videos/tgt/vidtome/add/campfire_sky'
@@ -35,7 +36,7 @@ add:
     tgt_prompt: 'Campfire at night in a snowy forest with some kids playing around it.'
     src_images: 'metrics/videos/src/add/campfire_forest'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/campfire_kids/1.0_3.3'
+      animatediff: 'metrics/videos/tgt/animatediff/add/campfire_kids_1.0_3.3'
       fatezero: 'metrics/videos/tgt/fatezero/add/campfire_kids'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/campfire_kids'
       vidtome: 'metrics/videos/tgt/vidtome/add/campfire_kids'
@@ -44,11 +45,12 @@ add:
       rav: 'metrics/videos/tgt/rav/add/campfire_kids'
 
   peter_people:
+    seed: 42
     src_prompt: 'Peter Parker playing guitar on times square'
     tgt_prompt: 'Peter Parker playing guitar on times square, with a lot of people watching'
     src_images: 'metrics/videos/src/add/peter_guitar'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/peter_people/1.0_6.0'
+      animatediff: 'metrics/videos/tgt/animatediff/add/peter_people_1.0_6.0'
       fatezero: 'metrics/videos/tgt/fatezero/add/peter_people'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/peter_people'
       vidtome: 'metrics/videos/tgt/vidtome/add/peter_people'
@@ -57,11 +59,12 @@ add:
       rav: 'metrics/videos/tgt/rav/add/peter_people'
 
   panda_sunset:
+    seed: 42
     src_prompt: 'A panda is surfing in the ocean.'
     tgt_prompt: 'A panda is surfing in the ocean in sunset.'
     src_images: 'metrics/videos/src/add/panda_surf'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/panda_sunset/1.0_6.0'
+      animatediff: 'metrics/videos/tgt/animatediff/add/panda_sunset_1.0_6.0'
       fatezero: 'metrics/videos/tgt/fatezero/add/panda_sunset'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/panda_sunset'
       vidtome: 'metrics/videos/tgt/vidtome/add/panda_sunset'
@@ -70,11 +73,12 @@ add:
       rav: 'metrics/videos/tgt/rav/add/panda_sunset'
 
   dog_soccer:
+    seed: 42
     src_prompt: 'a cute pomeranian dog is playing'
     tgt_prompt: 'a cute pomeranian dog is playing with a soccer ball'
     src_images: 'metrics/videos/src/add/dog_play'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/dog_soccer/1.0_2.4'
+      animatediff: 'metrics/videos/tgt/animatediff/add/dog_soccer_1.0_2.4'
       fatezero: 'metrics/videos/tgt/fatezero/add/dog_soccer'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/dog_soccer'
       vidtome: 'metrics/videos/tgt/vidtome/add/dog_soccer'
@@ -83,11 +87,12 @@ add:
       rav: 'metrics/videos/tgt/rav/add/dog_soccer'
 
   car_one_helicopter:
+    seed: 42
     src_prompt: 'A porsche car turning a corner in the countryside.'
     tgt_prompt: 'A porsche car turning a corner in the countryside, with a helicopter following it.'
     src_images: 'metrics/videos/src/add/car_turn'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/car_one_helicopter/1.0_4.5'
+      animatediff: 'metrics/videos/tgt/animatediff/add/car_one_helicopter_1.0_4.5'
       fatezero: 'metrics/videos/tgt/fatezero/add/car_one_helicopter'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/car_one_helicopter'
       vidtome: 'metrics/videos/tgt/vidtome/add/car_one_helicopter'
@@ -96,11 +101,12 @@ add:
       rav: 'metrics/videos/tgt/rav/add/car_one_helicopter'
 
   car_helicopters:
+    seed: 42
     src_prompt: 'A porsche car turning a corner in the countryside.'
     tgt_prompt: 'A porsche car turning a corner in the countryside followed by helicopters.'
     src_images: 'metrics/videos/src/add/car_turn'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/add/car_helicopters/1.0_3.9'
+      animatediff: 'metrics/videos/tgt/animatediff/add/car_helicopters_1.0_3.9'
       fatezero: 'metrics/videos/tgt/fatezero/add/car_helicopters'
       tokenflow: 'metrics/videos/tgt/tokenflow/add/car_helicopters'
       vidtome: 'metrics/videos/tgt/vidtome/add/car_helicopters'
@@ -115,7 +121,7 @@ style:
     tgt_prompt: 'Gwen Stacy reading a book by Hokusai, in the style of Ukiyo'
     src_images: 'metrics/videos/src/style/gwen_book'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_ukiyo/1.0_6.6'
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_ukiyo_1.0_6.6'
       fatezero: 'metrics/videos/tgt/fatezero/style/gwen_ukiyo'
       tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_ukiyo'
       vidtome: 'metrics/videos/tgt/vidtome/style/gwen_ukiyo'
@@ -129,7 +135,7 @@ style:
     tgt_prompt: 'Gwen Stacy reading a book, Van Gogh style'
     src_images: 'metrics/videos/src/style/gwen_book'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_van_gogh/1.0_5.4'
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_van_gogh_1.0_5.4'
       fatezero: 'metrics/videos/tgt/fatezero/style/gwen_van_gogh'
       tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_van_gogh'
       vidtome: 'metrics/videos/tgt/vidtome/style/gwen_van_gogh'
@@ -143,7 +149,7 @@ style:
     tgt_prompt: 'Gwen Stacy reading a book, oil painting'
     src_images: 'metrics/videos/src/style/gwen_book'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_painting/1.0_5.7'
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_painting_1.0_5.7'
       fatezero: 'metrics/videos/tgt/fatezero/style/gwen_painting'
       tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_painting'
       vidtome: 'metrics/videos/tgt/vidtome/style/gwen_painting'
@@ -157,7 +163,7 @@ style:
     tgt_prompt: 'Gwen Stacy reading a book, in cyberpunk style'
     src_images: 'metrics/videos/src/style/gwen_book'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_cyberpunk/1.0_5.1'
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_cyberpunk_1.0_5.1'
       fatezero: 'metrics/videos/tgt/fatezero/style/gwen_cyberpunk'
       tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_cyberpunk'
       vidtome: 'metrics/videos/tgt/vidtome/style/gwen_cyberpunk'
@@ -171,7 +177,7 @@ style:
     tgt_prompt: 'Gwen Stacy reading a book, watercolor painting'
     src_images: 'metrics/videos/src/style/gwen_book'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_watercolor/1.0_3.6'
+      animatediff: 'metrics/videos/tgt/animatediff/style/gwen_watercolor_1.0_3.6'
       fatezero: 'metrics/videos/tgt/fatezero/style/gwen_watercolor'
       tokenflow: 'metrics/videos/tgt/tokenflow/style/gwen_watercolor'
       vidtome: 'metrics/videos/tgt/vidtome/style/gwen_watercolor'
@@ -181,13 +187,14 @@ style:
 
 rm:
   captain_coffee:
+    seed: 42
     src_prompt: 'Captain America drinking coffee in a cafe in Paris'
     tgt_prompt:
       default: 'Captain America in a cafe in Paris'
       change: 'a cup of coffee'
     src_images: 'metrics/videos/src/rm/captain_coffee'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/rm/captain_coffee'
+      animatediff: 'metrics/videos/tgt/animatediff/rm/captain_coffee_1.0_-0.37'
       fatezero: 'metrics/videos/tgt/fatezero/rm/captain_coffee'
       tokenflow: 'metrics/videos/tgt/tokenflow/rm/captain_coffee'
       vidtome: 'metrics/videos/tgt/vidtome/rm/captain_coffee'
@@ -203,7 +210,7 @@ rm:
       change: 'a guitar'
     src_images: 'metrics/videos/src/rm/panda_guitar'
     tgt_images:
-      animatediff: 'metrics/videos/tgt/animatediff/rm/panda_guitar'
+      animatediff: 'metrics/videos/tgt/animatediff/rm/panda_guitar_0.9_0.6'
       fatezero: 'metrics/videos/tgt/fatezero/rm/panda_guitar'
       tokenflow: 'metrics/videos/tgt/tokenflow/rm/panda_guitar'
       vidtome: 'metrics/videos/tgt/vidtome/rm/panda_guitar'
