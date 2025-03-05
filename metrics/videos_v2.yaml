@@ -77,8 +77,8 @@ add:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/add/digital_woman_butterfly
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/digital_woman_butterfly
+      vidtome: metrics/videos/tgt/vidtome/add/digital_woman_butterfly
     tgt_prompt: a digital art of a brown hair woman with flying butterfly
   dog_soccer:
     seed: 42
@@ -130,8 +130,8 @@ add:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/add/sakura_matou_hat
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/sakura_matou_hat
+      vidtome: metrics/videos/tgt/vidtome/add/sakura_matou_hat
     tgt_prompt: Sakura Matou wearing a hat and surrounded by flowers, anime
   squirrel_platform_book:
     seed: 1201550489
@@ -143,8 +143,8 @@ add:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/add/squirrel_platform_book
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/squirrel_platform_book
+      vidtome: metrics/videos/tgt/vidtome/add/squirrel_platform_book
     tgt_prompt: a squirrel sitting on top of a wooden platform reading a book
   woman_pink_earrings:
     seed: 778029590
@@ -156,8 +156,8 @@ add:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/add/woman_pink_earrings
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/woman_pink_earrings
+      vidtome: metrics/videos/tgt/vidtome/add/woman_pink_earrings
     tgt_prompt: a woman with pink hair wearing earrings
 rm:
   boy_glasses:
@@ -171,8 +171,8 @@ rm:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/rm/boy_glasses
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/boy_glasses
+      vidtome: metrics/videos/tgt/vidtome/rm/boy_glasses
     tgt_prompt:
       change: a pair of glasses
       default: a boy with a tie looking at a computer, digital art
@@ -201,8 +201,8 @@ rm:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/rm/cat_headphones
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/cat_headphones
+      vidtome: metrics/videos/tgt/vidtome/rm/cat_headphones
     tgt_prompt:
       change: headphones
       default: a cat on a couch
@@ -216,8 +216,8 @@ rm:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/rm/eagle_branch_flowers
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/eagle_branch_flowers
+      vidtome: metrics/videos/tgt/vidtome/rm/eagle_branch_flowers
     tgt_prompt:
       change: yellow flowers
       default: an eagle sitting on a branch
@@ -231,8 +231,8 @@ rm:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/rm/girl_backpack_castle
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/girl_backpack_castle
+      vidtome: metrics/videos/tgt/vidtome/rm/girl_backpack_castle
     tgt_prompt:
       change: a backpack
       default: a girl with a red coat is standing in front of castles
@@ -246,8 +246,8 @@ rm:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/rm/girl_umbrella
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/girl_umbrella
+      vidtome: metrics/videos/tgt/vidtome/rm/girl_umbrella
     tgt_prompt:
       change: an umbrella
       default: a young girl walking in the rain
@@ -261,8 +261,8 @@ rm:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/rm/husky_woods
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/husky_woods
+      vidtome: metrics/videos/tgt/vidtome/rm/husky_woods
     tgt_prompt:
       change: a husky dog
       default: a path in the woods
@@ -291,8 +291,8 @@ rm:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/rm/puppy_dandelions
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/puppy_dandelions
+      vidtome: metrics/videos/tgt/vidtome/rm/puppy_dandelions
     tgt_prompt:
       change: dandelions
       default: a puppy is sitting in a field
@@ -307,8 +307,8 @@ rm:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/rm/witch_cloak_bats
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/witch_cloak_bats
+      vidtome: metrics/videos/tgt/vidtome/rm/witch_cloak_bats
     tgt_prompt:
       change: bats
       default: a witch in a red cloak walking through the woods
@@ -322,8 +322,8 @@ rm:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/rm/woman_car_sunglasses
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/woman_car_sunglasses
+      vidtome: metrics/videos/tgt/vidtome/rm/woman_car_sunglasses
     tgt_prompt:
       change: a pair of sunglasses
       default: a young woman driving an old car, facing the camera
@@ -338,8 +338,8 @@ style:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/style/bernese_stained_glass
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/bernese_stained_glass
+      vidtome: metrics/videos/tgt/vidtome/style/bernese_stained_glass
     tgt_prompt: stained glass window of a bernese mountain dog is sitting in the grass
   bird_pop_art:
     seed: 1016560997
@@ -351,8 +351,8 @@ style:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/style/bird_pop_art
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/bird_pop_art
+      vidtome: metrics/videos/tgt/vidtome/style/bird_pop_art
     tgt_prompt: a bird standing on tree branch, pop art
   bird_wall_mural:
     seed: 1016560997
@@ -364,8 +364,8 @@ style:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/style/bird_wall_mural
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/bird_wall_mural
+      vidtome: metrics/videos/tgt/vidtome/style/bird_wall_mural
     tgt_prompt: a wall mural of a small bird standing on the ground
   cat_kids_crayon:
     seed: 778029590
@@ -377,8 +377,8 @@ style:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/style/cat_kids_crayon
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/cat_kids_crayon
+      vidtome: metrics/videos/tgt/vidtome/style/cat_kids_crayon
     tgt_prompt: kids crayon drawing of a colorful cat with bubbles and stars on it
   gwen_cyberpunk:
     seed: 42
@@ -455,8 +455,8 @@ style:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/style/horse_watercolor
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/horse_watercolor
+      vidtome: metrics/videos/tgt/vidtome/style/horse_watercolor
     tgt_prompt: watercolor of a white horse running in the field
   kitten_armor_cartoon:
     seed: 778029590
@@ -468,8 +468,8 @@ style:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/style/kitten_armor_cartoon
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/kitten_armor_cartoon
+      vidtome: metrics/videos/tgt/vidtome/style/kitten_armor_cartoon
     tgt_prompt: a cartoon kitten wearing armor sits on the ground
   woman_red_post_impressionism:
     seed: 778029590
@@ -481,7 +481,7 @@ style:
       flatten: ''
       rav: ''
       tokenflow: metrics/videos/tgt/tokenflow/style/woman_red_post_impressionism
-      v2v_zero: ''
-      vidtome: ''
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/woman_red_post_impressionism
+      vidtome: metrics/videos/tgt/vidtome/style/woman_red_post_impressionism
     tgt_prompt: a woman with red hair and a red dress walking by the lake, post-impressionism
       style
