@@ -1,0 +1,487 @@
+add:
+  boat_tower:
+    seed: 42
+    src_images: metrics/videos/src/add/boat_river
+    src_prompt: A boat sailing leisurely along River
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/boat_tower_1.0_1.8
+      fatezero: metrics/videos/tgt/fatezero/add/boat_tower
+      flatten: metrics/videos/tgt/flatten/add/boat_tower
+      rav: metrics/videos/tgt/rav/add/boat_tower
+      tokenflow: metrics/videos/tgt/tokenflow/add/boat_tower
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/boat_tower
+      vidtome: metrics/videos/tgt/vidtome/add/boat_tower
+    tgt_prompt: A boat sailing leisurely along the River with the Eiffel Tower in
+      background
+  campfire_kids:
+    seed: 42
+    src_images: metrics/videos/src/add/campfire_forest
+    src_prompt: Campfire at night in a snowy forest.
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/campfire_kids_1.0_3.3
+      fatezero: metrics/videos/tgt/fatezero/add/campfire_kids
+      flatten: metrics/videos/tgt/flatten/add/campfire_kids
+      rav: metrics/videos/tgt/rav/add/campfire_kids
+      tokenflow: metrics/videos/tgt/tokenflow/add/campfire_kids
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/campfire_kids
+      vidtome: metrics/videos/tgt/vidtome/add/campfire_kids
+    tgt_prompt: Campfire at night in a snowy forest with some kids playing around
+      it.
+  campfire_sky:
+    seed: 42
+    src_images: metrics/videos/src/add/campfire_forest
+    src_prompt: Campfire at night in a snowy forest.
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/campfire_sky_1.0_6.0
+      fatezero: metrics/videos/tgt/fatezero/add/campfire_sky
+      flatten: metrics/videos/tgt/flatten/add/campfire_sky
+      rav: metrics/videos/tgt/rav/add/campfire_sky
+      tokenflow: metrics/videos/tgt/tokenflow/add/campfire_sky
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/campfire_sky
+      vidtome: metrics/videos/tgt/vidtome/add/campfire_sky
+    tgt_prompt: Campfire at night in a snowy forest with starry sky in the background.
+  car_helicopters:
+    seed: 42
+    src_images: metrics/videos/src/add/car_turn
+    src_prompt: A porsche car turning a corner in the countryside.
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/car_helicopters_1.0_3.9
+      fatezero: metrics/videos/tgt/fatezero/add/car_helicopters
+      flatten: metrics/videos/tgt/flatten/add/car_helicopters
+      rav: metrics/videos/tgt/rav/add/car_helicopters
+      tokenflow: metrics/videos/tgt/tokenflow/add/car_helicopters
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/car_helicopters
+      vidtome: metrics/videos/tgt/vidtome/add/car_helicopters
+    tgt_prompt: A porsche car turning a corner in the countryside followed by helicopters.
+  car_one_helicopter:
+    seed: 42
+    src_images: metrics/videos/src/add/car_turn
+    src_prompt: A porsche car turning a corner in the countryside.
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/car_one_helicopter_1.0_4.5
+      fatezero: metrics/videos/tgt/fatezero/add/car_one_helicopter
+      flatten: metrics/videos/tgt/flatten/add/car_one_helicopter
+      rav: metrics/videos/tgt/rav/add/car_one_helicopter
+      tokenflow: metrics/videos/tgt/tokenflow/add/car_one_helicopter
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/car_one_helicopter
+      vidtome: metrics/videos/tgt/vidtome/add/car_one_helicopter
+    tgt_prompt: A porsche car turning a corner in the countryside, with a helicopter
+      following it.
+  digital_woman_butterfly:
+    seed: 1201550489
+    src_images: metrics/videos/src/add/digital_woman_butterfly
+    src_prompt: a digital art of a brown hair woman
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/digital_woman_butterfly_1.0_0.6
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: a digital art of a brown hair woman with flying butterfly
+  dog_soccer:
+    seed: 42
+    src_images: metrics/videos/src/add/dog_play
+    src_prompt: a cute pomeranian dog is playing
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/dog_soccer_1.0_2.4
+      fatezero: metrics/videos/tgt/fatezero/add/dog_soccer
+      flatten: metrics/videos/tgt/flatten/add/dog_soccer
+      rav: metrics/videos/tgt/rav/add/dog_soccer
+      tokenflow: metrics/videos/tgt/tokenflow/add/dog_soccer
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/dog_soccer
+      vidtome: metrics/videos/tgt/vidtome/add/dog_soccer
+    tgt_prompt: a cute pomeranian dog is playing with a soccer ball
+  panda_sunset:
+    seed: 42
+    src_images: metrics/videos/src/add/panda_surf
+    src_prompt: A panda is surfing in the ocean.
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/panda_sunset_1.0_6.0
+      fatezero: metrics/videos/tgt/fatezero/add/panda_sunset
+      flatten: metrics/videos/tgt/flatten/add/panda_sunset
+      rav: metrics/videos/tgt/rav/add/panda_sunset
+      tokenflow: metrics/videos/tgt/tokenflow/add/panda_sunset
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/panda_sunset
+      vidtome: metrics/videos/tgt/vidtome/add/panda_sunset
+    tgt_prompt: A panda is surfing in the ocean in sunset.
+  peter_people:
+    seed: 42
+    src_images: metrics/videos/src/add/peter_guitar
+    src_prompt: Peter Parker playing guitar on times square
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/peter_people_1.0_6.0
+      fatezero: metrics/videos/tgt/fatezero/add/peter_people
+      flatten: metrics/videos/tgt/flatten/add/peter_people
+      rav: metrics/videos/tgt/rav/add/peter_people
+      tokenflow: metrics/videos/tgt/tokenflow/add/peter_people
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/peter_people
+      vidtome: metrics/videos/tgt/vidtome/add/peter_people
+    tgt_prompt: Peter Parker playing guitar on times square, with a lot of people
+      watching
+  sakura_matou_hat:
+    seed: 778029590
+    src_images: metrics/videos/src/add/sakura_matou_hat
+    src_prompt: Sakura Matou surrounded by flowers, anime
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/sakura_matou_hat_1.0_0.6
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: Sakura Matou wearing a hat and surrounded by flowers, anime
+  squirrel_platform_book:
+    seed: 1201550489
+    src_images: metrics/videos/src/add/squirrel_platform_book
+    src_prompt: a squirrel sitting on top of a wooden platform
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/squirrel_platform_book_1.0_1.5
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: a squirrel sitting on top of a wooden platform reading a book
+  woman_pink_earrings:
+    seed: 778029590
+    src_images: metrics/videos/src/add/woman_pink_earrings
+    src_prompt: a woman with pink hair
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/add/woman_pink_earrings_1.0_0.5
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: a woman with pink hair wearing earrings
+rm:
+  boy_glasses:
+    seed: 42
+    src_images: metrics/videos/src/rm/boy_glasses
+    src_prompt: a boy with glasses wearing a tie and looking at a computer, digital
+      art
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/boy_glasses_1.0_1.0
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt:
+      change: a pair of glasses
+      default: a boy with a tie looking at a computer, digital art
+  captain_coffee:
+    seed: 42
+    src_images: metrics/videos/src/rm/captain_coffee
+    src_prompt: Captain America drinking coffee in a cafe in Paris
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/captain_coffee_1.0_-0.37
+      fatezero: metrics/videos/tgt/fatezero/rm/captain_coffee
+      flatten: metrics/videos/tgt/flatten/rm/captain_coffee
+      rav: metrics/videos/tgt/rav/rm/captain_coffee
+      tokenflow: metrics/videos/tgt/tokenflow/rm/captain_coffee
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/captain_coffee
+      vidtome: metrics/videos/tgt/vidtome/rm/captain_coffee
+    tgt_prompt:
+      change: a cup of coffee
+      default: Captain America in a cafe in Paris
+  cat_headphones:
+    seed: 1778227884
+    src_images: metrics/videos/src/rm/cat_headphones
+    src_prompt: a cat wearing headphones on a couch
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/cat_headphones_1.0_2.4
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt:
+      change: headphones
+      default: a cat on a couch
+  eagle_branch_flowers:
+    seed: 2099273484
+    src_images: metrics/videos/src/rm/eagle_branch_flowers
+    src_prompt: an eagle sitting on a branch of yellow flowers
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/eagle_branch_flowers_1.0_0.6
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt:
+      change: yellow flowers
+      default: an eagle sitting on a branch
+  girl_backpack_castle:
+    seed: 1778227884
+    src_images: metrics/videos/src/rm/girl_backpack_castle
+    src_prompt: a girl with a backpack and a red coat is standing in front of castles
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/girl_backpack_castle_1.0_0.1
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt:
+      change: a backpack
+      default: a girl with a red coat is standing in front of castles
+  girl_umbrella:
+    seed: 42
+    src_images: metrics/videos/src/rm/girl_umbrella
+    src_prompt: a young girl walking in the rain with an umbrella
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/girl_umbrella_1.0_0.1
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt:
+      change: an umbrella
+      default: a young girl walking in the rain
+  husky_woods:
+    seed: 42
+    src_images: metrics/videos/src/rm/husky_woods
+    src_prompt: a husky dog running on a path in the woods
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/husky_woods_1.0_0.4
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt:
+      change: a husky dog
+      default: a path in the woods
+  panda_guitar:
+    seed: 0
+    src_images: metrics/videos/src/rm/panda_guitar
+    src_prompt: a panda is playing guitar on times square
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/panda_guitar_0.9_0.6
+      fatezero: metrics/videos/tgt/fatezero/rm/panda_guitar
+      flatten: metrics/videos/tgt/flatten/rm/panda_guitar
+      rav: metrics/videos/tgt/rav/rm/panda_guitar
+      tokenflow: metrics/videos/tgt/tokenflow/rm/panda_guitar
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/panda_guitar
+      vidtome: metrics/videos/tgt/vidtome/rm/panda_guitar
+    tgt_prompt:
+      change: a guitar
+      default: a panda on times square
+  puppy_dandelions:
+    seed: 42
+    src_images: metrics/videos/src/rm/puppy_dandelions
+    src_prompt: a puppy is sitting in a field of dandelions
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/puppy_dandelions_1.0_0.5
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt:
+      change: dandelions
+      default: a puppy is sitting in a field
+  witch_cloak_bats:
+    seed: 353383166
+    src_images: metrics/videos/src/rm/witch_cloak_bats
+    src_prompt: a witch in a red cloak walking through the woods with bats flying
+      around
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/witch_cloak_bats_1.0_-0.2
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt:
+      change: bats
+      default: a witch in a red cloak walking through the woods
+  woman_car_sunglasses:
+    seed: 42
+    src_images: metrics/videos/src/rm/woman_car_sunglasses
+    src_prompt: a young woman in sunglasses driving an old car, facing the camera
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/rm/woman_car_sunglasses_1.0_0.1
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt:
+      change: a pair of sunglasses
+      default: a young woman driving an old car, facing the camera
+style:
+  bernese_stained_glass:
+    seed: 1016560997
+    src_images: metrics/videos/src/style/bernese_stained_glass
+    src_prompt: a bernese mountain dog is sitting in the grass
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/bernese_stained_glass_1.0_1.05
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: stained glass window of a bernese mountain dog is sitting in the grass
+  bird_pop_art:
+    seed: 1016560997
+    src_images: metrics/videos/src/style/bird_pop_art
+    src_prompt: a bird standing on tree branch
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/bird_pop_art_1.0_5.4
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: a bird standing on tree branch, pop art
+  bird_wall_mural:
+    seed: 1016560997
+    src_images: metrics/videos/src/style/bird_wall_mural
+    src_prompt: a small bird standing on the ground
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/bird_wall_mural_1.0_5.85
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: a wall mural of a small bird standing on the ground
+  cat_kids_crayon:
+    seed: 778029590
+    src_images: metrics/videos/src/style/cat_kids_crayon
+    src_prompt: a colorful cat with bubbles and stars on it
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/cat_kids_crayon_1.0_5.55
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: kids crayon drawing of a colorful cat with bubbles and stars on it
+  gwen_cyberpunk:
+    seed: 42
+    src_images: metrics/videos/src/style/gwen_book
+    src_prompt: Gwen Stacy reading a book
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/gwen_cyberpunk_1.0_5.1
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_cyberpunk
+      flatten: metrics/videos/tgt/flatten/style/gwen_cyberpunk
+      rav: metrics/videos/tgt/rav/style/gwen_cyberpunk
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_cyberpunk
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_cyberpunk
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_cyberpunk
+    tgt_prompt: Gwen Stacy reading a book, in cyberpunk style
+  gwen_painting:
+    seed: 42
+    src_images: metrics/videos/src/style/gwen_book
+    src_prompt: Gwen Stacy reading a book
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/gwen_painting_1.0_5.7
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_painting
+      flatten: metrics/videos/tgt/flatten/style/gwen_painting
+      rav: metrics/videos/tgt/rav/style/gwen_painting
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_painting
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_painting
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_painting
+    tgt_prompt: Gwen Stacy reading a book, oil painting
+  gwen_ukiyo:
+    seed: 42
+    src_images: metrics/videos/src/style/gwen_book
+    src_prompt: Gwen Stacy reading a book
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/gwen_ukiyo_1.0_6.6
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_ukiyo
+      flatten: metrics/videos/tgt/flatten/style/gwen_ukiyo
+      rav: metrics/videos/tgt/rav/style/gwen_ukiyo
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_ukiyo
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_ukiyo
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_ukiyo
+    tgt_prompt: Gwen Stacy reading a book by Hokusai, in the style of Ukiyo
+  gwen_van_gogh:
+    seed: 42
+    src_images: metrics/videos/src/style/gwen_book
+    src_prompt: Gwen Stacy reading a book
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/gwen_van_gogh_1.0_5.4
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_van_gogh
+      flatten: metrics/videos/tgt/flatten/style/gwen_van_gogh
+      rav: metrics/videos/tgt/rav/style/gwen_van_gogh
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_van_gogh
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_van_gogh
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_van_gogh
+    tgt_prompt: Gwen Stacy reading a book, Van Gogh style
+  gwen_watercolor:
+    seed: 42
+    src_images: metrics/videos/src/style/gwen_book
+    src_prompt: Gwen Stacy reading a book
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/gwen_watercolor_1.0_3.6
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_watercolor
+      flatten: metrics/videos/tgt/flatten/style/gwen_watercolor
+      rav: metrics/videos/tgt/rav/style/gwen_watercolor
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_watercolor
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_watercolor
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_watercolor
+    tgt_prompt: Gwen Stacy reading a book, watercolor painting
+  horse_watercolor:
+    seed: 168526037
+    src_images: metrics/videos/src/style/horse_watercolor
+    src_prompt: a white horse running in the field
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/horse_watercolor_1.0_3.3
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: watercolor of a white horse running in the field
+  kitten_armor_cartoon:
+    seed: 778029590
+    src_images: metrics/videos/src/style/kitten_armor_cartoon
+    src_prompt: a kitten wearing armor sits on the ground
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/kitten_armor_cartoon_1.0_5.55
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: a cartoon kitten wearing armor sits on the ground
+  woman_red_post_impressionism:
+    seed: 778029590
+    src_images: metrics/videos/src/style/woman_red_post_impressionism
+    src_prompt: a woman with red hair and a red dress walking by the lake
+    tgt_images:
+      animatediff: metrics/videos/tgt/animatediff/style/woman_red_post_impressionism_1.0_5.85
+      fatezero: ''
+      flatten: ''
+      rav: ''
+      tokenflow: ''
+      v2v_zero: ''
+      vidtome: ''
+    tgt_prompt: a woman with red hair and a red dress walking by the lake, post-impressionism
+      style

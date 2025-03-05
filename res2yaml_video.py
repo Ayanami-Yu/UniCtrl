@@ -35,13 +35,22 @@ for vid_name in os.listdir(res_path):
     fields = ["src", "tgt"]
     vid_paths = [next(Path(vid_dir).glob(f"*{fields[i]}*"), None) for i in range(2)]
     if vid_paths[0] and vid_paths[1]:
-        vids = [[Image.open(os.path.join(vid_paths[i], img)) for img in sorted(os.listdir(vid_paths[i])) if img.endswith(".png")] for i in range(2)]
+        vids = [
+            [
+                Image.open(os.path.join(vid_paths[i], img))
+                for img in sorted(os.listdir(vid_paths[i]))
+                if img.endswith(".png")
+            ]
+            for i in range(2)
+        ]
     else:
         raise FileNotFoundError()
 
     # regular expression to capture numbers after 'src_' or 'tgt_'
     pattern = re.compile(r"_(?:src|tgt)_(\d+\.\d+_-?\d+\.\d+)$")
-    extracted_tgt = match.group(1) if (match := pattern.search(vid_paths[1].name)) else None
+    extracted_tgt = (
+        match.group(1) if (match := pattern.search(vid_paths[1].name)) else None
+    )
 
     # save the images to target directory
     vid_save_paths = [
@@ -57,10 +66,14 @@ for vid_name in os.listdir(res_path):
     content[conf["ctrl_mode"]][vid_name] = {
         "seed": conf["seed"],
         "src_prompt": conf["prompts"][0],
-        "tgt_prompt": {
-            "default": conf["tgt_prompt_default"],
-            "change": conf["prompts"][1],
-        } if conf["ctrl_mode"] == "rm" else conf["prompts"][1],
+        "tgt_prompt": (
+            {
+                "default": conf["tgt_prompt_default"],
+                "change": conf["prompts"][1],
+            }
+            if conf["ctrl_mode"] == "rm"
+            else conf["prompts"][1]
+        ),
         "src_images": vid_save_paths[0],
         "tgt_images": {
             "animatediff": vid_save_paths[1],
