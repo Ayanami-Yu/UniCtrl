@@ -73,7 +73,7 @@ add:
     src_prompt: a digital art of a brown hair woman
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/digital_woman_butterfly_1.0_0.6
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/add/digital_woman_butterfly
       flatten: metrics/videos/tgt/flatten/add/digital_woman_butterfly
       rav: metrics/videos/tgt/rav/add/digital_woman_butterfly
       tokenflow: metrics/videos/tgt/tokenflow/add/digital_woman_butterfly
@@ -126,7 +126,7 @@ add:
     src_prompt: Sakura Matou surrounded by flowers, anime
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/sakura_matou_hat_1.0_0.6
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/add/sakura_matou_hat
       flatten: metrics/videos/tgt/flatten/add/sakura_matou_hat
       rav: metrics/videos/tgt/rav/add/sakura_matou_hat
       tokenflow: metrics/videos/tgt/tokenflow/add/sakura_matou_hat
@@ -139,7 +139,7 @@ add:
     src_prompt: a squirrel sitting on top of a wooden platform
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/squirrel_platform_book_1.0_1.5
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/add/squirrel_platform_book
       flatten: metrics/videos/tgt/flatten/add/squirrel_platform_book
       rav: metrics/videos/tgt/rav/add/squirrel_platform_book
       tokenflow: metrics/videos/tgt/tokenflow/add/squirrel_platform_book
@@ -152,7 +152,7 @@ add:
     src_prompt: a woman with pink hair
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/woman_pink_earrings_1.0_0.5
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/add/woman_pink_earrings
       flatten: metrics/videos/tgt/flatten/add/woman_pink_earrings
       rav: metrics/videos/tgt/rav/add/woman_pink_earrings
       tokenflow: metrics/videos/tgt/tokenflow/add/woman_pink_earrings
@@ -167,7 +167,7 @@ rm:
       art
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/boy_glasses_1.0_1.0
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/rm/boy_glasses
       flatten: metrics/videos/tgt/flatten/rm/boy_glasses
       rav: metrics/videos/tgt/rav/rm/boy_glasses
       tokenflow: metrics/videos/tgt/tokenflow/rm/boy_glasses
@@ -197,7 +197,7 @@ rm:
     src_prompt: a cat wearing headphones on a couch
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/cat_headphones_1.0_2.4
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/rm/cat_headphones
       flatten: metrics/videos/tgt/flatten/rm/cat_headphones
       rav: metrics/videos/tgt/rav/rm/cat_headphones
       tokenflow: metrics/videos/tgt/tokenflow/rm/cat_headphones
@@ -212,7 +212,7 @@ rm:
     src_prompt: an eagle sitting on a branch of yellow flowers
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/eagle_branch_flowers_1.0_0.6
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/rm/eagle_branch_flowers
       flatten: metrics/videos/tgt/flatten/rm/eagle_branch_flowers
       rav: metrics/videos/tgt/rav/rm/eagle_branch_flowers
       tokenflow: metrics/videos/tgt/tokenflow/rm/eagle_branch_flowers
@@ -227,7 +227,7 @@ rm:
     src_prompt: a girl with a backpack and a red coat is standing in front of castles
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/girl_backpack_castle_1.0_0.1
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/rm/girl_backpack_castle
       flatten: metrics/videos/tgt/flatten/rm/girl_backpack_castle
       rav: metrics/videos/tgt/rav/rm/girl_backpack_castle
       tokenflow: metrics/videos/tgt/tokenflow/rm/girl_backpack_castle
@@ -242,7 +242,7 @@ rm:
     src_prompt: a young girl walking in the rain with an umbrella
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/girl_umbrella_1.0_0.1
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/rm/girl_umbrella
       flatten: metrics/videos/tgt/flatten/rm/girl_umbrella
       rav: metrics/videos/tgt/rav/rm/girl_umbrella
       tokenflow: metrics/videos/tgt/tokenflow/rm/girl_umbrella
@@ -257,7 +257,7 @@ rm:
     src_prompt: a husky dog running on a path in the woods
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/husky_woods_1.0_0.4
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/rm/husky_woods
       flatten: metrics/videos/tgt/flatten/rm/husky_woods
       rav: metrics/videos/tgt/rav/rm/husky_woods
       tokenflow: metrics/videos/tgt/tokenflow/rm/husky_woods
@@ -287,7 +287,7 @@ rm:
     src_prompt: a puppy is sitting in a field of dandelions
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/puppy_dandelions_1.0_0.5
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/rm/puppy_dandelions
       flatten: metrics/videos/tgt/flatten/rm/puppy_dandelions
       rav: metrics/videos/tgt/rav/rm/puppy_dandelions
       tokenflow: metrics/videos/tgt/tokenflow/rm/puppy_dandelions
@@ -303,7 +303,7 @@ rm:
       around
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/witch_cloak_bats_1.0_-0.2
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/rm/witch_cloak_bats
       flatten: metrics/videos/tgt/flatten/rm/witch_cloak_bats
       rav: metrics/videos/tgt/rav/rm/witch_cloak_bats
       tokenflow: metrics/videos/tgt/tokenflow/rm/witch_cloak_bats
@@ -318,7 +318,7 @@ rm:
     src_prompt: a young woman in sunglasses driving an old car, facing the camera
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/woman_car_sunglasses_1.0_0.1
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/rm/woman_car_sunglasses
       flatten: metrics/videos/tgt/flatten/rm/woman_car_sunglasses
       rav: metrics/videos/tgt/rav/rm/woman_car_sunglasses
       tokenflow: metrics/videos/tgt/tokenflow/rm/woman_car_sunglasses
@@ -334,7 +334,7 @@ style:
     src_prompt: a bernese mountain dog is sitting in the grass
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/bernese_stained_glass_1.0_1.05
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/style/bernese_stained_glass
       flatten: metrics/videos/tgt/flatten/style/bernese_stained_glass
       rav: metrics/videos/tgt/rav/style/bernese_stained_glass
       tokenflow: metrics/videos/tgt/tokenflow/style/bernese_stained_glass
@@ -347,7 +347,7 @@ style:
     src_prompt: a bird standing on tree branch
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/bird_pop_art_1.0_5.4
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/style/bird_pop_art
       flatten: metrics/videos/tgt/flatten/style/bird_pop_art
       rav: metrics/videos/tgt/rav/style/bird_pop_art
       tokenflow: metrics/videos/tgt/tokenflow/style/bird_pop_art
@@ -360,7 +360,7 @@ style:
     src_prompt: a small bird standing on the ground
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/bird_wall_mural_1.0_5.85
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/style/bird_wall_mural
       flatten: metrics/videos/tgt/flatten/style/bird_wall_mural
       rav: metrics/videos/tgt/rav/style/bird_wall_mural
       tokenflow: metrics/videos/tgt/tokenflow/style/bird_wall_mural
@@ -373,7 +373,7 @@ style:
     src_prompt: a colorful cat with bubbles and stars on it
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/cat_kids_crayon_1.0_5.55
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/style/cat_kids_crayon
       flatten: metrics/videos/tgt/flatten/style/cat_kids_crayon
       rav: metrics/videos/tgt/rav/style/cat_kids_crayon
       tokenflow: metrics/videos/tgt/tokenflow/style/cat_kids_crayon
@@ -451,7 +451,7 @@ style:
     src_prompt: a white horse running in the field
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/horse_watercolor_1.0_3.3
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/style/horse_watercolor
       flatten: metrics/videos/tgt/flatten/style/horse_watercolor
       rav: metrics/videos/tgt/rav/style/horse_watercolor
       tokenflow: metrics/videos/tgt/tokenflow/style/horse_watercolor
@@ -464,7 +464,7 @@ style:
     src_prompt: a kitten wearing armor sits on the ground
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/kitten_armor_cartoon_1.0_5.55
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/style/kitten_armor_cartoon
       flatten: metrics/videos/tgt/flatten/style/kitten_armor_cartoon
       rav: metrics/videos/tgt/rav/style/kitten_armor_cartoon
       tokenflow: metrics/videos/tgt/tokenflow/style/kitten_armor_cartoon
@@ -477,7 +477,7 @@ style:
     src_prompt: a woman with red hair and a red dress walking by the lake
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/woman_red_post_impressionism_1.0_5.85
-      fatezero: ''
+      fatezero: metrics/videos/tgt/fatezero/style/woman_red_post_impressionism
       flatten: metrics/videos/tgt/flatten/style/woman_red_post_impressionism
       rav: metrics/videos/tgt/rav/style/woman_red_post_impressionism
       tokenflow: metrics/videos/tgt/tokenflow/style/woman_red_post_impressionism
