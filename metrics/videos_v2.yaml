@@ -77,8 +77,8 @@ add:
       flatten: metrics/videos/tgt/flatten/add/digital_woman_butterfly
       rav: metrics/videos/tgt/rav/add/digital_woman_butterfly
       tokenflow: metrics/videos/tgt/tokenflow/add/digital_woman_butterfly
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/add/digital_woman_butterfly
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/digital_woman_butterfly_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/digital_woman_butterfly_vidtome
     tgt_prompt: a digital art of a brown hair woman with flying butterfly
   dog_soccer:
     seed: 42
@@ -86,12 +86,12 @@ add:
     src_prompt: a cute pomeranian dog is playing
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/dog_soccer_1.0_2.4
-      fatezero: metrics/videos/tgt/fatezero/add/dog_soccer
-      flatten: metrics/videos/tgt/flatten/add/dog_soccer
-      rav: metrics/videos/tgt/rav/add/dog_soccer
-      tokenflow: metrics/videos/tgt/tokenflow/add/dog_soccer
-      v2v_zero: metrics/videos/tgt/v2v_zero/add/dog_soccer
-      vidtome: metrics/videos/tgt/vidtome/add/dog_soccer
+      fatezero: metrics/videos/tgt/fatezero/add/dog_soccer_fatezero
+      flatten: metrics/videos/tgt/flatten/add/dog_soccer_flatten
+      rav: metrics/videos/tgt/rav/add/dog_soccer_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/dog_soccer_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/dog_soccer_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/dog_soccer_vidtome
     tgt_prompt: a cute pomeranian dog is playing with a soccer ball
   panda_sunset:
     seed: 42
@@ -99,12 +99,12 @@ add:
     src_prompt: A panda is surfing in the ocean.
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/panda_sunset_1.0_6.0
-      fatezero: metrics/videos/tgt/fatezero/add/panda_sunset
-      flatten: metrics/videos/tgt/flatten/add/panda_sunset
-      rav: metrics/videos/tgt/rav/add/panda_sunset
-      tokenflow: metrics/videos/tgt/tokenflow/add/panda_sunset
-      v2v_zero: metrics/videos/tgt/v2v_zero/add/panda_sunset
-      vidtome: metrics/videos/tgt/vidtome/add/panda_sunset
+      fatezero: metrics/videos/tgt/fatezero/add/panda_sunset_fatezero
+      flatten: metrics/videos/tgt/flatten/add/panda_sunset_flatten
+      rav: metrics/videos/tgt/rav/add/panda_sunset_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/panda_sunset_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/panda_sunset_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/panda_sunset_vidtome
     tgt_prompt: A panda is surfing in the ocean in sunset.
   peter_people:
     seed: 42
@@ -112,12 +112,12 @@ add:
     src_prompt: Peter Parker playing guitar on times square
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/peter_people_1.0_6.0
-      fatezero: metrics/videos/tgt/fatezero/add/peter_people
-      flatten: metrics/videos/tgt/flatten/add/peter_people
-      rav: metrics/videos/tgt/rav/add/peter_people
-      tokenflow: metrics/videos/tgt/tokenflow/add/peter_people
-      v2v_zero: metrics/videos/tgt/v2v_zero/add/peter_people
-      vidtome: metrics/videos/tgt/vidtome/add/peter_people
+      fatezero: metrics/videos/tgt/fatezero/add/peter_people_fatezero
+      flatten: metrics/videos/tgt/flatten/add/peter_people_flatten
+      rav: metrics/videos/tgt/rav/add/peter_people_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/peter_people_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/peter_people_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/peter_people_vidtome
     tgt_prompt: Peter Parker playing guitar on times square, with a lot of people
       watching
   sakura_matou_hat:
@@ -126,12 +126,12 @@ add:
     src_prompt: Sakura Matou surrounded by flowers, anime
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/sakura_matou_hat_1.0_0.6
-      fatezero: metrics/videos/tgt/fatezero/add/sakura_matou_hat
-      flatten: metrics/videos/tgt/flatten/add/sakura_matou_hat
-      rav: metrics/videos/tgt/rav/add/sakura_matou_hat
-      tokenflow: metrics/videos/tgt/tokenflow/add/sakura_matou_hat
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/add/sakura_matou_hat
+      fatezero: metrics/videos/tgt/fatezero/add/sakura_matou_hat_fatezero
+      flatten: metrics/videos/tgt/flatten/add/sakura_matou_hat_flatten
+      rav: metrics/videos/tgt/rav/add/sakura_matou_hat_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/sakura_matou_hat_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/sakura_matou_hat_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/sakura_matou_hat_vidtome
     tgt_prompt: Sakura Matou wearing a hat and surrounded by flowers, anime
   squirrel_platform_book:
     seed: 1201550489
@@ -139,12 +139,12 @@ add:
     src_prompt: a squirrel sitting on top of a wooden platform
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/squirrel_platform_book_1.0_1.5
-      fatezero: metrics/videos/tgt/fatezero/add/squirrel_platform_book
-      flatten: metrics/videos/tgt/flatten/add/squirrel_platform_book
-      rav: metrics/videos/tgt/rav/add/squirrel_platform_book
-      tokenflow: metrics/videos/tgt/tokenflow/add/squirrel_platform_book
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/add/squirrel_platform_book
+      fatezero: metrics/videos/tgt/fatezero/add/squirrel_platform_book_fatezero
+      flatten: metrics/videos/tgt/flatten/add/squirrel_platform_book_flatten
+      rav: metrics/videos/tgt/rav/add/squirrel_platform_book_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/squirrel_platform_book_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/squirrel_platform_book_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/squirrel_platform_book_vidtome
     tgt_prompt: a squirrel sitting on top of a wooden platform reading a book
   woman_pink_earrings:
     seed: 778029590
@@ -152,12 +152,12 @@ add:
     src_prompt: a woman with pink hair
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/woman_pink_earrings_1.0_0.5
-      fatezero: metrics/videos/tgt/fatezero/add/woman_pink_earrings
-      flatten: metrics/videos/tgt/flatten/add/woman_pink_earrings
-      rav: metrics/videos/tgt/rav/add/woman_pink_earrings
-      tokenflow: metrics/videos/tgt/tokenflow/add/woman_pink_earrings
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/add/woman_pink_earrings
+      fatezero: metrics/videos/tgt/fatezero/add/woman_pink_earrings_fatezero
+      flatten: metrics/videos/tgt/flatten/add/woman_pink_earrings_flatten
+      rav: metrics/videos/tgt/rav/add/woman_pink_earrings_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/woman_pink_earrings_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/woman_pink_earrings_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/woman_pink_earrings_vidtome
     tgt_prompt: a woman with pink hair wearing earrings
 rm:
   boy_glasses:
@@ -167,12 +167,12 @@ rm:
       art
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/boy_glasses_1.0_1.0
-      fatezero: metrics/videos/tgt/fatezero/rm/boy_glasses
-      flatten: metrics/videos/tgt/flatten/rm/boy_glasses
-      rav: metrics/videos/tgt/rav/rm/boy_glasses
-      tokenflow: metrics/videos/tgt/tokenflow/rm/boy_glasses
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/rm/boy_glasses
+      fatezero: metrics/videos/tgt/fatezero/rm/boy_glasses_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/boy_glasses_flatten
+      rav: metrics/videos/tgt/rav/rm/boy_glasses_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/boy_glasses_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/boy_glasses_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/boy_glasses_vidtome
     tgt_prompt:
       change: a pair of glasses
       default: a boy with a tie looking at a computer, digital art
@@ -182,12 +182,12 @@ rm:
     src_prompt: Captain America drinking coffee in a cafe in Paris
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/captain_coffee_1.0_-0.37
-      fatezero: metrics/videos/tgt/fatezero/rm/captain_coffee
-      flatten: metrics/videos/tgt/flatten/rm/captain_coffee
-      rav: metrics/videos/tgt/rav/rm/captain_coffee
-      tokenflow: metrics/videos/tgt/tokenflow/rm/captain_coffee
-      v2v_zero: metrics/videos/tgt/v2v_zero/rm/captain_coffee
-      vidtome: metrics/videos/tgt/vidtome/rm/captain_coffee
+      fatezero: metrics/videos/tgt/fatezero/rm/captain_coffee_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/captain_coffee_flatten
+      rav: metrics/videos/tgt/rav/rm/captain_coffee_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/captain_coffee_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/captain_coffee_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/captain_coffee_vidtome
     tgt_prompt:
       change: a cup of coffee
       default: Captain America in a cafe in Paris
@@ -197,12 +197,12 @@ rm:
     src_prompt: a cat wearing headphones on a couch
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/cat_headphones_1.0_2.4
-      fatezero: metrics/videos/tgt/fatezero/rm/cat_headphones
-      flatten: metrics/videos/tgt/flatten/rm/cat_headphones
-      rav: metrics/videos/tgt/rav/rm/cat_headphones
-      tokenflow: metrics/videos/tgt/tokenflow/rm/cat_headphones
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/rm/cat_headphones
+      fatezero: metrics/videos/tgt/fatezero/rm/cat_headphones_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/cat_headphones_flatten
+      rav: metrics/videos/tgt/rav/rm/cat_headphones_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/cat_headphones_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/cat_headphones_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/cat_headphones_vidtome
     tgt_prompt:
       change: headphones
       default: a cat on a couch
@@ -212,12 +212,12 @@ rm:
     src_prompt: an eagle sitting on a branch of yellow flowers
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/eagle_branch_flowers_1.0_0.6
-      fatezero: metrics/videos/tgt/fatezero/rm/eagle_branch_flowers
-      flatten: metrics/videos/tgt/flatten/rm/eagle_branch_flowers
-      rav: metrics/videos/tgt/rav/rm/eagle_branch_flowers
-      tokenflow: metrics/videos/tgt/tokenflow/rm/eagle_branch_flowers
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/rm/eagle_branch_flowers
+      fatezero: metrics/videos/tgt/fatezero/rm/eagle_branch_flowers_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/eagle_branch_flowers_flatten
+      rav: metrics/videos/tgt/rav/rm/eagle_branch_flowers_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/eagle_branch_flowers_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/eagle_branch_flowers_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/eagle_branch_flowers_vidtome
     tgt_prompt:
       change: yellow flowers
       default: an eagle sitting on a branch
@@ -227,12 +227,12 @@ rm:
     src_prompt: a girl with a backpack and a red coat is standing in front of castles
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/girl_backpack_castle_1.0_0.1
-      fatezero: metrics/videos/tgt/fatezero/rm/girl_backpack_castle
-      flatten: metrics/videos/tgt/flatten/rm/girl_backpack_castle
-      rav: metrics/videos/tgt/rav/rm/girl_backpack_castle
-      tokenflow: metrics/videos/tgt/tokenflow/rm/girl_backpack_castle
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/rm/girl_backpack_castle
+      fatezero: metrics/videos/tgt/fatezero/rm/girl_backpack_castle_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/girl_backpack_castle_flatten
+      rav: metrics/videos/tgt/rav/rm/girl_backpack_castle_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/girl_backpack_castle_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/girl_backpack_castle_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/girl_backpack_castle_vidtome
     tgt_prompt:
       change: a backpack
       default: a girl with a red coat is standing in front of castles
@@ -242,12 +242,12 @@ rm:
     src_prompt: a young girl walking in the rain with an umbrella
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/girl_umbrella_1.0_0.1
-      fatezero: metrics/videos/tgt/fatezero/rm/girl_umbrella
-      flatten: metrics/videos/tgt/flatten/rm/girl_umbrella
-      rav: metrics/videos/tgt/rav/rm/girl_umbrella
-      tokenflow: metrics/videos/tgt/tokenflow/rm/girl_umbrella
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/rm/girl_umbrella
+      fatezero: metrics/videos/tgt/fatezero/rm/girl_umbrella_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/girl_umbrella_flatten
+      rav: metrics/videos/tgt/rav/rm/girl_umbrella_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/girl_umbrella_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/girl_umbrella_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/girl_umbrella_vidtome
     tgt_prompt:
       change: an umbrella
       default: a young girl walking in the rain
@@ -257,12 +257,12 @@ rm:
     src_prompt: a husky dog running on a path in the woods
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/husky_woods_1.0_0.4
-      fatezero: metrics/videos/tgt/fatezero/rm/husky_woods
-      flatten: metrics/videos/tgt/flatten/rm/husky_woods
-      rav: metrics/videos/tgt/rav/rm/husky_woods
-      tokenflow: metrics/videos/tgt/tokenflow/rm/husky_woods
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/rm/husky_woods
+      fatezero: metrics/videos/tgt/fatezero/rm/husky_woods_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/husky_woods_flatten
+      rav: metrics/videos/tgt/rav/rm/husky_woods_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/husky_woods_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/husky_woods_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/husky_woods_vidtome
     tgt_prompt:
       change: a husky dog
       default: a path in the woods
@@ -272,12 +272,12 @@ rm:
     src_prompt: a panda is playing guitar on times square
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/panda_guitar_0.9_0.6
-      fatezero: metrics/videos/tgt/fatezero/rm/panda_guitar
-      flatten: metrics/videos/tgt/flatten/rm/panda_guitar
-      rav: metrics/videos/tgt/rav/rm/panda_guitar
-      tokenflow: metrics/videos/tgt/tokenflow/rm/panda_guitar
-      v2v_zero: metrics/videos/tgt/v2v_zero/rm/panda_guitar
-      vidtome: metrics/videos/tgt/vidtome/rm/panda_guitar
+      fatezero: metrics/videos/tgt/fatezero/rm/panda_guitar_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/panda_guitar_flatten
+      rav: metrics/videos/tgt/rav/rm/panda_guitar_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/panda_guitar_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/panda_guitar_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/panda_guitar_vidtome
     tgt_prompt:
       change: a guitar
       default: a panda on times square
@@ -287,12 +287,12 @@ rm:
     src_prompt: a puppy is sitting in a field of dandelions
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/puppy_dandelions_1.0_0.5
-      fatezero: metrics/videos/tgt/fatezero/rm/puppy_dandelions
-      flatten: metrics/videos/tgt/flatten/rm/puppy_dandelions
-      rav: metrics/videos/tgt/rav/rm/puppy_dandelions
-      tokenflow: metrics/videos/tgt/tokenflow/rm/puppy_dandelions
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/rm/puppy_dandelions
+      fatezero: metrics/videos/tgt/fatezero/rm/puppy_dandelions_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/puppy_dandelions_flatten
+      rav: metrics/videos/tgt/rav/rm/puppy_dandelions_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/puppy_dandelions_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/puppy_dandelions_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/puppy_dandelions_vidtome
     tgt_prompt:
       change: dandelions
       default: a puppy is sitting in a field
@@ -303,12 +303,12 @@ rm:
       around
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/witch_cloak_bats_1.0_-0.2
-      fatezero: metrics/videos/tgt/fatezero/rm/witch_cloak_bats
-      flatten: metrics/videos/tgt/flatten/rm/witch_cloak_bats
-      rav: metrics/videos/tgt/rav/rm/witch_cloak_bats
-      tokenflow: metrics/videos/tgt/tokenflow/rm/witch_cloak_bats
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/rm/witch_cloak_bats
+      fatezero: metrics/videos/tgt/fatezero/rm/witch_cloak_bats_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/witch_cloak_bats_flatten
+      rav: metrics/videos/tgt/rav/rm/witch_cloak_bats_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/witch_cloak_bats_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/witch_cloak_bats_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/witch_cloak_bats_vidtome
     tgt_prompt:
       change: bats
       default: a witch in a red cloak walking through the woods
@@ -318,12 +318,12 @@ rm:
     src_prompt: a young woman in sunglasses driving an old car, facing the camera
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/rm/woman_car_sunglasses_1.0_0.1
-      fatezero: metrics/videos/tgt/fatezero/rm/woman_car_sunglasses
-      flatten: metrics/videos/tgt/flatten/rm/woman_car_sunglasses
-      rav: metrics/videos/tgt/rav/rm/woman_car_sunglasses
-      tokenflow: metrics/videos/tgt/tokenflow/rm/woman_car_sunglasses
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/rm/woman_car_sunglasses
+      fatezero: metrics/videos/tgt/fatezero/rm/woman_car_sunglasses_fatezero
+      flatten: metrics/videos/tgt/flatten/rm/woman_car_sunglasses_flatten
+      rav: metrics/videos/tgt/rav/rm/woman_car_sunglasses_rav
+      tokenflow: metrics/videos/tgt/tokenflow/rm/woman_car_sunglasses_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/rm/woman_car_sunglasses_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/rm/woman_car_sunglasses_vidtome
     tgt_prompt:
       change: a pair of sunglasses
       default: a young woman driving an old car, facing the camera
@@ -334,12 +334,12 @@ style:
     src_prompt: a bernese mountain dog is sitting in the grass
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/bernese_stained_glass_1.0_1.05
-      fatezero: metrics/videos/tgt/fatezero/style/bernese_stained_glass
-      flatten: metrics/videos/tgt/flatten/style/bernese_stained_glass
-      rav: metrics/videos/tgt/rav/style/bernese_stained_glass
-      tokenflow: metrics/videos/tgt/tokenflow/style/bernese_stained_glass
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/style/bernese_stained_glass
+      fatezero: metrics/videos/tgt/fatezero/style/bernese_stained_glass_fatezero
+      flatten: metrics/videos/tgt/flatten/style/bernese_stained_glass_flatten
+      rav: metrics/videos/tgt/rav/style/bernese_stained_glass_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/bernese_stained_glass_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/bernese_stained_glass_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/bernese_stained_glass_vidtome
     tgt_prompt: stained glass window of a bernese mountain dog is sitting in the grass
   bird_pop_art:
     seed: 1016560997
@@ -347,12 +347,12 @@ style:
     src_prompt: a bird standing on tree branch
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/bird_pop_art_1.0_5.4
-      fatezero: metrics/videos/tgt/fatezero/style/bird_pop_art
-      flatten: metrics/videos/tgt/flatten/style/bird_pop_art
-      rav: metrics/videos/tgt/rav/style/bird_pop_art
-      tokenflow: metrics/videos/tgt/tokenflow/style/bird_pop_art
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/style/bird_pop_art
+      fatezero: metrics/videos/tgt/fatezero/style/bird_pop_art_fatezero
+      flatten: metrics/videos/tgt/flatten/style/bird_pop_art_flatten
+      rav: metrics/videos/tgt/rav/style/bird_pop_art_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/bird_pop_art_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/bird_pop_art_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/bird_pop_art_vidtome
     tgt_prompt: a bird standing on tree branch, pop art
   bird_wall_mural:
     seed: 1016560997
@@ -360,12 +360,12 @@ style:
     src_prompt: a small bird standing on the ground
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/bird_wall_mural_1.0_5.85
-      fatezero: metrics/videos/tgt/fatezero/style/bird_wall_mural
-      flatten: metrics/videos/tgt/flatten/style/bird_wall_mural
-      rav: metrics/videos/tgt/rav/style/bird_wall_mural
-      tokenflow: metrics/videos/tgt/tokenflow/style/bird_wall_mural
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/style/bird_wall_mural
+      fatezero: metrics/videos/tgt/fatezero/style/bird_wall_mural_fatezero
+      flatten: metrics/videos/tgt/flatten/style/bird_wall_mural_flatten
+      rav: metrics/videos/tgt/rav/style/bird_wall_mural_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/bird_wall_mural_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/bird_wall_mural_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/bird_wall_mural_vidtome
     tgt_prompt: a wall mural of a small bird standing on the ground
   cat_kids_crayon:
     seed: 778029590
@@ -373,12 +373,12 @@ style:
     src_prompt: a colorful cat with bubbles and stars on it
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/cat_kids_crayon_1.0_5.55
-      fatezero: metrics/videos/tgt/fatezero/style/cat_kids_crayon
-      flatten: metrics/videos/tgt/flatten/style/cat_kids_crayon
-      rav: metrics/videos/tgt/rav/style/cat_kids_crayon
-      tokenflow: metrics/videos/tgt/tokenflow/style/cat_kids_crayon
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/style/cat_kids_crayon
+      fatezero: metrics/videos/tgt/fatezero/style/cat_kids_crayon_fatezero
+      flatten: metrics/videos/tgt/flatten/style/cat_kids_crayon_flatten
+      rav: metrics/videos/tgt/rav/style/cat_kids_crayon_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/cat_kids_crayon_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/cat_kids_crayon_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/cat_kids_crayon_vidtome
     tgt_prompt: kids crayon drawing of a colorful cat with bubbles and stars on it
   gwen_cyberpunk:
     seed: 42
@@ -386,12 +386,12 @@ style:
     src_prompt: Gwen Stacy reading a book
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/gwen_cyberpunk_1.0_5.1
-      fatezero: metrics/videos/tgt/fatezero/style/gwen_cyberpunk
-      flatten: metrics/videos/tgt/flatten/style/gwen_cyberpunk
-      rav: metrics/videos/tgt/rav/style/gwen_cyberpunk
-      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_cyberpunk
-      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_cyberpunk
-      vidtome: metrics/videos/tgt/vidtome/style/gwen_cyberpunk
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_cyberpunk_fatezero
+      flatten: metrics/videos/tgt/flatten/style/gwen_cyberpunk_flatten
+      rav: metrics/videos/tgt/rav/style/gwen_cyberpunk_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_cyberpunk_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_cyberpunk_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_cyberpunk_vidtome
     tgt_prompt: Gwen Stacy reading a book, in cyberpunk style
   gwen_painting:
     seed: 42
@@ -399,12 +399,12 @@ style:
     src_prompt: Gwen Stacy reading a book
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/gwen_painting_1.0_5.7
-      fatezero: metrics/videos/tgt/fatezero/style/gwen_painting
-      flatten: metrics/videos/tgt/flatten/style/gwen_painting
-      rav: metrics/videos/tgt/rav/style/gwen_painting
-      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_painting
-      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_painting
-      vidtome: metrics/videos/tgt/vidtome/style/gwen_painting
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_painting_fatezero
+      flatten: metrics/videos/tgt/flatten/style/gwen_painting_flatten
+      rav: metrics/videos/tgt/rav/style/gwen_painting_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_painting_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_painting_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_painting_vidtome
     tgt_prompt: Gwen Stacy reading a book, oil painting
   gwen_ukiyo:
     seed: 42
@@ -412,12 +412,12 @@ style:
     src_prompt: Gwen Stacy reading a book
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/gwen_ukiyo_1.0_6.6
-      fatezero: metrics/videos/tgt/fatezero/style/gwen_ukiyo
-      flatten: metrics/videos/tgt/flatten/style/gwen_ukiyo
-      rav: metrics/videos/tgt/rav/style/gwen_ukiyo
-      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_ukiyo
-      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_ukiyo
-      vidtome: metrics/videos/tgt/vidtome/style/gwen_ukiyo
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_ukiyo_fatezero
+      flatten: metrics/videos/tgt/flatten/style/gwen_ukiyo_flatten
+      rav: metrics/videos/tgt/rav/style/gwen_ukiyo_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_ukiyo_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_ukiyo_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_ukiyo_vidtome
     tgt_prompt: Gwen Stacy reading a book by Hokusai, in the style of Ukiyo
   gwen_van_gogh:
     seed: 42
@@ -425,12 +425,12 @@ style:
     src_prompt: Gwen Stacy reading a book
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/gwen_van_gogh_1.0_5.4
-      fatezero: metrics/videos/tgt/fatezero/style/gwen_van_gogh
-      flatten: metrics/videos/tgt/flatten/style/gwen_van_gogh
-      rav: metrics/videos/tgt/rav/style/gwen_van_gogh
-      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_van_gogh
-      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_van_gogh
-      vidtome: metrics/videos/tgt/vidtome/style/gwen_van_gogh
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_van_gogh_fatezero
+      flatten: metrics/videos/tgt/flatten/style/gwen_van_gogh_flatten
+      rav: metrics/videos/tgt/rav/style/gwen_van_gogh_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_van_gogh_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_van_gogh_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_van_gogh_vidtome
     tgt_prompt: Gwen Stacy reading a book, Van Gogh style
   gwen_watercolor:
     seed: 42
@@ -438,12 +438,12 @@ style:
     src_prompt: Gwen Stacy reading a book
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/gwen_watercolor_1.0_3.6
-      fatezero: metrics/videos/tgt/fatezero/style/gwen_watercolor
-      flatten: metrics/videos/tgt/flatten/style/gwen_watercolor
-      rav: metrics/videos/tgt/rav/style/gwen_watercolor
-      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_watercolor
-      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_watercolor
-      vidtome: metrics/videos/tgt/vidtome/style/gwen_watercolor
+      fatezero: metrics/videos/tgt/fatezero/style/gwen_watercolor_fatezero
+      flatten: metrics/videos/tgt/flatten/style/gwen_watercolor_flatten
+      rav: metrics/videos/tgt/rav/style/gwen_watercolor_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/gwen_watercolor_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/gwen_watercolor_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/gwen_watercolor_vidtome
     tgt_prompt: Gwen Stacy reading a book, watercolor painting
   horse_watercolor:
     seed: 168526037
@@ -451,12 +451,12 @@ style:
     src_prompt: a white horse running in the field
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/horse_watercolor_1.0_3.3
-      fatezero: metrics/videos/tgt/fatezero/style/horse_watercolor
-      flatten: metrics/videos/tgt/flatten/style/horse_watercolor
-      rav: metrics/videos/tgt/rav/style/horse_watercolor
-      tokenflow: metrics/videos/tgt/tokenflow/style/horse_watercolor
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/style/horse_watercolor
+      fatezero: metrics/videos/tgt/fatezero/style/horse_watercolor_fatezero
+      flatten: metrics/videos/tgt/flatten/style/horse_watercolor_flatten
+      rav: metrics/videos/tgt/rav/style/horse_watercolor_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/horse_watercolor_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/horse_watercolor_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/horse_watercolor_vidtome
     tgt_prompt: watercolor of a white horse running in the field
   kitten_armor_cartoon:
     seed: 778029590
@@ -464,12 +464,12 @@ style:
     src_prompt: a kitten wearing armor sits on the ground
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/kitten_armor_cartoon_1.0_5.55
-      fatezero: metrics/videos/tgt/fatezero/style/kitten_armor_cartoon
-      flatten: metrics/videos/tgt/flatten/style/kitten_armor_cartoon
-      rav: metrics/videos/tgt/rav/style/kitten_armor_cartoon
-      tokenflow: metrics/videos/tgt/tokenflow/style/kitten_armor_cartoon
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/style/kitten_armor_cartoon
+      fatezero: metrics/videos/tgt/fatezero/style/kitten_armor_cartoon_fatezero
+      flatten: metrics/videos/tgt/flatten/style/kitten_armor_cartoon_flatten
+      rav: metrics/videos/tgt/rav/style/kitten_armor_cartoon_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/kitten_armor_cartoon_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/kitten_armor_cartoon_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/kitten_armor_cartoon_vidtome
     tgt_prompt: a cartoon kitten wearing armor sits on the ground
   woman_red_post_impressionism:
     seed: 778029590
@@ -477,11 +477,11 @@ style:
     src_prompt: a woman with red hair and a red dress walking by the lake
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/style/woman_red_post_impressionism_1.0_5.85
-      fatezero: metrics/videos/tgt/fatezero/style/woman_red_post_impressionism
-      flatten: metrics/videos/tgt/flatten/style/woman_red_post_impressionism
-      rav: metrics/videos/tgt/rav/style/woman_red_post_impressionism
-      tokenflow: metrics/videos/tgt/tokenflow/style/woman_red_post_impressionism
-      v2v_zero: ''
-      vidtome: metrics/videos/tgt/vidtome/style/woman_red_post_impressionism
+      fatezero: metrics/videos/tgt/fatezero/style/woman_red_post_impressionism_fatezero
+      flatten: metrics/videos/tgt/flatten/style/woman_red_post_impressionism_flatten
+      rav: metrics/videos/tgt/rav/style/woman_red_post_impressionism_rav
+      tokenflow: metrics/videos/tgt/tokenflow/style/woman_red_post_impressionism_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/style/woman_red_post_impressionism_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/style/woman_red_post_impressionism_vidtome
     tgt_prompt: a woman with red hair and a red dress walking by the lake, post-impressionism
       style
