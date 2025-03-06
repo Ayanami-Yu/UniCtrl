@@ -1,5 +1,5 @@
 import os
-
+import argparse
 import numpy as np
 import torch
 import yaml
@@ -19,10 +19,12 @@ from metrics.clip_utils import DirectionalSimilarity
 # available image models: sd, masactrl, p2p, sega, ledits_pp, mdp, cg
 # available video models: animatediff, fatezero, tokenflow, vidtome, flatten, v2v_zero, rav
 # available modes: add, rm
-modality = "image"
-model = "cg"
-mode = "rm"
-config_file = "metrics/images.yaml" if modality == "image" else "metrics/videos.yaml"
+parser = argparse.ArgumentParser()
+parser.add_argument("--modality", type=str, default="image")
+parser.add_argument("--model", type=str, default="sd")
+parser.add_argument("--mode", type=str, default="add")
+parser.add_argument("--config_file", type=str, default="metrics/images_v2.yaml")
+args = parser.parse_args()
 
 # set device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -35,30 +37,32 @@ image_processor = CLIPImageProcessor.from_pretrained(clip_id)
 image_encoder = CLIPVisionModelWithProjection.from_pretrained(clip_id).to(device)
 
 # load images and prompts
-with open(config_file) as f:
+with open(args.config_file) as f:
     dataset = yaml.safe_load(f)
 
-if modality == "image":
-    label = "sega" if model == "sega" else "default"
+if args.modality == "image":
+    label = "sega" if args.model == "sega" else "default"
     src_images = [
-        read_image(data["src_image"][label]) for data in dataset[mode].values()
+        read_image(data["src_image"][label]) for data in dataset[args.mode].values()
     ]
     tgt_images = [
-        read_image(data["tgt_image"][model]) for data in dataset[mode].values()
+        read_image(data["tgt_image"][args.model])
+        for data in dataset[args.mode].values()
     ]
-    src_prompts = [data["src_prompt"] for data in dataset[mode].values()]
-    if mode == "add":
-        tgt_prompts = [data["tgt_prompt"]["default"] for data in dataset[mode].values()]
-    else:
-        tgt_prompts = [data["tgt_prompt"]["default"] for data in dataset[mode].values()]
-elif modality == "video":
+    src_prompts = [
+        data["src_prompt"] for data in dataset[args.mode].values()
+    ]
+    tgt_prompts = [
+        data["tgt_prompt"]["default"] for data in dataset[args.mode].values()
+    ]
+elif args.modality == "video":
     src_images = []
     tgt_images = []
     src_prompts = []
     tgt_prompts = []
-    for data in dataset[mode].values():
+    for data in dataset[args.mode].values():
         src_path = data["src_images"]
-        tgt_path = data["tgt_images"][model]
+        tgt_path = data["tgt_images"][args.model]
 
         src_images.extend(
             [
@@ -73,12 +77,12 @@ elif modality == "video":
             ]
         )
         src_prompts.extend([data["src_prompt"]] * len(os.listdir(src_path)))
-        if mode == "add":
-            tgt_prompts.extend([data["tgt_prompt"]] * len(os.listdir(tgt_path)))
-        else:
+        if args.mode == 'rm':
             tgt_prompts.extend(
                 [data["tgt_prompt"]["default"]] * len(os.listdir(tgt_path))
             )
+        else:
+            tgt_prompts.extend([data["tgt_prompt"]] * len(os.listdir(tgt_path)))
 else:
     raise ValueError("Unrecognized modality")
 

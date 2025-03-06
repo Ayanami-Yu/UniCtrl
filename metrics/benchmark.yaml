@@ -1,0 +1,102 @@
+clip_dir:
+  image:
+    add:
+      cg: 0.2201
+      ledits_pp: 0.124
+      masactrl: 0.0934
+      mdp: 0.1973
+      p2p: 0.1814
+      sd: 0.2697
+      sega: 0.146
+    rm:
+      cg: 0.1782
+      ledits_pp: 0.1313
+      masactrl: 0.0803
+      mdp: 0.1585
+      p2p: 0.1408
+      sd: 0.1915
+      sega: 0.0719
+    style:
+      cg: 0.1696
+      ledits_pp: 0.0384
+      masactrl: 0.0575
+      mdp: 0.1516
+      p2p: 0.1549
+      sd: 0.2349
+      sega: 0.1253
+  video:
+    add:
+      animatediff: 0.2834
+      fatezero: 0.0494
+      flatten: 0.0593
+      rav: 0.1062
+      tokenflow: 0.0954
+      v2v_zero: 0.1152
+      vidtome: 0.0819
+    rm:
+      animatediff: 0.2243
+      fatezero: 0.0515
+      flatten: 0.059
+      rav: 0.0927
+      tokenflow: 0.1053
+      v2v_zero: 0.1104
+      vidtome: 0.1186
+    style:
+      animatediff: 0.2143
+      fatezero: 0.085
+      flatten: 0.148
+      rav: 0.1049
+      tokenflow: 0.1292
+      v2v_zero: 0.075
+      vidtome: 0.1276
+clip_score:
+  image:
+    add:
+      cg: 33.8735
+      ledits_pp: 32.6331
+      masactrl: 29.3862
+      mdp: 32.8925
+      p2p: 32.8393
+      sd: 34.8568
+      sega: 33.4652
+    rm:
+      cg: 20.6206
+      ledits_pp: 21.9653
+      masactrl: 21.9416
+      mdp: 21.092
+      p2p: 21.5167
+      sd: 20.0225
+      sega: 22.9387
+    style:
+      cg: 34.5988
+      ledits_pp: 29.7633
+      masactrl: 28.5651
+      mdp: 34.018
+      p2p: 34.8041
+      sd: 36.8254
+      sega: 31.7848
+  video:
+    add:
+      animatediff: 35.7504
+      fatezero: 32.5067
+      flatten: 32.4373
+      rav: 32.4598
+      tokenflow: 32.5426
+      v2v_zero: 33.5822
+      vidtome: 32.5606
+    rm:
+      animatediff: 20.005
+      fatezero: 23.575
+      flatten: 22.9239
+      rav: 22.1788
+      tokenflow: 21.1212
+      v2v_zero: 21.6772
+      vidtome: 21.1732
+    style:
+      animatediff: 36.5175
+      fatezero: 34.4693
+      flatten: 36.454
+      rav: 35.6452
+      tokenflow: 36.0303
+      v2v_zero: 34.7971
+      vidtome: 36.7255

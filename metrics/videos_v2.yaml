@@ -5,12 +5,12 @@ add:
     src_prompt: A boat sailing leisurely along River
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/boat_tower_1.0_1.8
-      fatezero: metrics/videos/tgt/fatezero/add/boat_tower
-      flatten: metrics/videos/tgt/flatten/add/boat_tower
-      rav: metrics/videos/tgt/rav/add/boat_tower
-      tokenflow: metrics/videos/tgt/tokenflow/add/boat_tower
-      v2v_zero: metrics/videos/tgt/v2v_zero/add/boat_tower
-      vidtome: metrics/videos/tgt/vidtome/add/boat_tower
+      fatezero: metrics/videos/tgt/fatezero/add/boat_tower_fatezero
+      flatten: metrics/videos/tgt/flatten/add/boat_tower_flatten
+      rav: metrics/videos/tgt/rav/add/boat_tower_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/boat_tower_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/boat_tower_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/boat_tower_vidtome
     tgt_prompt: A boat sailing leisurely along the River with the Eiffel Tower in
       background
   campfire_kids:
@@ -19,12 +19,12 @@ add:
     src_prompt: Campfire at night in a snowy forest.
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/campfire_kids_1.0_3.3
-      fatezero: metrics/videos/tgt/fatezero/add/campfire_kids
-      flatten: metrics/videos/tgt/flatten/add/campfire_kids
-      rav: metrics/videos/tgt/rav/add/campfire_kids
-      tokenflow: metrics/videos/tgt/tokenflow/add/campfire_kids
-      v2v_zero: metrics/videos/tgt/v2v_zero/add/campfire_kids
-      vidtome: metrics/videos/tgt/vidtome/add/campfire_kids
+      fatezero: metrics/videos/tgt/fatezero/add/campfire_kids_fatezero
+      flatten: metrics/videos/tgt/flatten/add/campfire_kids_flatten
+      rav: metrics/videos/tgt/rav/add/campfire_kids_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/campfire_kids_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/campfire_kids_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/campfire_kids_vidtome
     tgt_prompt: Campfire at night in a snowy forest with some kids playing around
       it.
   campfire_sky:
@@ -33,12 +33,12 @@ add:
     src_prompt: Campfire at night in a snowy forest.
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/campfire_sky_1.0_6.0
-      fatezero: metrics/videos/tgt/fatezero/add/campfire_sky
-      flatten: metrics/videos/tgt/flatten/add/campfire_sky
-      rav: metrics/videos/tgt/rav/add/campfire_sky
-      tokenflow: metrics/videos/tgt/tokenflow/add/campfire_sky
-      v2v_zero: metrics/videos/tgt/v2v_zero/add/campfire_sky
-      vidtome: metrics/videos/tgt/vidtome/add/campfire_sky
+      fatezero: metrics/videos/tgt/fatezero/add/campfire_sky_fatezero
+      flatten: metrics/videos/tgt/flatten/add/campfire_sky_flatten
+      rav: metrics/videos/tgt/rav/add/campfire_sky_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/campfire_sky_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/campfire_sky_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/campfire_sky_vidtome
     tgt_prompt: Campfire at night in a snowy forest with starry sky in the background.
   car_helicopters:
     seed: 42
@@ -46,12 +46,12 @@ add:
     src_prompt: A porsche car turning a corner in the countryside.
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/car_helicopters_1.0_3.9
-      fatezero: metrics/videos/tgt/fatezero/add/car_helicopters
-      flatten: metrics/videos/tgt/flatten/add/car_helicopters
-      rav: metrics/videos/tgt/rav/add/car_helicopters
-      tokenflow: metrics/videos/tgt/tokenflow/add/car_helicopters
-      v2v_zero: metrics/videos/tgt/v2v_zero/add/car_helicopters
-      vidtome: metrics/videos/tgt/vidtome/add/car_helicopters
+      fatezero: metrics/videos/tgt/fatezero/add/car_helicopters_fatezero
+      flatten: metrics/videos/tgt/flatten/add/car_helicopters_flatten
+      rav: metrics/videos/tgt/rav/add/car_helicopters_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/car_helicopters_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/car_helicopters_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/car_helicopters_vidtome
     tgt_prompt: A porsche car turning a corner in the countryside followed by helicopters.
   car_one_helicopter:
     seed: 42
@@ -59,12 +59,12 @@ add:
     src_prompt: A porsche car turning a corner in the countryside.
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/car_one_helicopter_1.0_4.5
-      fatezero: metrics/videos/tgt/fatezero/add/car_one_helicopter
-      flatten: metrics/videos/tgt/flatten/add/car_one_helicopter
-      rav: metrics/videos/tgt/rav/add/car_one_helicopter
-      tokenflow: metrics/videos/tgt/tokenflow/add/car_one_helicopter
-      v2v_zero: metrics/videos/tgt/v2v_zero/add/car_one_helicopter
-      vidtome: metrics/videos/tgt/vidtome/add/car_one_helicopter
+      fatezero: metrics/videos/tgt/fatezero/add/car_one_helicopter_fatezero
+      flatten: metrics/videos/tgt/flatten/add/car_one_helicopter_flatten
+      rav: metrics/videos/tgt/rav/add/car_one_helicopter_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/car_one_helicopter_tokenflow
+      v2v_zero: metrics/videos/tgt/v2v_zero/add/car_one_helicopter_v2v_zero
+      vidtome: metrics/videos/tgt/vidtome/add/car_one_helicopter_vidtome
     tgt_prompt: A porsche car turning a corner in the countryside, with a helicopter
       following it.
   digital_woman_butterfly:
@@ -73,10 +73,10 @@ add:
     src_prompt: a digital art of a brown hair woman
     tgt_images:
       animatediff: metrics/videos/tgt/animatediff/add/digital_woman_butterfly_1.0_0.6
-      fatezero: metrics/videos/tgt/fatezero/add/digital_woman_butterfly
-      flatten: metrics/videos/tgt/flatten/add/digital_woman_butterfly
-      rav: metrics/videos/tgt/rav/add/digital_woman_butterfly
-      tokenflow: metrics/videos/tgt/tokenflow/add/digital_woman_butterfly
+      fatezero: metrics/videos/tgt/fatezero/add/digital_woman_butterfly_fatezero
+      flatten: metrics/videos/tgt/flatten/add/digital_woman_butterfly_flatten
+      rav: metrics/videos/tgt/rav/add/digital_woman_butterfly_rav
+      tokenflow: metrics/videos/tgt/tokenflow/add/digital_woman_butterfly_tokenflow
       v2v_zero: metrics/videos/tgt/v2v_zero/add/digital_woman_butterfly_v2v_zero
       vidtome: metrics/videos/tgt/vidtome/add/digital_woman_butterfly_vidtome
     tgt_prompt: a digital art of a brown hair woman with flying butterfly

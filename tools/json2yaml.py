@@ -51,4 +51,4 @@ for key in content.keys():
     content[key] = {i: case for i, case in enumerate(content[key])}
 
 with open(yaml_path, "w") as f:
-    yaml.dump(content, f)
+    yaml.dump(content, f, default_flow_style=False)

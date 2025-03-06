@@ -6,13 +6,13 @@ add:
       sega: /home/hongyu/UniCtrl/metrics/images/src/sega/add/birds_pine_sega_src.png
     src_prompt: a small brown bird sitting on top of a pine tree
     tgt_image:
-      cg: metrics/images/tgt/cg/add/birds_pine.png
-      ledits_pp: metrics/images/tgt/ledits_pp/add/birds_pine.png
+      cg: metrics/images/tgt/cg/add/birds_pine_cg.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/birds_pine_ledits_pp.png
       masactrl: metrics/images/tgt/masactrl/add/birds_pine_masactrl.png
-      mdp: metrics/images/tgt/mdp/add/birds_pine.png
+      mdp: metrics/images/tgt/mdp/add/birds_pine_mdp.png
       p2p: metrics/images/tgt/p2p/add/birds_pine_p2p.png
       sd: metrics/images/tgt/sd/add/birds_pine_1.0_1.9.png
-      sega: /home/hongyu/UniCtrl/metrics/images/tgt/sega/add/birds_pine_sega.png
+      sega: metrics/images/tgt/sega/add/birds_pine_sega.png
     tgt_prompt:
       change: a small brown bird
       default: two small brown bird sitting on top of a pine tree
@@ -23,8 +23,8 @@ add:
       sega: metrics/images/src/sega/add/boat_tower_sega_src.png
     src_prompt: A boat sailing leisurely along River
     tgt_image:
-      cg: metrics/images/tgt/cg/add/boat_tower.png
-      ledits_pp: metrics/images/tgt/ledits_pp/add/boat_tower.png
+      cg: metrics/images/tgt/cg/add/boat_tower_cg.png
+      ledits_pp: metrics/images/tgt/ledits_pp/add/boat_tower_ledits_pp.png
       masactrl: metrics/images/tgt/masactrl/add/boat_tower_masactrl.png
       mdp: metrics/images/tgt/mdp/add/boat_tower_mdp.png
       p2p: metrics/images/tgt/p2p/add/boat_tower_p2p.png

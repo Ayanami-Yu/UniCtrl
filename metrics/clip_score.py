@@ -1,10 +1,11 @@
 import os
-
+import argparse
 import torch
+import numpy as np
 import yaml
 from torchvision.io import read_image
-
 from metrics.clip_utils import calculate_clip_score
+
 
 # specify the model to test
 # available config files: metrics/images.yaml, metrics/videos.yaml
@@ -12,39 +13,46 @@ from metrics.clip_utils import calculate_clip_score
 # available image models: sd, masactrl, p2p, sega, ledits_pp, mdp, cg
 # available video models: animatediff, fatezero, tokenflow, vidtome, flatten, v2v_zero, rav
 # available modes: add, rm
-modality = "image"
-model = "cg"
-mode = "rm"
-config_file = "metrics/images.yaml" if modality == "image" else "metrics/videos.yaml"
+parser = argparse.ArgumentParser()
+parser.add_argument("--modality", type=str, default="image")
+parser.add_argument("--model", type=str, default="sd")
+parser.add_argument("--mode", type=str, default="add")
+parser.add_argument("--config_file", type=str, default="metrics/images_v2.yaml")
+args = parser.parse_args()
 
 # set device
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # load images and prompts
-with open(config_file) as f:
+with open(args.config_file) as f:
     dataset = yaml.safe_load(f)
 
-if modality == "image":
-    images = [read_image(data["tgt_image"][model]) for data in dataset[mode].values()]
-    if mode == "add":
-        prompts = [data["tgt_prompt"]["default"] for data in dataset[mode].values()]
-    else:
+if args.modality == "image":
+    images = [
+        read_image(data["tgt_image"][args.model])
+        for data in dataset[args.mode].values()
+    ]
+    if args.mode == "rm":
         # NOTE CLIPinv measures similarity between removed concepts and edited images
-        prompts = [data["tgt_prompt"]["change"] for data in dataset[mode].values()]
-elif modality == "video":
+        prompts = [data["tgt_prompt"]["change"] for data in dataset[args.mode].values()]
+    else:
+        prompts = [
+            data["tgt_prompt"]["default"] for data in dataset[args.mode].values()
+        ]
+elif args.modality == "video":
     # NOTE We haven't measured temporal consistency as it's not strongly
     # related to the scope of our research.
     images = []
     prompts = []
-    for data in dataset[mode].values():
-        path = data["tgt_images"][model]
+    for data in dataset[args.mode].values():
+        path = data["tgt_images"][args.model]
         images.extend(
             [read_image(os.path.join(path, img)) for img in sorted(os.listdir(path))]
         )
-        if mode == "add":
-            prompts.extend([data["tgt_prompt"]] * len(os.listdir(path)))
+        if args.mode == "rm":
+            prompts.extend([data["tgt_prompt"]["change"]] * len(os.listdir(path)))
         else:
-            prompts.extend([data["tgt_prompt"]["animatediff"]] * len(os.listdir(path)))
+            prompts.extend([data["tgt_prompt"]] * len(os.listdir(path)))          
 else:
     raise ValueError("Unrecognized modality")
 
@@ -66,4 +74,4 @@ else:
 # AnimateDiff = 22.9229, FateZero = 26.743, TokenFlow = 22.5713,
 # VidToMe = 23.832, FLATTEN = 25.3677, Vid2Vid-Zero = 21.7432, Rerender-A-Video = 24.2228
 clip_score = calculate_clip_score(images, prompts)
-print(f"CLIP score: {clip_score}")
+print(f"CLIP score: {round(np.mean(clip_score), 4)}")
