@@ -241,371 +241,126 @@ add:
     tgt_prompt: a grassy hillside with mountains in the background
       and a goat eating grass
 rm:
-  0:
-    src_prompt: a wathet bird sitting on a branch of yellow flowers
-    tgt_prompt:
-      default: a wathet bird sitting on a branch
-      change: yellow flowers
   1:
-    src_prompt: a cat wearing headphones on a couch
+    src_prompt: anime of a cat wearing headphones on a couch
     tgt_prompt:
-      default: a cat on a couch
+      default: anime of a cat on a couch
       change: headphones
-  2:
-    src_prompt: a lion in a suit sitting at a table with a laptop, animated style
-    tgt_prompt:
-      default: a lion in a suit sitting at a table, animted style
-      change: a laptop
-  3:
-    src_prompt: a brownish grey knitted bunny with painted eggs
-    tgt_prompt:
-      default: a brownish grey knitted bunny
-      change: painted eggs
-  4:
-    src_prompt: a gray polar bear is standing on an iceberg with a plane flying overhead
-    tgt_prompt:
-      default: a gray polar bear is standing on an iceberg
-      change: a plane
-  5:
-    src_prompt: a cute cartoon cat with a chef hat and a pie
-    tgt_prompt:
-      default: a cute cartoon cat with a chef hat
-      change: a pie
-  6:
-    src_prompt: a Ukiyo-e of seagull flying over the ocean waves with sun rising in background
-    tgt_prompt:
-      default: a Ukiyo-e of seagull flying over the ocean waves
-      change: sun rising in background
-  7:
-    src_prompt: a rabbit sitting on a hill with trees
-    tgt_prompt:
-      default: a rabbit sitting on a hill
-      change: trees
   8:
-    src_prompt: a puppy is sitting in a field of dandelions
+    src_prompt: a puppy is sitting in a field of red roses
     tgt_prompt:
       default: a puppy is sitting in a field
-      change: dandelions
-  9:
-    src_prompt: a white bear holding a rose
-    tgt_prompt:
-      default: a white bear
-      change: a rose
+      change: red roses
   10:
-    src_prompt: a cinematic photo of a girl in red dress standing in a field surrounded by balloons
+    src_prompt: a cinematic photo of a girl in red dress standing in a field surrounded by rising balloons
     tgt_prompt:
       default: a cinematic photo of a girl in red dress standing in a field
       change: balloons
-  11:
-    src_prompt: a girl with a backpack and a red coat is standing in front of castles
-    tgt_prompt:
-      default: a girl with a red coat is standing in front of castles
-      change: a backpack
   12:
-    src_prompt: a cartoon character with a backpack
+    src_prompt: a female character with a backpack
     tgt_prompt:
-      default: a cartoon character
+      default: a female character
       change: a backpack
   13:
-    src_prompt: a cartoon woman in a red cloak walking through the woods with bats
+    src_prompt: a woman in a red cloak walking through the woods with lots of bats, medieval style
     tgt_prompt:
-      default: a cartoon woman in a red cloak walking through the woods
+      default: a woman in a red cloak walking through the woods, medieval style
       change: bats
   14:
-    src_prompt: a cartoon girl sitting by a campfire
+    src_prompt: anime of a girl sitting by a campfire
     tgt_prompt:
-      default: a cartoon girl sitting
+      default: anime of a girl sitting
       change: a campfire
-  15:
-    src_prompt: a cartoon of a woman painting a pumpkin, with a cat sitting next to her
-    tgt_prompt:
-      default: a cartoon of a woman painting a pumpkin
-      change: a cat
-  16:
-    src_prompt: an angel with wings standing on the beach at sunset
-    tgt_prompt:
-      default: an angel without wings standing on the beach at sunset
-      change: wings
-  17:
-    src_prompt: a cartoon boy standing on the edge of a cliff with his arms outstretched with sun in the background
-    tgt_prompt:
-      default: a cartoon boy standing on the edge of a cliff with his arms outstretched
-      change: sun in the background
   18:
     src_prompt: a young woman in sunglasses driving an old car, facing the camera
     tgt_prompt:
       default: a young woman driving an old car, facing the camera
       change: a pair of sunglasses
   19:
-    src_prompt: a boy with glasses wearing a tie and looking at a computer, digital art
+    src_prompt: a woman with glasses wearing a tie and looking at a computer, digital art
     tgt_prompt:
-      default: a boy with glasses looking at a computer, digital art
+      default: a woman with glasses looking at a computer, digital art
       change: a tie
-  20:
-    src_prompt: a cartoon illustration of two plants with faces
-    tgt_prompt:
-      default: a cartoon illustration of two plants
-      change: faces
-  21:
-    src_prompt: a woman is standing on a ladder and fishing in gray dark blue background
-    tgt_prompt:
-      default: a woman is standing on a ladder in gray dark blue background
-      change: fishing
-  22:
-    src_prompt: a birthday cupcake with a lit candle on top
-    tgt_prompt:
-      default: a birthday cupcake
-      change: a lit candle on top
-  23:
-    src_prompt: a row of colorful chairs and tables outside a restaurant
-    tgt_prompt:
-      default: a row of colorful chairs outside a restaurant
-      change: tables
   24:
-    src_prompt: a cat and a plant
+    src_prompt: a cat sniffing a plant
     tgt_prompt:
       default: a plant
       change: a cat
-  25:
-    src_prompt: a blue living room with a blue couch and a blue painting
-    tgt_prompt:
-      default: a blue living room with a blue couch
-      change: a blue painting
-  26:
-    src_prompt: a photo of an orange chair and a lamp in a living room
-    tgt_prompt:
-      default: a photo of an orange chair in a living room
-      change: a lamp
   27:
-    src_prompt: a bird in a cage with a flower on top
+    src_prompt: a bird in a cage with flowers on top
     tgt_prompt:
       default: a bird in a cage
-      change: a flower on top
-  28:
-    src_prompt: a photo of a smoothie with fruits including strawberries, blueberries and kiwi
-    tgt_prompt:
-      default: a photo of a smoothie with fruits including strawberries, blueberries
-      change: kiwi
-  29:
-    src_prompt: a teddy bear sitting on a box with a rose
-    tgt_prompt:
-      default: a teddy bear sitting on a box
-      change: a rose
-  30:
-    src_prompt: a house with lightning and rain on it
-    tgt_prompt:
-      default: a house
-      change: lightning and rain
-  31:
-    src_prompt: photography work of a girl standing on the withered grass with mountains in background
-    tgt_prompt:
-      default: photography work of a girl standing on the withered grass
-      change: mountains in background
-  32:
-    src_prompt: an astronaut standing on the water with the moon in the background
-    tgt_prompt:
-      default: an astronaut standing on the water
-      change: the moon in the background
+      change: flowers on top
   33:
-    src_prompt: a young girl walking in the rain with an umbrella
+    src_prompt: a beautiful girl walking in the rain with an umbrella, anime
     tgt_prompt:
-      default: a young girl walking in the rain
+      default: a beautiful girl walking in the rain, anime
       change: an umbrella
-  34:
-    src_prompt: a castle in the night with a beautiful sunset
-    tgt_prompt:
-      default: a castle in the night
-      change: a beautiful sunset
-  35:
-    src_prompt: cinematic photo of a house by lake
-    tgt_prompt:
-      default: cinematic photo of a house
-      change: lake
   36:
     src_prompt: a lone wolf howling at the moon in the night sky
     tgt_prompt:
       default: a lone wolf howling in the night sky
       change: the moon
   37:
-    src_prompt: a painting of a dog in the forest
+    src_prompt: a painting of a unicorn in the forest
     tgt_prompt:
       default: a painting of the forest
-      change: a dog
+      change: a unicorn
   38:
-    src_prompt: a big ship with a flag fluttering on its mast on the dark ocean
+    src_prompt: a big ship with a flag fluttering on its mast on the ocean, fantasy
     tgt_prompt:
-      default: a big ship with mast on the dark ocean
+      default: a big ship with mast on the ocean, fantasy
       change: a flag
   39:
-    src_prompt: a poster of a bus driving down a road with mountains in the background
+    src_prompt: photography work of a bus driving down a road with mountains in the background
     tgt_prompt:
-      default: a poster of a road with mountains in the background
+      default: photography work of a road with mountains in the background
       change: a bus
   40:
-    src_prompt: a bee flies over a flowering tree branch
+    src_prompt: an eagle flies over a flowering tree branch
     tgt_prompt:
       default: a flowering tree branch
-      change: a bee
+      change: an eagle
   41:
-    src_prompt: a butterfly and flowers
+    src_prompt: butterflies and flowers
     tgt_prompt:
       default: flowers
-      change: a butterfly
-  42:
-    src_prompt: a cheetah walking across a grassy field
-    tgt_prompt:
-      default: a cheetah walking across a field
-      change: grassy
+      change: butterflies
   43:
     src_prompt: a kitten playing with balls
     tgt_prompt:
       default: a kitten
       change: balls
-  44:
-    src_prompt: an old man sitting on a bench with a dog
-    tgt_prompt:
-      default: an old man sitting on a bench
-      change: a dog
-  45:
-    src_prompt: an elephant walking on the beach with a dark sky
-    tgt_prompt:
-      default: a beach under a dark sky
-      change: an elephant
-  46:
-    src_prompt: a seal pup on the beach
-    tgt_prompt:
-      default: the beach
-      change: a seal
   47:
-    src_prompt: a husky dog running on a path in the woods
+    src_prompt: a golden retriever running on a path in the woods
     tgt_prompt:
       default: a path in the woods
-      change: a husky dog
+      change: a golden retriever
   48:
-    src_prompt: a girl and a dog sitting in the forest, anime
+    src_prompt: a girl and a cat sitting in the forest, anime
     tgt_prompt:
       default: a girl sitting in the forest, anime
-      change: a dog
-  49:
-    src_prompt: a mouse and a leaf on the ground
-    tgt_prompt:
-      default: a mouse on the ground
-      change: a leaf
-  50:
-    src_prompt: a woman in a trench coat sitting at a table with a cell phone
-    tgt_prompt:
-      default: a woman in a trench coat sitting at a table
-      change: a cell phone
+      change: a cat
   51:
     src_prompt: a beautiful young woman in a blue dress holding pink flowers
     tgt_prompt:
       default: a beautiful young woman in a blue dress
       change: pink flowers
-  52:
-    src_prompt: a woman in a purple dress sitting on a swing holding a coconut
-    tgt_prompt:
-      default: a woman in a purple dress sitting on a swing
-      change: a coconut
-  53:
-    src_prompt: a woman with flowers on head in a pink dress is walking on the beach
-    tgt_prompt:
-      default: a woman in a pink dress is walking on the beach
-      change: flowers
-  54:
-    src_prompt: cinematic photo of a woman with glasses sitting on a stone wall
-    tgt_prompt:
-      default: cinematic photo of a woman sitting on a stone wall
-      change: a pair of glasses
-  55:
-    src_prompt: a woman in sunglasses sitting at a table with a bottles of water
-    tgt_prompt:
-      default: a woman in sunglasses sitting at a table
-      change: a bottles of water
-  56:
-    src_prompt: a woman holding a rainbow flag
-    tgt_prompt:
-      default: a woman
-      change: a rainbow flag
-  57:
-    src_prompt: photography work of a woman in a wedding dress sitting on a chair with flowers on the table
-    tgt_prompt:
-      default: photography work of a woman in a wedding dress sitting on a chair with flowers on the table
-      change: flowers
   58:
-    src_prompt: a woman with a backpack playing an acoustic guitar on the grass
+    src_prompt: a girl playing an electric guitar on stage, with a standing microphone next to her
     tgt_prompt:
-      default: a woman playing an acoustic guitar on the grass
-      change: a backpack
+      default: a girl playing an electric guitar on stage
+      change: a standing microphone
   59:
     src_prompt: a woman in a traditional dress holding flowers
     tgt_prompt:
       default: a woman in a traditional dress
       change: flowers
-  60:
-    src_prompt: a cup of coffee and a coffee grinder on table, side view
-    tgt_prompt:
-      default: a coffee grinder on table, side view
-      change: a cup of coffee
-  61:
-    src_prompt: a plate of raspberry macarons decorated with mint leaves
-    tgt_prompt:
-      default: a plate of raspberry macarons
-      change: mint leaves
   62:
     src_prompt: olive oil being poured into a bowl with olive on table
     tgt_prompt:
       default: olive oil being poured into a bowl on table
       change: olive
-  63:
-    src_prompt: a pear sitting on a wooden table
-    tgt_prompt:
-      default: a wooden table
-      change: a pear
-  64:
-    src_prompt: close-up of a girl holding a stopwatch
-    tgt_prompt:
-      default: close-up of a girl
-      change: a stopwatch
-  65:
-    src_prompt: eggs with drawings on them are in a nest
-    tgt_prompt:
-      default: a nest
-      change: eggs
-  66:
-    src_prompt: purple flowers are on a sheet of music
-    tgt_prompt:
-      default: a sheet of music
-      change: purple flowers
-  67:
-    src_prompt: a plate of chicken and broccoli on a black table
-    tgt_prompt:
-      default: a plate of chicken on a black table
-      change: broccoli
-  68:
-    src_prompt: two cups of coffee with a leaf design on the top, coffee beans
-    tgt_prompt:
-      default: two cups of coffee, coffee beans
-      change: a leaf design on the top
-  69:
-    src_prompt: a basket of books and a cup on the table
-    tgt_prompt:
-      default: a basket of books on the table
-      change: a cup
-  70:
-    src_prompt: a single pink lotus flower is growing in the middle of a large green leaf
-    tgt_prompt:
-      default: a large green leaf
-      change: a lotus flower
-  71:
-    src_prompt: a large brown sand area with clouds in the sky
-    tgt_prompt:
-      default: a large brown sand area
-      change: clouds
-  72:
-    src_prompt: a paraglider is flying over a mountain with snow capped peaks
-    tgt_prompt:
-      default: a mountain with snow capped peaks
-      change: a paraglider
   73:
     src_prompt: a small mushroom is sitting on top of a pine branch
     tgt_prompt:
@@ -622,15 +377,10 @@ rm:
       default: a lone tree is reflected in the water
       change: a bright moon in background
   76:
-    src_prompt: seagull sits on a wooden dock at sunset
+    src_prompt: seagulls flying over a wooden dock at sunset
     tgt_prompt:
       default: a wooden dock at sunset
-      change: seagull
-  77:
-    src_prompt: a barn sits in the snow next to trees with gray sky
-    tgt_prompt:
-      default: a barn sits in the snow with gray sky
-      change: trees
+      change: seagulls
   78:
     src_prompt: two boats are docked on the shore of a lake
     tgt_prompt:

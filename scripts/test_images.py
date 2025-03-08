@@ -17,13 +17,13 @@ from metrics.clip_utils import DirectionalSimilarity
 
 # set input and output paths
 out_dir = "exp/sd/pie"
-yaml_path = "pie_prompts_modified.yaml"
+yaml_path = "docs/prompts_image_v3.yaml"
 
 # set parameters
-seed = 206096096
+seed = 2129605069
 device_idx = 7
 
-modes = ["style"]  # available modes: add, rm, style
+modes = ["rm"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "cosine"
 
 # prepare for generation

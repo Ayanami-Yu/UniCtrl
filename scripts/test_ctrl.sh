@@ -1,23 +1,23 @@
 #!/bin/bash
 # Usage: bash scripts/test_ctrl.sh
 
-device=6
-src_prompt='a digital art of a brown hair woman'
-tgt_prompt='a digital art of a brown hair woman with flying butterfly'
+device=3
+src_prompt='a white wolf with black eyes and a black nose'
+tgt_prompt='pen and ink sketch of a white wolf with black eyes and a black nose'
 
 name='ablation'
 ctrl_mode='add'  # add or rm (remove)
 model='sd'  # sd, ad (animatediff), or lgm
 src_params=(1.0 0.1 1)
-w_tgt_ctrl_type='cosine'
+w_tgt_ctrl_type='cosine'  # static, inv_linear, sine, linear, cosine
 removal_version=2
-seed=644051455
+seed=303447896
 
 if [ "${ctrl_mode}" == "rm" ]; then
-    tgt_params=(-1.0 0.1 5)
+    tgt_params=(-0.8 0.1 2)
     workspace="${name}_rm_v${removal_version}_${w_tgt_ctrl_type}"
 else
-    tgt_params=(0.0 0.1 10)  # add
+    tgt_params=(0.0 3.0 2)  # add
     workspace="${name}_add_${w_tgt_ctrl_type}"
 fi
 
