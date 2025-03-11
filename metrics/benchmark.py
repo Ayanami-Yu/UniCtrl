@@ -75,7 +75,7 @@ for modality in modalities:
             match = re.search(r"[-+]?\d*\.\d+", res_score.stdout)
             if match:
                 data["clip_score"][modality][mode][model] = float(match.group())
-                print(f'CLIP score for {mode} of {model} is {float(match.group())}')
+                print(f"CLIP score for {mode} of {model} is {float(match.group())}")
             else:
                 raise RuntimeError("No float value found in output")
 
@@ -99,7 +99,7 @@ for modality in modalities:
             match = re.search(r"[-+]?\d*\.\d+", res_dir.stdout)
             if match:
                 data["clip_dir"][modality][mode][model] = float(match.group())
-                print(f'CLIP dir for {mode} of {model} is {float(match.group())}')
+                print(f"CLIP dir for {mode} of {model} is {float(match.group())}")
             else:
                 raise RuntimeError("No float value found in output")
 

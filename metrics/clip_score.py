@@ -52,7 +52,7 @@ elif args.modality == "video":
         if args.mode == "rm":
             prompts.extend([data["tgt_prompt"]["change"]] * len(os.listdir(path)))
         else:
-            prompts.extend([data["tgt_prompt"]] * len(os.listdir(path)))          
+            prompts.extend([data["tgt_prompt"]] * len(os.listdir(path)))
 else:
     raise ValueError("Unrecognized modality")
 

@@ -20,8 +20,8 @@ out_dir = "exp/sd/pie"
 yaml_path = "docs/prompts_image_v3.yaml"
 
 # set parameters
-seed = 2129605069
-device_idx = 7
+seed = 201999603
+device_idx = 5
 
 modes = ["rm"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "cosine"

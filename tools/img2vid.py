@@ -22,7 +22,10 @@ def save_videos_grid(videos: torch.Tensor, path: str, rescale=False, n_rows=4, f
 
     # outputs is a list of arrays each of shape (H, W, C)
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    imageio.mimsave(path, outputs, fps=fps)
+    try:
+        imageio.mimsave(path, outputs, fps=fps)
+    except:
+        imageio.mimsave(path, outputs, duration=1000 * 1 / fps)
 
 
 if __name__ == "__main__":
@@ -31,7 +34,10 @@ if __name__ == "__main__":
         "--image_dir", type=str, default="metrics/videos/src/add/peter_guitar"
     )
     parser.add_argument("--output_dir", type=str, default="videos")
+    parser.add_argument("--save_as_gif", default=False, action="store_true")
     args = parser.parse_args()
+
+    postfix = '.gif' if args.save_as_gif else '.mp4'
 
     images = [img for img in sorted(os.listdir(args.image_dir)) if img.endswith(".png")]
     video = torch.stack(
@@ -42,6 +48,6 @@ if __name__ == "__main__":
 
     save_videos_grid(
         videos,
-        os.path.join(args.output_dir, f"{os.path.basename(args.image_dir)}.mp4"),
+        os.path.join(args.output_dir, f"{os.path.basename(args.image_dir)}{postfix}"),
         rescale=True,
     )

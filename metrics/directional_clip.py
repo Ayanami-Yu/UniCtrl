@@ -49,9 +49,7 @@ if args.modality == "image":
         read_image(data["tgt_image"][args.model])
         for data in dataset[args.mode].values()
     ]
-    src_prompts = [
-        data["src_prompt"] for data in dataset[args.mode].values()
-    ]
+    src_prompts = [data["src_prompt"] for data in dataset[args.mode].values()]
     tgt_prompts = [
         data["tgt_prompt"]["default"] for data in dataset[args.mode].values()
     ]
@@ -77,7 +75,7 @@ elif args.modality == "video":
             ]
         )
         src_prompts.extend([data["src_prompt"]] * len(os.listdir(src_path)))
-        if args.mode == 'rm':
+        if args.mode == "rm":
             tgt_prompts.extend(
                 [data["tgt_prompt"]["default"]] * len(os.listdir(tgt_path))
             )
