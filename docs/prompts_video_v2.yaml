@@ -1,0 +1,605 @@
+# style part modified
+add:
+  0:
+    src_prompt: a dog wearing space suit and sitting
+    tgt_prompt: a dog wearing space suit and sitting on a carpet
+  1:
+    src_prompt: a cat is eating fish
+    tgt_prompt: a cat with a gold chain is eating fish
+  5:
+    src_prompt: a rabbit sitting in front of colorful eggs
+    tgt_prompt: a rabbit with a dress sitting in front of colorful eggs
+  6:
+    src_prompt: a sheep with pink hair standing on a blue background
+    tgt_prompt: a sheep with pink hair standing on a blue background with flowers around
+  7:
+    src_prompt: a digital art of charcoal grey little squirrel sitting on top of books
+    tgt_prompt: a digital art of charcoal grey little squirrel sitting on top of books and holding a pen
+  8:
+    src_prompt: a cartoon painting of rabbit sitting on the ground in a field
+    tgt_prompt: a cartoon painting of rabbit sitting on the ground in a field with flowers
+  9:
+    src_prompt: a magician in a red suit
+    tgt_prompt: a magician in a red suit holding a rabbit
+  12:
+    src_prompt: Sakura Matou surrounded by flowers, anime
+    tgt_prompt: Sakura Matou wearing a hat and surrounded by flowers, anime
+  13:
+    src_prompt: a woman with blue thick-lashed eyes and black hair
+    tgt_prompt: a woman with blue thick-lashed eyes and black hair wearing headphones
+  14:
+    src_prompt: a female character in a blue outfit
+    tgt_prompt: a female character in a blue outfit with a tiger
+  15:
+    src_prompt: a woman with pink hair
+    tgt_prompt: a woman with pink hair wearing earrings
+  16:
+    src_prompt: a digital art of a brown hair woman
+    tgt_prompt: a digital art of a brown hair woman with flying butterfly
+  25:
+    src_prompt: a large brown teddy bear sitting on a couch
+    tgt_prompt: a large brown teddy bear and a girl sitting on a couch
+  27:
+    src_prompt: a person using a laptop on a table
+    tgt_prompt: a person using a laptop on a table with books
+  29:
+    src_prompt: a painting of a teapot with smoke coming out of it
+    tgt_prompt: a painting of a teapot surrounded by ghosts with smoke coming out of it
+  32:
+    src_prompt: a family playing with their dog outside
+    tgt_prompt: a family playing with their dog outside, with dark clouds gathering in the sky
+  34:
+    src_prompt: a painting of a boy walking down a path in a field
+    tgt_prompt: a painting of a boy and a girl walking down a path in a field
+  35:
+    src_prompt: the witcher 3, fantasy art
+    tgt_prompt: the witcher 3 with a dragon flying above, fantasy art
+  36:
+    src_prompt: elephant in the forest
+    tgt_prompt: elephant in the forest and a man riding it
+  37:
+    src_prompt: a small island with a tree
+    tgt_prompt: a small island with a tree and a girl
+  40:
+    src_prompt: a collie looking at the camera
+    tgt_prompt: a collie with a pink dog collar looking at the camera
+  42:
+    src_prompt: a cat standing on fence
+    tgt_prompt: a cat wearing hat standing on fence
+  43:
+    src_prompt: a small brown bird sitting on top of a pine tree
+    tgt_prompt: two small brown birds sitting on top of a pine tree
+  44:
+    src_prompt: a cat staring in the grass
+    tgt_prompt: a cat staring at a mouse in the grass
+  47:
+    src_prompt: a photo of a grey swan swimming
+    tgt_prompt: a photo of a grey swan swimming with her babies following around
+  48:
+    src_prompt: a squirrel sitting on top of a wooden platform
+    tgt_prompt: a squirrel sitting on top of a wooden platform reading a book
+  49:
+    src_prompt: a moose in the forest
+    tgt_prompt: a moose in the forest, with rain pouring down heavily
+  51:
+    src_prompt: a woman in a coat is dancing in front of a wall
+    tgt_prompt: a woman in a coat is dancing in front of a wall decorated by neon tubes
+  53:
+    src_prompt: a woman in sunglasses sitting on a bench
+    tgt_prompt: a woman in sunglasses sitting on a bench, with a backpack placed next to her
+  54:
+    src_prompt: a woman in a white dress wearing a straw hat
+    tgt_prompt: a woman in a white dress wearing a straw hat and holding a tennis racket
+  59:
+    src_prompt: portrait of a girl on stage, anime
+    tgt_prompt: portrait of a girl singing into the microphone on stage, anime
+  60:
+    src_prompt: a man reading books in front of a wall
+    tgt_prompt: a man reading books in front of a wall with a painting of a heart
+  63:
+    src_prompt: a white vase with purple tulips on a pink background
+    tgt_prompt: a white vase with purple tulips on a pink background with a cat sitting next to it
+  67:
+    src_prompt: a red apple sitting on top of a wooden table
+    tgt_prompt: a red apple and a bird sitting on top of a wooden table
+  69:
+    src_prompt: a conference room
+    tgt_prompt: a conference room with crowded people
+  71:
+    src_prompt: a leopard walking on road
+    tgt_prompt: a leopard walking on road with rocks on the ground
+  72:
+    src_prompt: a dog lying on the grass
+    tgt_prompt: a dog lying on the grass with flowers
+  76:
+    src_prompt: a beach with waves and a blue sky
+    tgt_prompt: a crowded beach with waves and a blue sky
+  79:
+    src_prompt: a grassy hillside with mountains in the background
+    tgt_prompt: a grassy hillside with mountains in the background and a goat eating grass
+rm:
+  0:
+    src_prompt: an eagle sitting on a branch of yellow flowers
+    tgt_prompt:
+      default: an eagle sitting on a branch
+      change: yellow flowers
+  1:
+    src_prompt: a cat wearing headphones on a couch
+    tgt_prompt:
+      default: a cat on a couch
+      change: headphones
+  2:
+    src_prompt: a lion in a suit sitting at a table with a laptop, animated style
+    tgt_prompt:
+      default: a lion in a suit sitting at a table, animted style
+      change: a laptop
+  4:
+    src_prompt: a gray polar bear is standing on an iceberg with a plane flying overhead
+    tgt_prompt:
+      default: a gray polar bear is standing on an iceberg
+      change: a plane
+  5:
+    src_prompt: a cute cartoon cat with a chef hat and a pie
+    tgt_prompt:
+      default: a cute cartoon cat with a chef hat
+      change: a pie
+  6:
+    src_prompt: a Ukiyo-e of seagull flying over the ocean waves with sun rising in background
+    tgt_prompt:
+      default: a Ukiyo-e of seagull flying over the ocean waves
+      change: sun rising in background
+  8:
+    src_prompt: a puppy is sitting in a field of dandelions
+    tgt_prompt:
+      default: a puppy is sitting in a field
+      change: dandelions
+  9:
+    src_prompt: a white bear holding a rose
+    tgt_prompt:
+      default: a white bear
+      change: a rose
+  10:
+    src_prompt: a girl in pink dress standing in a field surrounded by balloons
+    tgt_prompt:
+      default: a girl in pink dress standing in a field
+      change: balloons
+  11:
+    src_prompt: a girl with a blue backpack and a red coat is standing in front of castles
+    tgt_prompt:
+      default: a girl with a red coat is standing in front of castles
+      change: a blue backpack
+  12:
+    src_prompt: a girl with a backpack walking to school, side view, anime
+    tgt_prompt:
+      default: a girl walking to school, side view, anime
+      change: a backpack
+  13:
+    src_prompt: a witch in a red cloak walking through the woods with bats flying around
+    tgt_prompt:
+      default: a witch in a red cloak walking through the woods
+      change: bats
+  17:
+    src_prompt: a boy standing on the edge of a cliff with his arms outstretched with sun in the background
+    tgt_prompt:
+      default: a boy standing on the edge of a cliff with his arms outstretched
+      change: sun in the background
+  18:
+    src_prompt: a young woman in sunglasses driving an old car, facing the camera
+    tgt_prompt:
+      default: a young woman driving an old car, facing the camera
+      change: a pair of sunglasses
+  19:
+    src_prompt: a boy with glasses wearing a tie and looking at a computer, digital art
+    tgt_prompt:
+      default: a boy with a tie looking at a computer, digital art
+      change: a pair of glasses
+  24:
+    src_prompt: a cat and a plant
+    tgt_prompt:
+      default: a plant
+      change: a cat
+  27:
+    src_prompt: a bird singing in a cage with flowers on top
+    tgt_prompt:
+      default: a bird singing in a cage
+      change: flowers on top
+  29:
+    src_prompt: a teddy bear sitting on a box and holding a rose
+    tgt_prompt:
+      default: a teddy bear sitting on a box
+      change: a rose
+  30:
+    src_prompt: a house with lightning and rain on it
+    tgt_prompt:
+      default: a house
+      change: lightning and rain
+  33:
+    src_prompt: a young girl walking in the rain with an umbrella
+    tgt_prompt:
+      default: a young girl walking in the rain
+      change: an umbrella
+  34:
+    src_prompt: a castle in the night with a beautiful sunset, fantasy
+    tgt_prompt:
+      default: a castle in the night, fantasy
+      change: a beautiful sunset
+  36:
+    src_prompt: a lone wolf howling at the moon in the night sky
+    tgt_prompt:
+      default: a lone wolf howling in the night sky
+      change: the moon
+  37:
+    src_prompt: a painting of a dog in the forest
+    tgt_prompt:
+      default: a painting of the forest
+      change: a dog
+  38:
+    src_prompt: a big ship with a flag fluttering on its mast on the dark ocean
+    tgt_prompt:
+      default: a big ship with mast on the dark ocean
+      change: a flag
+  39:
+    src_prompt: a poster of a bus driving down a road with mountains in the background
+    tgt_prompt:
+      default: a poster of a road with mountains in the background
+      change: a bus
+  40:
+    src_prompt: a bee flies over a flowering tree branch
+    tgt_prompt:
+      default: a flowering tree branch
+      change: a bee
+  42:
+    src_prompt: a cheetah walking across a grassy field
+    tgt_prompt:
+      default: a cheetah walking across a field
+      change: grassy
+  43:
+    src_prompt: a kitten playing with balls
+    tgt_prompt:
+      default: a kitten
+      change: balls
+  44:
+    src_prompt: an old man sitting on a bench with a dog
+    tgt_prompt:
+      default: an old man sitting on a bench
+      change: a dog
+  47:
+    src_prompt: a husky dog running on a path in the woods
+    tgt_prompt:
+      default: a path in the woods
+      change: a husky dog
+  48:
+    src_prompt: a girl and a dog sitting in the forest, anime
+    tgt_prompt:
+      default: a girl sitting in the forest, anime
+      change: a dog
+  50:
+    src_prompt: a woman in a trench coat sitting at a table with a cell phone
+    tgt_prompt:
+      default: a woman in a trench coat sitting at a table
+      change: a cell phone
+  51:
+    src_prompt: a beautiful young woman in a blue dress holding pink flowers
+    tgt_prompt:
+      default: a beautiful young woman in a blue dress
+      change: pink flowers
+  53:
+    src_prompt: a woman wearing a wreath in a pink dress is walking on the beach
+    tgt_prompt:
+      default: a woman in a pink dress is walking on the beach
+      change: a wreath
+  56:
+    src_prompt: a woman holding a rainbow flag
+    tgt_prompt:
+      default: a woman
+      change: a rainbow flag
+  57:
+    src_prompt: photography work of a woman in a wedding dress sitting on a chair with flowers on the table
+    tgt_prompt:
+      default: photography work of a woman in a wedding dress sitting on a chair with flowers on the table
+      change: flowers
+  58:
+    src_prompt: a woman playing an acoustic guitar on the grass with a backpack placed next to her
+    tgt_prompt:
+      default: a woman playing an acoustic guitar on the grass
+      change: a backpack
+  59:
+    src_prompt: a beautiful woman in a traditional dress holding flowers
+    tgt_prompt:
+      default: a beautiful woman in a traditional dress
+      change: flowers
+  62:
+    src_prompt: coffee being poured into a cup with leaves on table
+    tgt_prompt:
+      default: coffee being poured into a cup on table
+      change: leaves
+  63:
+    src_prompt: a pear sitting on a wooden table
+    tgt_prompt:
+      default: a wooden table
+  69:
+    src_prompt: a basket of books and a cup on the table
+    tgt_prompt:
+      default: a basket of books on the table
+      change: a cup
+  70:
+    src_prompt: a single pink lotus flower is growing in the middle of large green leaves
+    tgt_prompt:
+      default: large green leaves
+      change: a lotus flower
+  72:
+    src_prompt: a paraglider is flying over a mountain with snow capped peaks
+    tgt_prompt:
+      default: a mountain with snow capped peaks
+      change: a paraglider
+  73:
+    src_prompt: a small mushroom is sitting on top of a pine branch
+    tgt_prompt:
+      default: a pine branch
+      change: a small mushroom
+  74:
+    src_prompt: rainbow over the ocean with waves lapping at the shore
+    tgt_prompt:
+      default: the ocean with waves lapping at the shore
+      change: rainbow
+  76:
+    src_prompt: seagulls flying over a wooden dock at sunset
+    tgt_prompt:
+      default: a wooden dock at sunset
+      change: seagulls
+style:
+  0:
+    src_prompt: a cat playing with a bunny
+    tgt_prompt: a cat playing with a bunny in Pablo Picasso's style
+  1:
+    src_prompt: a beautiful girl with bubbles floating around her
+    tgt_prompt: a black and white sketch of a beautiful girl with bubbles floating around her
+  2:
+    src_prompt: a kitten wearing armor and sitting on the ground
+    tgt_prompt: cartoon of a kitten wearing armor and sitting on the ground
+  3:
+    src_prompt: a woman in sunglasses and leather pants sitting on a bench
+    tgt_prompt: watercolor of a woman in sunglasses and leather pants sitting on a bench
+  4:
+    src_prompt: wind turbine in the sunset
+    tgt_prompt: pen and ink sketch of wind turbine in the sunset
+  5:
+    src_prompt: A man playing guitar on a city rooftop at sunset
+    tgt_prompt: A man playing guitar on a city rooftop at sunset, in the style of Van Gogh
+  9:
+    src_prompt: A futuristic city skyline at night with glowing skyscrapers
+    tgt_prompt: A futuristic city skyline at night with glowing skyscrapers, in a pixel art aesthetic
+  12:
+    src_prompt: A fisherman casting his line into a calm lake at dawn
+    tgt_prompt: A fisherman casting his line into a calm lake at dawn, in Japanese ukiyo-e style
+  13:
+    src_prompt: A spaceship flying through an asteroid field in deep space
+    tgt_prompt: A black and white photo of a spaceship flying through an asteroid field in deep space, in a retro sci-fi style
+  14:
+    src_prompt: A steam train moving through the countryside
+    tgt_prompt: A sepia-toned vintage photograph of a steam train moving through the countryside
+  15:
+    src_prompt: A family having a picnic in a sunny park
+    tgt_prompt: A pastel sketch of a family having a picnic in a sunny park
+  16:
+    src_prompt: A wolf howling at the full moon in a dark forest
+    tgt_prompt: A gothic horror painting of a wolf howling at the full moon in a dark forest
+  17:
+    src_prompt: A woman reading a book in a cozy café
+    tgt_prompt: A pencil drawing of a woman reading a book in a cozy café
+  18:
+    src_prompt: A motorcyclist riding down a desert highway
+    tgt_prompt: A cyberpunk neon version of a motorcyclist riding down a desert highway
+  19:
+    src_prompt: A river flowing through a lush green jungle
+    tgt_prompt: A traditional Asian ink painting of a river flowing through a lush green jungle
+  20:
+    src_prompt: A knight in shining armor riding a horse into battle
+    tgt_prompt: A medieval tapestry of a knight in shining armor riding a horse into battle
+  21:
+    src_prompt: A street performer juggling fire at night
+    tgt_prompt: A stylized comic book illustration of a street performer juggling fire at night
+  22:
+    src_prompt: A city park with people walking and feeding pigeons
+    tgt_prompt: A dreamy impressionist painting of a city park with people walking and feeding pigeons
+  23:
+    src_prompt: A snowboarder doing tricks on a snowy mountain slope
+    tgt_prompt: A graffiti-style mural of a snowboarder doing tricks on a snowy mountain slope
+  24:
+    src_prompt: A rainy street with cars reflecting on the wet pavement
+    tgt_prompt: A cyberpunk cityscape of a rainy street with cars reflecting on the wet pavement
+  25:
+    src_prompt: A girl blowing bubbles in a sunny garden
+    tgt_prompt: A soft pastel drawing of a girl blowing bubbles in a sunny garden
+  26:
+    src_prompt: A fireworks display lighting up the night sky
+    tgt_prompt: A watercolor painting of a fireworks display lighting up the night sky
+  27:
+    src_prompt: A cat sitting by a window watching the rain
+    tgt_prompt: A dreamy fantasy-style illustration of a cat sitting by a window watching the rain
+  28:
+    src_prompt: A fisherman rowing a small boat on a foggy lake
+    tgt_prompt: A noir-style monochrome painting of a fisherman rowing a small boat on a foggy lake
+  29:
+    src_prompt: A medieval castle on a hill overlooking a river
+    tgt_prompt: A dramatic high-fantasy digital painting of a medieval castle on a hill overlooking a river
+  30:
+    src_prompt: A street musician playing the violin under a bridge
+    tgt_prompt: A surreal, glowing sketch of a street musician playing the violin under a bridge
+  31:
+    src_prompt: A hot air balloon floating over a vast landscape
+    tgt_prompt: A vintage travel poster of a hot air balloon floating over a vast landscape
+  32:
+    src_prompt: A fox running through an autumn forest
+    tgt_prompt: A stylized Japanese anime scene of a fox running through an autumn forest
+  33:
+    src_prompt: A soccer player scoring a goal in a stadium
+    tgt_prompt: A cubist painting of a soccer player scoring a goal in a stadium
+  34:
+    src_prompt: A child flying a kite on a breezy beach
+    tgt_prompt: A soft, nostalgic illustration of a child flying a kite on a breezy beach
+  35:
+    src_prompt: A parade with people in colorful costumes marching through the streets
+    tgt_prompt: A psychedelic pop-art version of a parade with people in colorful costumes marching through the streets
+  36:
+    src_prompt: A spaceship landing on an alien planet with a red sky
+    tgt_prompt: A retro 80s sci-fi poster of a spaceship landing on an alien planet with a red sky
+  37:
+    src_prompt: A hiker standing on a mountain peak at sunrise
+    tgt_prompt: A textured oil painting of a hiker standing on a mountain peak at sunrise
+  38:
+    src_prompt: A Ferris wheel spinning at a carnival at night
+    tgt_prompt: A neon vaporwave version of a Ferris wheel spinning at a carnival at night
+  39:
+    src_prompt: A race car speeding down a track
+    tgt_prompt: A motion-blurred futuristic cyberpunk rendering of a race car speeding down a track
+  40:
+    src_prompt: A woman walking through a narrow alley in an old European town
+    tgt_prompt: A medieval manuscript illustration of a woman walking through a narrow alley in an old European town
+  41:
+    src_prompt: A fisherman pulling in a net full of fish
+    tgt_prompt: A woodblock print of a fisherman pulling in a net full of fish
+  42:
+    src_prompt: A young couple dancing in the moonlight
+    tgt_prompt: A romantic fantasy-style painting of a young couple dancing in the moonlight
+  43:
+    src_prompt: A waterfall cascading into a rocky canyon
+    tgt_prompt: A photorealistic pencil sketch of a waterfall cascading into a rocky canyon
+  45:  
+    src_prompt: a group of people dancing at a music festival  
+    tgt_prompt: a glitch art rendering of a group of people dancing at a music festival  
+  47:  
+    src_prompt: a train passing through a mountain tunnel  
+    tgt_prompt: 8-bit pixel art of a train passing through a mountain tunnel  
+
+  48:  
+    src_prompt: a cat sitting on a windowsill looking outside  
+    tgt_prompt: cubist painting of a cat sitting on a windowsill looking outside  
+
+  49:  
+    src_prompt: a lighthouse by the stormy sea  
+    tgt_prompt: blueprint-style technical drawing of a lighthouse by the stormy sea  
+
+  50:  
+    src_prompt: a football player running with the ball on the field  
+    tgt_prompt: metallic sci-fi hologram of a football player running with the ball on the field  
+  51:  
+    src_prompt: a fisherman standing on a wooden boat in the river  
+    tgt_prompt: woodcut print of a fisherman standing on a wooden boat in the river  
+  52:  
+    src_prompt: a car driving through a rainy city street at night  
+    tgt_prompt: cyberpunk neon version of a car driving through a rainy city street at night  
+  53:  
+    src_prompt: a person jogging on a forest trail in autumn  
+    tgt_prompt: stained glass window of a person jogging on a forest trail in autumn  
+  54:  
+    src_prompt: a row of palm trees swaying in the breeze by the beach  
+    tgt_prompt: 3D wireframe rendering of a row of palm trees swaying in the breeze by the beach
+  55:  
+    src_prompt: an eagle soaring over the mountains  
+    tgt_prompt: ukiyo-e Japanese woodblock print of an eagle soaring over the mountains  
+  56:  
+    src_prompt: a man walking down a narrow alley in an old city  
+    tgt_prompt: black-and-white noir-style sketch of a man walking down a narrow alley in an old city  
+  57:  
+    src_prompt: a hot air balloon floating over rolling green hills  
+    tgt_prompt: 1980s vaporwave aesthetic of a hot air balloon floating over rolling green hills  
+  58:  
+    src_prompt: a marching band performing in a parade  
+    tgt_prompt: abstract cubist painting of a marching band performing in a parade  
+  59:  
+    src_prompt: a campfire burning in a dark forest at night  
+    tgt_prompt: thermal camera vision of a campfire burning in a dark forest at night  
+  60:  
+    src_prompt: a boy riding his bicycle down a suburban street  
+    tgt_prompt: monochrome ink drawing of a boy riding his bicycle down a suburban street  
+  61:  
+    src_prompt: a waterfall cascading down a rocky cliff  
+    tgt_prompt: ASCII art representation of a waterfall cascading down a rocky cliff  
+  62:  
+    src_prompt: a clock tower standing tall against the city skyline  
+    tgt_prompt: blueprint schematic of a clock tower standing tall against the city skyline  
+  63:  
+    src_prompt: a woman painting on a canvas in an art studio  
+    tgt_prompt: LEGO-style blocky rendering of a woman painting on a canvas in an art studio  
+  64:  
+    src_prompt: a person skateboarding at an urban skate park  
+    tgt_prompt: graffiti-style street art of a person skateboarding at an urban skate park  
+  65:  
+    src_prompt: an astronaut floating in zero gravity inside a spaceship  
+    tgt_prompt: 1930s pulp sci-fi magazine illustration of an astronaut floating in zero gravity inside a spaceship  
+  66:  
+    src_prompt: a crowded subway station during rush hour  
+    tgt_prompt: glitchy digital distortion of a crowded subway station during rush hour  
+  67:  
+    src_prompt: a bridge stretching across a deep canyon  
+    tgt_prompt: pen-and-ink architectural sketch of a bridge stretching across a deep canyon  
+  68:  
+    src_prompt: a man fishing off a pier at sunset  
+    tgt_prompt: low-poly 3D render of a man fishing off a pier at sunset  
+  69:  
+    src_prompt: a thunderstorm rolling over a city skyline  
+    tgt_prompt: retro comic book illustration of a thunderstorm rolling over a city skyline  
+  70:  
+    src_prompt: a motorcycle speeding down an empty desert highway  
+    tgt_prompt: neon cyberpunk-style version of a motorcycle speeding down an empty desert highway  
+  71:  
+    src_prompt: a dog running through a park chasing a frisbee  
+    tgt_prompt: mosaic tile artwork of a dog running through a park chasing a frisbee  
+  72:  
+    src_prompt: a woman standing under cherry blossom trees in full bloom  
+    tgt_prompt: traditional Japanese sumi-e ink painting of a woman standing under cherry blossom trees in full bloom  
+  73:  
+    src_prompt: a traffic jam in a busy metropolitan street  
+    tgt_prompt: 16-bit video game pixel art of a traffic jam in a busy metropolitan street  
+  74:  
+    src_prompt: a drummer playing on stage at a rock concert  
+    tgt_prompt: woodcut relief print of a drummer playing on stage at a rock concert  
+  75:  
+    src_prompt: a horse running through an open field at sunrise  
+    tgt_prompt: Van Gogh-style swirling brushstrokes of a horse running through an open field at sunrise  
+  76:  
+    src_prompt: a subway train moving through an underground tunnel  
+    tgt_prompt: blueprint schematic of a subway train moving through an underground tunnel  
+  77:  
+    src_prompt: a castle surrounded by mist in the mountains  
+    tgt_prompt: pixelated 2D fantasy game environment of a castle surrounded by mist in the mountains  
+  78:  
+    src_prompt: a scientist working in a laboratory with test tubes  
+    tgt_prompt: cybernetic futuristic hologram of a scientist working in a laboratory with test tubes  
+  79:  
+    src_prompt: a cyclist riding along a winding coastal road  
+    tgt_prompt: impressionist oil painting of a cyclist riding along a winding coastal road  
+  80:  
+    src_prompt: a street vendor selling food at a night market  
+    tgt_prompt: pop-art comic book panel of a street vendor selling food at a night market  
+  81:  
+    src_prompt: a boy flying a kite in an open field  
+    tgt_prompt: blueprint technical drawing of a boy flying a kite in an open field  
+  82:  
+    src_prompt: a person meditating on top of a mountain peak  
+    tgt_prompt: thermal infrared rendering of a person meditating on top of a mountain peak  
+  83:  
+    src_prompt: a group of people rowing a boat across a lake  
+    tgt_prompt: medieval illuminated manuscript of a group of people rowing a boat across a lake  
+  84:  
+    src_prompt: a robot walking through a futuristic city street  
+    tgt_prompt: retro 1950s sci-fi comic-style robot walking through a futuristic city street  
+  85:  
+    src_prompt: a farmer working in a rice field under the sun  
+    tgt_prompt: ancient ink wash painting of a farmer working in a rice field under the sun  
+  86:  
+    src_prompt: a busy airport with planes taking off  
+    tgt_prompt: isometric 3D pixel art of a busy airport with planes taking off  
+  87:  
+    src_prompt: a photographer taking pictures of the city from a rooftop  
+    tgt_prompt: high-contrast stencil art of a photographer taking pictures of the city from a rooftop  
+  88:  
+    src_prompt: a person climbing a steep rock face  
+    tgt_prompt: cubist fragmented painting of a person climbing a steep rock face  
+  89:  
+    src_prompt: a marching soldier in a historical battle reenactment  
+    tgt_prompt: woodcut-style black-and-white print of a marching soldier in a historical battle reenactment  
+  90:  
+    src_prompt: a deer standing in the middle of a foggy forest  
+    tgt_prompt: digital glitch art of a deer standing in the middle of a foggy forest  

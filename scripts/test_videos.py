@@ -21,13 +21,14 @@ Pair = namedtuple("Pair", ["res_src", "res_tgt", "clip_dir"])
 
 # set input and output paths
 out_dir = "exp/animatediff/pie"
-yaml_path = "docs/prompts_video_v1.yaml"
+yaml_path = "docs/prompts_video_v2.yaml"
 
 # set parameters
-seed = 699321467  # 1423986194 # 778029590
+seed = 171047124
 
-modes = ["rm"]  # available modes: add, rm, style
-w_tgt_ctrl_type = "static"
+modes = ["style"]  # available modes: add, rm, style
+w_tgt_ctrl_type = "cosine"
+document_score = True
 
 # prepare for generation
 # NOTE AnimteDiff will use multiple GPUs, so better set CUDA_VISIBLE_DEVICES
@@ -190,15 +191,16 @@ for mode in modes:
                 for j in range(len(src.video)):
                     src.video[j].save(f"{save_dir_src}/%05d.png" % j)
 
-                # save traget video
+                # save target video
                 save_dir_tgt = os.path.join(cur_dir, f"{i}_tgt_{tgt.w_src}_{tgt.w_tgt}")
                 os.makedirs(save_dir_tgt, exist_ok=True)
                 for j in range(len(tgt.video)):
                     tgt.video[j].save(f"{save_dir_tgt}/%05d.png" % j)
 
                 # separately save the first frames for quick comparison
+                postfix = f'_score_{pairs[i].clip_dir}' if document_score else ''
                 src.video[0].save(
-                    os.path.join(cur_dir, f"{i}_src_{src.w_src}_{src.w_tgt}.png")
+                    os.path.join(cur_dir, f"{i}_src_{src.w_src}_{src.w_tgt}{postfix}.png")
                 )
                 tgt.video[0].save(
                     os.path.join(cur_dir, f"{i}_tgt_{tgt.w_src}_{tgt.w_tgt}.png")
