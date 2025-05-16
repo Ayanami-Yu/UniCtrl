@@ -8,13 +8,13 @@ class CtrlParams(ParamGroup):
         self.w_src = 1.0
         self.w_tgt = 1.0
         self.w_src_ctrl_type = "static"
-        self.w_tgt_ctrl_type = "static"
+        self.w_tgt_ctrl_type = "cosine"
         self.t_ctrl_start = None
 
         self.src_prompt = ""
         self.tgt_prompt = ""
 
         self.ctrl_mode = "add"
-        self.removal_version: int = 1
+        self.removal_version: int = 2
 
-        super().__init__(parser, "PromptCtrl Parameters")
+        super().__init__(parser, "UniCtrl Parameters")

@@ -18,7 +18,7 @@ class CtrlAnimateDiffPipeline(AnimateDiffPipeline):
     def __call__(
         self,
         prompt: Union[str, List[str]] = None,
-        num_frames: Optional[int] = 16,
+        num_frames: Optional[int] = 8,
         height: Optional[int] = None,
         width: Optional[int] = None,
         num_inference_steps: int = 50,

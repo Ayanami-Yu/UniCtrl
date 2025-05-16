@@ -82,10 +82,10 @@ class Options:
     # ctrl mode for MVDream
     ctrl_mode: str = "add"
     # the version of remove_aggregator
-    removal_version: int = 1
+    removal_version: int = 2
     # ctrl types
     w_src_ctrl_type: str = "static"
-    w_tgt_ctrl_type: str = "static"
+    w_tgt_ctrl_type: str = "cosine"
 
 
 # all the default settings

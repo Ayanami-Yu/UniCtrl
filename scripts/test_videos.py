@@ -24,7 +24,7 @@ out_dir = "exp/animatediff/pie"
 yaml_path = "docs/prompts_video_v2.yaml"
 
 # set parameters
-seed = 171047124
+seed = 1804130980
 
 modes = ["style"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "cosine"
@@ -198,7 +198,7 @@ for mode in modes:
                     tgt.video[j].save(f"{save_dir_tgt}/%05d.png" % j)
 
                 # separately save the first frames for quick comparison
-                postfix = f'_score_{pairs[i].clip_dir}' if document_score else ''
+                postfix = f'_dir_{pairs[i].clip_dir}' if document_score else ''
                 src.video[0].save(
                     os.path.join(cur_dir, f"{i}_src_{src.w_src}_{src.w_tgt}{postfix}.png")
                 )

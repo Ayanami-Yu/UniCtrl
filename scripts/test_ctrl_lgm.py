@@ -3,7 +3,6 @@ import yaml
 from typing import Optional
 
 import imageio
-import kiui
 import numpy as np
 import rembg
 import torch
@@ -83,7 +82,7 @@ def process(
     w_tgt_ctrl_type: str = "static",
     t_ctrl_start: Optional[int] = None,
     ctrl_mode: str = "add",
-    removal_version: int = 1,
+    removal_version: int = 2,
     save_as_images: bool = False,
     save_images_interval: int = 1,
 ):

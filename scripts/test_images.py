@@ -25,6 +25,7 @@ device_idx = 5
 
 modes = ["rm"]  # available modes: add, rm, style
 w_tgt_ctrl_type = "cosine"
+document_score = True
 
 # prepare for generation
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -140,9 +141,10 @@ for mode in modes:
 
             pairs.sort(key=lambda x: x.clip_dir, reverse=True)
             for i in range(6):
+                postfix = f'_dir_{pairs[i].clip_dir}' if document_score else ''
                 src, tgt = pairs[i].res_src, pairs[i].res_tgt
                 src.image.save(
-                    os.path.join(cur_dir, f"{i}_src_{src.w_src}_{src.w_tgt}.png")
+                    os.path.join(cur_dir, f"{i}_src_{src.w_src}_{src.w_tgt}{postfix}.png")
                 )
                 tgt.image.save(
                     os.path.join(cur_dir, f"{i}_tgt_{tgt.w_src}_{tgt.w_tgt}.png")
